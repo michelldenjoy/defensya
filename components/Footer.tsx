@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
-          {/* COLUMNA 1: ADN */}
+          {/* COLUMNA 1*/}
           <div className="col-span-1 md:col-span-1">
             <h2 className="text-2xl font-bold text-white mb-6 tracking-tighter">
               DEFENSYA<span className="text-blue-600">.</span>
@@ -29,12 +29,12 @@ const Footer = () => {
               Diseñamos, inventamos y auditamos ingeniería de alta precisión.
             </p>
             <div className="flex gap-4">
-              {/* Aquí podrías poner iconos de LinkedIn o redes si tienen */}
+              
               <span className="text-xs text-blue-500 font-mono uppercase tracking-widest">Est. 1996</span>
             </div>
           </div>
 
-          {/* COLUMNA 2: NAVEGACIÓN */}
+          {/* COLUMNA 2 */}
           <div>
             <h3 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Explorar</h3>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -45,7 +45,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* COLUMNA 3: SECTORES */}
+          {/* COLUMNA 3 */}
           <div>
             <h3 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Sectores</h3>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -64,7 +64,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* COLUMNA 4: CONTACTO */}
+          {/* COLUMNA 4 */}
           <div>
             <h3 className="text-white font-bold mb-6 uppercase text-xs tracking-widest">Sede Central</h3>
             <p className="text-slate-400 text-sm mb-4">
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* LÍNEA FINAL Y COPYRIGHT */}
+      
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-[10px] tracking-widest uppercase">
             © {new Date().getFullYear()} DEFENSYA INGENIERIA INTERNACIONAL. TODOS LOS DERECHOS RESERVADOS.
