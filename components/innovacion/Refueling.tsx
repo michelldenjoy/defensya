@@ -13,7 +13,7 @@ const Refueling = () => {
           El reabastecimiento aire-aire (AAR) ha sido hasta ahora un arte que se realiza manualmente. 
           Aunque la habilidad y la tecnología involucradas han demostrado ser un importante 
           <span className="font-semibold text-blue-600"> "multiplicador de fuerza"</span>, lo que permite que las aeronaves receptoras se empleen de manera más eficiente, 
-          las capacidades actuales están limitadas por las limitaciones en el rendimiento humano.
+          las capacidades actuales están condicionadas por las limitaciones en el rendimiento humano.
         </p>
       </header>
 
@@ -116,5 +116,4 @@ const Refueling = () => {
     </section>
   );
 };
-
 export default Refueling;
