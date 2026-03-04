@@ -1,9 +1,10 @@
+import QuienesSomos from '@/components/empresa/about/QuienesSomos'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-      <h1>About</h1>
+     <QuienesSomos  />
     </div>
   )
 }

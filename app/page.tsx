@@ -1,9 +1,13 @@
+import HomePage from '@/components/home/HomePage'
+import Timeline from '@/components/home/TimeLinea'
+import { Home } from 'lucide-react'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-      <h1>Defensya</h1>
+      <HomePage />
+      <Timeline />
     </div>
   )
 }

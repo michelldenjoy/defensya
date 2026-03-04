@@ -17,7 +17,7 @@ const PATENTS_DATA = [
 
 const PatentsList = () => {
   return (
-    <section className="py-24 bg-slate-950 px-6 border-t border-slate-900">
+    <section id="patentes" className="py-24 bg-slate-950 px-6 border-t border-slate-900">
       <div className="max-w-6xl mx-auto">
         
         
@@ -34,7 +34,7 @@ const PatentsList = () => {
           </p>
         </div>
 
-        {/* Grid de Patentes */}
+        {/* Patentes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {PATENTS_DATA.map((patent, index) => (
             <Link 
@@ -63,8 +63,7 @@ const PatentsList = () => {
           ))}
         </div>
 
-        {/* Nota final destacada */}
-        <div className="mt-12 p-8 bg-gradient-to-r from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl">
+        <div className="mt-12 p-8 bg-linear-to-r from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl">
           <p className="text-blue-100 italic text-lg leading-relaxed">
             "Nuestra última invención posibilita la **Automatización** luego de una 
             Semiautomatización supervisada de tareas de Respostaje aéreo con Boom."
