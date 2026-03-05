@@ -6,7 +6,7 @@ const ContactView = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "Consulta de Ingeniería",
+    subject: "",
     message: "",
   });
   const [status, setStatus] = useState("");
@@ -117,7 +117,7 @@ const ContactView = () => {
             </div>
           </div>
 
-          {/* FORMULARIO  */}
+          {/* FORMULARIO Consulta */}
           <div className="bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800 backdrop-blur-sm">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-1 gap-6">
@@ -162,6 +162,7 @@ const ContactView = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-600 outline-none transition-all"
+                  
                 />
               </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const HITOS = [
   {
-    year: "1996 - Inicio",
+    year: "2001 - Inicio",
     title: "Fundación y ADN Innovador",
     description: "Nace Defensya con el objetivo de rendir culto al diseño y al arte de inventar en el sector de la ingeniería electrónica y de telecomunicación."
   },

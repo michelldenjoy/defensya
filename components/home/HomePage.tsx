@@ -55,7 +55,7 @@ const HomePage = () => {
           <h2 className="text-3xl font-bold mb-6 italic text-blue-500">Rendimos culto a la innovación.</h2>
           <p className="text-slate-400 text-lg leading-relaxed mb-8">
             Defensya es una empresa de base tecnológica especializada en sistemas de visión, gestión de imagen y datos. 
-            Con más de 30 años de experiencia, diseñamos soluciones críticas que vuelan en las plataformas más avanzadas del mundo.
+            Con más de 25 años de experiencia, diseñamos soluciones críticas que vuelan en las plataformas más avanzadas del mundo.
           </p>
           <Link href="/empresa/quienes-somos" className="text-white font-bold border-b-2 border-blue-600 pb-1 hover:text-blue-400 transition-colors">
             Conoce nuestra historia →

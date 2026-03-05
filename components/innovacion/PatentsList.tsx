@@ -29,8 +29,8 @@ const PatentsList = () => {
           <p className="text-slate-400 text-lg leading-relaxed max-w-4xl">
             En Defensya demostramos un especial interés por la investigación innovadora y por el desarrollo 
             de los frutos de esta actividad, convirtiéndolos en productos de alto contenido tecnológico. 
-            A lo largo de nuestros casi treinta años de actividad hemos registrado **más de veinte patentes**, 
-            algunas de las cuales ya han sido cedidas a clientes estratégicos como **EADS (Airbus)**.
+            A lo largo de nuestros casi treinta años de actividad hemos registrado <span className='text-white'>más de veinte patentes</span>, 
+            algunas de las cuales ya han sido cedidas a clientes estratégicos como <span className='text-white'>EADS (Airbus)</span>.
           </p>
         </div>
 
