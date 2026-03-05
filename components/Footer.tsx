@@ -22,7 +22,7 @@ const Footer = () => {
           {/* COLUMNA 1*/}
           <div className="col-span-1 md:col-span-1">
             <h2 className="text-2xl font-bold text-white mb-6 tracking-tighter">
-              DEFENSYA<span className="text-blue-600">.</span>
+              DEFENSYA<span className="text-blue-600"> .</span>
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Empresa de base tecnológica líder en sistemas de visión y automatización. 
