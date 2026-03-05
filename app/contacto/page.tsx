@@ -17,11 +17,9 @@ const ContactView = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("Enviando...");
-    // lógica de envío a backend
   };
 
   return (
@@ -39,7 +37,6 @@ const ContactView = () => {
 
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid lg:grid-cols-2 gap-16">
-          
           <div className="space-y-12">
             <div>
               <h2 className="text-2xl font-bold mb-8 border-l-4 border-blue-600 pl-6">
@@ -108,9 +105,8 @@ const ContactView = () => {
               </div>
             </div>
 
-            
             <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-800 grayscale">
-              {/* iframe Google Maps  */}
+              {/* iframe Google Maps */}
               <div className="absolute inset-0 bg-slate-900 flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-16 h-16 border-2 border-blue-600/30 rounded-full animate-ping absolute" />
                 <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">
@@ -121,39 +117,81 @@ const ContactView = () => {
             </div>
           </div>
 
-          {/* FORMULARIO */}
+          {/* FORMULARIO  */}
           <div className="bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800 backdrop-blur-sm">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {" "}
-              
-              <input
-                type="text"
-                name="name"
-                value={formData.name} 
-                onChange={handleChange} 
-                placeholder="Nombre completo"
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="email@corporativo.com"
-              />
-              <input
-                type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Escribenos tu consulta"
-              />
-              <button type="submit">Enviar Mensaje Seguro</button>
-              {status && <p>{status}</p>} 
+              <div className="grid md:grid-cols-1 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-slate-500 font-bold">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-600 outline-none transition-all"
+                    placeholder="Nombre completo"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-slate-500 font-bold">
+                  Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-600 outline-none transition-all"
+                  placeholder="email@corporativo.com"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-slate-500 font-bold">
+                  Asunto
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-600 outline-none transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-slate-500 font-bold">
+                  Mensaje
+                </label>
+                <textarea
+                  rows={5}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-white focus:border-blue-600 outline-none transition-all"
+                  placeholder="Escribenos tu consulta"
+                ></textarea>
+              </div>
+
+              <button
+                className="bg-slate-600 py-4 px-12 rounded-xl "
+                type="submit"
+              >
+                Enviar
+              </button>
+              {status && <p>{status}</p>}
+
+              <p className="text-[10px] text-slate-500 text-center leading-tight">
+                Al enviar este formulario, acepta que DEFENSYA trate sus datos
+                para la gestión de su consulta conforme a nuestra política de
+                privacidad.
+              </p>
             </form>
           </div>
         </div>
