@@ -102,6 +102,7 @@ const ContactView = () => {
                     <p className="text-blue-400 font-mono">info@defensya.com</p>
                   </div>
                 </div>
+                
               </div>
             </div>
 
