@@ -3,12 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
 }
-
-
 
 export default function Hometwo() {
   return (
@@ -17,7 +14,7 @@ export default function Hometwo() {
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="pt-14 min-h-screen grid lg:grid-cols-[1fr_45%]">
+      <section className="pt-14 min-h-screen grid lg:grid-cols-[1fr_45%] ">
         {/* texto izquierda*/}
         <div
           className="flex flex-col justify-end px-6 lg:px-16 pt-20 pb-16
@@ -92,27 +89,29 @@ export default function Hometwo() {
         </div>
 
         {/* imagen derecha */}
-        <div className="relative hidden lg:block h-full min-h-150">
-  <Image
-    src="/images/aeronautic.jpg"
-    alt="Plataforma aeronáutica Defensya"
-    fill
-    className="object-cover object-center"
-    priority
-  />
+        <div className="relative hidden lg:block ">
+          <Image
+            src="/images/aeronautic.jpg"
+            alt="Plataforma aeronáutica Defensya"
+            fill
+            className="object-cover object-center"
+            priority
+          />
 
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
 
-  {/* Floating spec tag */}
-  <div className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm
-                  border border-white/10 px-4 py-3 text-right">
-    <p className="text-[9px] font-mono tracking-[0.2em] text-gray-400 uppercase mb-1">
-      Sistema Activo
-    </p>
-    <p className="text-xs font-mono text-white">A3R® // Air-to-Air</p>
-  </div>
-</div>
+          {/* Floating spec tag */}
+          <div
+            className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm
+                  border border-white/10 px-4 py-3 text-right"
+          >
+            <p className="text-[9px] font-mono tracking-[0.2em] text-gray-400 uppercase mb-1">
+              Sistema Activo
+            </p>
+            <p className="text-xs font-mono text-white">A3R® // Air-to-Air</p>
+          </div>
+        </div>
       </section>
 
       <Rule />
@@ -120,8 +119,7 @@ export default function Hometwo() {
       {/* ───────── QUÉ HACEMOS ───────── */}
       <section className="py-28 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          
-          <div className="grid items-center lg:grid-cols-[auto_1fr] gap-12 mb-16">
+          <div className="grid items-center lg:grid-cols-[auto_1fr] gap-6 md:gap-12 lg:gap-20  mb-16">
             <div>
               <p
                 className="text-[12px] font-mono tracking-[0.3em] text-gray-400
@@ -341,12 +339,12 @@ export default function Hometwo() {
             ].map((capability, i) => (
               <div
                 key={i}
-                className="border-b border-r border-gray-200 dark:border-white/[0.07]
+                className="border-b border-r  border-gray-200 dark:border-white/[0.07]
                            p-6 flex items-center justify-between group
                            hover:bg-gray-50 dark:hover:bg-white/2 transition-colors"
               >
-                <span className="text-sm font-medium">{capability}</span>
-                <span className="text-[10px] font-mono text-gray-300 dark:text-white/20">
+                <span className="text-md font-medium">{capability}</span>
+                <span className="text-[12px] font-mono text-gray-300 dark:text-white/20">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

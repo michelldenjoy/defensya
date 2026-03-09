@@ -22,7 +22,6 @@ export default function HeroSection ({ label, title, subtitle, children, image }
 
       <div className="absolute inset-0 bg-linear-to-b from-[#4FAAFF]/5 via-transparent to-[#080A0E]" />
 
-
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 
       {/* Contenido */}
