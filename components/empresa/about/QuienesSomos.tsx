@@ -64,7 +64,7 @@ const QuienesSomos = () => {
             <p className="text-slate-300 mb-6 leading-relaxed">
             Nuestro equipo acumula más de veinte patentes registradas, algunas de las cuales se encuentran actualmente en operación en aeronaves como el A330 MRTT, para el que hemos desarrollado su sistema de visión. 
             <br /> <br /> 
-            Sobre esta base, hemos diseñado y desarrollado una nueva generación del sistema de visión que aporta nuevas capacidades, mejora el rendimiento operativo y facilita su implementación en los tanqueros actuales.
+            Además de ser una empresa dedicada al desarrollo y venta de productos tecnológicos, en Defensya también supervisamos el trabajo realizado por otras empresas de ingeniería, auditando su trabajo y resultados, asegurando al cliente un producto con las más altas garantías de calidad.
             </p>
           </div>
         </div>
