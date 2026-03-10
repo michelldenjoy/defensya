@@ -1,92 +1,166 @@
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link"
 
 const PATENTS_DATA = [
-  { title: "REFUELING BOOM WITH BACKUP RAISING CABLE", url: "https://www.patentsencyclopedia.com/app/20090127394" },
-  { title: "SYSTEM FOR REFUELLING OPERATIONS", url: "https://www.patentsencyclopedia.com/app/20090302160" },
-  { title: "INDICATION SYSTEM AND METHOD FOR REFUELLING OPERATIONS", url: "https://www.patentsencyclopedia.com/app/20100108816" },
-  { title: "ILLUMINATING SYSTEM FOR IN-FLIGHT REFUELLING OPERATIONS", url: "https://www.patentsencyclopedia.com/app/20100237249" },
-  { title: "METHOD AND SYSTEM FOR ENHANCED VISION IN AERIAL REFUELING OPERATIONS", url: "https://www.patentsencyclopedia.com/app/20110147528" },
-  { title: "METHOD AND SYSTEM FOR ENHANCED VISION IN AERIAL REFUELLING OPERATIONS", url: "https://www.patentsencyclopedia.com/app/20110147529" },
-  { title: "SYSTEM FOR PROVIDING NIGHT VISION AT LOW VISIBILITY CONDITIONS", url: "https://www.patentsencyclopedia.com/app/20110261188" },
-  { title: "MONITORING SYSTEM FOR REMOTELY SUPERVISING AND CONTROLLING CRITICAL OPERATIONS AND METHOD FOR DETECTING IMAGE FREEZING", url: "https://www.patentsencyclopedia.com/app/20140104421" },
-  { title: "SYSTEM FOR NIGHT VISION FROM DISTANT OBSERVATION PLACES", url: "https://www.patentsencyclopedia.com/app/20110253894" },
-  { title: "SYSTEM FOR NIGHT VISION OF SELECTED OBJECTS", url: "https://www.patentsencyclopedia.com/app/20110266457" },
-];
+  { title: "Refueling Boom with Backup Raising Cable", url: "https://www.patentsencyclopedia.com/app/20090127394" },
+  { title: "System for Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20090302160" },
+  { title: "Indication System and Method for Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20100108816" },
+  { title: "Illuminating System for In-Flight Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20100237249" },
+  { title: "Method and System for Enhanced Vision in Aerial Refueling Operations", url: "https://www.patentsencyclopedia.com/app/20110147528" },
+  { title: "Method and System for Enhanced Vision in Aerial Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20110147529" },
+  { title: "System for Providing Night Vision at Low Visibility Conditions", url: "https://www.patentsencyclopedia.com/app/20110261188" },
+  { title: "Monitoring System for Remotely Supervising and Controlling Critical Operations and Method for Detecting Image Freezing", url: "https://www.patentsencyclopedia.com/app/20140104421" },
+  { title: "System for Night Vision from Distant Observation Places", url: "https://www.patentsencyclopedia.com/app/20110253894" },
+  { title: "System for Night Vision of Selected Objects", url: "https://www.patentsencyclopedia.com/app/20110266457" },
+]
 
-const PatentsList = () => {
+// ── Arrow icon ────────────────────────────────────────────────────────────────
+
+function ArrowUpRight() {
   return (
-    <section id="patentes" className="py-24 px-6 border-t
-      bg-slate-50 border-slate-200
-      dark:[background-color:#0A1128] dark:border-slate-900
-      transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
+    <svg
+      width="12" height="12" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor" strokeWidth={2}
+      className="shrink-0"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
+    </svg>
+  )
+}
 
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6
-            text-slate-900 dark:text-white">
-            Investigación, Desarrollo e Innovación
-          </h2>
-          <div className="h-1 w-20 bg-blue-600 mb-8" />
-          <p className="text-lg leading-relaxed max-w-4xl
-            text-slate-600 dark:text-slate-400">
-            En Defensya demostramos un especial interés por la investigación innovadora y por el desarrollo
-            de los frutos de esta actividad, convirtiéndolos en productos de alto contenido tecnológico.
-            A lo largo de más de veinticinco años de actividad hemos registrado{' '}
-            <span className="text-slate-900 dark:text-white font-medium">más de veinte patentes</span>,
-            algunas de las cuales ya han sido cedidas a clientes como{' '}
-            <span className="text-slate-900 dark:text-white font-medium">EADS (Airbus)</span>.
-          </p>
+// ── Component ─────────────────────────────────────────────────────────────────
+
+export default function PatentsList() {
+  return (
+    <section
+      id="patentes"
+      className="py-28 px-6 lg:px-16 bg-white dark:bg-defensya-navy
+                 border-t border-gray-200 dark:border-white/[0.07]"
+      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+    >
+      <div className="max-w-7xl mx-auto">
+
+        {/* ── Header ──────────────────────────────────────────────────── */}
+        <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center
+                        border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14">
+          <div>
+            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3">
+              05 — I+D+i
+            </p>
+            <h2
+              className="text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase
+                         leading-none tracking-tight text-gray-900 dark:text-white"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+            >
+              Investigación,<br />
+              <span className="text-defensya-blue">Desarrollo</span> <br />
+              e Innovación
+            </h2>
+          </div>
+
+          <div className="lg:pb-1">
+            <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              En Defensya demostramos un especial interés por la investigación innovadora
+              y por el desarrollo de los frutos de esta actividad, convirtiéndolos en
+              productos de alto contenido tecnológico.
+            </p>
+            <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+              A lo largo de más de veinticinco años de actividad hemos registrado{" "}
+              <span className="text-gray-900 dark:text-white font-medium">
+                más de veinte patentes
+              </span>
+              , algunas de las cuales ya han sido cedidas a clientes como{" "}
+              <span className="text-gray-900 dark:text-white font-medium">
+                EADS (Airbus)
+              </span>.
+            </p>
+          </div>
         </div>
 
-        {/* Grid de patentes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {PATENTS_DATA.map((patent, index) => (
-            <Link
-              key={index}
-              href={patent.url || "#"}
-              target={patent.url ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between p-6 rounded-xl border transition-all duration-300
-                bg-white border-slate-200 hover:border-blue-500/50 hover:bg-slate-50
-                dark:bg-slate-900/40 dark:border-slate-800 dark:hover:border-blue-500/50 dark:hover:bg-slate-900"
-            >
-              <div className="flex gap-4 items-center">
-                <span className="font-mono text-sm transition-colors
-                  text-blue-400/60 group-hover:text-blue-500
-                  dark:text-blue-500/50 dark:group-hover:text-blue-400">
-                  {(index + 1).toString().padStart(2, '0')}
-                </span>
-                <h3 className="text-sm md:text-base font-medium uppercase tracking-tight leading-tight transition-colors
-                  text-slate-700 group-hover:text-slate-900
-                  dark:text-slate-300 dark:group-hover:text-white">
-                  {patent.title}
-                </h3>
-              </div>
+        {/* ── Stat strip ──────────────────────────────────────────────── */}
+        {/* <div className="grid grid-cols-3 gap-6 mb-14 pb-14
+                        border-b border-gray-200 dark:border-white/[0.07]">
+          {[
+            { val: "20+", label: "Patentes registradas" },
+            { val: "25+", label: "Años de I+D" },
+            { val: "EADS", label: "Airbus — licenciatario" },
+          ].map(({ val, label }) => (
+            <div key={label}>
+              <p
+                className="text-2xl sm:text-3xl font-bold font-mono text-defensya-blue"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                {val}
+              </p>
+              <p className="text-[10px] text-gray-400 dark:text-gray-500 tracking-wide uppercase mt-1">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div> */}
 
-              <div className="ml-4 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
+        {/* ── Patents list ─────────────────────────────────────────────── */}
+        <div className=" dark:border-white/[0.07]">
+          {PATENTS_DATA.map((patent, i) => (
+            <Link
+              key={i}
+              href={patent.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-6
+                         py-4 sm:py-5 px-2 -mx-2
+                         border-b border-gray-200 dark:border-white/[0.07]
+                         hover:bg-gray-50 dark:hover:bg-white/2
+                         transition-colors duration-200"
+            >
+              {/* Index */}
+              <span className="text-[10px] font-mono text-defensya-blue tracking-widest
+                               shrink-0 w-6 text-right">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Title */}
+              <p className="flex-1 text-xs sm:text-sm font-medium leading-snug
+                             text-gray-600 dark:text-gray-400
+                             group-hover:text-gray-900 dark:group-hover:text-white
+                             transition-colors duration-200 uppercase tracking-wide">
+                {patent.title}
+              </p>
+
+              {/* Arrow — appears on hover */}
+              <span className="text-defensya-blue opacity-0 group-hover:opacity-100
+                               translate-x-1 group-hover:translate-x-0
+                               transition-all duration-200 shrink-0">
+                <ArrowUpRight />
+              </span>
             </Link>
           ))}
         </div>
 
-        {/* Cita final */}
-        <div className="mt-12 p-8 rounded-2xl border transition-colors duration-300
-          bg-blue-50 border-blue-200
-          dark:bg-blue-900/20 dark:border-blue-500/20">
-          <p className="italic text-lg leading-relaxed
-            text-blue-800 dark:text-blue-100">
-            "Nuestra última invención posibilita la <strong>Automatización</strong> luego de una
-            Semiautomatización supervisada de tareas de Respostaje aéreo con Boom."
-          </p>
+        {/* ── Quote ─────── */}
+        <div className="mt-14 grid lg:grid-cols-[auto_1fr] gap-6 items-start
+                        border border-gray-200 dark:border-white/[0.07] p-8 lg:p-10">
+          {/* Left accent */}
+          <div className="hidden lg:block w-px self-stretch bg-defensya-blue shrink-0" />
+
+          <div>
+            <p className="text-[10px] font-mono tracking-[0.3em] text-defensya-blue
+                          uppercase mb-4">
+              Última invención
+            </p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300
+                          leading-relaxed italic">
+              "Nuestra última invención posibilita la{" "}
+              <span className="not-italic font-semibold text-gray-900 dark:text-white">
+                Automatización
+              </span>{" "}
+              luego de una Semiautomatización supervisada de tareas de Repostaje
+              aéreo con Boom."
+            </p>
+          </div>
         </div>
 
       </div>
     </section>
-  );
-};
-
-export default PatentsList;
+  )
+}

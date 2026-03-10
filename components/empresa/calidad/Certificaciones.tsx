@@ -1,69 +1,272 @@
-import React from 'react';
-import Image from 'next/image';
+import Image from "next/image";
 
-const Certificaciones = () => {
+function ArrowUpRight({ size = 12 }: { size?: number }) {
   return (
-    <section className="py-20 bg-slate-900 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            Nuestras Certificaciones Oficiales
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Garantizamos la excelencia operativa a través del cumplimiento estricto de estándares internacionales de calidad y gestión ambiental.
+    <svg
+      width={size}
+      height={size}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      className="shrink-0"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7 17L17 7M7 7h10v10"
+      />
+    </svg>
+  );
+}
+
+function DownloadIcon({ size = 12 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      className="shrink-0"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 10v6m0 0l-3-3m3 3l3-3M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1"
+      />
+    </svg>
+  );
+}
+
+export default function Certificaciones() {
+  return (
+    <section
+      className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
+                 border-t border-gray-200 dark:border-white/[0.07]"
+      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+    >
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="grid lg:grid-cols-[1fr_40%] gap-12 items-end
+                        border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14"
+        >
+          <div>
+            <p
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
+            >
+              04 — Certificaciones Oficiales
+            </p>
+            <h2
+              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                         leading-none tracking-tight text-gray-900 dark:text-white"
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
+            >
+              Nuestras
+              <br />
+              Certificaciones
+            </h2>
+          </div>
+          <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1">
+            Garantizamos la excelencia operativa a través del cumplimiento
+            estricto de estándares internacionales de calidad y gestión,
+            auditados y verificados por organismos independientes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          
-          {/* TARJETA ISO 9001 */}
-          <div className="bg-slate-950 p-10 rounded-3xl border border-slate-800 flex flex-col items-center text-center group hover:border-blue-500/50 transition-all">
-            <div className="relative w-32 h-32 mb-6 transition-all duration-500">
-             
-              <Image 
-                src="/images/ISO9001.png" 
-                alt="Certificado ISO 9001:2015"
-                fill
-                className="object-contain"
-              />
+        <div
+          className="grid lg:grid-cols-[1fr_1fr] border
+                        border-gray-200 dark:border-white/[0.07]"
+        >
+          {/* LEFT  */}
+          <div
+            className="flex flex-col justify-between
+                          border-b lg:border-b-0 lg:border-r
+                          border-gray-200 dark:border-white/[0.07]
+                          p-8 lg:p-12"
+          >
+            <div className="flex items-start gap-6 mb-10">
+              <div
+                className="relative w-20 h-20 shrink-0
+                              border border-gray-200 dark:border-white/1 p-3"
+              >
+                <Image
+                  src="/images/ISO9001.png"
+                  alt="ISO 9001:2015"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+              <div className="pt-1">
+                <p
+                  className="text-[12px] font-mono tracking-widest text-defensya-blue
+                              uppercase mb-1"
+                >
+                  Sistema de Gestión de la Calidad
+                </p>
+                <h3
+                  className="text-3xl lg:text-4xl font-bold uppercase leading-none
+                             tracking-tight text-gray-900 dark:text-white"
+                  style={{
+                    fontFamily:
+                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  }}
+                >
+                  ISO 9001
+                  <br />
+                  <span className="text-defensya-blue">:2015</span>
+                </h3>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">ISO 9001:2015</h3>
-            <p className="text-blue-400 font-medium mb-4 uppercase tracking-widest text-sm">
-              Sistema de Gestión de la Calidad
+
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-10">
+              Certificación que avala nuestra capacidad para proporcionar
+              productos y servicios que satisfacen los requisitos del cliente y
+              la normativa legal aplicable, con foco en la mejora continua del
+              sistema de gestión.
             </p>
-            <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-              Certificación que avala nuestra capacidad para proporcionar productos y servicios que satisfacen los requisitos del cliente y la normativa legal aplicable.
-            </p>
-            
-            {/* BOTÓN PARA EL PDF */}
-            <a 
-              href="/docs/Certificado-ISO-9001-Defensya.pdf" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Descargar Certificado PDF
-            </a>
-          </div>
-          {/* Si solo tienes la 9001, podemos usar este espacio para un mensaje de 'Mejora Continua' */}
-          <div className="bg-slate-950/50 p-10 rounded-3xl border border-slate-800 border-dashed flex flex-col items-center justify-center text-center">
-            <div className="w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04custom " />
-              </svg>
+
+            <div className="border-t border-gray-200 dark:border-white/[0.07]">
+              {[
+                { label: "Norma", value: "ISO 9001:2015" },
+                {
+                  label: "Alcance",
+                  value: "Ingeniería electrónica y telecomunicación",
+                },
+                { label: "Estado", value: "Certificado y vigente" },
+                {
+                  label: "Auditoría",
+                  value: "Organismo externo independiente",
+                },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex items-center justify-between py-3
+                             border-b border-gray-200 dark:border-white/6"
+                >
+                  <span
+                    className="text-[12px] font-mono tracking-widest
+                                   text-gray-400 dark:text-gray-500 uppercase"
+                  >
+                    {label}
+                  </span>
+                  <span
+                    className="text-xs font-medium text-gray-900 dark:text-white
+                                   text-right max-w-[55%]"
+                  >
+                    {value}
+                  </span>
+                </div>
+              ))}
             </div>
-            <h3 className="text-xl font-bold text-slate-500 mb-2">Excelencia Normativa</h3>
-            <p className="text-slate-600 text-sm max-w-xs leading-relaxed italic">
-              "Trabajamos bajo los más estrictos estándares de la industria aeroespacial y de defensa para asegurar la integridad de cada proyecto."
-            </p>
+
+            <div className="flex flex-wrap gap-3 mt-8">
+              <a
+                href="/doc/ISO9001.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5
+                           bg-defensya-blue text-white
+                           px-5 py-2.5 text-xs tracking-widest uppercase font-medium
+                           hover:bg-defensya-navy-accent transition-colors"
+              >
+                <ArrowUpRight />
+                Ver Certificado
+              </a>
+
+              <a
+                href="/doc/ISO9001.pdf"
+                download
+                className="group inline-flex items-center gap-2.5
+                           border border-gray-300 dark:border-white/20
+                           text-gray-700 dark:text-gray-300
+                           px-5 py-2.5 text-xs tracking-widest uppercase font-medium
+                           hover:border-defensya-blue hover:text-defensya-blue
+                           dark:hover:border-defensya-blue dark:hover:text-defensya-blue
+                           transition-all duration-200"
+              >
+                <DownloadIcon />
+                Descargar PDF
+              </a>
+            </div>
           </div>
 
+          {/* RIGHT  */}
+          <div className="flex flex-col bg-defensya-navy p-8 lg:p-12">
+            <div className="mb-6 pb-6 ">
+              <p
+                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
+                            uppercase mb-5"
+              >
+                Compromiso
+              </p>
+              <blockquote className="text-base lg:text-lg text-white leading-relaxed italic">
+                "Trabajamos bajo los más estrictos estándares de la industria
+                aeroespacial y de defensa para asegurar la integridad de cada
+                proyecto."
+              </blockquote>
+            </div>
+
+            <p
+              className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
+                          uppercase mb-6"
+            >
+              Pilares del sistema
+            </p>
+
+            <div className="flex flex-col gap-0 border-t border-white/8 flex-1">
+              {[
+                {
+                  num: "01",
+                  label: "Trazabilidad total",
+                  desc: "Registro y control de cada proceso productivo, desde el diseño hasta la entrega al cliente.",
+                },
+                {
+                  num: "02",
+                  label: "Auditorías periódicas",
+                  desc: "Revisiones internas y externas programadas que verifican el cumplimiento del sistema.",
+                },
+                {
+                  num: "03",
+                  label: "Control de no conformidades",
+                  desc: "Detección, análisis y corrección sistemática de desviaciones en productos y procesos.",
+                },
+                {
+                  num: "04",
+                  label: "Validación de proveedores",
+                  desc: "Evaluación y seguimiento continuo de la cadena de suministro bajo criterios de calidad certificados.",
+                },
+              ].map(({ num, label, desc }) => (
+                <div
+                  key={num}
+                  className="flex gap-5 py-4 border-b border-white/6
+                             group hover:bg-white/3 transition-colors -mx-2 px-2"
+                >
+                  <span
+                    className="text-[12px] font-mono text-defensya-blue
+                                   tracking-widest shrink-0 pt-0.5"
+                  >
+                    {num}
+                  </span>
+                  <div>
+                    <p className="text-md font-semibold text-white mb-0.5 uppercase tracking-wide">
+                      {label}
+                    </p>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-export default Certificaciones;
+}

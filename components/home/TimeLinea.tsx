@@ -102,7 +102,7 @@ export default function Timeline() {
                                 ${
                                   isLeft
                                     ? "lg:pr-16 lg:py-16 p-8"
-                                    : "lg:py-16 p-8 order-last lg:order-none"
+                                    : "lg:py-16 p-8 order-last lg:order-0"
                                 }`}
                   >
                     {isLeft ? (
@@ -137,7 +137,7 @@ export default function Timeline() {
                         </p>
                       </div>
                     ) : (
-                      /* IMAGE on left */
+                      /* IMAGE / left */
                       <HitoImage image={hito.image} title={hito.title} />
                     )}
                   </div>
@@ -152,7 +152,7 @@ export default function Timeline() {
                                 }`}
                   >
                     {isLeft ? (
-                      /* IMAGE on right */
+                      /* IMAGE  */
                       <HitoImage image={hito.image} title={hito.title} />
                     ) : (
                       /* TEXT on right */
@@ -197,11 +197,11 @@ export default function Timeline() {
   );
 }
 
-// ─── Image cell ───────────────────────────────────────────────────────────────
+// ─── Image  ──
 
 function HitoImage({ image, title }: { image: string; title: string }) {
   return (
-    <div className="relative aspect-[16/9] w-full overflow-hidden group">
+    <div className="relative aspect-video w-full overflow-hidden group">
       <Image
         src={image}
         alt={title}
