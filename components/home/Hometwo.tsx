@@ -13,7 +13,6 @@ export default function Hometwo() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="pt-14 min-h-screen grid lg:grid-cols-[1fr_45%] ">
         {/* texto izquierda*/}
         <div
@@ -98,10 +97,10 @@ export default function Hometwo() {
             priority
           />
 
-          {/* Dark overlay */}
+          {/* overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
 
-          {/* Floating spec tag */}
+         
           <div
             className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm
                   border border-white/10 px-4 py-3 text-right"
@@ -119,28 +118,29 @@ export default function Hometwo() {
       {/* ───────── QUÉ HACEMOS ───────── */}
       <section className="py-28 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid items-center lg:grid-cols-[auto_1fr] gap-6 md:gap-12 lg:gap-20  mb-16">
+          <div
+            className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16
+                        border-b border-gray-200 dark:border-white/[0.07] pb-10"
+          >
             <div>
               <p
                 className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                            dark:text-gray-500 uppercase mb-3"
+                          dark:text-gray-500 uppercase mb-3"
               >
                 01 — Capacidades
               </p>
               <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
+                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                         leading-none text-gray-900 dark:text-white"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Qué Hacemos
+                Qué hacemos
               </h2>
             </div>
-            <p
-              className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed
-                          max-w-xl lg:mb-1.5"
-            >
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg ">
               Combinamos hardware, software y procesamiento inteligente para
               mejorar la percepción y el control de plataformas aéreas en
               entornos operativos de alta exigencia.
@@ -192,7 +192,7 @@ export default function Hometwo() {
       {/* ───────── INNOVACIÓN ───── */}
       <section className="py-28 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-end mb-16">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
               <p
                 className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
@@ -213,7 +213,7 @@ export default function Hometwo() {
                 del reabastecimiento
               </h2>
             </div>
-            <p className="text-md text-gray-400 leading-relaxed max-w-md lg:mb-1">
+            <p className="text-md text-gray-400 leading-relaxed max-w-lg ">
               Nuestras soluciones propietarias cubren el ciclo completo del
               reabastecimiento aéreo automatizado, desde la percepción hasta el
               control háptico del botalón.
@@ -298,7 +298,7 @@ export default function Hometwo() {
       {/* ──────────── CAPACIDADES ─────────────────── */}
       <section className="py-28 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
               <p
                 className="text-[12px] font-mono tracking-[0.3em] text-gray-400
@@ -318,7 +318,7 @@ export default function Hometwo() {
                 de Ingeniería
               </h2>
             </div>
-            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed pt-8">
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed  pt-8 ">
               Cubrimos el stack completo de ingeniería aeroespacial, desde el
               diseño electrónico hasta la inteligencia artificial embarcada, con
               aplicación directa en entornos de alta exigencia.
@@ -375,7 +375,7 @@ export default function Hometwo() {
           </div>
 
           <div className="flex flex-col gap-3 lg:items-end shrink-0">
-            <p className="text-md text-gray-400 leading-relaxed max-w-sm lg:text-right mb-2">
+            <p className="text-md text-gray-400 leading-relaxed max-w-md mb-2">
               Trabajamos con fabricantes, organizaciones de defensa y socios
               tecnológicos para desarrollar los sistemas del futuro.
             </p>
