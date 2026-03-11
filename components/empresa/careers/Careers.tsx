@@ -1,12 +1,8 @@
-"use client"
-
-
+"use client";
 
 function Rule() {
-  return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />
+  return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />;
 }
-
-
 
 export default function Careers() {
   return (
@@ -14,12 +10,11 @@ export default function Careers() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-
-      
-      <section className="px-6 lg:px-16 pt-16 pb-28
-                          border-b border-gray-200 dark:border-white/[0.07]">
+      <section
+        className="px-6 lg:px-16 pt-16 pb-28
+                          border-b border-gray-200 dark:border-white/[0.07]"
+      >
         <div className="max-w-7xl mx-auto">
-
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
@@ -27,46 +22,62 @@ export default function Careers() {
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_38%] gap-12 lg:gap-20 items-end">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 items-end">
             <h1
               className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
                          leading-[0.95] tracking-tight"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
-              Únete al equipo<br />
+              Únete al equipo
+              <br />
               <span className="text-defensya-blue">de Inventores</span>
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
-              En Defensya no solo trabajamos en ingeniería; rendimos culto al arte
-              de hacer las cosas bien hechas. Si te apasiona la innovación disruptiva
-              en defensa y aeronáutica, este es tu sitio.
+              En Defensya, creemos que nuestro éxito se basa en el talento y la
+              pasión de nuestro equipo. Estamos siempre en busca de
+              profesionales dedicados y apasionados por la innovación
+              aeroespacial. Si estás interesado en formar parte de una empresa
+              líder en la industria, explora nuestras oportunidades de carrera y
+              únete a nosotros en la misión de transformar el futuro de la
+              defensa.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── POR QUÉ DEFENSYA ────────── */}
-      <section className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]">
+      <section
+        className="px-6 lg:px-16 py-24
+                          border-b border-gray-200 dark:border-white/[0.07]"
+      >
         <div className="max-w-7xl mx-auto">
-
           <div className="mb-14">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
+            <p
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
+            >
               01 — Por qué Defensya
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                          leading-none tracking-tight"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
               Lo que ofrecemos
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
-                          divide-gray-200 dark:divide-white/[0.07]">
+          <div
+            className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
+                          divide-gray-200 dark:divide-white/[0.07]"
+          >
             {[
               {
                 num: "01",
@@ -84,12 +95,19 @@ export default function Careers() {
                 desc: "Desde IA y redes neuronales hasta sistemas ópticos y criptografía avanzada.",
               },
             ].map(({ num, title, desc }) => (
-              <div key={num} className="px-0 md:px-8 first:pl-0 last:pr-0 py-8 md:py-0">
+              <div
+                key={num}
+                className="px-0 md:px-8 first:pl-0 last:pr-0 py-8 md:py-0"
+              >
                 <span className="text-[12px] font-mono text-defensya-blue tracking-widest mb-6 block">
                   {num}
                 </span>
-                <h3 className="text-2xl font-semibold mb-3 leading-snug">{title}</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+                <h3 className="text-2xl font-semibold mb-3 leading-snug">
+                  {title}
+                </h3>
+                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -99,7 +117,6 @@ export default function Careers() {
       {/* ── PERFILES ───────── */}
       <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
-
           <div className="mb-14">
             <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
               02 — Perfiles
@@ -107,7 +124,10 @@ export default function Careers() {
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                          leading-none tracking-tight text-white"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
               Perfiles que buscamos
             </h2>
@@ -115,10 +135,22 @@ export default function Careers() {
 
           <div className="border-t border-white/8">
             {[
-              { area: "Ingeniería de Software",  desc: "Expertos en sistemas embebidos, C/C++, IA y Redes Neuronales." },
-              { area: "Ingeniería Electrónica",  desc: "Diseño de hardware, sensores, adquisición de señal y sistemas de potencia." },
-              { area: "Visión e Imagen",         desc: "Especialistas en procesamiento de imagen, compresión y sistemas ópticos." },
-              { area: "Ciberseguridad",          desc: "Expertos en criptografía y protección de flujos de datos síncronos." },
+              {
+                area: "Ingeniería de Software",
+                desc: "Expertos en sistemas embebidos, C/C++, IA y Redes Neuronales.",
+              },
+              {
+                area: "Ingeniería Electrónica",
+                desc: "Diseño de hardware, sensores, adquisición de señal y sistemas de potencia.",
+              },
+              {
+                area: "Visión e Imagen",
+                desc: "Especialistas en procesamiento de imagen, compresión y sistemas ópticos.",
+              },
+              {
+                area: "Ciberseguridad",
+                desc: "Expertos en criptografía y protección de flujos de datos síncronos.",
+              },
             ].map(({ area, desc }, i) => (
               <div
                 key={area}
@@ -130,8 +162,11 @@ export default function Careers() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h4
-                  className="text-xl font-bold uppercase leading-none tracking-tight text-white"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  className="text-xl font-semibold uppercase leading-none tracking-tight text-white"
+                  style={{
+                    fontFamily:
+                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  }}
                 >
                   {area}
                 </h4>
@@ -144,44 +179,50 @@ export default function Careers() {
 
       <Rule />
 
-      {/* ── FORMULARIO ──────────────────────────────────────────────────── */}
+      {/* ── FORMULARIO ──── */}
       <section className="px-6 lg:px-16 py-28">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[1fr_56%] gap-16 lg:gap-24 items-start">
-
             {/* Left — context */}
             <div className="lg:sticky lg:top-24">
-              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                            dark:text-gray-500 uppercase mb-3">
+              <p
+                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                            dark:text-gray-500 uppercase mb-3"
+              >
                 03 — Candidatura
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                            leading-none tracking-tight mb-6"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Envíanos<br />tu talento
+                Envíanos
+                <br />
+                tu talento
               </h2>
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 ¿No ves una posición abierta que encaje? Envíanos tu CV para
                 futuras oportunidades. Revisamos cada candidatura con atención.
               </p>
 
-              
               <div className="mt-10 border-t border-gray-200 dark:border-white/[0.07]">
                 {[
-                  { label: "Respuesta",  value: "En menos de 7 días" },
-                  { label: "Modalidad",  value: "Presencial — Madrid" },
-                  { label: "Sector",     value: "Defensa & Aeronáutica" },
+                  { label: "Respuesta", value: "En menos de 7 días" },
+                  { label: "Modalidad", value: "Presencial — Madrid" },
+                  { label: "Sector", value: "Defensa & Aeronáutica" },
                 ].map(({ label, value }) => (
                   <div
                     key={label}
                     className="flex items-center justify-between py-3
                                border-b border-gray-200 dark:border-white/6"
                   >
-                    <span className="text-[12px] font-mono tracking-widest
-                                     text-gray-400 dark:text-gray-500 uppercase">
+                    <span
+                      className="text-[12px] font-mono tracking-widest
+                                     text-gray-400 dark:text-gray-500 uppercase"
+                    >
                       {label}
                     </span>
                     <span className="text-xs font-medium text-gray-900 dark:text-white">
@@ -194,8 +235,6 @@ export default function Careers() {
 
             {/* Right — form */}
             <form className="flex flex-col gap-6">
-
-             
               <div className="grid sm:grid-cols-2 gap-6">
                 <Field label="Nombre completo">
                   <input
@@ -213,10 +252,11 @@ export default function Careers() {
                 </Field>
               </div>
 
-             
               <Field label="Puesto de interés">
                 <select className={inputCls}>
-                  <option value="" disabled selected>Selecciona un puesto</option>
+                  <option value="" disabled selected>
+                    Selecciona un puesto
+                  </option>
                   {[
                     "Técnico de Mecanizado",
                     "Programador CAM - CATIA",
@@ -227,15 +267,18 @@ export default function Careers() {
                     "Técnico de Mantenimiento",
                     "Técnico de Electrónica",
                   ].map((pos) => (
-                    <option key={pos} value={pos}>{pos}</option>
+                    <option key={pos} value={pos}>
+                      {pos}
+                    </option>
                   ))}
                 </select>
               </Field>
 
-             
               <Field label="Área de interés">
                 <select className={inputCls}>
-                  <option value="" disabled selected>Selecciona un área</option>
+                  <option value="" disabled selected>
+                    Selecciona un área
+                  </option>
                   <option>Software</option>
                   <option>Electrónica</option>
                   <option>Visión / Óptica</option>
@@ -245,7 +288,6 @@ export default function Careers() {
                 </select>
               </Field>
 
-             
               <Field label="Mensaje / Motivación">
                 <textarea
                   rows={4}
@@ -267,19 +309,28 @@ export default function Careers() {
                     accept=".pdf,.doc,.docx"
                     className="sr-only"
                   />
-                 
+
                   <svg
-                    width="18" height="18" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" strokeWidth={1.5}
+                    width="18"
+                    height="18"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
                     className="text-gray-400 dark:text-gray-500
                                group-hover:text-defensya-blue transition-colors shrink-0"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                    />
                   </svg>
                   <div>
-                    <p className="text-xs font-medium text-gray-700 dark:text-gray-300
-                                  group-hover:text-defensya-blue transition-colors">
+                    <p
+                      className="text-xs font-medium text-gray-700 dark:text-gray-300
+                                  group-hover:text-defensya-blue transition-colors"
+                    >
                       Seleccionar archivo
                     </p>
                     <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
@@ -299,14 +350,12 @@ export default function Careers() {
               >
                 Enviar Candidatura
               </button>
-
             </form>
           </div>
         </div>
       </section>
-
     </main>
-  )
+  );
 }
 
 // ─── Field wrapper ─────────────
@@ -315,18 +364,20 @@ function Field({
   label,
   children,
 }: {
-  label: string
-  children: React.ReactNode
+  label: string;
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[10px] font-mono tracking-widest text-gray-400
-                        dark:text-gray-500 uppercase">
+      <label
+        className="text-[10px] font-mono tracking-widest text-gray-400
+                        dark:text-gray-500 uppercase"
+      >
         {label}
       </label>
       {children}
     </div>
-  )
+  );
 }
 
 // ─── Shared input classes ──────────
@@ -338,4 +389,4 @@ const inputCls = `
   placeholder:text-gray-400 dark:placeholder:text-gray-600
   focus:outline-none focus:border-defensya-blue dark:focus:border-defensya-blue
   transition-colors duration-200
-`.trim()
+`.trim();

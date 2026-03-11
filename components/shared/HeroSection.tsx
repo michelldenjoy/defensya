@@ -15,12 +15,12 @@ export default function HeroSection ({ label, title, subtitle, children, image }
       {/* Img de fondo */}
       {image && (
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
 
-      <div className="absolute inset-0 bg-linear-to-b from-[#4FAAFF]/5 via-transparent to-[#080A0E]" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-transparent to-[#080A0E]" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 
@@ -33,7 +33,7 @@ export default function HeroSection ({ label, title, subtitle, children, image }
           </p>
         )}
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white max-w-3xl leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white max-w-xl leading-tight">
           {title}
         </h1>
 
