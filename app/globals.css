@@ -17,6 +17,8 @@
   --color-defensya-blue: #1e5fc9;
   --color-defensya-steel: #8aafc5;
   --color-defensya-platinum: #f0f4fb;
+  --color-defensya-sky: #1d4cf5;
+  --animate-fadeIn: fadeIn 1.2s ease-in-out 0.2s forwards;
 }
 
 /* light mode */

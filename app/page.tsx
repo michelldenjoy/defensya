@@ -1,13 +1,11 @@
 import Hometwo from '@/components/home/Hometwo'
-import { Home } from 'lucide-react'
-import React from 'react'
-import HeroSection from '@/components/shared/HeroSection'
 import Divisiones from '@/components/home/Divisiones'
+import HeroHome from '@/components/home/HeroHome'
 
 export default function page() {
   return (
     <div>      
-      <HeroSection title="Defensya"/>
+      <HeroHome />
       <Hometwo />
       <Divisiones />
   

@@ -99,7 +99,6 @@ export default function Hometwo() {
 
           {/* overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
-
          
           <div
             className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm

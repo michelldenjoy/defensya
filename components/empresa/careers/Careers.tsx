@@ -1,101 +1,341 @@
-import React from 'react';
+"use client"
 
-const Careers = () => {
+
+
+function Rule() {
+  return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />
+}
+
+
+
+export default function Careers() {
   return (
-    <div className="bg-slate-950 text-white min-h-screen">
-      {/* 1. HERO: Propuesta de Valor */}
-      <section className="py-24 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Únete al equipo de Inventores</h1>
-          <p className="text-xl text-slate-400 leading-relaxed">
-            En Defensya no solo trabajamos en ingeniería; rendimos culto al arte de hacer las cosas bien hechas. 
-            Si te apasiona la innovación disruptiva en defensa y aeronáutica, este es tu sitio.
-          </p>
+    <main
+      className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
+      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+    >
+
+      
+      <section className="px-6 lg:px-16 pt-16 pb-28
+                          border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="flex items-center gap-3 mb-14">
+            <span className="w-6 h-px bg-defensya-blue" />
+            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+              Empresa — Careers
+            </span>
+          </div>
+
+          <div className="grid lg:grid-cols-[1fr_38%] gap-12 lg:gap-20 items-end">
+            <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
+                         leading-[0.95] tracking-tight"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+            >
+              Únete al equipo<br />
+              <span className="text-defensya-blue">de Inventores</span>
+            </h1>
+
+            <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
+              En Defensya no solo trabajamos en ingeniería; rendimos culto al arte
+              de hacer las cosas bien hechas. Si te apasiona la innovación disruptiva
+              en defensa y aeronáutica, este es tu sitio.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 2. ¿POR QUÉ DEFENSYA? (Beneficios de Carrera) */}
-      <section className="py-16 bg-slate-900/30 px-6 border-y border-slate-900">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
-          <div className="p-6">
-            <div className="text-blue-500 text-4xl mb-4 font-bold">01</div>
-            <h3 className="text-xl font-bold mb-2">Proyectos de Élite</h3>
-            <p className="text-slate-400 text-sm">Trabajarás en sistemas que vuelan en el A330MRTT y soluciones para el Ministerio de Defensa.</p>
-          </div>
-          <div className="p-6">
-            <div className="text-blue-500 text-4xl mb-4 font-bold">02</div>
-            <h3 className="text-xl font-bold mb-2">Cultura de Patentes</h3>
-            <p className="text-slate-400 text-sm">Fomentamos la invención. Tu trabajo puede convertirse en la próxima patente tecnológica de la industria.</p>
-          </div>
-          <div className="p-6">
-            <div className="text-blue-500 text-4xl mb-4 font-bold">03</div>
-            <h3 className="text-xl font-bold mb-2">I+D de Vanguardia</h3>
-            <p className="text-slate-400 text-sm">Desde IA y redes neuronales hasta sistemas ópticos y criptografía avanzada.</p>
-          </div>
-        </div>
-      </section>
+      {/* ── POR QUÉ DEFENSYA ────────── */}
+      <section className="px-6 lg:px-16 py-24
+                          border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
 
-      {/* 3. PERFILES QUE BUSCAMOS */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 border-l-4 border-blue-600 pl-6">Perfiles que buscamos</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            { area: "Ingeniería de Software", desc: "Expertos en sistemas embebidos, C/C++, IA y Redes Neuronales." },
-            { area: "Ingeniería Electrónica", desc: "Diseño de hardware, sensores, adquisición de señal y sistemas de potencia." },
-            { area: "Visión e Imagen", desc: "Especialistas en procesamiento de imagen, compresión y sistemas ópticos." },
-            { area: "Ciberseguridad", desc: "Expertos en criptografía y protección de flujos de datos síncronos." }
-          ].map((job, i) => (
-            <div key={i} className="p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-colors">
-              <h4 className="text-lg font-bold text-white mb-2">{job.area}</h4>
-              <p className="text-slate-400 text-sm">{job.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+          <div className="mb-14">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3">
+              01 — Por qué Defensya
+            </p>
+            <h2
+              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                         leading-none tracking-tight"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+            >
+              Lo que ofrecemos
+            </h2>
+          </div>
 
-      {/* 4. FORMULARIO DE ENVÍO DE CV */}
-      <section className="py-20 px-6 bg-blue-600/5">
-        <div className="max-w-3xl mx-auto bg-slate-900 p-8 md:p-12 rounded-3xl border border-slate-800">
-          <h2 className="text-3xl font-bold mb-4 text-center">Envíanos tu talento</h2>
-          <p className="text-slate-400 text-center mb-10">
-            ¿No ves una posición abierta que encaje? Envíanos tu CV para futuras oportunidades.
-          </p>
-          
-          <form className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex flex-col">
-                <label className="text-sm font-medium text-slate-300 mb-2">Nombre completo</label>
-                <input type="text" className="bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:border-blue-500 outline-none transition-all" />
+          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
+                          divide-gray-200 dark:divide-white/[0.07]">
+            {[
+              {
+                num: "01",
+                title: "Proyectos de Impacto",
+                desc: "Trabajarás en sistemas que vuelan en el A330 MRTT y soluciones para el Ministerio de Defensa.",
+              },
+              {
+                num: "02",
+                title: "Cultura de Patentes",
+                desc: "Fomentamos la invención. Tu trabajo puede convertirse en la próxima patente tecnológica de la industria.",
+              },
+              {
+                num: "03",
+                title: "I+D de Vanguardia",
+                desc: "Desde IA y redes neuronales hasta sistemas ópticos y criptografía avanzada.",
+              },
+            ].map(({ num, title, desc }) => (
+              <div key={num} className="px-0 md:px-8 first:pl-0 last:pr-0 py-8 md:py-0">
+                <span className="text-[12px] font-mono text-defensya-blue tracking-widest mb-6 block">
+                  {num}
+                </span>
+                <h3 className="text-2xl font-semibold mb-3 leading-snug">{title}</h3>
+                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
               </div>
-              <div className="flex flex-col">
-                <label className="text-sm font-medium text-slate-300 mb-2">Correo electrónico</label>
-                <input type="email" className="bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:border-blue-500 outline-none transition-all" />
-              </div>
-            </div>
-            
-            <div className="flex flex-col">
-              <label className="text-sm font-medium text-slate-300 mb-2">Área de interés</label>
-              <select className="bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:border-blue-500 outline-none transition-all">
-                <option>Software</option>
-                <option>Electrónica</option>
-                <option>Visión / Óptica</option>
-                <option>Otros</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col">
-              <label className="text-sm font-medium text-slate-300 mb-2">Mensaje / Motivación</label>
-              <textarea rows={4} className="bg-slate-950 border border-slate-800 rounded-lg p-3 text-white focus:border-blue-500 outline-none transition-all"></textarea>
-            </div>
-
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-600/20">
-              Enviar Candidatura
-            </button>
-          </form>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* ── PERFILES ───────── */}
+      <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="mb-14">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+              02 — Perfiles
+            </p>
+            <h2
+              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                         leading-none tracking-tight text-white"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+            >
+              Perfiles que buscamos
+            </h2>
+          </div>
+
+          <div className="border-t border-white/8">
+            {[
+              { area: "Ingeniería de Software",  desc: "Expertos en sistemas embebidos, C/C++, IA y Redes Neuronales." },
+              { area: "Ingeniería Electrónica",  desc: "Diseño de hardware, sensores, adquisición de señal y sistemas de potencia." },
+              { area: "Visión e Imagen",         desc: "Especialistas en procesamiento de imagen, compresión y sistemas ópticos." },
+              { area: "Ciberseguridad",          desc: "Expertos en criptografía y protección de flujos de datos síncronos." },
+            ].map(({ area, desc }, i) => (
+              <div
+                key={area}
+                className="grid sm:grid-cols-[48px_1fr_2fr] gap-4 lg:gap-8 items-start
+                           py-6 border-b border-white/8
+                           hover:bg-white/2 transition-colors px-2 -mx-2"
+              >
+                <span className="text-[12px] font-mono text-defensya-blue tracking-widest pt-0.5">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4
+                  className="text-xl font-bold uppercase leading-none tracking-tight text-white"
+                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                >
+                  {area}
+                </h4>
+                <p className="text-md text-gray-400 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── FORMULARIO ──────────────────────────────────────────────────── */}
+      <section className="px-6 lg:px-16 py-28">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="grid lg:grid-cols-[1fr_56%] gap-16 lg:gap-24 items-start">
+
+            {/* Left — context */}
+            <div className="lg:sticky lg:top-24">
+              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                            dark:text-gray-500 uppercase mb-3">
+                03 — Candidatura
+              </p>
+              <h2
+                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                           leading-none tracking-tight mb-6"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                Envíanos<br />tu talento
+              </h2>
+              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
+                ¿No ves una posición abierta que encaje? Envíanos tu CV para
+                futuras oportunidades. Revisamos cada candidatura con atención.
+              </p>
+
+              
+              <div className="mt-10 border-t border-gray-200 dark:border-white/[0.07]">
+                {[
+                  { label: "Respuesta",  value: "En menos de 7 días" },
+                  { label: "Modalidad",  value: "Presencial — Madrid" },
+                  { label: "Sector",     value: "Defensa & Aeronáutica" },
+                ].map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="flex items-center justify-between py-3
+                               border-b border-gray-200 dark:border-white/6"
+                  >
+                    <span className="text-[12px] font-mono tracking-widest
+                                     text-gray-400 dark:text-gray-500 uppercase">
+                      {label}
+                    </span>
+                    <span className="text-xs font-medium text-gray-900 dark:text-white">
+                      {value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — form */}
+            <form className="flex flex-col gap-6">
+
+             
+              <div className="grid sm:grid-cols-2 gap-6">
+                <Field label="Nombre completo">
+                  <input
+                    type="text"
+                    placeholder="Juan García"
+                    className={inputCls}
+                  />
+                </Field>
+                <Field label="Correo electrónico">
+                  <input
+                    type="email"
+                    placeholder="juan@email.com"
+                    className={inputCls}
+                  />
+                </Field>
+              </div>
+
+             
+              <Field label="Puesto de interés">
+                <select className={inputCls}>
+                  <option value="" disabled selected>Selecciona un puesto</option>
+                  {[
+                    "Técnico de Mecanizado",
+                    "Programador CAM - CATIA",
+                    "Ingeniería Mecánica",
+                    "Ingeniería de Diseño",
+                    "Ingeniería Electrónica",
+                    "Técnico de Calidad",
+                    "Técnico de Mantenimiento",
+                    "Técnico de Electrónica",
+                  ].map((pos) => (
+                    <option key={pos} value={pos}>{pos}</option>
+                  ))}
+                </select>
+              </Field>
+
+             
+              <Field label="Área de interés">
+                <select className={inputCls}>
+                  <option value="" disabled selected>Selecciona un área</option>
+                  <option>Software</option>
+                  <option>Electrónica</option>
+                  <option>Visión / Óptica</option>
+                  <option>Fabricación 3D</option>
+                  <option>Sanidad</option>
+                  <option>Otros</option>
+                </select>
+              </Field>
+
+             
+              <Field label="Mensaje / Motivación">
+                <textarea
+                  rows={4}
+                  placeholder="Cuéntanos por qué quieres unirte al equipo de Defensya..."
+                  className={inputCls + " resize-none"}
+                />
+              </Field>
+
+              {/* CV upload */}
+              <Field label="Adjuntar CV">
+                <label
+                  className="flex items-center gap-4 cursor-pointer
+                             border border-dashed border-gray-300 dark:border-white/5
+                             px-5 py-4 hover:border-defensya-blue
+                             dark:hover:border-defensya-blue transition-colors group"
+                >
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="sr-only"
+                  />
+                 
+                  <svg
+                    width="18" height="18" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" strokeWidth={1.5}
+                    className="text-gray-400 dark:text-gray-500
+                               group-hover:text-defensya-blue transition-colors shrink-0"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                  <div>
+                    <p className="text-xs font-medium text-gray-700 dark:text-gray-300
+                                  group-hover:text-defensya-blue transition-colors">
+                      Seleccionar archivo
+                    </p>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
+                      PDF, DOC o DOCX — máx. 5 MB
+                    </p>
+                  </div>
+                </label>
+              </Field>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="mt-2 px-8 py-3.5 bg-defensya-blue text-white
+                           text-xs tracking-widest uppercase font-medium
+                           hover:bg-defensya-navy-accent transition-colors
+                           self-start"
+              >
+                Enviar Candidatura
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  )
+}
+
+// ─── Field wrapper ─────────────
+
+function Field({
+  label,
+  children,
+}: {
+  label: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="text-[10px] font-mono tracking-widest text-gray-400
+                        dark:text-gray-500 uppercase">
+        {label}
+      </label>
+      {children}
     </div>
-  );
-};
+  )
+}
 
-export default Careers;
+// ─── Shared input classes ──────────
+
+const inputCls = `
+  w-full bg-gray-50 dark:bg-white/[0.03]
+  border border-gray-200 dark:border-white/[0.08]
+  px-4 py-3 text-sm text-gray-900 dark:text-white
+  placeholder:text-gray-400 dark:placeholder:text-gray-600
+  focus:outline-none focus:border-defensya-blue dark:focus:border-defensya-blue
+  transition-colors duration-200
+`.trim()
