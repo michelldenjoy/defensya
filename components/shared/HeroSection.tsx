@@ -36,13 +36,13 @@ export default function HeroSection({
       {/* IMAGEN */}
       {!video && image && (
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-cover bg-center opacity-50"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
 
       {/* overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-transparent to-[#080A0E]" />
+      <div className="absolute inset-0 bg-linear-to-l from-slate-900/10 via-transparent to-black/70" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 

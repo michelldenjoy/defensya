@@ -9,7 +9,7 @@ export default function page() {
       <HeroSection
         label="Calidad y Certificación"
         title="Comprometidos con la Excelencia"
-        subtitle="En Defensya, la calidad no es solo un objetivo, sino una promesa que cumplimos en cada proyecto. Nuestra política de calidad se basa en la mejora continua, la innovación y la satisfacción del cliente. Estamos orgullosos de nuestras certificaciones que respaldan nuestro compromiso con los más altos estándares de calidad en la industria aeroespacial."
+        subtitle="El cumplimiento de los estándares internacionales es la base de nuestra ingeniería. Sostenemos un sistema de gestión orientado a la optimización de procesos y la excelencia técnica, acreditado por las principales entidades de certificación del sector."
         video="/certification.mp4"
       />
       <PoliticaCalidad />
