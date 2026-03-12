@@ -253,8 +253,8 @@ export default function Careers() {
               </div>
 
               <Field label="Puesto de interés">
-                <select className={inputCls}>
-                  <option value="" disabled selected>
+                <select  className={inputCls}>
+                  <option value="" defaultValue="">
                     Selecciona un puesto
                   </option>
                   {[
@@ -276,7 +276,7 @@ export default function Careers() {
 
               <Field label="Área de interés">
                 <select className={inputCls}>
-                  <option value="" disabled selected>
+                  <option value="" defaultValue="">
                     Selecciona un área
                   </option>
                   <option>Software</option>

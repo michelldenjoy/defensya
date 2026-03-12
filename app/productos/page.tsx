@@ -7,8 +7,8 @@ export default function page() {
       <HeroSection
         label="Proyectos"
         title="Creamos Soluciones que vuelan Alto"
-        subtitle="En Defensya, la sostenibilidad es una parte integral de nuestra visión y operaciones. Nos esforzamos por minimizar nuestro impacto ambiental a través de prácticas responsables, innovación en diseño y producción, y un compromiso con la eficiencia energética. Creemos que el futuro de la defensa debe ser sostenible, y trabajamos continuamente para integrar soluciones ecológicas en nuestros productos y procesos."
-        image="/images/sostenibilidad-hero.jpg"
+        subtitle="Conoce nuestros proyectos y descubre cómo transformamos ideas en realidades tecnológicas del alto impacto."
+        video="/products.mp4"
       />
     </div>
   )

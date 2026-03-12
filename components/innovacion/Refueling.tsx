@@ -4,11 +4,11 @@ export default function Refueling() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-
-      <section className="px-6 lg:px-16 pt-16 pb-28
-                          border-b border-gray-200 dark:border-white/[0.07]">
+      <section
+        className="px-6 lg:px-16 pt-16 pb-28
+                          border-b border-gray-200 dark:border-white/[0.07]"
+      >
         <div className="max-w-7xl mx-auto">
-
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
@@ -20,36 +20,47 @@ export default function Refueling() {
             <h1
               className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
                          leading-[0.95] tracking-tight"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
-              Innovación en<br />
-              Reabastecimiento<br />
+              Innovación en
+              <br />
+              Reabastecimiento
+              <br />
               <span className="text-defensya-blue">Air-to-Air</span>
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
-              Defensya desarrolla tecnologías avanzadas para automatizar el
-              reabastecimiento aire-aire (AAR), mejorando la seguridad, precisión
-              y eficiencia de una de las operaciones más complejas de la aviación
-              militar.
+              En Defensya, la innovación
+              es el motor que impulsa nuestro compromiso en la
+              industria aeroespacial. Nos dedicamos a desarrollar soluciones
+              avanzadas y tecnologías que transforman la defensa y
+              la seguridad. Desde sistemas de reabastecimiento en vuelo hasta
+              patentes innovadoras, seguimos en constante evolución para garantizar un entorno operativo más seguro y eficiente..
             </p>
           </div>
         </div>
       </section>
 
       {/* ── DESAFÍO / VISIÓN ───── */}
-      <section className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]">
+      <section
+        className="px-6 lg:px-16 py-24
+                          border-b border-gray-200 dark:border-white/[0.07]"
+      >
         <div className="max-w-7xl mx-auto">
-
-          <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                        dark:text-gray-500 uppercase mb-12">
+          <p
+            className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                        dark:text-gray-500 uppercase mb-12"
+          >
             01 — Contexto
           </p>
 
-          <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x
-                          divide-gray-200 dark:divide-white/[0.07]">
-
+          <div
+            className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x
+                          divide-gray-200 dark:divide-white/[0.07]"
+          >
             <div className="pb-10 md:pb-0 md:pr-12 lg:pr-20">
               <span className="text-[12px] font-mono text-defensya-blue tracking-widest uppercase mb-5 block">
                 01
@@ -57,16 +68,20 @@ export default function Refueling() {
               <h3
                 className="text-2xl lg:text-4xl font-bold uppercase leading-none
                            tracking-tight mb-5"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 El desafío
               </h3>
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 Tradicionalmente, el reabastecimiento aire-aire ha sido una
-                operación manual que requiere una elevada precisión por parte del
-                operador. Aunque esta capacidad actúa como un importante
-                multiplicador de fuerza en las operaciones aéreas, su rendimiento
-                sigue condicionado por los límites del factor humano.
+                operación manual que requiere una elevada precisión por parte
+                del operador. Aunque esta capacidad actúa como un importante
+                multiplicador de fuerza en las operaciones aéreas, su
+                rendimiento sigue condicionado por los límites del factor
+                humano.
               </p>
             </div>
 
@@ -77,7 +92,10 @@ export default function Refueling() {
               <h3
                 className="text-2xl lg:text-4xl font-bold uppercase leading-none
                            tracking-tight mb-5"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 Nuestra visión
               </h3>
@@ -95,7 +113,6 @@ export default function Refueling() {
       {/* ── NIVELES DE AUTOMATIZACIÓN ───── */}
       <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
               <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
@@ -104,7 +121,10 @@ export default function Refueling() {
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                            leading-none tracking-tight text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 Niveles de Automatización
               </h2>
@@ -135,12 +155,17 @@ export default function Refueling() {
               >
                 <span
                   className="text-3xl lg:text-5xl font-bold text-white"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  style={{
+                    fontFamily:
+                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  }}
                 >
                   {name}
                 </span>
-                <span className="text-[14px] font-mono tracking-widest text-defensya-blue
-                                 uppercase self-center hidden lg:block">
+                <span
+                  className="text-[14px] font-mono tracking-widest text-defensya-blue
+                                 uppercase self-center hidden lg:block"
+                >
                   {tag}
                 </span>
                 <p className="text-md text-gray-400 leading-relaxed">{desc}</p>
@@ -151,27 +176,35 @@ export default function Refueling() {
       </section>
 
       {/* ── VENTAJAS OPERATIVAS ──────── */}
-      <section className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]">
+      <section
+        className="px-6 lg:px-16 py-24
+                          border-b border-gray-200 dark:border-white/[0.07]"
+      >
         <div className="max-w-7xl mx-auto">
-
           <div className="mb-14">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
+            <p
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
+            >
               03 — Beneficios
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                          leading-none tracking-tight"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
               Ventajas Operativas
             </h2>
           </div>
 
           {/* 4-cell grid with shared borders */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4
-                          border-t border-l border-gray-200 dark:border-white/[0.07]">
+          <div
+            className="grid sm:grid-cols-2 lg:grid-cols-4
+                          border-t border-l border-gray-200 dark:border-white/[0.07]"
+          >
             {[
               "Mayor precisión en el contacto con la aeronave receptora",
               "Operaciones de reabastecimiento más rápidas",
@@ -184,8 +217,10 @@ export default function Refueling() {
                            p-6 lg:p-8 group
                            hover:bg-gray-50 dark:hover:bg-white/2 transition-colors"
               >
-                <span className="text-[12px] font-mono text-defensya-blue tracking-widest
-                                 uppercase mb-4 block">
+                <span
+                  className="text-[12px] font-mono text-defensya-blue tracking-widest
+                                 uppercase mb-4 block"
+                >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -200,7 +235,6 @@ export default function Refueling() {
       {/* ── TECNOLOGÍAS CLAVE ────── */}
       <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
               <p className="text-[10px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
@@ -209,7 +243,10 @@ export default function Refueling() {
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                            leading-none tracking-tight text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 Tecnologías Clave
               </h2>
@@ -236,26 +273,28 @@ export default function Refueling() {
                            p-8 lg:p-10 group
                            hover:bg-white/3 transition-colors"
               >
-                <span className="text-[10px] font-mono tracking-widest text-defensya-blue
-                                 uppercase mb-3 block">
+                <span
+                  className="text-[10px] font-mono tracking-widest text-defensya-blue
+                                 uppercase mb-3 block"
+                >
                   {tag}
                 </span>
                 <h3
                   className="text-3xl lg:text-4xl font-bold uppercase leading-none
                              tracking-tight text-white mb-5"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  style={{
+                    fontFamily:
+                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  }}
                 >
                   {name}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  {desc}
-                </p>
+                <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
     </main>
-  )
+  );
 }
