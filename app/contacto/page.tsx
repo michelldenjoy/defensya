@@ -21,12 +21,12 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex p-4 flex-col gap-2">
       <div className="flex items-center gap-3">
-        <span className="text-[9px] font-mono text-defensya-blue tracking-widest">
+        <span className="text-[12px] font-mono text-defensya-blue tracking-widest">
           {num}
         </span>
-        <label className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase">
+        <label className="text-[12px] font-mono tracking-[0.25em] text-white/80 uppercase">
           {label}
         </label>
       </div>
@@ -120,9 +120,9 @@ export default function ContactView() {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Hablemos
+                Contacta con 
                 <br />
-                <span className="text-defensya-blue">ahora</span>
+                <span className="text-defensya-blue">defensya</span>
               </h1>
               <p className="text-sm text-white/35 leading-relaxed max-w-xs">
                 Consultas sobre ingeniería, auditorías de proyectos o
@@ -179,7 +179,7 @@ export default function ContactView() {
             <div className="flex items-start justify-between mb-12">
               <div>
                 <p className="text-[12px] font-mono tracking-[0.3em] text-white/25 uppercase mb-1.5">
-                  Formulario — 01 / 01
+                  Formulario
                 </p>
                 <h2
                   className="text-3xl  font-bold uppercase leading-none tracking-tight"
@@ -211,7 +211,7 @@ export default function ContactView() {
                     onChange={handleChange}
                     required
                     placeholder="Juan García"
-                    className={inputCls}
+                    className={inputCls }
                   />
                 </Field>
                 <Field num="02" label="Correo electrónico">
@@ -233,7 +233,7 @@ export default function ContactView() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="Consulta sobre sistemas de visión embarcada"
+                  placeholder="ej: Consulta sobre sistemas de visión"
                   className={inputCls}
                 />
               </Field>
@@ -256,10 +256,7 @@ export default function ContactView() {
                               flex flex-col sm:flex-row sm:items-center
                               justify-between gap-5"
               >
-                <p className="text-[9px] text-white/20 leading-relaxed max-w-xs">
-                  Al enviar acepta que Defensya trate sus datos conforme a
-                  nuestra política de privacidad.
-                </p>
+
                 <div className="flex items-center gap-5 shrink-0">
                   {status === "success" && (
                     <p className="text-[10px] font-mono text-defensya-blue tracking-wide">

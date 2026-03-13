@@ -10,7 +10,7 @@ export default function page() {
         label="Innovación"
         title="Innovamos el Reabastecimiento Aéreo"
         subtitle="Desde sistemas avanzados de reabastecimiento hasta nuevas patentes aeroespaciales, impulsamos la innovación que define la próxima generación de defensa."
-        image="/images/innovation.jpeg"
+        image="/images/innovation.webp"
       />
       <Refueling />
       <PatentsList />
