@@ -1,15 +1,770 @@
-import HeroSection from '@/components/shared/HeroSection'
-import React from 'react'
+"use client"
 
-export default function page() {
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import { PRODUCTOS } from "@/data/productos"
+import HeroSection from "@/components/shared/HeroSection"
+import { DiagonalBadge } from "@/components/ui/DiagonalBadge"
+import { X } from "lucide-react"
+
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+type CatKey = "Todos" | "Vision" | "Datos" | "Test" | "Mision" | "Civil"
+
+const CATS: { key: CatKey; label: string; tag: string }[] = [
+  { key: "Todos",  label: "Todos",          tag: "ALL" },
+  { key: "Vision", label: "Visión",         tag: "VIS" },
+  { key: "Datos",  label: "Datos",          tag: "DAT" },
+  { key: "Test",   label: "Soporte y Test", tag: "TST" },
+  { key: "Mision", label: "Misión",         tag: "MIS" },
+  { key: "Civil",  label: "Ing. Civil",     tag: "CIV" },
+]
+
+function pad(n: number) { return String(n).padStart(2, "0") }
+function getCat(key: string) { return CATS.find(c => c.key === key) ?? CATS[0] }
+
+// ─── CSS: light default + dark via prefers-color-scheme ──────────────────────
+
+const STYLES = `
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+  /* ── Design tokens ─────────────────────────────────────────── */
+  :root {
+    --bg:          #F4F5F8;
+    --bg-card:     #ffffff;
+    --bg-hero:     #ffffff;
+    --bg-nav:      rgba(244,245,248,0.97);
+    --bg-strip:    rgba(10,14,40,0.025);
+    --t1:          #0A0E28;
+    --t2:          rgba(10,14,40,0.5);
+    --t3:          rgba(10,14,40,0.3);
+    --t4:          rgba(10,14,40,0.14);
+    --acc:         #2563EB;
+    --acc-bg:      rgba(37,99,235,0.06);
+    --bdr:         rgba(10,14,40,0.085);
+    --bdr-hi:      rgba(37,99,235,0.32);
+    --scan:        rgba(37,99,235,0.14);
+    --dot:         rgba(10,14,40,0.065);
+    --radar-c:     rgba(10,14,40,0.25);
+    --radar-op:    0.10;
+    --sh-card:     0 2px 16px rgba(10,14,40,0.07), 0 1px 3px rgba(10,14,40,0.05);
+    --sh-hover:    0 16px 48px rgba(10,14,40,0.13), 0 0 0 1px rgba(37,99,235,0.16);
+    --sh-modal:    0 32px 80px rgba(10,14,40,0.22), 0 0 0 1px rgba(37,99,235,0.1);
+    --img-ov:      linear-gradient(to top, rgba(5,8,24,0.85) 0%, rgba(5,8,24,0.25) 52%, transparent 100%);
+    --modal-bg:    rgba(10,14,40,0.45);
+  }
+
+  /* ── Dark mode: prefers-color-scheme (auto) ───────────── */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:          #05091A;
+      --bg-card:     #060C1B;
+      --bg-hero:     #060C1B;
+      --bg-nav:      rgba(5,9,26,0.97);
+      --bg-strip:    rgba(255,255,255,0.03);
+      --t1:          #EEF0FF;
+      --t2:          rgba(238,240,255,0.46);
+      --t3:          rgba(238,240,255,0.24);
+      --t4:          rgba(238,240,255,0.11);
+      --acc:         #3B82F6;
+      --acc-bg:      rgba(59,130,246,0.07);
+      --bdr:         rgba(255,255,255,0.07);
+      --bdr-hi:      rgba(96,165,250,0.35);
+      --scan:        rgba(59,130,246,0.22);
+      --dot:         rgba(59,130,246,0.11);
+      --radar-c:     rgba(59,130,246,1);
+      --radar-op:    0.07;
+      --sh-card:     0 2px 16px rgba(0,0,0,0.35);
+      --sh-hover:    0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(59,130,246,0.09);
+      --sh-modal:    0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(59,130,246,0.07);
+      --img-ov:      linear-gradient(to top, #060C1B 0%, rgba(6,12,27,0.36) 52%, transparent 100%);
+      --modal-bg:    rgba(4,7,20,0.75);
+    }
+  }
+
+  /* ── Dark mode: .dark class (Tailwind / manual toggle) ─ */
+  .dark {
+    --bg:          #05091A;
+    --bg-card:     #060C1B;
+    --bg-hero:     #060C1B;
+    --bg-nav:      rgba(5,9,26,0.97);
+    --bg-strip:    rgba(255,255,255,0.03);
+    --t1:          #EEF0FF;
+    --t2:          rgba(238,240,255,0.46);
+    --t3:          rgba(238,240,255,0.24);
+    --t4:          rgba(238,240,255,0.11);
+    --acc:         #3B82F6;
+    --acc-bg:      rgba(59,130,246,0.07);
+    --bdr:         rgba(255,255,255,0.07);
+    --bdr-hi:      rgba(96,165,250,0.35);
+    --scan:        rgba(59,130,246,0.22);
+    --dot:         rgba(59,130,246,0.11);
+    --radar-c:     rgba(59,130,246,1);
+    --radar-op:    0.07;
+    --sh-card:     0 2px 16px rgba(0,0,0,0.35);
+    --sh-hover:    0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(59,130,246,0.09);
+    --sh-modal:    0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(59,130,246,0.07);
+    --img-ov:      linear-gradient(to top, #060C1B 0%, rgba(6,12,27,0.36) 52%, transparent 100%);
+    --modal-bg:    rgba(4,7,20,0.75);
+  }
+
+  /* ── Animations ────────────────────────────────────────────── */
+  @keyframes def-scan  { 0%{top:-80px;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{top:calc(100% + 80px);opacity:0} }
+  @keyframes def-radar { to{ transform:rotate(360deg) } }
+  @keyframes def-blink { 0%,100%{opacity:1} 50%{opacity:0.12} }
+  @keyframes def-up    { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes def-modal { from{opacity:0;transform:scale(0.96) translateY(12px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  @keyframes def-sweep { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+
+  /* ── Card ──────────────────────────────────────────────────── */
+  .dc {
+    position:relative; overflow:hidden; cursor:pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--bdr);
+    box-shadow: var(--sh-card);
+    transition: border-color .35s, box-shadow .35s;
+  }
+  .dc:hover { border-color:var(--bdr-hi); box-shadow:var(--sh-hover); }
+
+  .dc-scan { position:absolute; left:0; right:0; height:80px; top:-80px; z-index:10; pointer-events:none;
+             background:linear-gradient(to bottom,transparent,var(--scan),transparent); }
+  .dc:hover .dc-scan { animation: def-scan 1.35s ease-in-out; }
+
+  .dc .dc-img { transition: transform .75s ease; }
+  .dc:hover .dc-img { transform: scale(1.055); }
+
+  .dc-brk { position:absolute; width:13px; height:13px; opacity:0; z-index:11; pointer-events:none;
+             transition: opacity .2s, transform .2s; }
+  .dc:hover .dc-brk { opacity:1; transform:translate(0,0) !important; }
+  .dc-tl { top:10px;  left:10px;  border-top:1.5px solid var(--bdr-hi); border-left:1.5px solid var(--bdr-hi);  transform:translate(5px,5px); }
+  .dc-tr { top:10px;  right:10px; border-top:1.5px solid var(--bdr-hi); border-right:1.5px solid var(--bdr-hi); transform:translate(-5px,5px); }
+  .dc-bl { bottom:10px; left:10px;  border-bottom:1.5px solid var(--bdr-hi); border-left:1.5px solid var(--bdr-hi);  transform:translate(5px,-5px); }
+  .dc-br { bottom:10px; right:10px; border-bottom:1.5px solid var(--bdr-hi); border-right:1.5px solid var(--bdr-hi); transform:translate(-5px,-5px); }
+
+  .dc .dc-bar { position:absolute; bottom:0; left:0; height:2px; width:100%; background:var(--acc);
+                transform:scaleX(0); transform-origin:left; transition:transform .6s ease; }
+  .dc:hover .dc-bar { transform:scaleX(1); }
+
+  .dc .dc-lbl { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase;
+                color:var(--t4); transition:color .3s; }
+  .dc:hover .dc-lbl { color:var(--acc); }
+  .dc .dc-line { background:var(--bdr); height:1px; transition:background .4s; }
+  .dc:hover .dc-line { background:var(--bdr-hi); }
+
+  /* ── Sidebar filter item ───────────────────────────────────── */
+  .sf {
+    display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+    padding:14px 20px; cursor:pointer;
+    border-left: 2px solid transparent;
+    border-bottom: 1px solid var(--bdr);
+    transition: background .18s, border-color .18s;
+  }
+  .sf:hover { background:var(--acc-bg); }
+  .sf.sa    { background:var(--acc-bg); border-left-color:var(--acc); }
+
+  /* ── Mobile filter tab ─────────────────────────────────────── */
+  .mft { position:relative; flex-shrink:0; transition:background .18s; }
+  .mft::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+                background:var(--acc); transform:scaleX(0); transition:transform .3s; }
+  .mft:hover::after, .mft.mfa::after { transform:scaleX(1); }
+  .mft.mfa { background:var(--acc-bg); }
+
+  /* ── Dot grid ──────────────────────────────────────────────── */
+  .def-grid { background-image: radial-gradient(var(--dot) 1px, transparent 1px); background-size: 36px 36px; }
+
+  /* ── Hero sweep line ───────────────────────────────────────── */
+  .hero-sweep::after {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(90deg,transparent,var(--acc-bg),transparent);
+    width:50%; animation:def-sweep 4s ease-in-out infinite;
+  }
+
+  /* ── Card stagger ──────────────────────────────────────────── */
+  .cri { opacity:0; animation:def-up .5s ease forwards; }
+
+  /* ── Hide scrollbar ────────────────────────────────────────── */
+  .sbn::-webkit-scrollbar{display:none} .sbn{-ms-overflow-style:none;scrollbar-width:none}
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  .def-layout { display:flex; min-height:100vh; }
+
+  .def-sidebar {
+    width:210px; flex-shrink:0;
+    position:sticky; top:0; height:100vh; overflow-y:auto;
+    border-right:1px solid var(--bdr);
+    background:var(--bg-nav);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    display:flex; flex-direction:column; z-index:30;
+  }
+
+  .def-main { flex:1; min-width:0; }
+
+  /* Responsive: hide sidebar on mobile, show horizontal strip */
+  @media (max-width:1023px) {
+    .def-sidebar   { display:none !important; }
+    .def-mfilter   { display:flex !important; }
+  }
+  @media (min-width:1024px) {
+    .def-mfilter   { display:none !important; }
+  }
+`
+
+// ─── Font style refs ──────────────────────────────────────────────────────────
+
+const D: React.CSSProperties = { fontFamily: "'Barlow Condensed', sans-serif" }
+const M: React.CSSProperties = { fontFamily: "'Space Mono', monospace" }
+
+// ─── Blinking dot ─────────────────────────────────────────────────────────────
+
+function Dot({ d = 0, sz = 5 }: { d?: number; sz?: number }) {
   return (
-    <div>
-      <HeroSection
-        label="Proyectos"
-        title="Creamos Soluciones que vuelan Alto"
-        subtitle="Conoce nuestros proyectos y descubre cómo transformamos ideas en realidades tecnológicas del alto impacto."
-        video="/products.mp4"
-      />
+    <span style={{
+      display: "inline-block", flexShrink: 0,
+      width: sz, height: sz, borderRadius: "50%",
+      background: "var(--acc)",
+      animation: `def-blink ${1.5 + d * 0.3}s ease ${d * 0.15}s infinite`,
+    }} />
+  )
+}
+
+// ─── Radar ────────────────────────────────────────────────────────────────────
+
+const BLIPS: [number, number][] = [[55, 30], [28, 56], [70, 64], [46, 42], [60, 78]]
+
+function Radar() {
+  return (
+    <div
+      aria-hidden
+      style={{
+        position: "absolute", right: "0%", top: "-14%",
+        width: 460, height: 460,
+        opacity: "var(--radar-op)" as React.CSSProperties["opacity"],
+        pointerEvents: "none", userSelect: "none",
+      }}
+    >
+      {([1, 0.75, 0.5, 0.25] as number[]).map(s => (
+        <div key={s} style={{
+          position: "absolute", borderRadius: "50%",
+          border: "1px solid var(--radar-c)",
+          width: `${s * 100}%`, height: `${s * 100}%`,
+          top: `${(1 - s) * 50}%`, left: `${(1 - s) * 50}%`,
+        }} />
+      ))}
+      <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: 1, background: "var(--radar-c)" }} />
+      <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "var(--radar-c)" }} />
+      <div style={{ position: "absolute", inset: 0, borderRadius: "50%", overflow: "hidden" }}>
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "conic-gradient(from 0deg, var(--acc) 0deg, transparent 55deg)",
+          animation: "def-radar 4s linear infinite",
+        }} />
+      </div>
+      {BLIPS.map(([x, y], i) => (
+        <div key={i} style={{
+          position: "absolute", width: 4, height: 4, borderRadius: "50%", background: "var(--acc)",
+          left: `${x}%`, top: `${y}%`,
+          animation: `def-blink ${1.5 + i * 0.38}s ease ${i * 0.22}s infinite`,
+        }} />
+      ))}
     </div>
+  )
+}
+
+// ─── Sidebar ──────────────────────────────────────────────────────────────────
+
+function Sidebar({
+  filtro, setFiltro, countFor,
+}: {
+  filtro: CatKey
+  setFiltro: (k: CatKey) => void
+  countFor: (k: string) => number
+}) {
+  return (
+    <aside className="def-sidebar sbn">
+
+      {/* TITULO BARRA LATERAL */}
+      <div style={{ padding: "26px 20px 18px", borderBottom: "1px solid var(--bdr)" }}>
+        <p style={{ ...D, fontSize: "1.3rem", fontWeight: 900, textTransform: "uppercase", color: "var(--t1)", lineHeight: 1 }}>
+          Defensya
+        </p>
+
+      </div>
+
+      {/* "Filtrar por" label */}
+      <div style={{ padding: "16px 20px 6px" }}>
+        <p style={{ ...M, fontSize: 10, color: "var(--t1)", letterSpacing: "0.32em", textTransform: "uppercase" }}>
+          Filtrar por
+        </p>
+      </div>
+
+      {/* FILTRO BARRA LATERAL */}
+      <nav style={{ flex: 1 }}>
+        {CATS.map(cat => {
+          const active = filtro === cat.key
+          const count  = countFor(cat.key)
+          return (
+            <button
+              key={cat.key}
+              onClick={() => setFiltro(cat.key)}
+              className={`sf ${active ? "sa" : ""}`}
+            >
+              {/* Count- NUMEROS LATERALES */}
+              <span style={{
+                ...M, fontSize: "1.4rem", fontWeight: 600, lineHeight: 1, minWidth: 36,
+                color: active ? "var(--acc)" : "var(--t4)",
+                transition: "color .18s",
+              }}>
+                {pad(count)}
+              </span>
+
+              <span style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {/* Label TITULO LATERAL */}
+                <span style={{
+                  fontFamily: "'DM Sans', sans-serif", fontSize: 14,
+                  fontWeight: active ? 500 : 400,
+                  color: active ? "var(--t1)" : "var(--t2)",
+                  transition: "color .18s", lineHeight: 1.25,
+                }}>
+                  {cat.label}
+                </span>
+                {/* Tag SUBTITULO LATERAL */}
+                <span style={{
+                  ...M, fontSize: 8, letterSpacing: "0.22em", textTransform: "uppercase",
+                  color: active ? "var(--acc)" : "var(--t4)",
+                  transition: "color .18s",
+                }}>
+                  {cat.tag}
+                </span>
+              </span>
+
+              {active && (
+                <span style={{ marginLeft: "auto", fontSize: 10, color: "var(--acc)" }}>→</span>
+              )}
+            </button>
+          )
+        })}
+      </nav>
+
+      {/* Sidebar footer */}
+      <div style={{ padding: "14px 20px", borderTop: "1px solid var(--bdr)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {/* <Dot d={3} sz={4} /> */}
+          <span style={{ ...M, fontSize: 12, color: "var(--t4)", letterSpacing: "0.22em", textTransform: "uppercase" }}>
+            20+ patentes
+          </span>
+        </div>
+      </div>
+    </aside>
+  )
+}
+
+// ─── Mobile filter strip (< lg) ──────────────────────
+
+function MobileFilters({
+  filtro, setFiltro, countFor,
+}: {
+  filtro: CatKey
+  setFiltro: (k: CatKey) => void
+  countFor: (k: string) => number
+}) {
+  return (
+    <div
+      className="def-mfilter sbn sticky top-0 z-30"
+      style={{
+        background: "var(--bg-nav)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid var(--bdr)",
+        overflowX: "auto",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "stretch" }}>
+        {CATS.map(cat => {
+          const active = filtro === cat.key
+          return (
+            <button
+              key={cat.key}
+              onClick={() => setFiltro(cat.key)}
+              className={`mft ${active ? "mfa" : ""}`}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2, padding: "12px 18px" }}
+            >
+              <span style={{ ...M, fontSize: "1.05rem", fontWeight: 700, lineHeight: 1, color: active ? "var(--acc)" : "var(--t4)", transition: "color .18s" }}>
+                {pad(countFor(cat.key))}
+              </span>
+              <span style={{ ...M, fontSize: 8, letterSpacing: "0.22em", textTransform: "uppercase", whiteSpace: "nowrap", color: active ? "var(--t1)" : "var(--t3)", transition: "color .18s" }}>
+                {cat.tag}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ─── Modal ─────────────────────────
+
+function ProductModal({
+  producto, open, onClose,
+}: {
+  producto: typeof PRODUCTOS[number] | null
+  open: boolean
+  onClose: () => void
+}) {
+  useEffect(() => {
+    if (open) document.body.style.overflow = "hidden"
+    else document.body.style.overflow = ""
+    return () => { document.body.style.overflow = "" }
+  }, [open])
+
+  if (!open || !producto) return null
+
+  const cat = getCat(producto.categoria)
+  const idx = PRODUCTOS.indexOf(producto)
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 lg:p-10">
+      <div
+        className="absolute inset-0"
+        style={{ background: "rgba(5,8,24,0.52)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" }}
+        onClick={onClose}
+      />
+      <div
+        className="relative z-10 w-full max-w-5xl overflow-hidden"
+        style={{
+          background: "var(--bg-card)",
+          border: "1px solid var(--bdr)",
+          boxShadow: "var(--sh-modal)",
+          animation: "def-modal .24s ease-out forwards",
+        }}
+      >
+        {/* Accent line */}
+        <div style={{ height: 2, background: "linear-gradient(90deg,transparent,var(--acc),transparent)" }} />
+
+        {/* Header */}
+        <div
+          className="flex items-center justify-between px-8 py-4"
+          style={{ borderBottom: "1px solid var(--bdr)" }}
+        >
+          <div className="flex items-center gap-3">
+            <Dot />
+            <span style={{ ...M, fontSize: 10, letterSpacing: "0.35em", color: "var(--acc)", textTransform: "uppercase" }}>
+              Ficha Técnica — {cat.tag}–{pad(idx + 1)}
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            style={{
+              width: 28, height: 28, display: "flex", alignItems: "center", justifyContent: "center",
+              border: "1px solid var(--bdr)", color: "var(--t3)",
+              transition: "color .2s, border-color .2s", background: "transparent", cursor: "pointer",
+            }}
+            onMouseOver={e => { const b = e.currentTarget; b.style.color = "var(--t1)"; b.style.borderColor = "var(--bdr-hi)"; }}
+            onMouseOut={e => { const b = e.currentTarget; b.style.color = "var(--t3)"; b.style.borderColor = "var(--bdr)"; }}
+          >
+            <X size={12} />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="grid lg:grid-cols-[55%_1fr]">
+
+          {/* Image panel */}
+          <div
+            className="relative min-h-72 overflow-hidden"
+            style={{ borderRight: "1px solid var(--bdr)" }}
+          >
+            <Image src={producto.imagen} alt={producto.nombre} fill className="object-cover" />
+            <div style={{ position: "absolute", inset: 0, background: "var(--img-ov)" }} />
+
+            {/* Fixed brackets */}
+            {[
+              { top: 14, left: 14,   borderTop:    "1px solid var(--bdr-hi)", borderLeft:   "1px solid var(--bdr-hi)" },
+              { top: 14, right: 14,  borderTop:    "1px solid var(--bdr-hi)", borderRight:  "1px solid var(--bdr-hi)" },
+              { bottom: 72, left: 14,  borderBottom: "1px solid var(--bdr-hi)", borderLeft:   "1px solid var(--bdr-hi)" },
+              { bottom: 72, right: 14, borderBottom: "1px solid var(--bdr-hi)", borderRight:  "1px solid var(--bdr-hi)" },
+            ].map((s, i) => <span key={i} style={{ position: "absolute", width: 16, height: 16, ...s }} />)}
+
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 22px 20px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                <Dot d={1} sz={4} />
+                <span style={{ ...M, fontSize: 8, color: "rgba(255,255,255,0.38)", letterSpacing: "0.3em", textTransform: "uppercase" }}>
+                  Sistema activo
+                </span>
+              </div>
+              <h2 style={{ ...D, fontSize: "clamp(1.9rem,4vw,2.9rem)", fontWeight: 900, textTransform: "uppercase", lineHeight: 1, color: "#fff" }}>
+                {producto.nombre}
+              </h2>
+            </div>
+          </div>
+
+          {/* Info panel */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ padding: "24px 26px", borderBottom: "1px solid var(--bdr)" }}>
+              <span style={{ ...M, fontSize: 9, letterSpacing: "0.28em", color: "var(--acc)", textTransform: "uppercase", display: "block", marginBottom: 10 }}>
+                {producto.categoria}
+              </span>
+              <p style={{ fontSize: 13, color: "var(--t2)", lineHeight: 1.7 }}>
+                {producto.descripcion}
+              </p>
+            </div>
+
+            <div style={{ padding: "22px 26px", flexGrow: 1 }}>
+              <p style={{ ...M, fontSize: 8, letterSpacing: "0.35em", color: "var(--t4)", textTransform: "uppercase", marginBottom: 14 }}>
+                Especificaciones técnicas
+              </p>
+              {producto.detalles.map((d: string, i: number) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "10px 0", borderBottom: "1px solid var(--bdr)" }}>
+                  <span style={{ ...M, fontSize: 9, color: "var(--acc)", fontWeight: 700, flexShrink: 0, marginTop: 1 }}>
+                    {pad(i + 1)}
+                  </span>
+                  <span style={{ fontSize: 12, color: "var(--t2)", lineHeight: 1.65 }}>{d}</span>
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{ padding: "14px 26px", borderTop: "1px solid var(--bdr)", display: "flex", alignItems: "center", justifyContent: "space-between" }}
+            >
+              <span style={{ ...M, fontSize: 8, color: "var(--t4)", letterSpacing: "0.25em", textTransform: "uppercase" }}>
+                Defensya · {cat.tag}–{pad(idx + 1)}
+              </span>
+              <button
+                onClick={onClose}
+                style={{ ...M, fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--t3)", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", gap: 8, transition: "color .2s" }}
+                onMouseOver={e => (e.currentTarget.style.color = "var(--t1)")}
+                onMouseOut={e => (e.currentTarget.style.color = "var(--t3)")}
+              >
+                Cerrar
+                <span style={{ display: "inline-block", width: 16, height: 1, background: "currentColor" }} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Product Card ─────────────────────────────────────────────────────────────
+
+function ProductCard({
+  producto, index, onOpen,
+}: {
+  producto: typeof PRODUCTOS[number]
+  index: number
+  onOpen: () => void
+}) {
+  return (
+    <article
+      className="dc cri"
+      style={{ animationDelay: `${index * 0.065}s` }}
+      onClick={onOpen}
+    >
+      {/* Hairline */}
+      <div style={{ height: 1, background: "linear-gradient(90deg,transparent,var(--bdr-hi),transparent)" }} />
+
+      {/* Image */}
+      <div style={{ position: "relative", height: 215, overflow: "hidden" }}>
+        <Image src={producto.imagen} alt={producto.nombre} fill className="dc-img object-cover" />
+        <div style={{ position: "absolute", inset: 0, background: "var(--img-ov)" }} />
+        <div className="dc-scan" />
+        <div className="dc-brk dc-tl" /><div className="dc-brk dc-tr" />
+        <div className="dc-brk dc-bl" /><div className="dc-brk dc-br" />
+
+        {/* DiagonalBadge — categoría */}
+        <DiagonalBadge>{producto.categoria}</DiagonalBadge>
+
+        {/* Product name */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 14px 14px" }}>
+          <h3 style={{ ...D, fontSize: "1.6rem", fontWeight: 900, textTransform: "uppercase", lineHeight: 1, color: "#fff" }}>
+            {producto.nombre}
+          </h3>
+        </div>
+      </div>
+
+      {/* Status strip */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 14px", borderTop: "1px solid var(--bdr)", background: "var(--bg-strip)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+          <Dot d={index * 0.45} sz={4} />
+          <span style={{ ...M, fontSize: 8, color: "var(--t4)", textTransform: "uppercase", letterSpacing: "0.2em" }}>Sistema activo</span>
+        </div>
+        <span style={{ ...M, fontSize: 8, color: "var(--t4)" }}>REV·3.1</span>
+      </div>
+
+      {/* Description + CTA */}
+      <div style={{ padding: "14px 14px 16px", borderTop: "1px solid var(--bdr)" }}>
+        <p style={{ fontSize: 12, color: "var(--t2)", lineHeight: 1.65, marginBottom: 14, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+          {producto.descripcion}
+        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span className="dc-lbl">Ver ficha técnica</span>
+          <span className="dc-line" style={{ flex: 1 }} />
+          <span style={{ fontSize: 11, color: "var(--acc)" }}>→</span>
+        </div>
+      </div>
+
+      <div className="dc-bar" />
+    </article>
+  )
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default function ProductosPage() {
+  const [filtro,    setFiltro]    = useState<CatKey>("Todos")
+  const [selected,  setSelected]  = useState<typeof PRODUCTOS[number] | null>(null)
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const productosFiltrados = filtro === "Todos"
+    ? PRODUCTOS
+    : PRODUCTOS.filter(p => p.categoria === filtro)
+
+  const catActiva = getCat(filtro)
+  const countFor  = (k: string) => k === "Todos" ? PRODUCTOS.length : PRODUCTOS.filter(p => p.categoria === k).length
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: STYLES }} />
+
+      <div style={{ background: "var(--bg)", color: "var(--t1)", fontFamily: "'DM Sans', sans-serif" }}>
+
+        {/* Dot grid (fixed, decorative) */}
+        <div className="def-grid fixed inset-0 pointer-events-none" style={{ zIndex: 0 }} />
+
+        {/* ******************************************* HERO VIDEO ************************************************* */}
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <HeroSection
+            label="Innovación"
+            title="Creamos Soluciones que Vuelan Alto"
+            subtitle="Conoce nuestros proyectos y descubre cómo transformamos ideas en realidades tecnológicas del alto impacto."
+            video="/products.mp4"
+          />
+        </div>
+
+        <div className="def-layout">
+
+          {/* ── SIDEBAR (≥ lg) ─────────────────────────────────── */}
+          <Sidebar filtro={filtro} setFiltro={setFiltro} countFor={countFor} />
+
+          {/* ── MAIN ───────────────────────────────────────────── */}
+          <div className="def-main" style={{ position: "relative", zIndex: 1 }}>
+
+            {/* Mobile filters (< lg) */}
+            <MobileFilters filtro={filtro} setFiltro={setFiltro} countFor={countFor} />
+
+            {/* ── HERO ─────────────────────────────────────────── */}
+            <section
+              className="relative overflow-hidden"
+              style={{ background: "var(--bg-hero)", borderBottom: "1px solid var(--bdr)", padding: "64px 48px 80px" }}
+            >
+              <Radar />
+
+              <div style={{ position: "relative", zIndex: 1 }}>
+                {/* Pre-title */}
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 48 }}>
+                  <Dot sz={5} />
+                  <span style={{ ...M, fontSize: 9, letterSpacing: "0.38em", color: "var(--acc)", textTransform: "uppercase" }}>
+                    Sistema activo · Catálogo Técnico 2025
+                  </span>
+                </div>
+
+                {/* ********************************************************** HEADER ********************************************************** */}
+                <div className="grid lg:grid-cols-[1fr_34%] gap-12 items-center" style={{ marginBottom: 0 }}>
+                  <h1 style={{ ...D, fontSize: "clamp(3.8rem,9vw,8rem)", fontWeight: 700, textTransform: "uppercase", lineHeight: 0.9, letterSpacing: "-0.01em", margin: 0 }}>
+                    <span style={{ display: "block", color: "var(--t1)" }}>Nuestras</span>
+                    <span style={{ display: "block", WebkitTextStroke: "2px var(--bdr-hi)", color: "transparent" }}>
+                      soluciones
+                    </span>
+                  </h1>
+                  <p style={{ fontSize: 18, color: "var(--t2)", lineHeight: 1.74, paddingBottom: 4, margin: 0 }}>
+                    Sistemas de ingeniería desarrollados para entornos aeroespaciales
+                    y de defensa. Cada solución es el resultado de años de I+D
+                    aplicado en proyectos reales de alto impacto.
+                  </p>
+                </div>
+
+                {/* Animated divider */}
+                <div
+                  className="hero-sweep relative overflow-hidden"
+                  style={{ height: 1, background: "var(--bdr)", margin: "44px 0 0" }}
+                />
+
+                {/* Stats */}
+                <div className="grid grid-cols-3" style={{ border: "1px solid var(--bdr)", borderTop: "none" }}>
+                  {[
+                    { val: pad(PRODUCTOS.length), label: "Soluciones activas" },
+                    { val: "05",  label: "Áreas tecnológicas" },
+                    { val: "20+", label: "Patentes registradas" },
+                  ].map(({ val, label }, i) => (
+                    <div key={label} style={{ padding: "20px 24px", borderRight: i < 2 ? "1px solid var(--bdr)" : "none" }}>
+                      <div style={{ ...D, fontSize: "2.5rem", fontWeight: 700, lineHeight: 1, color: "var(--acc)", marginBottom: 5 }}>{val}</div>
+                      <div style={{ ...M, fontSize: 9, color: "var(--t3)", letterSpacing: "0.22em", textTransform: "uppercase" }}>{label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* ── PRODUCT GRID ─────────────────────────────────── */}
+            <main style={{ padding: "44px 48px", position: "relative", zIndex: 1 }}>
+
+              {/* TITULO DE CATEGORIAS */}
+              <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 32 }}>
+                <div>
+                  <span style={{ ...M, fontSize: 12, letterSpacing: "0.35em", color: "var(--t2)", textTransform: "uppercase", display: "block", marginBottom: 6 }}>
+                    Categoría activa
+                  </span>
+                  <h2 style={{ ...D, fontSize: "1.7rem", fontWeight: 700, textTransform: "uppercase", color: "var(--t1)", margin: 0 }}>
+                    {catActiva.label}
+                  </h2>
+                </div>
+                <span style={{ ...M, fontSize: 9, color: "var(--t4)" }}>
+                  {pad(productosFiltrados.length)}&nbsp;/&nbsp;{pad(PRODUCTOS.length)}&nbsp;sistemas
+                </span>
+              </div>
+
+              {/* Grid */}
+              {productosFiltrados.length === 0 ? (
+                <div style={{ padding: "100px 0", textAlign: "center" }}>
+                  <p style={{ ...M, fontSize: 9, color: "var(--t4)", letterSpacing: "0.35em", textTransform: "uppercase" }}>
+                    Sin resultados en esta categoría
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                  {productosFiltrados.map((p, i) => (
+                    <ProductCard
+                      key={p.id}
+                      producto={p}
+                      index={i}
+                      onOpen={() => { setSelected(p); setModalOpen(true) }}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Footer */}
+              {productosFiltrados.length > 0 && (
+                <div style={{ marginTop: 44, paddingTop: 18, borderTop: "1px solid var(--bdr)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <p style={{ ...M, fontSize: 8, color: "var(--t4)", letterSpacing: "0.28em", textTransform: "uppercase" }}>
+                    Defensya · Catálogo 2025 · Rev 3.1
+                  </p>
+                  <p style={{ ...M, fontSize: 8, color: "var(--t4)", letterSpacing: "0.28em", textTransform: "uppercase" }}>
+                    {pad(productosFiltrados.length)}&nbsp;/&nbsp;{pad(PRODUCTOS.length)}
+                  </p>
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
+      </div>
+
+      <ProductModal
+        producto={selected}
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
+    </>
   )
 }

@@ -126,7 +126,7 @@ export default function Hometwo() {
                 className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3"
               >
-                01 — Capacidades
+                Capacidades
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -197,7 +197,7 @@ export default function Hometwo() {
                 className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
                             uppercase mb-3"
               >
-                02 — Tecnologías Propietarias
+                Tecnologías Propietarias
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none
@@ -303,7 +303,7 @@ export default function Hometwo() {
                 className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                             dark:text-gray-500 uppercase mb-3"
               >
-                03 — Ingeniería
+                Ingeniería
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
@@ -359,7 +359,7 @@ export default function Hometwo() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
             <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-5">
-              04 — Colaboración
+              Colaboración
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none

@@ -45,7 +45,7 @@ export default function PatentsList() {
           <div>
             <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3">
-              05 — I+D+i
+               I+D+i
             </p>
             <h2
               className="text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase

@@ -92,7 +92,7 @@ export default function Sostenibilidad() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-14">
             <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-              01 — Objetivos
+              Objetivos
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -152,7 +152,7 @@ export default function Sostenibilidad() {
               className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3"
             >
-              02 — Acción
+              Acción
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase

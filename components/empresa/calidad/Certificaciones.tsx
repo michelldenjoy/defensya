@@ -57,7 +57,7 @@ export default function Certificaciones() {
               className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3"
             >
-              04 — Certificaciones Oficiales
+              Certificaciones Oficiales
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase

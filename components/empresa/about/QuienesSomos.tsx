@@ -84,7 +84,7 @@ const QuienesSomos = () => {
           <div className="mb-16">
             <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3">
-              01 — Experiencia
+              Experiencia
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -134,7 +134,7 @@ const QuienesSomos = () => {
 
           <div className="mb-16">
             <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-              02 — Trayectoria
+              Trayectoria
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -215,7 +215,7 @@ const QuienesSomos = () => {
           <div className="mb-16">
             <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3">
-              03 — Clientes
+              Clientes
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase

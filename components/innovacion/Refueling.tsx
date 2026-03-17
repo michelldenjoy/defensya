@@ -54,7 +54,7 @@ export default function Refueling() {
             className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                         dark:text-gray-500 uppercase mb-12"
           >
-            01 — Contexto
+             Contexto
           </p>
 
           <div
@@ -116,7 +116,7 @@ export default function Refueling() {
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
               <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                02 — Automatización
+                 Automatización
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -186,7 +186,7 @@ export default function Refueling() {
               className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3"
             >
-              03 — Beneficios
+               Beneficios
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -237,8 +237,8 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
-              <p className="text-[10px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                04 — Tecnologías Propietarias
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+                Tecnologías Propietarias
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
