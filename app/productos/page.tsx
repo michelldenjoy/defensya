@@ -23,192 +23,6 @@ const CATS: { key: CatKey; label: string; tag: string }[] = [
 function pad(n: number) { return String(n).padStart(2, "0") }
 function getCat(key: string) { return CATS.find(c => c.key === key) ?? CATS[0] }
 
-// ─── CSS: light default + dark via prefers-color-scheme ──────────────────────
-
-const STYLES = `
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
-
-  /* ── Design tokens ─────────────────────────────────────────── */
-  :root {
-    --bg:          #F4F5F8;
-    --bg-card:     #ffffff;
-    --bg-hero:     #ffffff;
-    --bg-nav:      rgba(244,245,248,0.97);
-    --bg-strip:    rgba(10,14,40,0.025);
-    --t1:          #0A0E28;
-    --t2:          rgba(10,14,40,0.5);
-    --t3:          rgba(10,14,40,0.3);
-    --t4:          rgba(10,14,40,0.14);
-    --acc:         #2563EB;
-    --acc-bg:      rgba(37,99,235,0.06);
-    --bdr:         rgba(10,14,40,0.085);
-    --bdr-hi:      rgba(37,99,235,0.32);
-    --scan:        rgba(37,99,235,0.14);
-    --dot:         rgba(10,14,40,0.065);
-    --radar-c:     rgba(10,14,40,0.25);
-    --radar-op:    0.10;
-    --sh-card:     0 2px 16px rgba(10,14,40,0.07), 0 1px 3px rgba(10,14,40,0.05);
-    --sh-hover:    0 16px 48px rgba(10,14,40,0.13), 0 0 0 1px rgba(37,99,235,0.16);
-    --sh-modal:    0 32px 80px rgba(10,14,40,0.22), 0 0 0 1px rgba(37,99,235,0.1);
-    --img-ov:      linear-gradient(to top, rgba(5,8,24,0.85) 0%, rgba(5,8,24,0.25) 52%, transparent 100%);
-    --modal-bg:    rgba(10,14,40,0.45);
-  }
-
-  /* ── Dark mode: prefers-color-scheme (auto) ───────────── */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg:          #05091A;
-      --bg-card:     #060C1B;
-      --bg-hero:     #060C1B;
-      --bg-nav:      rgba(5,9,26,0.97);
-      --bg-strip:    rgba(255,255,255,0.03);
-      --t1:          #EEF0FF;
-      --t2:          rgba(238,240,255,0.46);
-      --t3:          rgba(238,240,255,0.24);
-      --t4:          rgba(238,240,255,0.11);
-      --acc:         #3B82F6;
-      --acc-bg:      rgba(59,130,246,0.07);
-      --bdr:         rgba(255,255,255,0.07);
-      --bdr-hi:      rgba(96,165,250,0.35);
-      --scan:        rgba(59,130,246,0.22);
-      --dot:         rgba(59,130,246,0.11);
-      --radar-c:     rgba(59,130,246,1);
-      --radar-op:    0.07;
-      --sh-card:     0 2px 16px rgba(0,0,0,0.35);
-      --sh-hover:    0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(59,130,246,0.09);
-      --sh-modal:    0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(59,130,246,0.07);
-      --img-ov:      linear-gradient(to top, #060C1B 0%, rgba(6,12,27,0.36) 52%, transparent 100%);
-      --modal-bg:    rgba(4,7,20,0.75);
-    }
-  }
-
-  /* ── Dark mode: .dark class (Tailwind / manual toggle) ─ */
-  .dark {
-    --bg:          #05091A;
-    --bg-card:     #060C1B;
-    --bg-hero:     #060C1B;
-    --bg-nav:      rgba(5,9,26,0.97);
-    --bg-strip:    rgba(255,255,255,0.03);
-    --t1:          #EEF0FF;
-    --t2:          rgba(238,240,255,0.46);
-    --t3:          rgba(238,240,255,0.24);
-    --t4:          rgba(238,240,255,0.11);
-    --acc:         #3B82F6;
-    --acc-bg:      rgba(59,130,246,0.07);
-    --bdr:         rgba(255,255,255,0.07);
-    --bdr-hi:      rgba(96,165,250,0.35);
-    --scan:        rgba(59,130,246,0.22);
-    --dot:         rgba(59,130,246,0.11);
-    --radar-c:     rgba(59,130,246,1);
-    --radar-op:    0.07;
-    --sh-card:     0 2px 16px rgba(0,0,0,0.35);
-    --sh-hover:    0 16px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(59,130,246,0.09);
-    --sh-modal:    0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(59,130,246,0.07);
-    --img-ov:      linear-gradient(to top, #060C1B 0%, rgba(6,12,27,0.36) 52%, transparent 100%);
-    --modal-bg:    rgba(4,7,20,0.75);
-  }
-
-  /* ── Animations ────────────────────────────────────────────── */
-  @keyframes def-scan  { 0%{top:-80px;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{top:calc(100% + 80px);opacity:0} }
-  @keyframes def-radar { to{ transform:rotate(360deg) } }
-  @keyframes def-blink { 0%,100%{opacity:1} 50%{opacity:0.12} }
-  @keyframes def-up    { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes def-modal { from{opacity:0;transform:scale(0.96) translateY(12px)} to{opacity:1;transform:scale(1) translateY(0)} }
-  @keyframes def-sweep { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
-
-  /* ── Card ──────────────────────────────────────────────────── */
-  .dc {
-    position:relative; overflow:hidden; cursor:pointer;
-    background: var(--bg-card);
-    border: 1px solid var(--bdr);
-    box-shadow: var(--sh-card);
-    transition: border-color .35s, box-shadow .35s;
-  }
-  .dc:hover { border-color:var(--bdr-hi); box-shadow:var(--sh-hover); }
-
-  .dc-scan { position:absolute; left:0; right:0; height:80px; top:-80px; z-index:10; pointer-events:none;
-             background:linear-gradient(to bottom,transparent,var(--scan),transparent); }
-  .dc:hover .dc-scan { animation: def-scan 1.35s ease-in-out; }
-
-  .dc .dc-img { transition: transform .75s ease; }
-  .dc:hover .dc-img { transform: scale(1.055); }
-
-  .dc-brk { position:absolute; width:13px; height:13px; opacity:0; z-index:11; pointer-events:none;
-             transition: opacity .2s, transform .2s; }
-  .dc:hover .dc-brk { opacity:1; transform:translate(0,0) !important; }
-  .dc-tl { top:10px;  left:10px;  border-top:1.5px solid var(--bdr-hi); border-left:1.5px solid var(--bdr-hi);  transform:translate(5px,5px); }
-  .dc-tr { top:10px;  right:10px; border-top:1.5px solid var(--bdr-hi); border-right:1.5px solid var(--bdr-hi); transform:translate(-5px,5px); }
-  .dc-bl { bottom:10px; left:10px;  border-bottom:1.5px solid var(--bdr-hi); border-left:1.5px solid var(--bdr-hi);  transform:translate(5px,-5px); }
-  .dc-br { bottom:10px; right:10px; border-bottom:1.5px solid var(--bdr-hi); border-right:1.5px solid var(--bdr-hi); transform:translate(-5px,-5px); }
-
-  .dc .dc-bar { position:absolute; bottom:0; left:0; height:2px; width:100%; background:var(--acc);
-                transform:scaleX(0); transform-origin:left; transition:transform .6s ease; }
-  .dc:hover .dc-bar { transform:scaleX(1); }
-
-  .dc .dc-lbl { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase;
-                color:var(--t4); transition:color .3s; }
-  .dc:hover .dc-lbl { color:var(--acc); }
-  .dc .dc-line { background:var(--bdr); height:1px; transition:background .4s; }
-  .dc:hover .dc-line { background:var(--bdr-hi); }
-
-  /* ── Sidebar filter item ───────────────────────────────────── */
-  .sf {
-    display:flex; align-items:center; gap:12px; width:100%; text-align:left;
-    padding:14px 20px; cursor:pointer;
-    border-left: 2px solid transparent;
-    border-bottom: 1px solid var(--bdr);
-    transition: background .18s, border-color .18s;
-  }
-  .sf:hover { background:var(--acc-bg); }
-  .sf.sa    { background:var(--acc-bg); border-left-color:var(--acc); }
-
-  /* ── Mobile filter tab ─────────────────────────────────────── */
-  .mft { position:relative; flex-shrink:0; transition:background .18s; }
-  .mft::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
-                background:var(--acc); transform:scaleX(0); transition:transform .3s; }
-  .mft:hover::after, .mft.mfa::after { transform:scaleX(1); }
-  .mft.mfa { background:var(--acc-bg); }
-
-  /* ── Dot grid ──────────────────────────────────────────────── */
-  .def-grid { background-image: radial-gradient(var(--dot) 1px, transparent 1px); background-size: 36px 36px; }
-
-  /* ── Hero sweep line ───────────────────────────────────────── */
-  .hero-sweep::after {
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(90deg,transparent,var(--acc-bg),transparent);
-    width:50%; animation:def-sweep 4s ease-in-out infinite;
-  }
-
-  /* ── Card stagger ──────────────────────────────────────────── */
-  .cri { opacity:0; animation:def-up .5s ease forwards; }
-
-  /* ── Hide scrollbar ────────────────────────────────────────── */
-  .sbn::-webkit-scrollbar{display:none} .sbn{-ms-overflow-style:none;scrollbar-width:none}
-
-  /* ── Layout ────────────────────────────────────────────────── */
-  .def-layout { display:flex; min-height:100vh; }
-
-  .def-sidebar {
-    width:210px; flex-shrink:0;
-    position:sticky; top:0; height:100vh; overflow-y:auto;
-    border-right:1px solid var(--bdr);
-    background:var(--bg-nav);
-    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-    display:flex; flex-direction:column; z-index:30;
-  }
-
-  .def-main { flex:1; min-width:0; }
-
-  /* Responsive: hide sidebar on mobile, show horizontal strip */
-  @media (max-width:1023px) {
-    .def-sidebar   { display:none !important; }
-    .def-mfilter   { display:flex !important; }
-  }
-  @media (min-width:1024px) {
-    .def-mfilter   { display:none !important; }
-  }
-`
-
 // ─── Font style refs ──────────────────────────────────────────────────────────
 
 const D: React.CSSProperties = { fontFamily: "'Barlow Condensed', sans-serif" }
@@ -287,7 +101,6 @@ function Sidebar({
         <p style={{ ...D, fontSize: "1.3rem", fontWeight: 900, textTransform: "uppercase", color: "var(--t1)", lineHeight: 1 }}>
           Defensya
         </p>
-
       </div>
 
       {/* "Filtrar por" label */}
@@ -308,7 +121,7 @@ function Sidebar({
               onClick={() => setFiltro(cat.key)}
               className={`sf ${active ? "sa" : ""}`}
             >
-              {/* Count- NUMEROS LATERALES */}
+              {/* Count - NUMEROS LATERALES */}
               <span style={{
                 ...M, fontSize: "1.4rem", fontWeight: 600, lineHeight: 1, minWidth: 36,
                 color: active ? "var(--acc)" : "var(--t4)",
@@ -348,7 +161,6 @@ function Sidebar({
       {/* Sidebar footer */}
       <div style={{ padding: "14px 20px", borderTop: "1px solid var(--bdr)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          {/* <Dot d={3} sz={4} /> */}
           <span style={{ ...M, fontSize: 12, color: "var(--t4)", letterSpacing: "0.22em", textTransform: "uppercase" }}>
             20+ patentes
           </span>
@@ -358,7 +170,7 @@ function Sidebar({
   )
 }
 
-// ─── Mobile filter strip (< lg) ──────────────────────
+// ─── Mobile filter strip (< lg) ──────────────────────────────────────────────
 
 function MobileFilters({
   filtro, setFiltro, countFor,
@@ -402,7 +214,7 @@ function MobileFilters({
   )
 }
 
-// ─── Modal ─────────────────────────
+// ─── Modal ────────────────────────────────────────────────────────────────────
 
 function ProductModal({
   producto, open, onClose,
@@ -625,14 +437,12 @@ export default function ProductosPage() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: STYLES }} />
-
       <div style={{ background: "var(--bg)", color: "var(--t1)", fontFamily: "'DM Sans', sans-serif" }}>
 
         {/* Dot grid (fixed, decorative) */}
         <div className="def-grid fixed inset-0 pointer-events-none" style={{ zIndex: 0 }} />
 
-        {/* ******************************************* HERO VIDEO ************************************************* */}
+        {/* ── HERO VIDEO ── */}
         <div style={{ position: "relative", zIndex: 1 }}>
           <HeroSection
             label="Innovación"
@@ -644,16 +454,16 @@ export default function ProductosPage() {
 
         <div className="def-layout">
 
-          {/* ── SIDEBAR (≥ lg) ─────────────────────────────────── */}
+          {/* ── SIDEBAR (≥ lg) ── */}
           <Sidebar filtro={filtro} setFiltro={setFiltro} countFor={countFor} />
 
-          {/* ── MAIN ───────────────────────────────────────────── */}
+          {/* ── MAIN ── */}
           <div className="def-main" style={{ position: "relative", zIndex: 1 }}>
 
             {/* Mobile filters (< lg) */}
             <MobileFilters filtro={filtro} setFiltro={setFiltro} countFor={countFor} />
 
-            {/* ── HERO ─────────────────────────────────────────── */}
+            {/* ── SECTION HERO ── */}
             <section
               className="relative overflow-hidden"
               style={{ background: "var(--bg-hero)", borderBottom: "1px solid var(--bdr)", padding: "64px 48px 80px" }}
@@ -669,7 +479,7 @@ export default function ProductosPage() {
                   </span>
                 </div>
 
-                {/* ********************************************************** HEADER ********************************************************** */}
+                {/* Header */}
                 <div className="grid lg:grid-cols-[1fr_34%] gap-12 items-center" style={{ marginBottom: 0 }}>
                   <h1 style={{ ...D, fontSize: "clamp(3.8rem,9vw,8rem)", fontWeight: 700, textTransform: "uppercase", lineHeight: 0.9, letterSpacing: "-0.01em", margin: 0 }}>
                     <span style={{ display: "block", color: "var(--t1)" }}>Nuestras</span>
@@ -706,10 +516,10 @@ export default function ProductosPage() {
               </div>
             </section>
 
-            {/* ── PRODUCT GRID ─────────────────────────────────── */}
+            {/* ── PRODUCT GRID ── */}
             <main style={{ padding: "44px 48px", position: "relative", zIndex: 1 }}>
 
-              {/* TITULO DE CATEGORIAS */}
+              {/* Category header */}
               <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 32 }}>
                 <div>
                   <span style={{ ...M, fontSize: 12, letterSpacing: "0.35em", color: "var(--t2)", textTransform: "uppercase", display: "block", marginBottom: 6 }}>
