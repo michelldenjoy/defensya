@@ -284,7 +284,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Pantallas de alta resistencia totalmente personalizables, diseñadas para operar bajo condiciones ambientales extremas.",
-      imagen: "/images/aeronautic.jpg",
+      imagen: ["/products/rugged7-1.webp", "/products/rugged7-2.webp", "/products/rugged7.webp" ],
     detalles: [
       "Certificación Militar: MIL-STD-461F y MIL-STD-810G",
       "Alta luminosidad (>500cd) para legibilidad bajo luz solar directa",
@@ -310,7 +310,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Dispositivo de despliegue rápido para la reproducción y análisis de imágenes registradas durante misiones.",
-      imagen: "/images/aeronautic.jpg",
+      imagen: "/products/portable.webp",
     detalles: [
       "Monitoreo sincronizado de audio y vídeo con superposición de datos",
       "Herramienta clave para el post-análisis de reabastecimiento aéreo",
@@ -323,7 +323,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Displays multifunción de última generación con procesador i7 de 13ª generación para procesamiento de datos masivo.",
-      imagen: "/images/aeronautic.jpg",
+      imagen: "/products/ruggedmfcd.webp",
     detalles: [
       'Pantalla de 13" con resolución 2736 x 1824',
       "Arquitectura ampliable hasta 32GB de RAM y 4TB SSD",
