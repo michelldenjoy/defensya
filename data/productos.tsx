@@ -30,7 +30,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Vision",
     descripcion:
       "Dispositivo de visualización inmersiva para operadores de reabastecimiento aéreo.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: ["/products/3dmrtt2.png", "/products/3dmrtt.jpg"],
     detalles: [
       "Visión 3D de alta definición sin latencia",
       "Sustituye o complementa los monitores tradicionales de consola",
@@ -63,35 +63,30 @@ export const PRODUCTOS: Producto[] = [
       ]
     },
     {
-      id: "camera-bench-supervision",
-      nombre: "Camera Bench Supervision",
+      id: "supervision-designation-bench",
+      nombre: "Supervision & Designation",
       categoria: "Vision",
-      descripcion: "Sistema de vigilancia estabilizado con capacidades de Auto-Tracking y rutinas programables por el usuario.",
+      descripcion: "Sistema electro-óptico modular de alta precisión diseñado para misiones de vigilancia, adquisición de objetivos y guiado láser en entornos tácticos.",
       imagen: "/images/aeronautic.jpg",
       detalles: [
-        "Zoom óptico 20x con estabilización de imagen activa",
-        "Resolución hasta 4K con opción de iluminador IR",
-        "Interfaz de control de alta precisión para misiones críticas"
+        "Arquitectura Modular: Configuración de hasta 3 slots simultáneos para sensores multiespectrales.",
+        "Estabilización Activa: Sistema de imagen estabilizada con capacidades de Auto-Tracking (seguimiento automático).",
+        "Designación Láser: Emisor de 1064nm (>70mJ, 30Hz) bajo normativa OTAN STANAG 3733 para guiado de precisión.",
+        "Inteligencia Operativa: Rutinas programables por el usuario y opciones de iluminación IR integrada.",
+        "Sensor VIS (Visible): Resolución hasta 4K, Zoom óptico 20x con estabilización digital.",
+        "Sensor Térmico (LWIR): Resolución desde 640x480 hasta 1080p con tecnología SRA (Super Resolution).",
+        "Sensor NIR/SWIR: Resolución 1080p con zoom óptico 20x y alta sensibilidad en espectros no visibles.",
+        "Láser Designador: Pulsado 1064nm, Energía > 70mJ, Frecuencia hasta 30Hz.",
+        "Cumplimiento Normativo: NATO STANAG 3733 y estándares MIL-STD para entornos de combate."
       ]
-    },
-    {
-      id: "designator-bench-laser",
-      nombre: "Designator Bench Laser",
-      categoria: "Vision",
-      descripcion: "Plataforma de designación avanzada con hasta 3 slots para cámaras (VIS, Térmica, NIR/SWIR) y láser pulsado.",
-      imagen: "/images/aeronautic.jpg",
-      detalles: [
-        "Láser Designador 1064nm conforme a NATO STANAG 3733",
-        "Cámaras Térmicas y SWIR de alta resolución (SRA)",
-        "Sistema de puntería de alta energía (>70mJ) para guiado de precisión"
-      ]
+
     },
     {
       id: "pan-tilt-bench-hdtp",
       nombre: "Pan & Tilt Bench",
       categoria: "Vision",
       descripcion: "Plataforma móvil ultraligera fabricada en polímeros técnicos y fibra de carbono para el posicionamiento de sensores.",
-      imagen: "/images/aeronautic.jpg",
+      imagen: "/products/pan&tiltt.png",
       detalles: [
         "Velocidad extrema: Pan 280°/s y Tilt 190°/s con repetibilidad de ±0.01°",
         "Construcción en Aluminio 7071 y fibra de carbono (<4kg)",
