@@ -13,7 +13,7 @@ export const PRODUCTOS: Producto[] = [
   // --- 1. VISIÓN Y MONITORIZACIÓN ---
   {
     id: "3d-dichroic-mirror",
-    nombre: "Espejo Dicróico 3D",
+    nombre: "3D Dichroic Mirror",
     categoria: "Vision",
     descripcion:
       "Sistema integrado en el BEVS para la optimización de la visión estereoscópica en operaciones de reabastecimiento en vuelo.",
@@ -26,7 +26,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "mrtt-3d-goggles",
-    nombre: "Gafas MRTT 3D",
+    nombre: "3D Glases MRTT",
     categoria: "Vision",
     descripcion:
       "Dispositivo de visualización inmersiva para operadores de reabastecimiento aéreo.",
@@ -39,11 +39,11 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "coastal-monitoring-belgium",
-    nombre: "Sistema de Monitorización Costera",
+    nombre: "Coastal Monitoring Fire Range",
     categoria: "Vision",
     descripcion:
       "Sistema compacto de vigilancia para rangos navales, instalado actualmente en la costa de Bélgica.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/coastal.jpg",
     detalles: [
       "Conjunto de 2 radares de diferentes frecuencias de detección",
       "Cámaras térmicas y de espectro visible con zoom óptico 20x",
@@ -52,7 +52,7 @@ export const PRODUCTOS: Producto[] = [
   },
     {
       id: "cameras-multi-spectral",
-      nombre: "Sensores Ópticos Multiespectrales",
+      nombre: "Cameras Multi Spectral",
       categoria: "Vision",
       descripcion: "Gama completa de cámaras de alta resolución (hasta 4K) adaptables a cualquier lente, con unidad de procesamiento integrada para algoritmos avanzados.",
       imagen: ["/products/camera1.webp", "/products/camera2.webp", "/products/camera3.webp", "/products/camera4.webp", "/products/camera5.webp", "/products/camera6.webp"] ,  
@@ -64,7 +64,7 @@ export const PRODUCTOS: Producto[] = [
     },
     {
       id: "camera-bench-supervision",
-      nombre: "Banco de Cámara de Supervisión y Designación",
+      nombre: "Camera Bench Supervision",
       categoria: "Vision",
       descripcion: "Sistema de vigilancia estabilizado con capacidades de Auto-Tracking y rutinas programables por el usuario.",
       imagen: "/images/aeronautic.jpg",
@@ -76,7 +76,7 @@ export const PRODUCTOS: Producto[] = [
     },
     {
       id: "designator-bench-laser",
-      nombre: "Banco Designador Láser",
+      nombre: "Designator Bench Laser",
       categoria: "Vision",
       descripcion: "Plataforma de designación avanzada con hasta 3 slots para cámaras (VIS, Térmica, NIR/SWIR) y láser pulsado.",
       imagen: "/images/aeronautic.jpg",
@@ -88,7 +88,7 @@ export const PRODUCTOS: Producto[] = [
     },
     {
       id: "pan-tilt-bench-hdtp",
-      nombre: "Banco Pan & Tilt de Alta Velocidad",
+      nombre: "Pan & Tilt Bench",
       categoria: "Vision",
       descripcion: "Plataforma móvil ultraligera fabricada en polímeros técnicos y fibra de carbono para el posicionamiento de sensores.",
       imagen: "/images/aeronautic.jpg",
@@ -120,7 +120,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Datos",
     descripcion:
       "Sistema de control y localización de recursos críticos con información actualizada en tiempo real.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/rfid.jpg",
     detalles: [
       "Localización precisa de material sensible",
       "Sincronización total con base de datos central",
@@ -133,7 +133,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Datos",
     descripcion:
       "Sistema de transmisión de datos para la gestión logística de vehículos en talleres y depósitos.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/rfidrenting.jpg",
     detalles: [
       "Ideal para empresas de leasing y alquiler de vehículos",
       "Gestión de movimientos en tiempo real",
@@ -142,7 +142,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "video-audio-data-recorder",
-    nombre: "Video Audio & Data Recorder",
+    nombre: "Video & Data Recorder",
     categoria: "Datos",
     descripcion:
       "Sistema de registro integral de misión para la captura de señales críticas de vuelo.",
@@ -155,11 +155,11 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "global-video-platform",
-    nombre: "Global Video Platform",
+    nombre: "Global Video System Platform",
     categoria: "Datos",
     descripcion:
       "Plataforma integral de gestión de vídeo para la distribución y control de señales en la aeronave.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: ["/products/globalvideo1.png", "/products/globalvideo.png"],
     detalles: [
       "Arquitectura escalable para diferentes plataformas",
       "Procesamiento de vídeo de baja latencia",
@@ -170,7 +170,7 @@ export const PRODUCTOS: Producto[] = [
   // --- 3. SOPORTE EN TIERRA Y TEST (GSE) ---
   {
     id: "deflexion-detector",
-    nombre: "Detector de Deflexión",
+    nombre: "Deflexion Detector",
     categoria: "Test",
     descripcion:
       "Sistema de inspección sin contacto para superficies móviles de vuelo de alta precisión.",
@@ -183,7 +183,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "pattern-generator",
-    nombre: "Generador de Patrones",
+    nombre: "Pattern Generator",
     categoria: "Test",
     descripcion:
       "Generador de señales de vídeo para el testeo de monitores industriales y militares.",
@@ -196,7 +196,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "dvi-emulator-non-frozen",
-    nombre: "Emulador DVI (Intelligent Non-Frozen)",
+    nombre: "Emulador DVI",
     categoria: "Test",
     descripcion:
       "Dispositivo diseñado para replicar entradas de señal de vídeo en la consola central del avión.",
@@ -239,7 +239,7 @@ export const PRODUCTOS: Producto[] = [
   // --- 5. INGENIERÍA CIVIL ---
   {
     id: "building-seismic-system",
-    nombre: "Sistema Sísmico para Edificios",
+    nombre: "Building Seismic System",
     categoria: "Civil",
     descripcion:
       "Sistema de detección de movimientos estructurales causados por actividad sísmica.",
@@ -254,7 +254,7 @@ export const PRODUCTOS: Producto[] = [
   // --- 6. SISTEMAS DE VISUALIZACIÓN Y DISPLAYS ---
   {
     id: "intelligent-non-freezing-monitors",
-    nombre: "Monitores Inteligentes Anti-Congelación",
+    nombre: "Intelligent non freezing Monitors",
     categoria: "Displays",
     descripcion:
       "Sistemas de visualización crítica diseñados para garantizar la fluidez de imagen, eliminando el riesgo de congelación de cuadros (frames).",
@@ -267,7 +267,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "panoramic-non-freezing-monitors",
-    nombre: "Monitores Panorámicos Inteligentes",
+    nombre: " Panoramic non freezing Monitors",
     categoria: "Displays",
     descripcion:
       "Displays de formato ancho que generan una visión periférica completa del área de trabajo, optimizando la seguridad operativa.",
@@ -293,7 +293,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "rugged-tactical-laptops",
-    nombre: "Laptops Tácticos Rugerizados",
+    nombre: "Rugged Tactical Laptops",
     categoria: "Displays",
     descripcion:
       "Estaciones de trabajo portátiles de alto rendimiento con arquitectura reforzada para despliegue en campo.",
@@ -306,7 +306,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "portable-vision-analysis",
-    nombre: "Sistema Portátil de Análisis de Visión",
+    nombre: "Portable Vision Analysis",
     categoria: "Displays",
     descripcion:
       "Dispositivo de despliegue rápido para la reproducción y análisis de imágenes registradas durante misiones.",
@@ -319,7 +319,7 @@ export const PRODUCTOS: Producto[] = [
   },
   {
     id: "rugged-mfcds",
-    nombre: "MFCDs Rugerizados (Multi-Function Color Display)",
+    nombre: "Rugged MFCDs ",
     categoria: "Displays",
     descripcion:
       "Displays multifunción de última generación con procesador i7 de 13ª generación para procesamiento de datos masivo.",
