@@ -107,7 +107,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Datos",
     descripcion:
       "Dispositivo RFID capaz de almacenar una base de datos completa de cada componente del Boom del A330MRTT.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/boomtag.jpg",
     detalles: [
       "Registro digital de mantenimiento, reparaciones y fechas de fabricación",
       "Alimentación por inducción (sin batería interna)",
@@ -174,7 +174,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Test",
     descripcion:
       "Sistema de inspección sin contacto para superficies móviles de vuelo de alta precisión.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/deflexion.jpeg",
     detalles: [
       "Reduce el tiempo de montaje y test de 10 horas a 15 minutos",
       "Mayor resolución que los sistemas de pantógrafo tradicionales",
@@ -187,7 +187,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Test",
     descripcion:
       "Generador de señales de vídeo para el testeo de monitores industriales y militares.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/pattern.jpg",
     detalles: [
       "Hasta 8 salidas ópticas SDI independientes",
       "Selección de patrones mediante canal serie",
@@ -200,7 +200,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Test",
     descripcion:
       "Dispositivo diseñado para replicar entradas de señal de vídeo en la consola central del avión.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/dvi.png",
     detalles: [
       "Previene la congelación de monitores por fallos de fuente",
       "Mantiene una salida DVI estable y activa permanentemente",
@@ -228,7 +228,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Mision",
     descripcion:
       "Subsistema de sensores acústicos y de detección especializada para aplicaciones aeroespaciales.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/aeroear.jpg",
     detalles: [
       "Detección de firmas acústicas específicas",
       "Integración en el ecosistema de sensores de la aeronave",
@@ -284,7 +284,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Pantallas de alta resistencia totalmente personalizables, diseñadas para operar bajo condiciones ambientales extremas.",
-      imagen: ["/products/rugged7-1.webp", "/products/rugged7-2.webp", "/products/rugged7.webp" ],
+      imagen: ["/products/rugged7-3.webp", "/products/rugged7-2.webp", "/products/rugged7.webp", "/products/rugged7-1.webp" ],
     detalles: [
       "Certificación Militar: MIL-STD-461F y MIL-STD-810G",
       "Alta luminosidad (>500cd) para legibilidad bajo luz solar directa",
@@ -297,7 +297,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Estaciones de trabajo portátiles de alto rendimiento con arquitectura reforzada para despliegue en campo.",
-      imagen: "/images/aeronautic.jpg",
+      imagen: ["/products/tactical.png", "/products/tactical2.png", "/products/tactical3.jpg"],
     detalles: [
       "Procesador Intel Core i7 10th Gen y hasta 16GB DDR4",
       "Pantalla de alta resolución (267 PPI) de 12.3 pulgadas",

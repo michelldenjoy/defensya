@@ -52,7 +52,7 @@
   --sh-card:  0 2px 16px rgba(10, 14, 40, 0.07), 0 1px 3px rgba(10, 14, 40, 0.05);
   --sh-hover: 0 16px 48px rgba(10, 14, 40, 0.13), 0 0 0 1px rgba(37, 99, 235, 0.16);
   --sh-modal: 0 32px 80px rgba(10, 14, 40, 0.22), 0 0 0 1px rgba(37, 99, 235, 0.1);
-  --img-ov:   linear-gradient(to top, rgba(5, 8, 24, 0.85) 0%, rgba(5, 8, 24, 0.25) 52%, transparent 100%);
+  --img-ov:   linear-gradient(to top, rgba(5, 8, 24, 0.685) 0%, rgba(5, 8, 24, 0.184) 52%, transparent 100%);
   --modal-bg: rgba(10, 14, 40, 0.45);
 }
 
@@ -115,7 +115,7 @@
     --sh-card:  0 2px 16px rgba(0, 0, 0, 0.35);
     --sh-hover: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(59, 130, 246, 0.09);
     --sh-modal: 0 32px 80px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(59, 130, 246, 0.07);
-    --img-ov:   linear-gradient(to top, #060C1B 0%, rgba(6, 12, 27, 0.36) 52%, transparent 100%);
+    --img-ov:   linear-gradient(to top, #060c1b93 0%, rgba(6, 12, 27, 0.36) 52%, transparent 100%);
     --modal-bg: rgba(4, 7, 20, 0.75);
   }
 }
@@ -231,7 +231,7 @@ body {
 }
 .dc:hover .dc-line { background: var(--bdr-hi); }
 
-/* ── Sidebar filter item ─────────────────────────────────────────────────────── */
+/* ── Sidebar filter item var(--img-ov) ─────────────────────────────────────────────────────── */
 .sf {
   display: flex;
   align-items: center;
