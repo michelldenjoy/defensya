@@ -298,7 +298,7 @@ export default function Navbar() {
             aria-label="Defensya — ir al inicio"
           >
             <Image
-              src="/logo.jpeg"
+              src="/logodefensyanew.png"
               alt="Defensya Logo"
               width={150}
               height={32}

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HITOS = [
   {
-    year: "2007",
+    year: "2006",
     tag: "Fundación",
     title: "El Origen de una Visión",
     description:
