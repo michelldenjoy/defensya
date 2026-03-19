@@ -209,7 +209,7 @@ const QuienesSomos = () => {
       <Rule />
 
       {/* ───── CONFÍAN EN NOSOTROS ───── */}
-      <section className="py-28 px-6 lg:px-16">
+      {/* <section className="py-28 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
 
           <div className="mb-16">
@@ -253,7 +253,7 @@ const QuienesSomos = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
     </main>
   )
