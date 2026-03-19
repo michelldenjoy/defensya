@@ -49,11 +49,11 @@ export default function HeroSection({
       {/* CONTENIDO */}
       <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
 
-        {label && (
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#4FAAFF] mb-4">
+        {/* {label && (
+          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-defensya-sky mb-4">
             {label}
           </p>
-        )}
+        )} */}
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white max-w-xl leading-tight">
           {title}

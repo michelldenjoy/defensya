@@ -38,7 +38,7 @@ function Field({
 const inputCls = [
   "w-full bg-transparent",
   "border-b border-white/[0.12]",
-  "px-0 py-2.5 text-sm text-white",
+  "px-4 py-2.5 text-sm text-white",
   "placeholder:text-white/20",
   "focus:outline-none focus:border-defensya-blue",
   "transition-colors duration-300",
@@ -73,7 +73,7 @@ export default function ContactView() {
       className="relative w-full min-h-screen bg-defensya-navy text-white overflow-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      {/* ── DECORATIVE BG ───────────────*/}
+      {/* ── DECORATIVE BG px- ───────────────*/}
       <div className="pointer-events-none select-none absolute inset-0 flex items-center justify-center">
         <div className="absolute w-200 h-200 rounded-full border border-white/2.5" />
         <div className="absolute w-125 h-125 rounded-full border border-white/2.5" />
@@ -92,8 +92,8 @@ export default function ContactView() {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="w-6 h-px bg-defensya-sky" />
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-sky uppercase">
               Canal de contacto
             </span>
           </div>
@@ -103,7 +103,7 @@ export default function ContactView() {
       </div>
 
       {/* ── MAIN GRID ──────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 ">
         <div className="grid lg:grid-cols-[1fr_58%] min-h-[80vh]">
           {/* ── LEFT ─────── */}
           <div
@@ -150,7 +150,7 @@ export default function ContactView() {
                   </p>
                   <p
                     className={`text-md font-medium ${
-                      mono ? "font-mono text-defensya-blue" : "text-white"
+                      mono ? "font-mono text-defensya-sky" : "text-white"
                     }`}
                   >
                     {value}
@@ -194,10 +194,10 @@ export default function ContactView() {
 
               {/* Corner bracket decoration */}
               <div className="relative w-10 h-10 shrink-0 hidden sm:block mt-1">
-                <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-defensya-blue/50" />
-                <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-defensya-blue/50" />
-                <span className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-defensya-blue/50" />
-                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-defensya-blue/50" />
+                <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-defensya-blue/90" />
+                <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-defensya-blue/90" />
+                <span className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-defensya-blue/90" />
+                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-defensya-blue/90" />
               </div>
             </div>
 

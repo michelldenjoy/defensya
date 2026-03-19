@@ -21,7 +21,7 @@ export default function PoliticaCalidad() {
 
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Empresa — Calidad y Certificaciones
             </span>
           </div>
@@ -110,7 +110,7 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
 
           <div className="mb-14">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
               Marco Estratégico
             </p>
             <h2
@@ -127,7 +127,7 @@ export default function PoliticaCalidad() {
             {/* Objetivos */}
             <div className="border-b md:border-b-0 md:border-r border-white/8
                             py-10 md:pr-12 lg:pr-16">
-              <span className="text-lg font-mono text-defensya-blue tracking-widest
+              <span className="text-lg font-mono text-defensya-sky tracking-widest
                                uppercase mb-6 block">
                 Objetivos Estratégicos
               </span>
@@ -141,7 +141,7 @@ export default function PoliticaCalidad() {
                     key={i}
                     className="flex gap-5 py-5 border-b border-white/6"
                   >
-                    <span className="text-[12px] font-mono text-defensya-blue
+                    <span className="text-[12px] font-mono text-defensya-sky
                                      tracking-widest shrink-0 pt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -153,7 +153,7 @@ export default function PoliticaCalidad() {
 
             {/* Valores */}
             <div className="py-10 md:pl-12 lg:pl-16">
-              <span className="text-lg font-mono text-defensya-blue tracking-widest
+              <span className="text-lg font-mono text-defensya-sky tracking-widest
                                uppercase mb-6 block">
                 Valores Fundamentales
               </span>
@@ -169,7 +169,7 @@ export default function PoliticaCalidad() {
                     key={i}
                     className="flex gap-5 py-5 border-b border-white/6"
                   >
-                    <span className="text-[12px] font-mono text-defensya-blue
+                    <span className="text-[12px] font-mono text-defensya-sky
                                      tracking-widest shrink-0 pt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </span>

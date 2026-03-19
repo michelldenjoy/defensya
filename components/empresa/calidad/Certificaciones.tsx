@@ -200,7 +200,7 @@ export default function Certificaciones() {
           <div className="flex flex-col bg-defensya-navy p-8 lg:p-12">
             <div className="mb-6 pb-6 ">
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
+                className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
                             uppercase mb-5"
               >
                 Compromiso
@@ -213,7 +213,7 @@ export default function Certificaciones() {
             </div>
 
             <p
-              className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
+              className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
                           uppercase mb-6"
             >
               Pilares del sistema
@@ -248,7 +248,7 @@ export default function Certificaciones() {
                              group hover:bg-white/3 transition-colors -mx-2 px-2"
                 >
                   <span
-                    className="text-[12px] font-mono text-defensya-blue
+                    className="text-[12px] font-mono text-defensya-sky
                                    tracking-widest shrink-0 pt-0.5"
                   >
                     {num}

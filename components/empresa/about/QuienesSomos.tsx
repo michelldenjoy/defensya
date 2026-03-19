@@ -21,7 +21,7 @@ const QuienesSomos = () => {
 
           <div className="flex items-center gap-3 mb-10">
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Empresa — Quiénes somos
             </span>
           </div>
@@ -133,7 +133,7 @@ const QuienesSomos = () => {
         <div className="max-w-7xl mx-auto">
 
           <div className="mb-16">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
               Trayectoria
             </p>
             <h2

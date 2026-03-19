@@ -105,7 +105,7 @@ export default function ODSSection() {
             className="flex items-center gap-3 mb-10"
           >
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
              Agenda 2030
             </span>
           </motion.div>

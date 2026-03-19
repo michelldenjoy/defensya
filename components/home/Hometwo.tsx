@@ -21,7 +21,7 @@ export default function Hometwo() {
         >
           <div className="flex items-center gap-3 mb-12">
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Sistemas aeroespaciales avanzados
             </span>
           </div>
@@ -194,7 +194,7 @@ export default function Hometwo() {
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
+                className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
                             uppercase mb-3"
               >
                 Tecnologías Propietarias
@@ -257,7 +257,7 @@ export default function Hometwo() {
                 >
                   {name}
                 </span>
-                <span className="text-[12px] font-mono tracking-widest text-defensya-blue uppercase">
+                <span className="text-[12px] font-mono tracking-widest text-defensya-sky uppercase">
                   {tag}
                 </span>
                 <span className="text-md text-gray-400">{desc}</span>
@@ -358,7 +358,7 @@ export default function Hometwo() {
       <section className="py-28 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-5">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-5">
               Colaboración
             </p>
             <h2

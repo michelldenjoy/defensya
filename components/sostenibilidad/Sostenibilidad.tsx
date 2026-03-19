@@ -17,7 +17,7 @@ export default function Sostenibilidad() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Empresa — Sostenibilidad
             </span>
           </div>
@@ -91,7 +91,7 @@ export default function Sostenibilidad() {
       <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
           <div className="mb-14">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
               Objetivos
             </p>
             <h2
@@ -127,7 +127,7 @@ export default function Sostenibilidad() {
                            px-2 -mx-2 group"
               >
                 <span
-                  className="text-[12px] font-mono text-defensya-blue tracking-widest
+                  className="text-[12px] font-mono text-defensya-sky tracking-widest
                                  pt-0.5 shrink-0"
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -262,7 +262,7 @@ export default function Sostenibilidad() {
                         grid lg:grid-cols-[1fr_auto] gap-10 items-center"
         >
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-5">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-5">
               Cumplimiento
             </p>
             <h2

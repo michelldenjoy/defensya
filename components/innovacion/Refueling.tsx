@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+
 export default function Refueling() {
   return (
     <main
@@ -11,7 +15,7 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Innovación — Reabastecimiento Air-to-Air
             </span>
           </div>
@@ -33,12 +37,12 @@ export default function Refueling() {
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
-              En Defensya, la innovación
-              es el motor que impulsa nuestro compromiso en la
-              industria aeroespacial. Nos dedicamos a desarrollar soluciones
-              avanzadas y tecnologías que transforman la defensa y
-              la seguridad. Desde sistemas de reabastecimiento en vuelo hasta
-              patentes innovadoras, seguimos en constante evolución para garantizar un entorno operativo más seguro y eficiente..
+              En Defensya, la innovación es el motor que impulsa nuestro
+              compromiso en la industria aeroespacial. Nos dedicamos a
+              desarrollar soluciones avanzadas y tecnologías que transforman la
+              defensa y la seguridad. Desde sistemas de reabastecimiento en
+              vuelo hasta patentes innovadoras, seguimos en constante evolución
+              para garantizar un entorno operativo más seguro y eficiente..
             </p>
           </div>
         </div>
@@ -54,7 +58,7 @@ export default function Refueling() {
             className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                         dark:text-gray-500 uppercase mb-12"
           >
-             Contexto
+            Contexto
           </p>
 
           <div
@@ -115,8 +119,8 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                 Automatización
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
+                Automatización
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -163,7 +167,7 @@ export default function Refueling() {
                   {name}
                 </span>
                 <span
-                  className="text-[14px] font-mono tracking-widest text-defensya-blue
+                  className="text-[14px] font-mono tracking-widest text-defensya-sky
                                  uppercase self-center hidden lg:block"
                 >
                   {tag}
@@ -186,7 +190,7 @@ export default function Refueling() {
               className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3"
             >
-               Beneficios
+              Beneficios
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -233,68 +237,88 @@ export default function Refueling() {
       </section>
 
       {/* ── TECNOLOGÍAS CLAVE ────── */}
-      <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
-            <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                Tecnologías Propietarias
-              </p>
-              <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                           leading-none tracking-tight text-white"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Tecnologías Clave
-              </h2>
-            </div>
+      {/* ── TECNOLOGÍAS CLAVE ────── */}
+<section className="px-6 lg:px-16 py-24 bg-defensya-navy">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
+      <div>
+        <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
+          Tecnologías Propietarias
+        </p>
+        <h2
+          className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+                     leading-none tracking-tight text-white"
+          style={{
+            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+          }}
+        >
+          Tecnologías Clave
+        </h2>
+      </div>
+    </div>
+
+    {/* Boomerang + Haptix */}
+    <div className="grid md:grid-cols-2 border-t border-l border-white/8">
+      {[
+        {
+          name: "Boomerang®",
+          tag: "Precision Receptacle Location",
+          desc: "Tecnología diseñada para mejorar la precisión en la localización del receptáculo de repostaje. Reduce significativamente las latencias del sistema aire-aire, permitiendo operaciones de reabastecimiento estables incluso en condiciones de fuerte turbulencia.",
+        },
+        {
+          name: "Haptix®",
+          tag: "Haptic Boom Control",
+          desc: "Dispositivo de control manual con retroalimentación háptica que permite controlar el botalón de repostaje de forma natural e intuitiva. Facilita la transición desde operaciones manuales hacia entornos de automatización A3R®.",
+          href: "/haptix",
+        },
+      ].map(({ name, tag, desc, href }) => (
+        <div
+          key={name}
+          className="border-b border-r border-white/8
+                     p-8 lg:p-10 group
+                     hover:bg-white/3 transition-colors
+                     flex flex-col" // <--- Importante: flex para empujar el contenido
+        >
+          <div className="flex-grow"> {/* <--- Este div envuelve el texto superior */}
+            <span className="text-[12px] font-mono tracking-widest text-defensya-sky uppercase mb-3 block">
+              {tag}
+            </span>
+            <h3
+              className="text-3xl lg:text-4xl font-bold uppercase leading-none
+                         tracking-tight text-white mb-5"
+              style={{
+                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
+            >
+              {name}
+            </h3>
+            <p className="text-sm text-gray-400 leading-relaxed mb-8">
+              {desc}
+            </p>
           </div>
 
-          {/* Boomerang + Haptix — full-width rows */}
-          <div className="grid md:grid-cols-2 border-t border-l border-white/8">
-            {[
-              {
-                name: "Boomerang®",
-                tag: "Precision Receptacle Location",
-                desc: "Tecnología diseñada para mejorar la precisión en la localización del receptáculo de repostaje. Reduce significativamente las latencias del sistema aire-aire, permitiendo operaciones de reabastecimiento estables incluso en condiciones de fuerte turbulencia.",
-              },
-              {
-                name: "Haptix®",
-                tag: "Haptic Boom Control",
-                desc: "Dispositivo de control manual con retroalimentación háptica que permite controlar el botalón de repostaje de forma natural e intuitiva. Facilita la transición desde operaciones manuales hacia entornos de automatización A3R®.",
-              },
-            ].map(({ name, tag, desc }) => (
-              <div
-                key={name}
-                className="border-b border-r border-white/8
-                           p-8 lg:p-10 group
-                           hover:bg-white/3 transition-colors"
+          {/* Botón de enlace */}
+          <div className="mt-2 h-6"> {/* <--- Altura fija para mantener alineación */}
+            {href ? (
+              <Link 
+                href={href}
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-defensya-sky hover:text-white transition-colors group/link"
               >
-                <span
-                  className="text-[10px] font-mono tracking-widest text-defensya-blue
-                                 uppercase mb-3 block"
-                >
-                  {tag}
-                </span>
-                <h3
-                  className="text-3xl lg:text-4xl font-bold uppercase leading-none
-                             tracking-tight text-white mb-5"
-                  style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  }}
-                >
-                  {name}
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
-              </div>
-            ))}
+                Explorar tecnología 
+                <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-1" />
+              </Link>
+            ) : (
+              // Opcional: mostrar algo o nada si no hay link para mantener el grid simétrico
+              <span className="text-[10px] font-mono text-white/20 uppercase tracking-tighter">
+                Tecnología integrada
+              </span>
+            )}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
     </main>
   );
 }

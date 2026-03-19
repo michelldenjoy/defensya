@@ -144,11 +144,11 @@ export default function PatentsList() {
           <div className="hidden lg:block w-px self-stretch bg-defensya-blue shrink-0" />
 
           <div>
-            <p className="text-[10px] font-mono tracking-[0.3em] text-defensya-blue
+            <p className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue
                           uppercase mb-4">
               Última invención
             </p>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 
                           leading-relaxed italic">
               "Nuestra última invención posibilita la{" "}
               <span className="not-italic font-semibold text-gray-900 dark:text-white">
