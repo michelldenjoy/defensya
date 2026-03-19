@@ -2,35 +2,43 @@ import Image from "next/image";
 
 const HITOS = [
   {
-    year: "2001",
+    year: "2007",
     tag: "Fundación",
-    title: "Nace Defensya",
+    title: "El Origen de una Visión",
     description:
-      "Nace Defensya con el objetivo de rendir culto al diseño y al arte de inventar en el sector de la ingeniería electrónica y de telecomunicación.",
+      "Nace Defensya Ingeniería de Sistemas en Madrid. Establecimos nuestro propósito: resolver los desafíos de visualización y monitorización más críticos donde las soluciones convencionales no alcanzan los estándares de misión.",
     image: "/images/hito-fundacion.jpg",
   },
   {
-    year: "2008",
-    tag: "Hito Crítico",
-    title: "Sistema de Visión A330 MRTT",
+    year: "2011",
+    tag: "Eficiencia Operativa",
+    title: "Optimización FAL C295",
     description:
-      "Diseño y desarrollo del sistema de visión para el tanquero de Airbus, consolidando nuestra posición en la élite de la aeronáutica militar.",
-    image: "/images/aeronautic.jpg",
+      "Desarrollamos nuestro Detector de Deflexión láser para Airbus. Logramos un hito en la línea de montaje: reducir los tiempos de testeo de superficies móviles de 10 horas a tan solo 15 minutos con precisión micrométrica.",
+    image: "/images/hito-c295.jpg",
   },
   {
     year: "2015",
-    tag: "Propiedad Intelectual",
-    title: "+20 Patentes Registradas",
+    tag: "Elite Aeronáutica",
+    title: "Consolidación en el A330 MRTT",
     description:
-      "Consolidación de nuestra propiedad intelectual con innovaciones cedidas a clientes de primer nivel como EADS (Airbus).",
+      "Nos convertimos en pieza clave del avión cisterna de referencia mundial. Diseñamos el sistema de Espejos Dicróicos 3D, eliminando el 'ghosting' visual y garantizando la seguridad absoluta en operaciones de reabastecimiento en vuelo.",
+    image: "/images/aeronautic.jpg",
+  },
+  {
+    year: "2019",
+    tag: "Innovación RFID",
+    title: "Nacimiento de Boom Tag®",
+    description:
+      "Revolucionamos la trazabilidad con tecnología RFID sin batería. Creamos una base de datos digital integrada en cada componente de la pértiga de reabastecimiento, resistiendo las condiciones ambientales más extremas de la atmósfera.",
     image: "/images/hito-patentes.jpg",
   },
   {
     year: "2024",
-    tag: "3ª Generación",
-    title: "A3R® & A4R®",
+    tag: "Nueva Generación",
+    title: "A3R® & Optrónica Avanzada",
     description:
-      "Lanzamiento del nuevo sistema integral de visión y automatización. Semiautomatización y autonomía total para el repostaje en vuelo.",
+      "Lanzamos nuestra plataforma integral de visión y designación láser. Con capacidades de Auto-Tracking y cumplimiento NATO STANAG 3733, lideramos el camino hacia la autonomía total en misiones de repostaje y vigilancia.",
     image: "/images/hito-a3r.jpg",
   },
 ];
@@ -45,7 +53,7 @@ export default function Timeline() {
             className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                         dark:text-gray-500 uppercase mb-3"
           >
-            Historia
+            Nuestra Trayectoria
           </p>
           <h2
             className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -81,7 +89,7 @@ export default function Timeline() {
                     {/* Year pill */}
                     <div
                       className="bg-white dark:bg-defensya-navy
-                                    border border-gray-200 dark:border-white1
+                                    border border-gray-200 dark:border-white/10
                                     px-3 py-1"
                     >
                       <span
@@ -92,44 +100,29 @@ export default function Timeline() {
                       </span>
                     </div>
                     {/* Dot */}
-                    <div className="w-2 h-2 rounded-full bg-defensya-blue" />
+                    <div className="w-2 h-2 rounded-full bg-defensya-blue shadow-[0_0_10px_rgba(0,114,206,0.5)]" />
                   </div>
 
-                  {/* ── LEFT CELL ── */}
+                  {/* ── CELDA IZQUIERDA ── */}
                   <div
                     className={`border-b border-gray-200 dark:border-white/[0.07]
                                 lg:border-b-0 lg:border-r
                                 ${
                                   isLeft
                                     ? "lg:pr-16 lg:py-16 p-8"
-                                    : "lg:py-16 p-8 order-last lg:order-0"
+                                    : "lg:py-16 p-8 order-last lg:order-none"
                                 }`}
                   >
                     {isLeft ? (
-                      /* TEXT on left */
+                      /* TEXTO en la izquierda */
                       <div className="flex flex-col h-full justify-center lg:items-end lg:text-right">
-                        {/* Mobile year */}
-                        <span
-                          className="lg:hidden text-[10px] font-mono tracking-[0.25em]
-                                         text-defensya-blue font-bold uppercase mb-3 block"
-                        >
+                        <span className="lg:hidden text-[10px] font-mono tracking-[0.25em] text-defensya-blue font-bold uppercase mb-3 block">
                           {hito.year}
                         </span>
-
-                        <span
-                          className="text-[10px] font-mono tracking-widest
-                                         text-gray-400 dark:text-gray-500 uppercase mb-3 block"
-                        >
+                        <span className="text-[10px] font-mono tracking-widest text-gray-400 dark:text-gray-500 uppercase mb-3 block">
                           {hito.tag}
                         </span>
-                        <h3
-                          className="text-2xl lg:text-3xl font-bold uppercase leading-none
-                                     tracking-tight text-gray-900 dark:text-white mb-4"
-                          style={{
-                            fontFamily:
-                              "var(--font-display, 'Barlow Condensed', sans-serif)",
-                          }}
-                        >
+                        <h3 className="text-2xl lg:text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 dark:text-white mb-4">
                           {hito.title}
                         </h3>
                         <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-sm">
@@ -137,51 +130,36 @@ export default function Timeline() {
                         </p>
                       </div>
                     ) : (
-                      /* IMAGE / left */
+                      /* IMAGEN en la izquierda */
                       <HitoImage image={hito.image} title={hito.title} />
                     )}
                   </div>
 
-                  {/* ── RIGHT CELL ── */}
+                  {/* ── CELDA DERECHA ── */}
                   <div
                     className={`border-b border-gray-200 dark:border-white/[0.07]
                                 ${
                                   isLeft
                                     ? "lg:pl-16 lg:py-16 p-8"
-                                    : "lg:pr-16 lg:py-16 p-8 lg:text-right"
+                                    : "lg:pr-16 lg:py-16 p-8"
                                 }`}
                   >
                     {isLeft ? (
-                      /* IMAGE  */
+                      /* IMAGEN en la derecha */
                       <HitoImage image={hito.image} title={hito.title} />
                     ) : (
-                      /* TEXT on right */
-                      <div className="flex flex-col h-full justify-center lg:items-end lg:text-right">
-                        {/* Mobile year */}
-                        <span
-                          className="lg:hidden text-[10px] font-mono tracking-[0.25em]
-                                         text-defensya-blue font-bold uppercase mb-3 block"
-                        >
+                      /* TEXTO en la derecha */
+                      <div className="flex flex-col h-full justify-center lg:items-start lg:text-left">
+                        <span className="lg:hidden text-[10px] font-mono tracking-[0.25em] text-defensya-blue font-bold uppercase mb-3 block">
                           {hito.year}
                         </span>
-
-                        <span
-                          className="text-[10px] font-mono tracking-widest
-                                         text-gray-400 dark:text-gray-500 uppercase mb-3 block"
-                        >
+                        <span className="text-[10px] font-mono tracking-widest text-gray-400 dark:text-gray-500 uppercase mb-3 block">
                           {hito.tag}
                         </span>
-                        <h3
-                          className="text-2xl lg:text-3xl font-bold uppercase leading-none
-                                     tracking-tight text-gray-900 dark:text-white mb-4"
-                          style={{
-                            fontFamily:
-                              "var(--font-display, 'Barlow Condensed', sans-serif)",
-                          }}
-                        >
+                        <h3 className="text-2xl lg:text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 dark:text-white mb-4">
                           {hito.title}
                         </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-sm lg:ml-auto">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-sm lg:mr-auto">
                           {hito.description}
                         </p>
                       </div>
@@ -197,22 +175,16 @@ export default function Timeline() {
   );
 }
 
-// ─── Image  ──
-
 function HitoImage({ image, title }: { image: string; title: string }) {
   return (
-    <div className="relative aspect-video w-full overflow-hidden group">
+    <div className="relative aspect-video w-full overflow-hidden group border border-gray-100 dark:border-white/5 shadow-2xl">
       <Image
         src={image}
         alt={title}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
       />
-      {/* Subtle vignette */}
-      <div
-        className="absolute inset-0 bg-linear-to-t
-                      from-defensya-navy/30 via-transparent to-transparent"
-      />
+      <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 }
