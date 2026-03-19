@@ -209,19 +209,19 @@ export const PRODUCTOS: Producto[] = [
   },
 
   // --- 4. ILUMINACIÓN Y SENSORES (MISIÓN) ---
-  {
-    id: "ir-illuminator-subsystem",
-    nombre: "Subsistema Iluminador IR",
-    categoria: "Mision",
-    descripcion:
-      "Sistema de iluminación infrarroja para soporte de visión nocturna en operaciones aéreas.",
-    imagen: "/images/aeronautic.jpg",
-    detalles: [
-      "Eficacia probada con sensores Falcon Eye y NVG",
-      "Bajo perfil térmico y alta eficiencia energética",
-      "Resistencia certificada para condiciones de vuelo militar",
-    ],
-  },
+  // {
+  //   id: "ir-illuminator-subsystem",
+  //   nombre: "Subsistema Iluminador IR",
+  //   categoria: "Mision",
+  //   descripcion:
+  //     "Sistema de iluminación infrarroja para soporte de visión nocturna en operaciones aéreas.",
+  //   imagen: "/images/aeronautic.jpg",
+  //   detalles: [
+  //     "Eficacia probada con sensores Falcon Eye y NVG",
+  //     "Bajo perfil térmico y alta eficiencia energética",
+  //     "Resistencia certificada para condiciones de vuelo militar",
+  //   ],
+  // },
   {
     id: "aeroear",
     nombre: "Aeroear",
