@@ -5,7 +5,7 @@ import Image from "next/image";
 import { PRODUCTOS } from "@/data/productos";
 import HeroSection from "@/components/shared/HeroSection";
 import { DiagonalBadge } from "@/components/ui/DiagonalBadge";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -39,20 +39,19 @@ function getCat(key: string) {
 
 const D: React.CSSProperties = { fontFamily: "'Barlow Condensed', sans-serif" };
 const M: React.CSSProperties = { fontFamily: "'Space Mono', monospace" };
+const FONT_DISPLAY = "font-['Barlow_Condensed'] uppercase tracking-tight";
+const FONT_MONO = "font-['Space_Mono'] font-mono uppercase tracking-[0.3em]";
 
 // ─── Blinking dot ─────────────────────────────────────────────────────────────
 
 function Dot({ d = 0, sz = 5 }: { d?: number; sz?: number }) {
   return (
     <span
-      style={{
-        display: "inline-block",
-        flexShrink: 0,
-        width: sz,
-        height: sz,
-        borderRadius: "50%",
-        background: "var(--acc)",
-        animation: `def-blink ${1.5 + d * 0.3}s ease ${d * 0.15}s infinite`,
+      className="inline-block shrink-0 rounded-full bg-[var(--acc)] animate-[def-blink_1.5s_ease_infinite]"
+      style={{ 
+        width: sz, height: sz, 
+        animationDuration: `${1.5 + d * 0.3}s`,
+        animationDelay: `${d * 0.15}s` 
       }}
     />
   );
@@ -70,87 +69,21 @@ const BLIPS: [number, number][] = [
 
 function Radar() {
   return (
-    <div
-      aria-hidden
-      style={{
-        position: "absolute",
-        right: "0%",
-        top: "-14%",
-        width: 460,
-        height: 460,
-        opacity: "var(--radar-op)" as React.CSSProperties["opacity"],
-        pointerEvents: "none",
-        userSelect: "none",
-      }}
-    >
-      {([1, 0.75, 0.5, 0.25] as number[]).map((s) => (
+    <div className="absolute right-0 -top-[14%] w-[460px] h-[460px] opacity-[var(--radar-op)] pointer-events-none select-none">
+      {[1, 0.75, 0.5, 0.25].map((s) => (
         <div
           key={s}
-          style={{
-            position: "absolute",
-            borderRadius: "50%",
-            border: "1px solid var(--radar-c)",
-            width: `${s * 100}%`,
-            height: `${s * 100}%`,
-            top: `${(1 - s) * 50}%`,
-            left: `${(1 - s) * 50}%`,
-          }}
+          className="absolute rounded-full border border-[var(--radar-c)]"
+          style={{ width: `${s * 100}%`, height: `${s * 100}%`, top: `${(1 - s) * 50}%`, left: `${(1 - s) * 50}%` }}
         />
       ))}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: 0,
-          right: 0,
-          height: 1,
-          background: "var(--radar-c)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: 0,
-          bottom: 0,
-          width: 1,
-          background: "var(--radar-c)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "50%",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "conic-gradient(from 0deg, var(--acc) 0deg, transparent 55deg)",
-            animation: "def-radar 4s linear infinite",
-          }}
-        />
+      <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-[var(--radar-c)]" />
+      <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-[var(--radar-c)]" />
+      <div className="absolute inset-0 rounded-full overflow-hidden">
+        <div className="absolute inset-0 bg-[conic-gradient(from_0deg,var(--acc)_0deg,transparent_55deg)] animate-[def-radar_4s_linear_infinite]" />
       </div>
       {BLIPS.map(([x, y], i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            width: 4,
-            height: 4,
-            borderRadius: "50%",
-            background: "var(--acc)",
-            left: `${x}%`,
-            top: `${y}%`,
-            animation: `def-blink ${1.5 + i * 0.38}s ease ${
-              i * 0.22
-            }s infinite`,
-          }}
-        />
+        <div key={i} className="absolute w-1 h-1 rounded-full bg-[var(--acc)] animate-pulse" style={{ left: `${x}%`, top: `${y}%` }} />
       ))}
     </div>
   );
@@ -370,7 +303,6 @@ function MobileFilters({
   );
 }
 
-// ─── Modal ───────────────────────────────────────────
 
 // ─── Modal ───────────────────────────────────────────
 
@@ -626,133 +558,48 @@ function ProductModal({
 
 // ─── Product Card ───────────────────────────────────────
 
-function ProductCard({
-  producto,
-  index,
-  onOpen,
-}: {
-  producto: (typeof PRODUCTOS)[number];
-  index: number;
-  onOpen: () => void;
-}) {
+function ProductCard({ producto, index, onOpen }: any) {
   return (
     <article
-      className="dc cri"
+      className="group relative cursor-pointer overflow-hidden border border-[var(--bdr)] bg-[var(--bg-card)] transition-all hover:border-[var(--acc)]/30"
       style={{ animationDelay: `${index * 0.065}s` }}
       onClick={onOpen}
     >
-      {/* Hairline */}
-      <div
-        style={{
-          height: 1,
-          background:
-            "linear-gradient(90deg,transparent,var(--bdr-hi),transparent)",
-        }}
-      />
-
-      {/* IMAGEN EN EL CARD */}
-      <div style={{ position: "relative", height: 215, overflow: "hidden" }}>
-        <Image
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[var(--bdr-hi)] to-transparent" />
+      
+      <div className="relative h-[215px] overflow-hidden">
+        <Image 
           src={Array.isArray(producto.imagen) ? producto.imagen[0] : producto.imagen} 
-          alt={producto.nombre}
-          fill
-          className="dc-img object-cover"
+          alt={producto.nombre} fill className="object-cover transition-transform duration-700 group-hover:scale-110" 
         />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "var(--img-ov)",
-          }}
-        />
-        <div className="dc-scan" />
-        <div className="dc-brk dc-tl" />
-        <div className="dc-brk dc-tr" />
-        <div className="dc-brk dc-bl" />
-        <div className="dc-brk dc-br" />
-
-        {/* DiagonalBadge — categoría */}
+        <div className="absolute inset-0 bg-[var(--img-ov)]" />
         <DiagonalBadge>{producto.categoria}</DiagonalBadge>
-
-        {/* Product name */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: "0 14px 14px",
-          }}
-        >
-          <h3
-            style={{
-              ...D,
-              fontSize: "1.5rem",
-              fontWeight: 600,
-              textTransform: "uppercase",
-              lineHeight: 1,
-              color: "#fff",
-            }}
-          >
+        
+        <div className="absolute bottom-0 left-0 right-0 p-4 pt-10 bg-gradient-to-t from-black/80 to-transparent">
+          <h3 className={`text-2xl font-semibold text-white leading-none ${FONT_DISPLAY}`}>
             {producto.nombre}
           </h3>
         </div>
       </div>
 
-      {/* Status strip */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "10px 14px",
-          borderTop: "1px solid var(--bdr)",
-          background: "var(--bg-strip)",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
-          <Dot d={index * 0.45} sz={4} />
-          <span
-            style={{
-              ...M,
-              fontSize: 8,
-              color: "var(--t4)",
-              textTransform: "uppercase",
-              letterSpacing: "0.2em",
-            }}
-          >
-            Sistema activo
-          </span>
+      <div className="flex items-center justify-between p-[10px_14px] border-t border-[var(--bdr)] bg-[var(--bg-strip)]">
+        <div className="flex items-center gap-2">
+          <Dot d={index * 0.2} sz={4} />
+          <span className={`text-[8px] text-[var(--t4)] ${FONT_MONO}`}>Sistema Activo</span>
         </div>
-        <span style={{ ...M, fontSize: 8, color: "var(--t4)" }}>REV·3.1</span>
+        <span className={`text-[8px] text-[var(--t4)] ${FONT_MONO}`}>REV·3.1</span>
       </div>
 
-      {/* Description + CTA */}
-      <div
-        style={{ padding: "14px 14px 16px", borderTop: "1px solid var(--bdr)" }}
-      >
-        <p
-          style={{
-            fontSize: 12,
-            color: "var(--t2)",
-            lineHeight: 1.65,
-            marginBottom: 14,
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-          }}
-        >
+      <div className="p-[14px_14px_16px] border-t border-[var(--bdr)]">
+        <p className="text-[12px] text-[var(--t2)] leading-relaxed mb-4 line-clamp-2">
           {producto.descripcion}
         </p>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span className="dc-lbl">Ver ficha técnica</span>
-          <span className="dc-line" style={{ flex: 1 }} />
-          <span style={{ fontSize: 11, color: "var(--acc)" }}>→</span>
+        <div className="flex items-center gap-2">
+          <span className={`text-[9px] font-bold text-[var(--t1)] ${FONT_MONO}`}>Ver ficha técnica</span>
+          <div className="flex-1 h-[1px] bg-[var(--bdr)] group-hover:bg-[var(--acc)]/30 transition-colors" />
+          <ArrowRight size={12} className="text-[var(--acc)]" />
         </div>
       </div>
-
-      <div className="dc-bar" />
     </article>
   );
 }
@@ -815,8 +662,8 @@ export default function ProductosPage() {
               countFor={countFor}
             />
 
-            {/* ── SECTION HERO ── */}
-            <section
+            {/* ── HERO SECUNDARIO ── */}
+            {/* <section
               className="relative overflow-hidden"
               style={{
                 background: "var(--bg-hero)",
@@ -827,7 +674,7 @@ export default function ProductosPage() {
               <Radar />
 
               <div style={{ position: "relative", zIndex: 1 }}>
-                {/* Pre-title */}
+               
                 <div
                   style={{
                     display: "flex",
@@ -850,7 +697,7 @@ export default function ProductosPage() {
                   </span>
                 </div>
 
-                {/* Header */}
+                
                 <div
                   className="grid lg:grid-cols-[1fr_34%] gap-12 items-center"
                   style={{ marginBottom: 0 }}
@@ -894,7 +741,7 @@ export default function ProductosPage() {
                   </p>
                 </div>
 
-                {/* Animated divider */}
+                
                 <div
                   className="hero-sweep relative overflow-hidden"
                   style={{
@@ -904,7 +751,7 @@ export default function ProductosPage() {
                   }}
                 />
 
-                {/* Stats */}
+                
                 <div
                   className="grid grid-cols-3"
                   style={{ border: "1px solid var(--bdr)", borderTop: "none" }}
@@ -948,7 +795,8 @@ export default function ProductosPage() {
                   ))}
                 </div>
               </div>
-            </section>
+            </section>  */}
+            {/* HASTA AQUI HERO SECUNDARIO */}
 
             {/* ── PRODUCT GRID ── */}
             <main

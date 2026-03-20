@@ -99,7 +99,7 @@ export default function Hometwo() {
 
           {/* overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
-         
+
           <div
             className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm
                   border border-white/10 px-4 py-3 text-right"
@@ -240,14 +240,16 @@ export default function Hometwo() {
                 name: "Haptix®",
                 tag: "Haptic Boom Control",
                 desc: "Control háptico avanzado para el botalón de repostaje.",
+                href: "/haptix",
               },
-            ].map(({ name, tag, desc }) => (
+            ].map(({ name, tag, desc, href }) => (
               <div
                 key={name}
-                className="grid md:grid-cols-[180px_1fr_2fr] gap-4 items-center
-                           py-6 border-b border-white/8
-                           hover:bg-white/3 transition-colors px-2 -mx-2 group"
+                className="grid md:grid-cols-[180px_220px_1fr] gap-6 items-center
+                 py-8 border-b border-white/8
+                 hover:bg-white/3 transition-colors px-4 -mx-4 group"
               >
+                {/* Nombre del Producto */}
                 <span
                   className="text-2xl font-bold text-white"
                   style={{
@@ -257,10 +259,44 @@ export default function Hometwo() {
                 >
                   {name}
                 </span>
-                <span className="text-[12px] font-mono tracking-widest text-defensya-sky uppercase">
+
+                {/* Tag Técnico */}
+                <span className="text-[11px] font-mono tracking-[0.15em] text-defensya-sky uppercase">
                   {tag}
                 </span>
-                <span className="text-md text-gray-400">{desc}</span>
+
+                {/* Descripción + Link (Juntos en la misma celda) */}
+                <div className="flex flex-wrap items-center gap-x-10 gap-y-2">
+                  <span className="text-md text-gray-400 leading-snug">
+                    {desc}
+                  </span>
+
+                  {href && (
+                    <Link
+                      href={href}
+                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest 
+                       text-defensya-blue hover:text-white transition-colors group/link bg-defensya-blue/10 
+                       px-3 py-1.5 rounded-sm border border-defensya-blue/20"
+                    >
+                      Ver Proyecto
+                      <svg
+                        width="10"
+                        height="10"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                        className="transition-transform group-hover/link:translate-x-0.5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
           </div>

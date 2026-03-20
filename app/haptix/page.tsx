@@ -3,10 +3,18 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldAlert, cpu, Zap, Gauge } from "lucide-react";
+import HeroSection from "@/components/shared/HeroSection";
 
-export default function HaptixPage() {
+export default function page() {
   return (
     <main className="bg-white dark:bg-defensya-navy text-gray-900 dark:text-white min-h-screen">
+      <HeroSection
+        label="Career"
+        title="Trabajamos en la innovacion del reabastecimiento en vuelo"
+        subtitle="Participa en el desarrollo de soluciones tecnológicas para los sectores más exigentes."
+        image="/products/haptix.jpg"
+      />
+
       <section className="relative pt-32 pb-20 px-6 lg:px-16 overflow-hidden border-b border-gray-100 dark:border-white/5">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -18,7 +26,7 @@ export default function HaptixPage() {
               The Haptix Concept
             </span>
             <h1
-              className="text-[clamp(2.5rem,5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter mb-8"
+              className="text-[clamp(2.5rem,5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tight mb-8"
               style={{
                 fontFamily:
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
