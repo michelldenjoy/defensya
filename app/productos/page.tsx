@@ -80,7 +80,7 @@ function Radar() {
       <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-[var(--radar-c)]" />
       <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-[var(--radar-c)]" />
       <div className="absolute inset-0 rounded-full overflow-hidden">
-        <div className="absolute inset-0 bg-[conic-gradient(from_0deg,var(--acc)_0deg,transparent_55deg)] animate-[def-radar_4s_linear_infinite]" />
+        <div className="absolute inset-0 bg-[conic-linear(from_0deg,var(--acc)_0deg,transparent_55deg)] animate-[def-radar_4s_linear_infinite]" />
       </div>
       {BLIPS.map(([x, y], i) => (
         <div key={i} className="absolute w-1 h-1 rounded-full bg-[var(--acc)] animate-pulse" style={{ left: `${x}%`, top: `${y}%` }} />
@@ -361,7 +361,7 @@ function ProductModal({
         }}
       >
         {/* Accent line */}
-        <div style={{ height: 2, background: "linear-gradient(90deg,transparent,var(--acc),transparent)" }} />
+        <div style={{ height: 2, background: "linear-linear(90deg,transparent,var(--acc),transparent)" }} />
 
         {/* Header */}
         <div
@@ -565,7 +565,7 @@ function ProductCard({ producto, index, onOpen }: any) {
       style={{ animationDelay: `${index * 0.065}s` }}
       onClick={onOpen}
     >
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[var(--bdr-hi)] to-transparent" />
+      <div className="h-[1px] bg-linear-to-r from-transparent via-[var(--bdr-hi)] to-transparent" />
       
       <div className="relative h-[215px] overflow-hidden">
         <Image 
@@ -575,7 +575,7 @@ function ProductCard({ producto, index, onOpen }: any) {
         <div className="absolute inset-0 bg-[var(--img-ov)]" />
         <DiagonalBadge>{producto.categoria}</DiagonalBadge>
         
-        <div className="absolute bottom-0 left-0 right-0 p-4 pt-10 bg-gradient-to-t from-black/80 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-4 pt-10 bg-linear-to-t from-black/80 to-transparent">
           <h3 className={`text-2xl font-semibold text-white leading-none ${FONT_DISPLAY}`}>
             {producto.nombre}
           </h3>

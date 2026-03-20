@@ -39,8 +39,8 @@ const QuienesSomos = () => {
 
             <div className="lg:pb-2">
               <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-                Defensya es una empresa de base tecnológica orientada a la innovación,
-                el diseño y la excelencia en el desarrollo de soluciones avanzadas.
+                Defensya es una empresa de base tecnológica orientada a la innovación y
+                el diseño en el desarrollo de soluciones avanzadas.
                 La Investigación y el Desarrollo (I+D) constituyen pilares fundamentales
                 de nuestra actividad.
               </p>

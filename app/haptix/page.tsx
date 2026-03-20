@@ -1,32 +1,53 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ShieldAlert, cpu, Zap, Gauge } from "lucide-react";
-import HeroSection from "@/components/shared/HeroSection";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Zap,
+  ShieldAlert,
+  Gauge,
+} from "lucide-react";
+
+const HAPTIX_IMAGES = [
+  { src: "/products/haptix.jpg", label: "Vista Frontal - Ergonomía" },
+  { src: "/products/haptix1.webp", label: "Arquitectura de Sensores" },
+  { src: "/products/haptix2.webp", label: "Mecanismo Stylus V4" },
+];
 
 export default function page() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () => setCurrent((prev) => (prev + 1) % HAPTIX_IMAGES.length);
+  const prev = () =>
+    setCurrent(
+      (prev) => (prev - 1 + HAPTIX_IMAGES.length) % HAPTIX_IMAGES.length
+    );
   return (
     <main className="bg-white dark:bg-defensya-navy text-gray-900 dark:text-white min-h-screen">
-      <HeroSection
+      {/* <HeroSection
         label="Career"
         title="Trabajamos en la innovacion del reabastecimiento en vuelo"
         subtitle="Participa en el desarrollo de soluciones tecnológicas para los sectores más exigentes."
         image="/products/haptix.jpg"
-      />
+      /> */}
 
-      <section className="relative pt-32 pb-20 px-6 lg:px-16 overflow-hidden border-b border-gray-100 dark:border-white/5">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <section className="min-h-screen grid lg:grid-cols-[1fr_45%] border-b border-gray-100 dark:border-white/5">
+        {/* COLUMNA IZQUIERDA: CONTENIDO */}
+        <div className="flex flex-col justify-center px-6 lg:px-16 pt-32 pb-16 border-r border-gray-200 dark:border-white/[0.07]">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
-            <span className="text-defensya-blue font-mono tracking-[0.3em] uppercase text-sm mb-6 block">
+            <span className="text-defensya-blue font-semibold tracking-[0.3em] uppercase text-[12px] mb-8 block">
               The Haptix Concept
             </span>
+
             <h1
-              className="text-[clamp(2.5rem,5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tight mb-8"
+              className="text-[clamp(2.5rem,5vw,5.5rem)] font-bold uppercase leading-[0.9] tracking-tight mb-10"
               style={{
                 fontFamily:
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -34,56 +55,55 @@ export default function page() {
             >
               Hacia un Reabastecimiento <br />
               <span className="text-defensya-blue">
-                Semiautomático y Robusto
+                Semiautomático <br /> y Robusto
               </span>
             </h1>
-            <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-xl">
+
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12">
               En entornos cambiantes, la complejidad operativa escala
-              drásticamente. En las operaciones de Boom AAR, la sobrecarga puede
-              derivar en errores críticos. Haptix® nace para reducir la carga de
-              trabajo, haciendo que la misión no solo sea más fácil, sino
-              incalculablemente más segura.
+              drásticamente. Haptix® nace para reducir la carga de trabajo del
+              boomer, haciendo que la misión sea más intuitiva y drásticamente
+              más segura.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-defensya-blue/10 rounded-lg">
-                  <ShieldAlert className="text-defensya-blue" size={20} />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider">
-                  Reducción de Riesgos
-                </span>
+            {/* Grid de capacidades técnicas rápidas */}
+            <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-100 dark:border-white/5">
+              <div>
+                <p className="text-lg font-bold font-mono text-defensya-blue leading-none">
+                  V4.0
+                </p>
+                <p className="text-[10px] text-gray-400 tracking-widest uppercase mt-2">
+                  Latest Hardware
+                </p>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-defensya-blue/10 rounded-lg">
-                  <Gauge className="text-defensya-blue" size={20} />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider">
-                  Curva de Aprendizaje Optimizada
-                </span>
+              <div>
+                <p className="text-lg font-bold font-mono text-defensya-blue leading-none">
+                  ARINC 429
+                </p>
+                <p className="text-[10px] text-gray-400 tracking-widest uppercase mt-2">
+                  I/O Standard
+                </p>
               </div>
             </div>
           </motion.div>
+        </div>
 
-          {/* ESPACIO IMAGEN  */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative aspect-square lg:aspect-video bg-gray-100 dark:bg-white/5 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl"
-          >
-            <div className="absolute inset-0 flex items-center justify-center text-gray-400 italic">
-              [Imagen Principal del Sistema Haptix - Vista General]
-            </div>
-            {/* Overlay */}
-            <div className="absolute bottom-6 left-6 p-4 bg-defensya-navy/80 backdrop-blur-md border border-white/10 rounded-xl">
-              <p className="text-[10px] font-mono text-defensya-sky uppercase tracking-widest mb-1">
-                Status
-              </p>
-              <p className="text-sm font-bold text-white uppercase tracking-tight">
-                Ready for A3R / A4R Integration
-              </p>
-            </div>
-          </motion.div>
+        {/* COLUMNA DERECHA: IMAGEN (Estilo Home) */}
+        <div className="relative hidden  lg:block bg-gray-50 dark:bg-white/[0.02]">
+          <Image
+            src="/products/haptix2.webp"
+            alt="Haptix Control System"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+
+          {/* Overlay de degradado para que la imagen no "flote" */}
+          <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/40 via-transparent to-transparent" />
+
+          {/* Brackets decorativos opcionales para dar aire "tech" */}
+          <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-white/20" />
+          <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-white/20" />
         </div>
       </section>
 
@@ -118,9 +138,6 @@ export default function page() {
                 </p>
               </div>
               {/* ESPACIO IMAGEN */}
-              <div className="aspect-video bg-gray-200 dark:bg-white/5 rounded-xl flex items-center justify-center text-xs text-gray-400 uppercase tracking-widest">
-                [Visualización: Configuración Tradicional Dual-Joystick]
-              </div>
             </div>
 
             {/* Solución: Haptix Device */}
@@ -161,10 +178,6 @@ export default function page() {
                   </li>
                 ))}
               </ul>
-              {/* ESPACIO PARA IMAGEN DEL DISPOSITIVO EN USO - SINGLE HAND */}
-              <div className="aspect-video bg-defensya-blue/10 rounded-xl flex items-center justify-center text-xs text-defensya-blue font-bold uppercase tracking-widest border border-defensya-blue/20">
-                [Visualización: Manejo con una sola mano y Ergonomía]
-              </div>
             </div>
           </div>
         </div>
@@ -174,44 +187,58 @@ export default function page() {
       <section className="py-24 px-6 lg:px-16 border-b border-gray-100 dark:border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-            <div className="order-2 lg:order-1 relative aspect-square bg-slate-50 dark:bg-white/5 rounded-3xl border border-dashed border-gray-300 dark:border-white/10 flex items-center justify-center">
-              {/* ESPACIO DIAGRAMA DISPOSITIVO */}
-              <div className="text-center p-8">
-                <p className="text-xs font-mono text-defensya-blue uppercase mb-4 tracking-[0.2em]">
-                  Hardware Architecture
-                </p>
-                <ul className="text-left space-y-3 text-sm font-medium">
-                  <li className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-defensya-blue text-white flex items-center justify-center text-[10px]">
-                      1
-                    </span>{" "}
-                    Stylus (Replica del Boom)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-defensya-blue text-white flex items-center justify-center text-[10px]">
-                      2
-                    </span>{" "}
-                    Base Robusta
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-defensya-blue text-white flex items-center justify-center text-[10px]">
-                      3
-                    </span>{" "}
-                    Control Unit (Procesamiento)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-defensya-blue text-white flex items-center justify-center text-[10px]">
-                      4
-                    </span>{" "}
-                    Reset Device & Auxiliary
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-defensya-blue text-white flex items-center justify-center text-[10px]">
-                      5
-                    </span>{" "}
-                    Breakaway Buttons
-                  </li>
-                </ul>
+            {/* SLIDER */}
+            <div className="order-2 lg:order-1 relative aspect-square bg-slate-50 dark:bg-defensya-navy-light/10 rounded-3xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-2xl group">
+              <div className="absolute inset-0">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="relative w-full h-full"
+                  >
+                    <Image
+                      src={HAPTIX_IMAGES[current].src}
+                      alt={HAPTIX_IMAGES[current].label}
+                      fill
+                      className="object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/80 via-transparent to-transparent opacity-60" />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+
+
+              {/* ── CONTROLES NAVEGACIÓN ── */}
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={prev}
+                  className="w-10 h-10 rounded-full bg-defensya-navy/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-defensya-blue transition-colors"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={next}
+                  className="w-10 h-10 rounded-full bg-defensya-navy/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-defensya-blue transition-colors"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+
+              {/* ── INDICADORES (DOTS) ── */}
+              <div className="absolute top-8 right-8 flex gap-2">
+                {HAPTIX_IMAGES.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      i === current ? "w-8 bg-defensya-blue" : "w-2 bg-white/30"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 
