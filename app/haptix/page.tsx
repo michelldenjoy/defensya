@@ -12,9 +12,10 @@ import {
 } from "lucide-react";
 
 const HAPTIX_IMAGES = [
-  { src: "/products/haptix.jpg", label: "Vista Frontal - Ergonomía" },
-  { src: "/products/haptix1.webp", label: "Arquitectura de Sensores" },
-  { src: "/products/haptix2.webp", label: "Mecanismo Stylus V4" },
+  { src: "/products/haptixfrontal.png", label: "Vista Frontal - Ergonomía" },
+  { src: "/products/haptixback.jpg", label: "Arquitectura de Sensores" },
+  { src: "/products/haptixside.jpg", label: "Mecanismo Stylus V4" },
+  { src: "/products/haptixangle.png", label: "Mecanismo Stylus V4" },
 ];
 
 export default function page() {
@@ -261,7 +262,7 @@ export default function page() {
                 que agiliza drásticamente la operación.
               </p>
               <div className="space-y-6">
-                <div className="flex gap-4 p-4 bg-defensya-blue/5 rounded-xl border border-defensya-blue/10">
+                <div className="flex gap-4 p-4 bg-defensya-blue/5  border border-defensya-blue/10">
                   <div className="mt-1">
                     <Zap className="text-defensya-blue" size={20} />
                   </div>
@@ -276,7 +277,7 @@ export default function page() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 p-4 bg-defensya-blue/5 rounded-xl border border-defensya-blue/10">
+                <div className="flex gap-4 p-4 bg-defensya-blue/5  border border-defensya-blue/10">
                   <div className="mt-1">
                     <ShieldAlert className="text-defensya-blue" size={20} />
                   </div>
@@ -314,7 +315,7 @@ export default function page() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Tracking Mode */}
-              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10 rounded-2xl hover:border-defensya-blue/50 transition-all group">
+              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10  hover:border-defensya-blue/50 transition-all group">
                 <div className="w-12 h-12 bg-defensya-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-defensya-blue group-hover:text-white transition-colors">
                   <Gauge size={24} />
                 </div>
@@ -329,7 +330,7 @@ export default function page() {
               </div>
 
               {/* Anti-collision Mode */}
-              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10 rounded-2xl hover:border-defensya-blue/50 transition-all group">
+              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10  hover:border-defensya-blue/50 transition-all group">
                 <div className="w-12 h-12 bg-defensya-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-defensya-blue group-hover:text-white transition-colors">
                   <ShieldAlert size={24} />
                 </div>
@@ -344,7 +345,7 @@ export default function page() {
               </div>
 
               {/* Contact Aiding Mode */}
-              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10 rounded-2xl hover:border-defensya-blue/50 transition-all group">
+              <div className="p-8 bg-white dark:bg-defensya-navy-light border border-gray-200 dark:border-white/10  hover:border-defensya-blue/50 transition-all group">
                 <div className="w-12 h-12 bg-defensya-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-defensya-blue group-hover:text-white transition-colors">
                   <Zap size={24} />
                 </div>
@@ -399,7 +400,7 @@ export default function page() {
                   Boomer.
                 </p>
 
-                <div className="bg-defensya-blue/5 p-6 rounded-2xl border-l-4 border-defensya-blue">
+                <div className="bg-defensya-blue/5 p-6  border-l-4 border-defensya-blue">
                   <h4 className="text-gray-900 dark:text-white font-bold uppercase text-sm mb-2">
                     Próximo Hito: Versión 5.0
                   </h4>
@@ -429,7 +430,7 @@ export default function page() {
               ].map((version) => (
                 <div
                   key={version.v}
-                  className={`p-4 border rounded-xl flex items-center gap-4 ${
+                  className={`p-4 border flex items-center gap-4 ${
                     version.current
                       ? "border-defensya-blue bg-defensya-blue/5"
                       : "border-gray-200 dark:border-white/10 opacity-60"
