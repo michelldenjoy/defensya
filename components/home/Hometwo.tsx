@@ -274,8 +274,8 @@ export default function Hometwo() {
                   {href && (
                     <Link
                       href={href}
-                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest 
-                       text-defensya-blue hover:text-white transition-colors group/link bg-defensya-blue/10 
+                      className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-widest 
+                       text-defensya-sky hover:text-white transition-colors group/link bg-defensya-blue/10 
                        px-3 py-1.5 rounded-sm border border-defensya-blue/20"
                     >
                       Ver Proyecto

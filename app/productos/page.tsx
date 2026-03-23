@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Scan, Target, Cpu, Activity, Shield, ChevronLeft, ChevronRight } from "lucide-react";
-
+import ProductModal from "@/components/products/ProductModal";
 import { PRODUCTOS, Producto } from "@/data/productos";
 import HeroSection from "@/components/shared/HeroSection";
 import { DiagonalBadge } from "@/components/ui/DiagonalBadge";
@@ -37,7 +37,7 @@ export default function ProductosPage() {
   , [filtro]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#050609] selection:bg-defensya-blue selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-defensya-navy selection:bg-defensya-blue selection:text-white">
       {/* Grid de fondo decorativo */}
       <div className="fixed inset-0 bg-[radial-linear(circle_at_2px_2px,rgba(0,0,0,0.05)_1px,transparent_0)] dark:bg-[radial-linear(circle_at_2px_2px,rgba(255,255,255,0.02)_1px,transparent_0)] bg-[size:32px_32px] pointer-events-none z-0" />
 
@@ -173,85 +173,3 @@ function ProductCard({ producto, index, onOpen }: { producto: Producto; index: n
 
 // ─── SUB-COMPONENTE: MODAL DE PRODUCTO ────────────────────────────────────────
 
-function ProductModal({ producto, isOpen, onClose }: { producto: Producto | null; isOpen: boolean; onClose: () => void }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    if (isOpen) {
-        document.body.style.overflow = "hidden";
-        setCurrentSlide(0);
-    } else {
-        document.body.style.overflow = "unset";
-    }
-  }, [isOpen]);
-
-  if (!producto) return null;
-  const images = Array.isArray(producto.imagen) ? producto.imagen : [producto.imagen];
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="absolute inset-0 bg-[#050609]/95 backdrop-blur-md" />
-
-          <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} className="relative w-full max-w-6xl bg-white dark:bg-[#0A0C11] border border-white/10 shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[500px]">
-            
-            {/* Visor de Imagen */}
-            <div className="relative w-full lg:w-1/2 bg-black overflow-hidden border-r border-white/5">
-              <Image src={images[currentSlide]} alt={producto.nombre} fill className="object-cover opacity-90" />
-              <div className="absolute inset-0 bg-[url('/images/grid-noise.png')] opacity-20 pointer-events-none" />
-              
-              {/* Brackets de Enfoque */}
-              <div className="absolute inset-8 border border-white/5 pointer-events-none">
-                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-defensya-blue" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-defensya-blue" />
-              </div>
-
-              {images.length > 1 && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6 z-20 bg-black/50 backdrop-blur-md px-4 py-2 border border-white/10">
-                  <button onClick={() => setCurrentSlide(s => (s-1+images.length)%images.length)}><ChevronLeft size={18} className="text-white hover:text-defensya-blue" /></button>
-                  <span className="text-[10px] font-mono text-white tracking-[0.3em]">{pad(currentSlide+1)} / {pad(images.length)}</span>
-                  <button onClick={() => setCurrentSlide(s => (s+1)%images.length)}><ChevronRight size={18} className="text-white hover:text-defensya-blue" /></button>
-                </div>
-              )}
-            </div>
-
-            {/* Ficha Técnica */}
-            <div className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col max-h-[80vh] overflow-y-auto scrollbar-hide">
-              <div className="flex justify-between items-start mb-6">
-                <div className="px-2 py-1 bg-defensya-blue/10 border border-defensya-blue/20 rounded text-[9px] font-mono text-defensya-blue font-bold uppercase tracking-widest">
-                  Asset: {producto.categoria} {producto.id.slice(0,4)}
-                </div>
-                <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors"><X size={24}/></button>
-              </div>
-
-              <h2 className="text-4xl lg:text-5xl font-bold font-display italic uppercase tracking-tighter dark:text-white leading-none mb-6">
-                {producto.nombre}
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-10 leading-relaxed italic">
-                {producto.descripcion}
-              </p>
-
-              <div className="space-y-4">
-                <h4 className="text-[10px] font-mono font-bold text-defensya-blue uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
-                   <Activity size={12} /> Tech Specs
-                </h4>
-                {producto.detalles.map((d, i) => (
-                  <div key={i} className="flex gap-4 p-4 bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/5 hover:border-defensya-blue/30 transition-colors group">
-                    <span className="font-mono text-[10px] text-defensya-blue">[{pad(i+1)}]</span>
-                    <span className="text-sm text-gray-400 group-hover:text-white transition-colors leading-snug">{d}</span>
-                  </div>
-                ))}
-              </div>
-
-              <footer className="mt-12 pt-8 border-t border-white/5 flex items-center justify-between font-mono text-[9px] text-gray-600 tracking-widest uppercase">
-                 <div className="flex items-center gap-2"><Shield size={12} className="text-defensya-blue"/> Operational Grade</div>
-                 <span>©2026 Defensya Ops</span>
-              </footer>
-            </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
-  );
-}

@@ -14,6 +14,7 @@ interface ModalProps {
 
 export default function ProductModal({ producto, isOpen, onClose }: ModalProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const pad = (n: number) => String(n).padStart(2, "0");
 
   // Bloquear scroll del body al abrir
   useEffect(() => {
