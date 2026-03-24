@@ -22,7 +22,7 @@ export default function Careers() {
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 items-end">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 items-center">
             <h1
               className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
                          leading-[0.95] tracking-tight"
@@ -31,9 +31,9 @@ export default function Careers() {
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
               }}
             >
-              Únete al equipo
+              Tu ingenio, en el centro de la
               <br />
-              <span className="text-defensya-blue">de Inventores</span>
+              <span className="text-defensya-blue"> defensa global</span>
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">

@@ -8,7 +8,7 @@ export default function page() {
       <HeroSection
         label="Career"
         title="Únete a Defensya"
-        subtitle="Participa en el desarrollo de soluciones tecnológicas para los sectores más exigentes."
+        subtitle="Forma parte de un equipo dedicado a resolver los desafíos más complejos de la ingeniería aeroespacial moderna."
         image="/images/career.webp"
       />
       <Careers />

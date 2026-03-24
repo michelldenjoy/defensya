@@ -150,7 +150,7 @@ const QuienesSomos = () => {
             
             <div className="relative aspect-video border border-white/8 overflow-hidden">
               <Image
-                src="/images/aeronautic.jpg"
+                src="/images/sistemavision.png"
                 alt="Tanquero A330 MRTT"
                 fill
                 className="object-cover"
@@ -159,11 +159,9 @@ const QuienesSomos = () => {
               <div className="absolute inset-0 bg-linear-to-t
                               from-defensya-navy/50 via-transparent to-transparent" />
              
-              <div className="absolute bottom-4 left-4 bg-defensya-navy/80 backdrop-blur-sm
-                              border border-white/10 px-3 py-2">
-                <p className="text-[9px] font-mono tracking-[0.2em] text-gray-400 uppercase mb-0.5">
-                  Plataforma certificada
-                </p>
+              <div className="absolute bottom-1 left-1 bg-defensya-navy/80 backdrop-blur-sm
+                              border border-white/10 px-2 py-1">
+
                 <p className="text-xs font-mono text-white">A330 MRTT // Sistema de Visión</p>
               </div>
             </div>

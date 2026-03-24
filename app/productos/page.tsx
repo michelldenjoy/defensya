@@ -115,7 +115,7 @@ export default function ProductosPage() {
   );
 }
 
-// ─── SUB-COMPONENTE: CARD DE PRODUCTO ─────────────────────────────────────────
+// ─── CARD DE PRODUCTO ──────────────────────
 
 function ProductCard({ producto, index, onOpen }: { producto: Producto; index: number; onOpen: () => void }) {
   const image = Array.isArray(producto.imagen) ? producto.imagen[0] : producto.imagen;
@@ -138,7 +138,7 @@ function ProductCard({ producto, index, onOpen }: { producto: Producto; index: n
         <DiagonalBadge>{producto.categoria}</DiagonalBadge>
         
         <div className="absolute bottom-4 left-5 right-5">
-          <h3 className="text-2xl font-bold text-white uppercase font-display italic leading-none tracking-tighter">
+          <h3 className="text-2xl font-semibold text-white uppercase font-display italic leading-none tracking-tighter">
             {producto.nombre}
           </h3>
         </div>

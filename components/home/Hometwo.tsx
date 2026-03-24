@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-
+import { motion } from "framer-motion";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -15,103 +15,92 @@ export default function Hometwo() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <section className="pt-14 min-h-screen grid lg:grid-cols-[1fr_45%] ">
-        {/* texto izquierda*/}
+    
+      <section className="pt-14 min-h-[85vh] grid lg:grid-cols-[1fr_55%] overflow-hidden">
+        {/* texto izquierda */}
         <div
-          className="flex flex-col justify-end px-6 lg:px-16 pt-20 pb-16
-                        border-r border-gray-200 dark:border-white/[0.07]"
+          className="flex flex-col justify-center px-6 lg:px-20 pt-20 pb-16
+                  border-r border-gray-200 dark:border-white/[0.07] bg-white dark:bg-[#050609]"
         >
-          <div className="flex items-center gap-3 mb-12">
-            <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Sistemas aeroespaciales avanzados
-            </span>
-          </div>
-
-          <h1
-            className="text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.95] tracking-tight
-                       uppercase text-gray-900 dark:text-white mb-10"
-            style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-            }}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Ingeniería
-            <br />
-            para el límite
-            <br />
-            <span className="text-defensya-blue">de lo posible</span>
-          </h1>
+            <div className="flex items-center gap-3 mb-10">
+              <span className="w-8 h-px bg-defensya-blue" />
+              <span className="text-[12px] font-bold tracking-[0.4em] text-defensya-blue uppercase">
+                Sistemas aeroespaciales avanzados
+              </span>
+            </div>
 
-          <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12">
-            Defensya desarrolla tecnologías avanzadas para los sistemas
-            aeroespaciales del futuro. Visión artificial, electrónica de alto
-            rendimiento y software inteligente para plataformas que operan donde
-            el margen de error no existe.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/productos"
-              className="px-6 py-2.5 bg-defensya-blue text-white text-xs tracking-widest
-                         uppercase font-medium hover:bg-defensya-navy-accent transition-colors"
+            <h1
+              className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.9] tracking-tighter
+                   uppercase text-gray-900 dark:text-white mb-10"
+              style={{
+                fontFamily: "var(--font-display, 'Inter', sans-serif)",
+              }}
             >
-              Nuestros Proyectos
-            </Link>
-            <Link
-              href="/empresa/quienes-somos"
-              className="px-6 py-2.5 border border-gray-300 dark:border-white/20 text-xs
-                         tracking-widest uppercase font-medium text-gray-700 dark:text-gray-300
-                         hover:border-gray-500 dark:hover:border-white/40 transition-colors"
-            >
-              Sobre Defensya
-            </Link>
-          </div>
+              Ingeniería
+              <br />
+              para el límite
+              <br />
+              <span className="text-defensya-blue italic">de lo posible</span>
+            </h1>
 
-          {/* metadata strip */}
-          <div
-            className="mt-16 pt-6 border-t border-gray-200 dark:border-white/[0.07]
-                          flex items-center gap-8"
-          >
-            {[
-              { val: "20+", label: "Patentes" },
-              { val: "AAR", label: "Sistemas Operativos" },
-              { val: "DEF", label: "Sector Defensa" },
-            ].map(({ val, label }) => (
-              <div key={label}>
-                <p className="text-base font-bold font-mono text-defensya-blue">
-                  {val}
-                </p>
-                <p className="text-[12px] text-gray-400 dark:text-gray-500 tracking-wide uppercase mt-0.5">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* imagen derecha */}
-        <div className="relative hidden lg:block ">
-          <Image
-            src="/images/aeronautic.jpg"
-            alt="Plataforma aeronáutica Defensya"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-
-          {/* overlay */}
-          <div className="absolute inset-0 bg-linear-to-t from-defensya-navy/60 via-transparent to-transparent" />
-
-          <div
-            className="absolute bottom-8 right-8 bg-defensya-navy/80 backdrop-blur-sm
-                  border border-white/10 px-4 py-3 text-right"
-          >
-            <p className="text-[9px] font-mono tracking-[0.2em] text-gray-400 uppercase mb-1">
-              Sistema Activo
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12 border-l border-defensya-blue/20 pl-6">
+              Defensya desarrolla tecnologías avanzadas para los sistemas
+              aeroespaciales del futuro. Visión artificial y software
+              inteligente donde el margen de error es inexistente.
             </p>
-            <p className="text-xs font-mono text-white">A3R® // Air-to-Air</p>
-          </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/productos"
+                className="px-8 py-3 bg-defensya-blue text-white text-[11px] tracking-[0.2em]
+                     uppercase font-bold hover:bg-defensya-navy-accent transition-all hover:px-10"
+              >
+                Nuestros Proyectos
+              </Link>
+              <Link
+                href="/empresa/quienes-somos"
+                className="px-8 py-3 border border-gray-300 dark:border-white/10 text-[11px]
+                     tracking-[0.2em] uppercase font-bold text-gray-700 dark:text-gray-300
+                     hover:bg-white/5 transition-all"
+              >
+                Sobre Defensya
+              </Link>
+            </div>
+
+            {/* metadata strip */}
+          </motion.div>
         </div>
+
+        {/* imagen derecha - Ajustada para formato horizontal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative group"
+        >
+          {/* Marco de diseño que envuelve la imagen para darle "aire" y profesionalidad */}
+          <div className="relative aspect-[1849/1253] w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
+            <Image
+              src="/images/aeronautic.jpg"
+              alt="Plataforma aeronáutica Defensya"
+              fill
+              className="object-contain" // IMPORTANTE: Muestra la imagen completa sin recortes
+              priority
+            />
+
+            {/* Overlay táctico muy sutil solo en los bordes */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
+
+            {/* Brackets de HUD en las esquinas de la imagen */}
+            <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-defensya-blue/40" />
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-defensya-blue/40" />
+          </div>
+        </motion.div>
       </section>
 
       <Rule />
@@ -250,10 +239,11 @@ export default function Hometwo() {
                 key={name}
                 className={`grid md:grid-cols-[180px_220px_1fr] gap-6 items-center
                  py-8 border-b border-white/8
-                 hover:bg-white/3 transition-colors px-4 -mx-4 group ${highlight ? "bg-white/[0.02]" : "bg-transparent"}
+                 hover:bg-white/3 transition-colors px-4 -mx-4 group ${
+                   highlight ? "bg-white/[0.02]" : "bg-transparent"
+                 }
         hover:bg-white/[0.05]`}
               >
-                
                 {/* Nombre del Producto */}
                 <span
                   className="text-2xl font-bold text-white"
@@ -278,16 +268,16 @@ export default function Hometwo() {
 
                   {href && (
                     <Link
-                    href={href}
-                    className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-defensya-sky hover:text-white transition-all group/link"
-                  >
-                    <span className="border-b border-defensya-sky/30 group-hover/link:border-white transition-colors pb-1">
-                      Explora el proyecto
-                    </span>
-                    <div className="p-1.5 rounded-full border border-defensya-sky/20 group-hover/link:border-white group-hover/link:bg-white group-hover/link:text-black transition-all">
-                      <ArrowRight size={14} />
-                    </div>
-                  </Link>
+                      href={href}
+                      className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-defensya-sky hover:text-white transition-all group/link"
+                    >
+                      <span className="border-b border-defensya-sky/30 group-hover/link:border-white transition-colors pb-1">
+                        Explora el proyecto
+                      </span>
+                      <div className="p-1.5 rounded-full border border-defensya-sky/20 group-hover/link:border-white group-hover/link:bg-white group-hover/link:text-black transition-all">
+                        <ArrowRight size={14} />
+                      </div>
+                    </Link>
                   )}
                 </div>
               </div>
@@ -415,7 +405,6 @@ export default function Hometwo() {
             >
               Contactar
             </Link>
-
           </div>
         </div>
       </section>

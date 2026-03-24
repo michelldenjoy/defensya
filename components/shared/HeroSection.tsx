@@ -43,36 +43,30 @@ export default function HeroSection({
 
       {/* overlay */}
       <div className="absolute inset-0 bg-linear-to-l from-slate-900/10 via-transparent to-black/70" />
-
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 
-      {/* CONTENIDO */}
-      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
-
-        {/* {label && (
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-defensya-sky mb-4">
-            {label}
-          </p>
-        )} */}
-
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white max-w-xl leading-tight">
-          {title}
-        </h1>
-
-        {subtitle && (
-          <p className="mt-6 text-base md:text-lg text-zinc-400 max-w-xl leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-
-        {children && (
-          <div className="mt-8 flex items-center gap-4 flex-wrap">
-            {children}
+        {/* CONTENIDO PRINCIPAL */}
+        <div className="relative z-20 max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white leading-[1.1] uppercase ">
+              {title}
+            </h1>
+  
+            {subtitle && (
+              <p className="mt-8 text-lg text-zinc-400 leading-relaxed border-l-2 border-defensya-sky/30 pl-6">
+                {subtitle}
+              </p>
+            )}
+  
+            {children && (
+              <div className="mt-10 flex items-center gap-4 flex-wrap">
+                {children}
+              </div>
+            )}
           </div>
-        )}
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/5 to-transparent" />
+        </div>
+  
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
     </section>
   )
 }
