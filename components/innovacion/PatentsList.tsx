@@ -151,7 +151,7 @@ export default function PatentsList() {
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 
                           leading-relaxed italic">
               "Nuestra última invención posibilita la{" "}
-              <span className="not-italic font-semibold text-gray-900 dark:text-white">
+              <span className=" font-semibold text-gray-900 dark:text-white">
                 Automatización
               </span>{" "}
               luego de una Semiautomatización supervisada de tareas de Repostaje

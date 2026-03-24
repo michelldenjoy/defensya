@@ -136,41 +136,58 @@ export default function Careers() {
           <div className="border-t border-white/8">
             {[
               {
-                area: "Ingeniería de Software",
-                desc: "Expertos en sistemas embebidos, C/C++, IA y Redes Neuronales.",
+                area: "Técnico Mecanizado",
+                desc: "Operación de centros de torneado y fresado multieje para componentes de alta precisión y tolerancias críticas.",
+              },
+              {
+                area: "Programador CAM - CATIA",
+                desc: "Generación de estrategias de mecanizado avanzado y simulación de procesos para utillajes complejos de aeronáutica.",
+              },
+              {
+                area: "Ingeniería Mecánica",
+                desc: "Desarrollo de sistemas estructurales, análisis de fatiga y simulación térmica para entornos de misión crítica.",
+              },
+              {
+                area: "Ingeniería de Diseño",
+                desc: "Modelado conceptual y detallado de hardware táctico, optimizando peso, ergonomía y robustez mecánica.",
               },
               {
                 area: "Ingeniería Electrónica",
-                desc: "Diseño de hardware, sensores, adquisición de señal y sistemas de potencia.",
+                desc: "Diseño de hardware, sensórica avanzada, adquisición de señal y arquitectura de sistemas de potencia.",
               },
               {
-                area: "Visión e Imagen",
-                desc: "Especialistas en procesamiento de imagen, compresión y sistemas ópticos.",
+                area: "Técnico de Calidad",
+                desc: "Aseguramiento de estándares MIL-SPEC mediante inspección metrológica y control de procesos productivos.",
               },
               {
-                area: "Ciberseguridad",
-                desc: "Expertos en criptografía y protección de flujos de datos síncronos.",
+                area: "Técnico de Mantenimiento",
+                desc: "Gestión preventiva y correctiva de sistemas industriales y equipos de diagnóstico de alta disponibilidad.",
+              },
+              {
+                area: "Técnico de Electrónica",
+                desc: "Integración, soldadura de precisión y testeo de tarjetas PCBA y mazos de cables bajo normativa IPC.",
               },
             ].map(({ area, desc }, i) => (
               <div
                 key={area}
                 className="grid sm:grid-cols-[48px_1fr_2fr] gap-4 lg:gap-8 items-start
-                           py-6 border-b border-white/8
-                           hover:bg-white/2 transition-colors px-2 -mx-2"
+                 py-6 border-b border-white/8
+                 hover:bg-white/2 transition-colors px-2 -mx-2 group"
               >
-                <span className="text-[12px] font-mono text-defensya-sky tracking-widest pt-0.5">
+                <span className="text-[12px] font-mono text-defensya-sky tracking-widest pt-0.5 opacity-50 group-hover:opacity-100 transition-opacity">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h4
-                  className="text-xl font-semibold uppercase leading-none tracking-tight text-white"
+                  className="text-xl font-bold uppercase leading-none tracking-tight text-white group-hover:text-defensya-sky transition-colors"
                   style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    fontFamily: "var(--font-display, 'Inter', sans-serif)", // He cambiado Barlow por Inter para seguir tu petición de seriedad
                   }}
                 >
                   {area}
                 </h4>
-                <p className="text-md text-gray-400 leading-relaxed">{desc}</p>
+                <p className="text-md text-gray-400 leading-relaxed font-light">
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
@@ -210,7 +227,7 @@ export default function Careers() {
 
               <div className="mt-10 border-t border-gray-200 dark:border-white/[0.07]">
                 {[
-                  { label: "Respuesta", value: "En menos de 7 días" },
+                  { label: "Respuesta", value: "En menos de 3 días" },
                   { label: "Modalidad", value: "Presencial — Madrid" },
                   { label: "Sector", value: "Defensa & Aeronáutica" },
                 ].map(({ label, value }) => (
@@ -241,6 +258,7 @@ export default function Careers() {
                     type="text"
                     placeholder="Juan García"
                     className={inputCls}
+                    required
                   />
                 </Field>
                 <Field label="Correo electrónico">
@@ -248,12 +266,13 @@ export default function Careers() {
                     type="email"
                     placeholder="juan@email.com"
                     className={inputCls}
+                    required
                   />
                 </Field>
               </div>
 
               <Field label="Puesto de interés">
-                <select  className={inputCls}>
+                <select className={inputCls}>
                   <option value="" defaultValue="">
                     Selecciona un puesto
                   </option>
@@ -308,6 +327,7 @@ export default function Careers() {
                     type="file"
                     accept=".pdf,.doc,.docx"
                     className="sr-only"
+                    required
                   />
 
                   <svg

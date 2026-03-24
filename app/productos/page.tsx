@@ -25,7 +25,7 @@ const CATS: { key: CatKey; label: string; tag: string }[] = [
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-// ─── COMPONENTE: PRODUCT PAGE (PRINCIPAL) ─────────────────────────────────────
+// ─── COMPONENTE: PRODUCT PAGE (PRINCIPAL) ──────────────────────────
 
 export default function ProductosPage() {
   const [filtro, setFiltro] = useState<CatKey>("Todos");
@@ -81,16 +81,9 @@ export default function ProductosPage() {
         <main className="flex-1 p-6 lg:p-12">
           <header className="flex items-end justify-between mb-12 border-b border-gray-100 dark:border-white/5 pb-8">
             <div>
-              <p className="text-defensya-blue font-mono text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Target size={12} /> Active Sector
-              </p>
               <h2 className="text-4xl font-bold font-display uppercase italic dark:text-white tracking-tighter">
                 {filtro === "Todos" ? "Global Inventory" : filtro}
               </h2>
-            </div>
-            <div className="hidden md:block text-right font-mono text-[10px] text-gray-400">
-              <p>LATENCY: 12ms</p>
-              <p>SYSTEM: OPTIMAL</p>
             </div>
           </header>
 

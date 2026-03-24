@@ -9,17 +9,15 @@ import {
   Zap,
   ShieldAlert,
   Gauge,
-  Target,
   GitBranch,
   Settings,
 } from "lucide-react";
 
-
 const HAPTIX_IMAGES = [
-  { src: "/products/haptixfrontal.png", label: "Vista Frontal - Ergonomía" },
-  { src: "/products/haptixback.jpg", label: "Arquitectura de Sensores" },
-  { src: "/products/haptixside.jpg", label: "Mecanismo Stylus V4" },
-  { src: "/products/haptixangle.png", label: "Ángulo Operativo" },
+  { src: "/products/haptixfrontal.png" },
+  { src: "/products/haptixback.jpg" },
+  { src: "/products/haptixside.jpg" },
+  { src: "/products/haptixangle.png" },
 ];
 
 const FONT_DISPLAY =
@@ -123,7 +121,7 @@ export default function Page() {
             className="object-cover object-center"
             priority
           />
-         
+
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#040508] to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#040508]/40 to-transparent" />
 
@@ -136,7 +134,7 @@ export default function Page() {
       </section>
 
       {/* ── COMPARATIVA: TRADICIONAL VS HAPTIX ───── */}
-   
+
       <section className="py-32 px-6 lg:px-16 relative overflow-hidden bg-gray-50 dark:bg-[#080a0f]">
         <div className="absolute inset-0 bg-[radial-gradient(var(--defensya-navy-light)_1px,transparent_1px)] dark:bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:30px_30px] opacity-30" />
 
@@ -237,13 +235,11 @@ export default function Page() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
             {/* SLIDER */}
             <div className="order-2 lg:order-1 relative group rounded-3xl overflow-hidden border border-gray-100 dark:border-white/10 shadow-2xl bg-gray-50 dark:bg-black/30 p-2">
-              
               <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-defensya-blue z-20" />
               <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-defensya-blue z-20" />
 
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                 {" "}
-                
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current}
@@ -255,7 +251,7 @@ export default function Page() {
                   >
                     <Image
                       src={HAPTIX_IMAGES[current].src}
-                      alt={HAPTIX_IMAGES[current].label}
+                      alt={HAPTIX_IMAGES[current].src}
                       fill
                       className="object-contain p-4"
                     />
@@ -319,7 +315,6 @@ export default function Page() {
               {/* Tarjetas de capacidades */}
               <div className="space-y-6">
                 <div className="flex gap-6 p-6 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/5 shadow-inner hover:border-defensya-blue/20 transition-colors group">
-
                   <div>
                     <h4 className="font-bold font-mono text-sm uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
                       Efectores Hápticos
@@ -333,7 +328,6 @@ export default function Page() {
                 </div>
 
                 <div className="flex gap-6 p-6 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/5 shadow-inner hover:border-defensya-blue/20 transition-colors group">
-
                   <div>
                     <h4 className="font-bold font-mono text-sm uppercase tracking-wider text-gray-900 dark:text-white mb-1.5">
                       Protección de Envolvente
@@ -348,9 +342,8 @@ export default function Page() {
             </motion.div>
           </div>
 
-          {/* ── SECCIÓN 4 : OPERATIONAL MODES ───── */}
+          {/* ── SECCIÓN 4: OPERATIONAL MODES ───── */}
           <div className="mt-32 relative">
-            
             <div className="absolute inset-x-0 top-1/2 h-[1px] bg-gradient-to-r from-transparent via-defensya-blue/20 to-transparent" />
 
             <div className="text-center mb-16 relative z-10">
@@ -450,7 +443,6 @@ export default function Page() {
 
             {/* LINEA DE TIEMPO DE VERSIONES */}
             <div className="space-y-4 lg:mt-24 relative p-6 bg-white dark:bg-black/20 border border-gray-100 dark:border-white/5 rounded-2xl shadow-xl">
-
               {VERSIONES_ROADMAP.map((version, i) => (
                 <motion.div
                   key={version.v}
@@ -531,7 +523,6 @@ export default function Page() {
                       key={idx}
                       className="flex gap-4 items-center p-4 bg-white dark:bg-[#0A0C11] rounded-lg border border-gray-100 dark:border-white/5 shadow-sm group hover:border-defensya-blue/20 transition-all"
                     >
-
                       <div>
                         <p className="text-[10px] font-mono uppercase text-gray-500 tracking-wider mb-1">
                           {item.label}
@@ -573,7 +564,7 @@ export default function Page() {
           {/* FOOTER DE PÁGINA */}
           <div className="mt-24 pt-10 border-t border-gray-100 dark:border-white/5 text-center">
             <p className={`${FONT_MONO} tracking-[0.4em]`}>
-              Haptix System — Document Ref: DS-HPTX-2026-V3.01 
+              Haptix System — Document Ref: DS-HPTX-2026-V3.01
             </p>
           </div>
         </div>
@@ -617,7 +608,7 @@ const ESPECIFICACIONES_TECNICAS = [
   {
     titulo: "Dimensiones y Peso",
     items: [
-      { icon: Zap, label: "Peso Operativo", valor: "7.0 Kg" },
+      { label: "Peso Operativo", valor: "7.0 Kg" },
       {
         icon: Image,
         label: "Dimensiones (mm)",

@@ -28,7 +28,7 @@ const EMPRESA_ITEMS: DropdownItem[] = [
 ];
 
 const NAV_LINKS: NavItem[] = [
-  { label: "Productos", href: "/productos" },
+  { label: "Proyectos", href: "/productos" },
   { label: "Innovación", href: "/innovacion" },
 ];
 

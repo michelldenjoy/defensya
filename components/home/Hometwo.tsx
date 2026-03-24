@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -49,11 +51,11 @@ export default function Hometwo() {
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/innovacion"
+              href="/productos"
               className="px-6 py-2.5 bg-defensya-blue text-white text-xs tracking-widest
                          uppercase font-medium hover:bg-defensya-navy-accent transition-colors"
             >
-              Nuestras Tecnologías
+              Nuestros Proyectos
             </Link>
             <Link
               href="/empresa/quienes-somos"
@@ -241,14 +243,17 @@ export default function Hometwo() {
                 tag: "Haptic Boom Control",
                 desc: "Control háptico avanzado para el botalón de repostaje.",
                 href: "/haptix",
+                highlight: true,
               },
-            ].map(({ name, tag, desc, href }) => (
+            ].map(({ name, tag, desc, href, highlight }) => (
               <div
                 key={name}
-                className="grid md:grid-cols-[180px_220px_1fr] gap-6 items-center
+                className={`grid md:grid-cols-[180px_220px_1fr] gap-6 items-center
                  py-8 border-b border-white/8
-                 hover:bg-white/3 transition-colors px-4 -mx-4 group"
+                 hover:bg-white/3 transition-colors px-4 -mx-4 group ${highlight ? "bg-white/[0.02]" : "bg-transparent"}
+        hover:bg-white/[0.05]`}
               >
+                
                 {/* Nombre del Producto */}
                 <span
                   className="text-2xl font-bold text-white"
@@ -265,7 +270,7 @@ export default function Hometwo() {
                   {tag}
                 </span>
 
-                {/* Descripción + Link (Juntos en la misma celda) */}
+                {/* Descripción + Link */}
                 <div className="flex flex-wrap items-center gap-x-10 gap-y-2">
                   <span className="text-md text-gray-400 leading-snug">
                     {desc}
@@ -273,28 +278,16 @@ export default function Hometwo() {
 
                   {href && (
                     <Link
-                      href={href}
-                      className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-widest 
-                       text-defensya-sky hover:text-white transition-colors group/link bg-defensya-blue/10 
-                       px-3 py-1.5 rounded-sm border border-defensya-blue/20"
-                    >
-                      Ver Proyecto
-                      <svg
-                        width="10"
-                        height="10"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={3}
-                        className="transition-transform group-hover/link:translate-x-0.5"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </Link>
+                    href={href}
+                    className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-defensya-sky hover:text-white transition-all group/link"
+                  >
+                    <span className="border-b border-defensya-sky/30 group-hover/link:border-white transition-colors pb-1">
+                      Explora el proyecto
+                    </span>
+                    <div className="p-1.5 rounded-full border border-defensya-sky/20 group-hover/link:border-white group-hover/link:bg-white group-hover/link:text-black transition-all">
+                      <ArrowRight size={14} />
+                    </div>
+                  </Link>
                   )}
                 </div>
               </div>
@@ -308,7 +301,7 @@ export default function Hometwo() {
                          font-medium text-white border border-white/20 px-6 py-3
                          hover:bg-white/10 hover:border-white/40 transition-all"
             >
-              Explorar Innovación
+              Nuestras Tecnologías
               <svg
                 width="14"
                 height="14"
@@ -422,14 +415,7 @@ export default function Hometwo() {
             >
               Contactar
             </Link>
-            <Link
-              href="/productos"
-              className="px-8 py-3 border border-white/20 text-white text-xs tracking-widest
-                         uppercase font-medium hover:bg-white/10 hover:border-white/40
-                         transition-all whitespace-nowrap text-center"
-            >
-              Ver Proyectos
-            </Link>
+
           </div>
         </div>
       </section>

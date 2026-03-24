@@ -257,68 +257,80 @@ export default function Refueling() {
           </div>
 
           {/* Boomerang + Haptix */}
-          <div className="grid md:grid-cols-2 border-t border-l border-white/8">
+          <div className="grid md:grid-cols-2 border-t border-l border-white/8 relative">
+            {/* El contenedor ahora tiene 'relative' para los efectos de luz */}
             {[
               {
                 name: "Boomerang®",
                 tag: "Precision Receptacle Location",
                 desc: "Tecnología diseñada para mejorar la precisión en la localización del receptáculo de repostaje. Reduce significativamente las latencias del sistema aire-aire, permitiendo operaciones de reabastecimiento estables incluso en condiciones de fuerte turbulencia.",
+                highlight: false, // Puedes marcar uno como destacado por defecto si quieres
               },
               {
                 name: "Haptix®",
                 tag: "Haptic Boom Control",
                 desc: "Dispositivo de control manual con retroalimentación háptica que permite controlar el botalón de repostaje de forma natural e intuitiva. Facilita la transición desde operaciones manuales hacia entornos de automatización A3R®.",
                 href: "/haptix",
+                highlight: true, // Este resaltará más al ser el proyecto principal
               },
-            ].map(({ name, tag, desc, href }) => (
+            ].map(({ name, tag, desc, href, highlight }) => (
               <div
                 key={name}
-                className="border-b border-r border-white/8
-                     p-8 lg:p-10 group
-                     hover:bg-white/3 transition-colors
-                     flex flex-col" // <--- Importante: flex para empujar el contenido
+                className={`
+        relative border-b border-r border-white/8 p-8 lg:p-10 group
+        transition-all duration-500 flex flex-col overflow-hidden
+        ${highlight ? "bg-white/[0.02]" : "bg-transparent"}
+        hover:bg-white/[0.05]
+      `}
               >
-                <div className="flex-grow">
-                  {" "}
-                  {/* <--- Este div envuelve el texto superior */}
-                  <span className="text-[12px] font-mono tracking-widest text-defensya-sky uppercase mb-3 block">
-                    {tag}
-                  </span>
+                {/* ── EFECTO HIGHLIGHT: Línea de luz superior ── */}
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-defensya-sky/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* ── EFECTO HIGHLIGHT: Brillo radial en la esquina ── */}
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-defensya-sky/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                <div className="flex-grow relative z-10">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-[11px] font-mono tracking-[0.2em] text-defensya-sky uppercase font-bold">
+                      {tag}
+                    </span>
+                  </div>
+
                   <h3
-                    className="text-3xl lg:text-4xl font-bold uppercase leading-none
-                         tracking-tight text-white mb-5"
+                    className="text-3xl lg:text-4xl font-bold uppercase leading-none tracking-tight text-white mb-6 group-hover:text-defensya-sky transition-colors duration-300"
                     style={{
-                      fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                      fontFamily: "var(--font-display, 'Inter', sans-serif)", // Más serio y profesional
                     }}
                   >
                     {name}
                   </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed mb-8">
+
+                  <p className="text-sm text-gray-400 leading-relaxed mb-8 max-w-prose group-hover:text-gray-300 transition-colors">
                     {desc}
                   </p>
                 </div>
 
-                {/* Botón de enlace */}
-                <div className="mt-2 h-6">
-                  {" "}
-                  {/* <--- Altura fija para mantener alineación */}
+                {/* Botón de enlace con highlight en el icono */}
+                <div className="mt-2 h-8 relative z-10">
                   {href ? (
                     <Link
                       href={href}
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-defensya-sky hover:text-white transition-colors group/link"
+                      className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-defensya-sky hover:text-white transition-all group/link"
                     >
-                      Explora nuestro proyecto
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform group-hover/link:translate-x-1"
-                      />
+                      <span className="border-b border-defensya-sky/30 group-hover/link:border-white transition-colors pb-1">
+                        Explora el proyecto
+                      </span>
+                      <div className="p-1.5 rounded-full border border-defensya-sky/20 group-hover/link:border-white group-hover/link:bg-white group-hover/link:text-black transition-all">
+                        <ArrowRight size={14} />
+                      </div>
                     </Link>
                   ) : (
-                    // Opcional: mostrar algo o nada si no hay link para mantener el grid simétrico
-                    <span className="text-[10px] font-mono text-white/20 uppercase tracking-tighter">
-                      Tecnología integrada
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-1 bg-white/20 rounded-full" />
+                      <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">
+                        Sistema Integrado
+                      </span>
+                    </div>
                   )}
                 </div>
               </div>
