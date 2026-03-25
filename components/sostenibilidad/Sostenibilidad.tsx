@@ -1,20 +1,127 @@
-import Link from "next/link";
+"use client";
 
-function Rule() {
-  return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />;
+import Link from "next/link";
+import { useState } from "react";
+
+
+const objetivos = [
+  {
+    id: "01",
+    titulo: "Cumplimiento normativo",
+    texto:
+      "Cumplir con los requisitos de nuestros clientes y con los requisitos legales que se derivan de la legislación aplicable en calidad y medio ambiente, así como con otros requisitos que suscribamos relacionados con nuestros aspectos medioambientales.",
+  },
+  {
+    id: "02",
+    titulo: "Seguimiento y mejora continua",
+    texto:
+      "Efectuar un permanente seguimiento de los resultados obtenidos a través de la Gestión Ambiental y de Calidad. Este seguimiento será la base que nos permitirá conseguir una mejora continua del comportamiento ambiental y de la eficacia del Sistema de Gestión integrado de Calidad y Medio Ambiente y la prevención de la contaminación.",
+  },
+  {
+    id: "03",
+    titulo: "Recursos e infraestructura",
+    texto:
+      "Dotar de recursos humanos, económicos, de estructura y organización que nos permita mantener un Sistema de Gestión Medioambiental, basado en las normas nacionales e internacionales.",
+  },
+  {
+    id: "04",
+    titulo: "Formación y participación del equipo",
+    texto:
+      "Motivar y formar al personal en su desarrollo profesional, potenciando su actitud de trabajo en equipo, la comunicación interna y el trato personalizado hacia los mismos, de manera que se impliquen y sientan integrados en la consecución de la Gestión de Calidad y Ambiental.",
+  },
+  {
+    id: "05",
+    titulo: "Prevención del impacto ambiental",
+    texto:
+      "Establecer todos los mecanismos necesarios para prevenir y minimizar la contaminación e impacto ambiental en el desarrollo de nuestras actividades, identificando y evaluando los aspectos que puedan tener un impacto significativo en el medio ambiente, planificando los controles operacionales necesarios.",
+  },
+  {
+    id: "06",
+    titulo: "Reducción de emisiones y residuos",
+    texto:
+      "Reducir progresivamente nuestros vertidos de aguas residuales, residuos, nivel de ruido, la contaminación de los suelos y las emisiones de contaminantes a la atmósfera, entendiendo que sólo de esta forma estaremos garantizando el progreso y la sostenibilidad económica de nuestra compañía.",
+  },
+  {
+    id: "07",
+    titulo: "Cadena de suministro responsable",
+    texto:
+      "Mantener una continua colaboración y comunicación con nuestros proveedores, de forma que queden claros nuestros requisitos de calidad y medio ambiente.",
+  },
+];
+
+const areas = [
+  {
+    num: "01",
+    label: "Gestión de residuos",
+    desc: "Reducción y tratamiento controlado de residuos industriales en todos los procesos de fabricación.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="3 6 5 6 21 6" />
+        <path d="M19 6l-1 14H6L5 6" />
+        <path d="M10 11v6M14 11v6M9 6V4h6v2" />
+      </svg>
+    ),
+  },
+  {
+    num: "02",
+    label: "Eficiencia energética",
+    desc: "Optimización del consumo energético en instalaciones y equipos de producción.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+  },
+  {
+    num: "03",
+    label: "Cadena de suministro",
+    desc: "Selección y colaboración con proveedores que cumplan los requisitos ambientales establecidos.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="2" />
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+      </svg>
+    ),
+  },
+  {
+    num: "04",
+    label: "Formación ambiental",
+    desc: "Capacitación continua del equipo en buenas prácticas medioambientales y normativa vigente.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
+  },
+];
+
+// ─── Sub-componente
+
+function SectionTag({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <p
+      className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
+    >
+      {children}
+    </p>
+  );
 }
 
+
 export default function Sostenibilidad() {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggle = (id: string) => setOpenItem((prev) => (prev === id ? null : id));
+
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <section
-        className="px-6 lg:px-16 pt-16 pb-28
-                          border-b border-gray-200 dark:border-white/[0.07]"
-      >
+      <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
+
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
@@ -22,288 +129,276 @@ export default function Sostenibilidad() {
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-0 items-center">
-            <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
-                         leading-[0.95] tracking-tight"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
-            >
-              Compromiso
-              <br />
-              Ambiental y<br />
-              <span className="text-defensya-blue">Sostenibilidad</span>
-            </h1>
-
-            <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
-              En Defensya Ingeniería Internacional, la calidad de nuestros
-              servicios y la protección del entorno son pilares inseparables.
-              Operamos bajo un Sistema de Gestión de Calidad y Medio Ambiente
-              diseñado para optimizar cada proceso, garantizando la satisfacción
-              del cliente y la preservación de los recursos naturales. Este
-              compromiso, respaldado por todo nuestro equipo, asegura que cada
-              solución tecnológica contribuya a la rentabilidad y continuidad de
-              la empresa desde una perspectiva responsable. Nos enfocamos en los
-              siguientes objetivos estratégicos:
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DECLARACIÓN ───── */}
-      {/* <section
-        className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]"
-      >
-        <div className="max-w-7xl mx-auto">
-          <p
-            className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                        dark:text-gray-500 uppercase mb-12"
-          >
-            01 — Declaración
-          </p>
-
-          <div className="grid lg:grid-cols-[1fr_56%] items-center gap-12 lg:gap-20">
-            <div className="hidden lg:flex flex-col gap-3 pt-1">
-              <span className="text-[16px] font-mono text-defensya-blue tracking-widest uppercase leading-relaxed">
-                Defensya Ingeniería
+          <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-start">
+            <div>
+              <SectionTag>Compromiso medioambiental</SectionTag>
+              <h1
+                className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold uppercase leading-[0.95] text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                Compromiso
                 <br />
-                Internacional
-              </span>
-              <div className="w-px flex-1 bg-gray-200 dark:bg-white/[0.07] ml-px mt-3" />
+                Ambiental y
+                <br />
+                <span className="text-defensya-blue">Sostenibilidad</span>
+              </h1>
             </div>
 
-            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
-              A través del presente compromiso, suscrito por todos los
-              trabajadores, Defensya establece que todas nuestras actividades,
-              productos y servicios se desarrollan desde la perspectiva de la
-              satisfacción, la protección y conservación del medio ambiente como
-              medios para asegurar la rentabilidad y continuidad de la empresa,
-              apostando por conseguir los siguientes objetivos:
-            </p>
-          </div>
-        </div>
-      </section> */}
-
-      {/* ── OBJETIVOS ─────── */}
-      <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-14">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
-              Objetivos
-            </p>
-            <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                         leading-none tracking-tight text-white"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
-            >
-              Compromisos
-              <br />
-              Medioambientales
-            </h2>
-          </div>
-
-          {/* Objectives list — full-width rows */}
-          <div className="border-t border-white/8">
-            {[
-              "Cumplir con los requisitos de nuestros clientes y con los requisitos legales que se derivan de la legislación aplicable en calidad y medio ambiente, así como con otros requisitos que suscribamos relacionados con nuestros aspectos medioambientales.",
-              "Efectuar un permanente seguimiento de los resultados obtenidos a través de la Gestión Ambiental y de Calidad. Este seguimiento será la base que nos permitirá conseguir una mejora continua del comportamiento ambiental y de la eficacia del Sistema de Gestión integrado de Calidad y Medio Ambiente y la prevención de la contaminación.",
-              "Dotar de recursos humanos, económicos, de estructura y organización que nos permita mantener un Sistema de Gestión Medioambiental, basado en las normas nacionales e internacionales.",
-              "Motivar y formar al personal en su desarrollo profesional, potenciando su actitud de trabajo en equipo, la comunicación interna y el trato personalizado hacia los mismos, de manera que se impliquen y sientan integrados en la consecución de la Gestión de Calidad y Ambiental, otorgándoles las responsabilidades y autoridad necesarias.",
-              "Establecer todos los mecanismos necesarios para prevenir y minimizar la contaminación e impacto ambiental en el desarrollo de nuestras actividades, identificando y evaluando los aspectos que puedan tener un impacto significativo en el medio ambiente, planificando los controles operacionales necesarios que garanticen la actuación responsable desde el inicio de cada proceso.",
-              "Reducir progresivamente nuestros vertidos de aguas residuales, residuos, nivel de ruido, la contaminación de los suelos y las emisiones de contaminantes a la atmósfera, entendiendo que sólo de esta forma estaremos garantizando el progreso y la sostenibilidad económica de nuestra compañía.",
-              "Mantener una continua colaboración y comunicación con nuestros proveedores, de forma que queden claros nuestros requisitos de calidad y medio ambiente.",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="grid sm:grid-cols-[48px_1fr] gap-4 lg:gap-8 items-start
-                           py-6 border-b border-white/8
-                           hover:bg-white/2 transition-colors
-                           px-2 -mx-2 group"
-              >
-                <span
-                  className="text-[12px] font-mono text-defensya-sky tracking-widest
-                                 pt-0.5 shrink-0"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-md text-gray-400 leading-relaxed">{item}</p>
+            <div className="flex flex-col gap-6 lg:pt-8">
+              {/* Cert badges */}
+              <div className="grid grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
+                {[
+                  { val: "ISO 9001", label: "Calidad" },
+                  { val: "ISO 14001", label: "Medio Ambiente" },
+                ].map(({ val, label }) => (
+                  <div key={label} className="bg-white dark:bg-defensya-navy px-5 py-4">
+                    <p
+                      className="text-2xl font-bold text-defensya-blue"
+                      style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                    >
+                      {val}
+                    </p>
+                    <p className="text-[11px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase mt-1">
+                      {label}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                En Defensya, la calidad de nuestros servicios y la protección del entorno
+                son pilares inseparables. Operamos bajo un Sistema de Gestión de Calidad
+                y Medio Ambiente diseñado para optimizar cada proceso, garantizando la
+                satisfacción del cliente y la preservación de los recursos naturales.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <Rule />
-
-      {/* ── ÁREAS DE ACTUACIÓN ───────── */}
-      <section
-        className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]"
-      >
+      {/* ══ PULL QUOTE ════════ */}
+      <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-14">
-            <p
-              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3"
+          <div className="flex gap-6 lg:gap-10 items-start">
+            <span
+              className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
-              Acción
-            </p>
-            <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                         leading-none tracking-tight"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
-            >
-              Áreas de Actuación
-            </h2>
-          </div>
-
-          <div
-            className="grid sm:grid-cols-2 lg:grid-cols-4
-                          border-t border-l border-gray-200 dark:border-white/[0.07]"
-          >
-            {[
-              {
-                num: "01",
-                label: "Gestión de residuos",
-                desc: "Reducción y tratamiento controlado de residuos industriales en todos los procesos de fabricación.",
-              },
-              {
-                num: "02",
-                label: "Eficiencia energética",
-                desc: "Optimización del consumo energético en instalaciones y equipos de producción.",
-              },
-              {
-                num: "03",
-                label: "Cadena de suministro",
-                desc: "Selección y colaboración con proveedores que cumplan los requisitos ambientales establecidos.",
-              },
-              {
-                num: "04",
-                label: "Formación ambiental",
-                desc: "Capacitación continua del equipo en buenas prácticas medioambientales y normativa vigente.",
-              },
-            ].map(({ num, label, desc }) => (
-              <div
-                key={num}
-                className="border-b border-r border-gray-200 dark:border-white/[0.07]
-                           p-6 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/2
-                           transition-colors group"
-              >
-                <span
-                  className="text-[12px] font-mono text-defensya-blue tracking-widest
-                                 uppercase mb-4 block"
-                >
-                  {num}
-                </span>
-                <h3
-                  className="text-2xl font-bold uppercase leading-none tracking-tight
-                             text-gray-900 dark:text-white mb-3"
-                  style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  }}
-                >
-                  {label}
-                </h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="px-6 lg:px-16 py-24
-                          border-b border-gray-200 dark:border-white/[0.07]"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div
-            className="grid lg:grid-cols-[auto_1fr] gap-6 items-start
-                          border border-gray-200 dark:border-white/[0.07] p-8 lg:p-12"
-          >
-            <div className="hidden lg:block w-px self-stretch bg-defensya-blue shrink-0" />
+              "
+            </span>
             <div>
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue
-                            uppercase mb-4"
+                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug max-w-3xl"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
               >
-                Declaración final
+                Todas nuestras actividades se desarrollan desde la perspectiva
+                de la protección y conservación del medio ambiente como garantía
+                de progreso y continuidad.
               </p>
-              <p
-                className="text-base lg:text-lg text-gray-600 dark:text-gray-300
-                            leading-relaxed italic"
-              >
-                "Defensya Ingeniería Internacional establece, implanta y mejora
-                un Sistema de Gestión de la Calidad y Medio Ambiente,
-                asegurando, controlando y optimizando la calidad de sus
-                servicios con el objetivo de satisfacer las necesidades de los
-                clientes."
-              </p>
+              <div className="flex items-center gap-3 mt-6">
+                <div className="h-px w-8 bg-defensya-blue" />
+                <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
+                  Dirección General — Política Medioambiental
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CALIDAD ──────── */}
-      <section className="px-6 lg:px-16 py-24 bg-defensya-navy">
-        <div
-          className="max-w-7xl mx-auto
-                        grid lg:grid-cols-[1fr_auto] gap-10 items-center"
-        >
+      {/* ══ OBJETIVOS ════ */}
+      <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
+
+            <div>
+              <SectionTag light>Objetivos</SectionTag>
+              <h2
+                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                Compromiso
+                <br />
+                Medioambiental
+              </h2>
+              <p className="text-sm text-gray-500 leading-relaxed mt-4">
+                {objetivos.length} compromisos activos
+              </p>
+            </div>
+
+            {/* Accordion */}
+            <div className="border-t lg:px-20 border-white/[0.07]">
+              {objetivos.map((item) => {
+                const isOpen = openItem === item.id;
+                return (
+                  <div key={item.id} className="border-b border-white/[0.07]">
+                    <button
+                      onClick={() => toggle(item.id)}
+                      className="w-full flex items-center gap-5 py-5 text-left group"
+                    >
+                      <span className="font-mono text-[11px] text-defensya-sky tracking-widest shrink-0 w-7">
+                        {item.id}
+                      </span>
+                      <span
+                        className={`shrink-0 w-[3px] self-stretch rounded-full transition-colors duration-200 ${
+                          isOpen ? "bg-defensya-blue" : "bg-white/[0.08]"
+                        }`}
+                      />
+                      <h3
+                        className={`flex-1 text-base lg:text-lg font-bold uppercase transition-colors duration-200 ${
+                          isOpen ? "text-white" : "text-gray-400 group-hover:text-gray-200"
+                        }`}
+                        style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                      >
+                        {item.titulo}
+                      </h3>
+                      <svg
+                        width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        className={`shrink-0 text-gray-500 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                      >
+                        <path d="M8 3V13M3 8H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        isOpen ? "max-h-64 opacity-100 pb-5" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <p className="text-sm text-gray-400 leading-relaxed pl-12">
+                        {item.texto}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ ÁREAS DE ACTUACIÓN ════ */}
+      <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
+
+            <div>
+              <SectionTag>Acción</SectionTag>
+              <h2
+                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                Áreas de
+                <br />
+                Actuación
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
+              {areas.map(({ num, label, desc, icon }) => (
+                <div
+                  key={num}
+                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors duration-200"
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="text-defensya-blue opacity-60 group-hover:opacity-100 transition-opacity duration-200">
+                      {icon}
+                    </div>
+                    <span className="font-mono text-[11px] text-gray-300 dark:text-gray-600 tracking-widest">
+                      {num}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-5">
+                    <div className="h-px w-5 bg-defensya-blue" />
+                    <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.06]" />
+                  </div>
+                  <h3
+                    className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
+                    style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  >
+                    {label}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    {desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ DECLARACIÓN FINAL ══════ */}
+      <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
+
+            <div>
+              <SectionTag>Declaración</SectionTag>
+              <h2
+                className="text-3xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              >
+                Posición
+                <br />
+                oficial
+              </h2>
+            </div>
+
+            <div className="border border-gray-200 dark:border-white/[0.07] p-8 lg:p-10 flex gap-6 items-start">
+              <div className="w-[3px] self-stretch bg-defensya-blue shrink-0 rounded-full" />
+              <div>
+                <p className="text-[11px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-4">
+                  Declaración final
+                </p>
+                <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                  "Defensya Ingeniería Internacional establece, implanta y mejora
+                  un Sistema de Gestión de la Calidad y Medio Ambiente, asegurando,
+                  controlando y optimizando la calidad de sus servicios con el objetivo
+                  de satisfacer las necesidades de los clientes."
+                </p>
+                <div className="flex items-center gap-3 mt-6">
+                  <div className="h-px w-6 bg-gray-300 dark:bg-white/20" />
+                  <span className="font-mono text-[11px] tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase">
+                    Defensya Ingeniería Internacional
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CTA — POLÍTICA DE CALIDAD ═════ */}
+      <section className="px-6 lg:px-16 py-20 bg-defensya-navy">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-center">
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-5">
-              Cumplimiento
-            </p>
+            <SectionTag light>Cumplimiento</SectionTag>
             <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                         leading-none tracking-tight text-white"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
+              className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
               Política de Calidad
             </h2>
-            <p className="text-md text-gray-400 leading-relaxed mt-4 max-w-lg">
+            <p className="text-sm text-gray-400 leading-relaxed mt-3 max-w-md">
               Consulta la declaración de nuestra política de calidad y las
-              certificaciones que avalan nuestros procesos y sistemas de
-              gestión.
+              certificaciones que avalan nuestros procesos y sistemas de gestión.
             </p>
           </div>
 
           <Link
             href="/empresa/calidad-certificacion"
             className="group inline-flex items-center gap-4 border border-white/20
-                       px-8 py-5 hover:bg-white/5 hover:border-white/40
+                       px-7 py-4 w-xs hover:bg-white/[0.05] hover:border-white/40
                        transition-all duration-200 shrink-0 self-start lg:self-center"
           >
             <svg
-              width="14"
-              height="14"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
+              width="14" height="14" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" strokeWidth={1.5}
               className="text-defensya-blue group-hover:-translate-x-1 transition-transform duration-200"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 16l-4-4 4-4M20 12H3"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4 4-4M20 12H3" />
             </svg>
-            <span className="text-xs font-mono tracking-widest uppercase text-white">
+            <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-white">
               Ver Política de Calidad
             </span>
           </Link>

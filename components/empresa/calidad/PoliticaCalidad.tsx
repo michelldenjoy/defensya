@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+
 
 const declaracion = [
   {
@@ -79,7 +79,7 @@ const compromisos = [
   },
 ];
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+// ─── Sub-componente
 
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
@@ -89,11 +89,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Rule() {
-  return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />;
-}
-
-// ─── Tabs (Objetivos / Valores) ───────────────────────────────────────────────
+// ─── Tabs (Objetivos / Valores) ─────────
 
 type Tab = "objetivos" | "valores";
 
@@ -108,13 +104,13 @@ function ObjetivosValoresTabs() {
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`relative px-6 py-3 font-mono text-[14px] tracking-[0.25em] uppercase transition-colors duration-200 ${
-              tab === t
-                ? "text-white"
-                : "text-gray-500 hover:text-gray-300"
+            className={`relative px-6 py-3 font-mono text-[12px] tracking-[0.25em] uppercase transition-colors duration-200 ${
+              tab === t ? "text-white" : "text-gray-500 hover:text-gray-300"
             }`}
           >
-            {t === "objetivos" ? "Objetivos Estratégicos" : "Valores Fundamentales"}
+            {t === "objetivos"
+              ? "Objetivos Estratégicos"
+              : "Valores Fundamentales"}
             {tab === t && (
               <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-defensya-blue" />
             )}
@@ -145,7 +141,7 @@ function ObjetivosValoresTabs() {
           {valores.map((item, i) => (
             <div
               key={i}
-              className="group flex gap-6 py-5 border-b border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200 px-2 items-start"
+              className="group flex gap-6  py-5 border-b border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200 px-2 items-start"
             >
               <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
                 {String(i + 1).padStart(2, "0")}
@@ -153,11 +149,16 @@ function ObjetivosValoresTabs() {
               <div className="flex flex-col gap-1">
                 <span
                   className="text-md font-semibold tracking-wide uppercase text-white leading-none"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  style={{
+                    fontFamily:
+                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  }}
                 >
                   {item.label}
                 </span>
-                <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -181,10 +182,9 @@ export default function PoliticaCalidad() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      {/* ══ HERO ═══════════════════════════════════════════════════════════════ */}
+      {/* ══ HERO ═════ */}
       <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
           <div className="flex items-center gap-3 mb-14">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
@@ -197,15 +197,19 @@ export default function PoliticaCalidad() {
               <SectionTag>Política oficial</SectionTag>
               <h1
                 className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold uppercase leading-[0.95] text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Declaración<br />
-                de la Política<br />
+                Declaración
+                <br />
+                de la Política
+                <br />
                 <span className="text-defensya-blue">de Calidad</span>
               </h1>
             </div>
 
-            
             <div className="flex flex-col gap-6 lg:pt-8">
               <div className="inline-flex items-stretch gap-4 border border-gray-200 dark:border-white/[0.08] self-start">
                 <div className="w-1 bg-defensya-blue shrink-0" />
@@ -215,7 +219,10 @@ export default function PoliticaCalidad() {
                   </p>
                   <p
                     className="text-3xl font-bold text-defensya-blue"
-                    style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                    style={{
+                      fontFamily:
+                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    }}
                   >
                     ISO 9001:2015
                   </p>
@@ -233,7 +240,10 @@ export default function PoliticaCalidad() {
                   >
                     <p
                       className="text-3xl font-bold text-gray-900 dark:text-white"
-                      style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                      style={{
+                        fontFamily:
+                          "var(--font-display, 'Barlow Condensed', sans-serif)",
+                      }}
                     >
                       {val}
                     </p>
@@ -254,21 +264,26 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ QUOTE ═════════════════════════════════════════════════════════ */}
+      {/* ══ QUOTE ════ */}
       <section className="px-6 lg:px-16 py-16 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
           <div className="flex gap-6 lg:gap-10 items-start">
-            
             <span
               className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
               "
             </span>
             <div>
               <p
                 className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug lg:leading-snug max-w-3xl"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 La excelencia en todas las actividades es un objetivo ineludible
                 para Defensya Ingeniería Internacional.
@@ -284,23 +299,20 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ DECLARACIÓN ════════════════════════════════════════════════════════ */}
+      {/* ══ DECLARACIÓN ══════*/}
       <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
-            
             <div className="lg:pt-1">
               <SectionTag> Declaración</SectionTag>
               <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500 leading-relaxed mt-3">
-                Texto oficial del sistema de gestión de calidad de Defensya Ingeniería Internacional.
+                Texto oficial del sistema de gestión de calidad de Defensya
+                Ingeniería Internacional.
               </p>
-              
+
               <div className="hidden lg:block w-px h-24 bg-gray-200 dark:bg-white/[0.07] mt-6 ml-px" />
             </div>
 
-            
             <div className="space-y-0 border-t border-gray-200 dark:border-white/[0.07]">
               {declaracion.map((item) => {
                 const isOpen = openItem === item.id;
@@ -313,31 +325,32 @@ export default function PoliticaCalidad() {
                       onClick={() => toggleItem(item.id)}
                       className="w-full flex items-center gap-5 py-5 text-left group"
                     >
-                    
                       <span className="font-mono text-[11px] text-defensya-blue tracking-widest shrink-0 w-7">
                         {item.id}
                       </span>
 
-                      
                       <span
                         className={`shrink-0 w-[3px] self-stretch rounded-full transition-colors duration-200 ${
-                          isOpen ? "bg-defensya-blue" : "bg-gray-200 dark:bg-white/[0.07]"
+                          isOpen
+                            ? "bg-defensya-blue"
+                            : "bg-gray-200 dark:bg-white/[0.07]"
                         }`}
                       />
 
-                     
                       <h3
                         className={`flex-1 text-base lg:text-lg font-bold uppercase transition-colors duration-200 ${
                           isOpen
                             ? "text-gray-900 dark:text-white"
                             : "text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300"
                         }`}
-                        style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                        style={{
+                          fontFamily:
+                            "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        }}
                       >
                         {item.titulo}
                       </h3>
 
-                      
                       <svg
                         width="16"
                         height="16"
@@ -356,10 +369,11 @@ export default function PoliticaCalidad() {
                       </svg>
                     </button>
 
-                    
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        isOpen ? "max-h-96 opacity-100 pb-5" : "max-h-0 opacity-0"
+                        isOpen
+                          ? "max-h-96 opacity-100 pb-5"
+                          : "max-h-0 opacity-0"
                       }`}
                     >
                       <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed pl-12">
@@ -370,47 +384,49 @@ export default function PoliticaCalidad() {
                 );
               })}
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ══ OBJETIVOS Y VALORES ════════════════════════════════════════════════ */}
+      {/* ══ OBJETIVOS Y VALORES ═════ */}
       <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
-            
             <div>
               <SectionTag>Marco Estratégico</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Objetivos<br />y Valores
+                Objetivos
+                <br />y Valores
               </h2>
             </div>
 
-            
             <ObjetivosValoresTabs />
           </div>
         </div>
       </section>
 
-      {/* ══ COMPROMISO ═════════════════════════════════════════════════════════ */}
+      {/* ══ COMPROMISO ═══════ */}
       <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
             <div>
               <SectionTag>Compromiso</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Pilares de<br />actuación
+                Pilares de
+                <br />
+                actuación
               </h2>
             </div>
 
@@ -432,7 +448,10 @@ export default function PoliticaCalidad() {
 
                   <h3
                     className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
-                    style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                    style={{
+                      fontFamily:
+                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    }}
                   >
                     {label}
                   </h3>
@@ -446,40 +465,51 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ SOSTENIBILIDAD CTA ════════════════════════════════════════════════ */}
+      {/* ══ SOSTENIBILIDAD CTA ═══════ */}
       <section className="px-6 lg:px-16 py-20 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-center">
-
             <div>
-              <SectionTag>Siguiente</SectionTag>
+              <SectionTag>Mejora continua</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 Sostenibilidad
               </h2>
               <p className="text-sm text-gray-400 leading-relaxed mt-3 max-w-md">
                 Conoce el compromiso de Defensya con el desarrollo sostenible,
-                la responsabilidad medioambiental y el impacto social de nuestra actividad.
+                la responsabilidad medioambiental y el impacto social de nuestra
+                actividad.
               </p>
             </div>
 
             <Link
               href="/empresa/sostenibilidad"
               className="group inline-flex items-center gap-4 border border-white/20
-                         px-7 py-4 hover:bg-white/[0.05] hover:border-white/40
+                         px-7 py-4 w-3xs hover:bg-white/[0.05] hover:border-white/40
                          transition-all duration-200 shrink-0 self-start lg:self-center"
             >
               <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-white">
                 Ver Sostenibilidad
               </span>
               <svg
-                width="14" height="14" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" strokeWidth={1.5}
+                width="14"
+                height="14"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
                 className="text-defensya-blue group-hover:translate-x-1 transition-transform duration-200"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4-4 4M3 12h18" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4-4 4M3 12h18"
+                />
               </svg>
             </Link>
           </div>

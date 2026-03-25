@@ -54,10 +54,9 @@ export default function Certificaciones() {
         >
           <div>
             <p
-              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3"
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
             >
-              Certificaciones Oficiales
+              Certificacion Oficial
             </p>
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -104,7 +103,7 @@ export default function Certificaciones() {
               </div>
               <div className="pt-1">
                 <p
-                  className="text-[12px] font-mono tracking-widest text-defensya-blue
+                  className="text-[12px] font-semibold tracking-widest text-defensya-blue
                               uppercase mb-1"
                 >
                   Sistema de Gestión de la Calidad
@@ -200,8 +199,7 @@ export default function Certificaciones() {
           <div className="flex flex-col bg-defensya-navy p-8 lg:p-12">
             <div className="mb-6 pb-6 ">
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
-                            uppercase mb-5"
+                className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
               >
                 Compromiso
               </p>
@@ -213,8 +211,7 @@ export default function Certificaciones() {
             </div>
 
             <p
-              className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
-                          uppercase mb-6"
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
             >
               Pilares del sistema
             </p>
@@ -248,8 +245,7 @@ export default function Certificaciones() {
                              group hover:bg-white/3 transition-colors -mx-2 px-2"
                 >
                   <span
-                    className="text-[12px] font-mono text-defensya-sky
-                                   tracking-widest shrink-0 pt-0.5"
+                    className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6"
                   >
                     {num}
                   </span>
