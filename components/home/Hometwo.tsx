@@ -185,10 +185,10 @@ export default function Hometwo() {
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky
-                            uppercase mb-3"
+                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
               >
-                Tecnologías Propietarias
+                Tecnologías
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none
@@ -377,7 +377,8 @@ export default function Hometwo() {
       <section className="py-28 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-5">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3">
               Colaboración
             </p>
             <h2
