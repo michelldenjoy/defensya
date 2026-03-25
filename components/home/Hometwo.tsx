@@ -20,7 +20,7 @@ export default function Hometwo() {
         {/* texto izquierda */}
         <div
           className="flex flex-col justify-center px-6 lg:px-20 pt-20 pb-16
-                  border-r border-gray-200 dark:border-white/[0.07] bg-white dark:bg-[#050609]"
+                  border-r border-gray-200 dark:border-white/[0.07] bg-white dark:bg-defensya-navy"
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -198,7 +198,7 @@ export default function Hometwo() {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Impulsando el futuro
+                Impulsamos el futuro
                 <br />
                 del reabastecimiento
               </h2>
