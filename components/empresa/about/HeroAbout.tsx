@@ -1,5 +1,13 @@
 import Image from "next/image"
 
+type HeroProps = {
+  title: string;
+  subtitle?: string;
+  children?: React.ReactNode;
+  image?: string;
+  video?: string;
+};
+
 
 export default function HeroAbout({
     title,
