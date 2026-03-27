@@ -4,41 +4,51 @@ import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight,
+  ArrowUpRight,
   X,
   ChevronLeft,
   ChevronRight,
   Shield,
+  Activity,
 } from "lucide-react";
 import { PRODUCTOS, Producto } from "@/data/productos";
 import HeroSection from "@/components/shared/HeroSection";
-import { DiagonalBadge } from "@/components/ui/DiagonalBadge";
 
-// ─── TIPOS ────────────────────────────────────────────────────────────────────
 
-type CatKey = "Todos" | "Vision" | "Datos" | "Test" | "Mision" | "Civil" | "Displays";
+type CatKey =
+  | "Todos"
+  | "Vision"
+  | "Datos"
+  | "Test"
+  | "Mision"
+  | "Civil"
+  | "Displays";
 
 const CATS: { key: CatKey; label: string; tag: string }[] = [
-  { key: "Todos",    label: "Todos",         tag: "ALL" },
-  { key: "Vision",   label: "Visión",        tag: "VIS" },
-  { key: "Datos",    label: "Datos",         tag: "DAT" },
+  { key: "Todos",    label: "Todos",          tag: "ALL" },
+  { key: "Vision",   label: "Visión",         tag: "VIS" },
+  { key: "Datos",    label: "Datos",          tag: "DAT" },
   { key: "Test",     label: "Soporte y Test", tag: "TST" },
-  { key: "Mision",   label: "Misión",        tag: "MIS" },
-  { key: "Civil",    label: "Ing. Civil",    tag: "CIV" },
-  { key: "Displays", label: "Displays",      tag: "DIS" },
+  { key: "Mision",   label: "Misión",         tag: "MIS" },
+  { key: "Civil",    label: "Ing. Civil",     tag: "CIV" },
+  { key: "Displays", label: "Displays",       tag: "DIS" },
 ];
 
-const pad = (n: number) => String(n).padStart(2, "0");
+const pad  = (n: number) => String(n).padStart(2, "0");
+const pad3 = (n: number) => String(n).padStart(3, "0");
 
-// ─── PAGE status ─────────────────────────────────────────────────────────────────────
+// ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 export default function ProductosPage() {
-  const [filtro, setFiltro]     = useState<CatKey>("Todos");
-  const [selected, setSelected] = useState<Producto | null>(null);
+  const [filtro, setFiltro]       = useState<CatKey>("Todos");
+  const [selected, setSelected]   = useState<Producto | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   const filteredItems = useMemo(
-    () => (filtro === "Todos" ? PRODUCTOS : PRODUCTOS.filter((p) => p.categoria === filtro)),
+    () =>
+      filtro === "Todos"
+        ? PRODUCTOS
+        : PRODUCTOS.filter((p) => p.categoria === filtro),
     [filtro]
   );
 
@@ -46,9 +56,15 @@ export default function ProductosPage() {
   const closeModal = ()             => setModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-defensya-navy selection:bg-defensya-blue selection:text-white">
-      {/* Grid decorativo de fondo */}
-      <div className="fixed inset-0 bg-[radial-linear(circle_at_2px_2px,rgba(0,0,0,0.05)_1px,transparent_0)] dark:bg-[radial-linear(circle_at_2px_2px,rgba(255,255,255,0.02)_1px,transparent_0)] bg-size-[32px_32px] pointer-events-none z-0" />
+    <div className="min-h-screen bg-gray-100 selection:bg-defensya-blue selection:text-white">
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage:
+            "radial-linear(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
       <HeroSection
         label="Operational Assets"
@@ -59,31 +75,48 @@ export default function ProductosPage() {
 
       <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
 
-        {/* ── SIDEBAR TÁCTICO ── */}
-        <aside className="w-full lg:w-72 p-6 lg:p-10 border-r border-gray-100 dark:border-white/5 lg:sticky lg:top-0 lg:h-screen bg-white/50 dark:bg-[#050609]/50 backdrop-blur-md">
+        {/* ── SIDEBAR ── */}
+        <aside className="w-full lg:w-68 shrink-0 p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-[#06080D]/80 backdrop-blur-md">
           <div className="mb-10">
-            <h2 className="text-[10px] font-mono tracking-[0.4em] text-defensya-blue uppercase mb-2">Navigation</h2>
-            <p className="text-2xl font-bold font-display uppercase italic dark:text-white">Catálogo</p>
+            <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-sky uppercase mb-2">
+              DEFENSYA
+            </p>
+            <p className="text-2xl font-bold font-display uppercase italic text-white">
+              Catálogo
+            </p>
           </div>
 
           <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-hide">
             {CATS.map((cat) => {
-              const count = PRODUCTOS.filter((p) => cat.key === "Todos" || p.categoria === cat.key).length;
+              const count  = PRODUCTOS.filter(
+                (p) => cat.key === "Todos" || p.categoria === cat.key
+              ).length;
+              const active = filtro === cat.key;
               return (
                 <button
                   key={cat.key}
                   onClick={() => setFiltro(cat.key)}
-                  className={`flex items-center gap-4 p-3 rounded-lg transition-all duration-300 group whitespace-nowrap
-                    ${filtro === cat.key ? "bg-defensya-blue/10 dark:bg-white/5" : "hover:bg-gray-50 dark:hover:bg-white/2"}`}
+                  className={`relative flex items-center gap-4 p-3 transition-all duration-300 whitespace-nowrap text-left group
+                    ${active ? "bg-defensya-blue/8" : "hover:bg-white/3"}`}
                 >
-                  <span className={`font-mono text-lg ${filtro === cat.key ? "text-defensya-blue" : "text-gray-300 dark:text-gray-700"}`}>
+                  <span
+                    className={`absolute left-0 top-0 bottom-0 w-px transition-all duration-300
+                      ${active ? "bg-defensya-sky" : "bg-transparent group-hover:bg-white/10"}`}
+                  />
+                  <span
+                    className={`font-mono text-base tabular-nums
+                    ${active ? "text-defensya-sky text-bold" : "text-white/15"}`}
+                  >
                     {pad(count)}
                   </span>
-                  <div className="text-left leading-none">
-                    <p className={`text-sm font-bold uppercase tracking-tight ${filtro === cat.key ? "text-defensya-blue" : "text-gray-500"}`}>
+                  <div className="leading-none">
+                    <p className={`text-xs font-bold uppercase tracking-widest
+                      ${active ? "text-white" : "text-white/30"}`}>
                       {cat.label}
                     </p>
-                    <p className="text-[9px] font-mono text-gray-400 mt-1 uppercase tracking-widest">{cat.tag}</p>
+                    <p className="text-[8px] font-mono text-white/15 mt-0.5 tracking-[0.4em] uppercase">
+                      {cat.tag}
+                    </p>
                   </div>
                 </button>
               );
@@ -91,31 +124,46 @@ export default function ProductosPage() {
           </nav>
         </aside>
 
-        {/* ── GRID PRODUCTOS ── */}
+        {/* ── GRID ── */}
         <main className="flex-1 p-6 lg:p-12">
-          <header className="flex items-end justify-between mb-12 border-b border-gray-100 dark:border-white/5 pb-8">
-            <h2 className="text-4xl font-bold font-display uppercase italic dark:text-white tracking-tighter">
-              {filtro === "Todos" ? "Global Inventory" : filtro}
-            </h2>
+          <header className="flex items-end justify-between mb-10 pb-6 border-b border-white/5">
+            <div>
+              <p className="text-[9px] font-mono text-defensya-blue/60 tracking-widest uppercase mb-1">
+                {pad(filteredItems.length)} assets found
+              </p>
+              <h2 className="text-4xl font-bold font-display uppercase italic text-black tracking-tighter">
+                {filtro === "Todos" ? "Global Inventory" : filtro}
+              </h2>
+            </div>
           </header>
 
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
             <AnimatePresence mode="popLayout">
               {filteredItems.map((p, i) => (
-                <ProductCard key={p.id} producto={p} index={i} onOpen={() => openModal(p)} />
+                <ProductCard
+                  key={p.id}
+                  producto={p}
+                  index={i}
+                  onOpen={() => openModal(p)}
+                />
               ))}
             </AnimatePresence>
           </motion.div>
         </main>
       </div>
 
-      {/* ── MODAL INLINE ── */}
+      {/* ── MODAL ── */}
       <ProductModal producto={selected} isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 }
 
-// ─── CARD 
+// ─── CARD ─────────────────────────────────────────────────────────────────────
+
+
+
+const CLIP_DEFAULT = "polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%)";
+const CLIP_HOVER   = "polygon(0 0, 100% 0,              100% 0,    100% 100%, 0 100%)";
 
 function ProductCard({
   producto,
@@ -126,53 +174,142 @@ function ProductCard({
   index: number;
   onOpen: () => void;
 }) {
-  const image = Array.isArray(producto.imagen) ? producto.imagen[0] : producto.imagen;
+  const image   = Array.isArray(producto.imagen) ? producto.imagen[0] : producto.imagen;
+  const assetId = `AST-${pad3(index + 1)}`;
+
+  // controla hover clip-path 
+  const [hovered, setHovered] = useState(false);
 
   return (
     <motion.article
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.45, delay: index * 0.05 }}
       onClick={onOpen}
-      className="group relative cursor-pointer bg-white dark:bg-white/3 border border-gray-100 dark:border-white/10 overflow-hidden hover:border-defensya-blue/40 transition-all duration-500"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group relative cursor-pointer bg-[#0A0D14] overflow-hidden"
+      style={{
+       
+        clipPath: hovered ? CLIP_HOVER : CLIP_DEFAULT,
+        transition: "clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
     >
-      <div className="absolute inset-0 w-full h-px bg-defensya-blue/30 z-20 top-0 opacity-0 group-hover:animate-[def-scan_2s_linear_infinite] group-hover:opacity-100 pointer-events-none" />
 
-      <div className="relative h-56 overflow-hidden bg-neutral-900">
+      {/* LINEA DE ESCANER*/}
+      <div className="absolute inset-x-0 h-px bg-defensya-blue/20 z-20 -top-1 opacity-0 group-hover:animate-[def-scan_3.5s_linear_infinite] group-hover:opacity-100 pointer-events-none" />
+
+      {/* Accent strip izquierdo */}
+      {/* <div className="absolute left-0 top-0 bottom-0 w-px bg-defensya-blue/25 group-hover:bg-defensya-blue/80 transition-colors duration-500 z-10" /> */}
+
+      {/* ── Header strip: ID + signal bars ── */}
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 bg-white/[0.02]">
+        <span className="font-mono text-[9px] tracking-[0.35em] text-defensya-blue font-bold">
+          {assetId}
+        </span>
+        <div className="flex items-center gap-2">
+          <div className="flex items-end gap-px">
+            {[3, 5, 7, 9].map((h, i) => (
+              <div
+                key={i}
+                className="w-1 bg-defensya-blue/25 group-hover:bg-defensya-blue transition-colors"
+                style={{ height: `${h}px`, transitionDelay: `${i * 50}ms` }}
+              />
+            ))}
+          </div>
+          <span className="font-mono text-[8px] tracking-widest text-white/15 uppercase">
+            NOM
+          </span>
+        </div>
+      </div>
+
+      {/* ── Imagen ── */}
+      <div className="relative h-52 overflow-hidden ">
         <Image
           src={image}
           alt={producto.nombre}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+          className="object-cover opacity-65 group-hover:opacity-65 transition-all duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent" />
-        <DiagonalBadge>{producto.categoria}</DiagonalBadge>
 
+        {/* Triángulo de esquina, desaparece en hover  */}
+        <div
+          className="absolute top-0 right-0 w-5 h-5 bg-defensya-blue/50 z-10"
+          style={{
+            clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+           
+            opacity: hovered ? 0 : 1,
+            transition: "opacity 0.25s ease",
+          }}
+        />
+
+        {/* ESQUINAS TARGET EN CARD */}
+        <div className="absolute inset-5 pointer-events-none">
+          {[
+            "top-0 left-0 border-t border-l",
+            "top-0 right-0 border-t border-r",
+            "bottom-0 left-0 border-b border-l",
+            "bottom-0 right-0 border-b border-r",
+          ].map((pos, i) => (
+            <div
+              key={i}
+              className={`absolute ${pos} border-defensya-blue/35 group-hover:border-defensya-blue/75 transition-all duration-300`}
+              style={{ width: 14, height: 14, transitionDelay: `${i * 30}ms` }}
+            />
+          ))}
+        </div>
+
+        {/* RADAR CENTRAL EN CARD */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="relative w-8 h-8">
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-defensya-sky/30" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-defensya-sky/30" />
+            <div className="absolute inset-[30%] rounded-full border border-defensya-sky/30" />
+          </div>
+        </div>
+
+        {/* Categoria */}
+        <div className="absolute top-3 left-5">
+          <span className="font-mono text-[8px] tracking-[0.3em] text-white/30 uppercase">
+            /{producto.categoria}
+          </span>
+        </div>
+
+        {/* Nombre */}
         <div className="absolute bottom-4 left-5 right-5">
-          <h3 className="text-2xl font-semibold text-white uppercase font-display italic leading-none tracking-tighter">
+          <h3 className="text-[22px] font-bold font-display italic uppercase tracking-tighter text-white leading-none transition-colors duration-300">
             {producto.nombre}
           </h3>
         </div>
       </div>
 
-      <div className="p-5">
-
-        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed mb-6 italic">
+      {/* ── Cuerpo ── */}
+      <div className="px-5 pt-4 pb-4">
+        <p className="text-[12px] text-white/45 leading-relaxed line-clamp-2 mb-5 font-mono">
           {producto.descripcion}
         </p>
-        <div className="flex items-center justify-between text-defensya-blue font-mono text-[10px] font-bold uppercase tracking-widest">
-          <span>Detalles Técnicos</span>
-          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+
+        <div className="flex items-center justify-between border-t border-white/5 pt-3.5">
+        
+          <div className="flex items-center gap-1.5 text-white/50 group-hover:text-white transition-colors duration-300">
+            <span className="font-mono text-[10px] tracking-[0.25em] uppercase">
+              Ver ficha
+            </span>
+            <ArrowUpRight
+              size={11}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+            />
+          </div>
         </div>
       </div>
     </motion.article>
   );
 }
 
-// ─── MODAL 
+// ─── MODAL
 
 function ProductModal({
   producto,
@@ -185,16 +322,10 @@ function ProductModal({
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  /**
-   * FIX 2 — Resetear el slide cada vez que se abre un producto distinto.
-   * Sin esto, si el usuario abre el producto B después del A, puede quedar
-   * en un índice de slide que no existe en B y no se renderiza ninguna imagen.
-   */
   useEffect(() => {
     if (isOpen) setCurrentSlide(0);
   }, [isOpen, producto?.id]);
 
-  // Bloquear scroll del body cuando el modal está abierto
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => { document.body.style.overflow = "unset"; };
@@ -202,55 +333,63 @@ function ProductModal({
 
   if (!producto) return null;
 
-  const images   = Array.isArray(producto.imagen) ? producto.imagen : [producto.imagen];
+  const images    = Array.isArray(producto.imagen) ? producto.imagen : [producto.imagen];
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 lg:p-8">
-          {/* Overlay */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-[#050609]/95 backdrop-blur-md"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
           />
 
-          {/* Contenedor principal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.92, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-6xl bg-white dark:bg-[#0A0C11] border border-gray-100 dark:border-white/10 shadow-2xl overflow-hidden"
+            exit={{ opacity: 0, scale: 0.92, y: 16 }}
+            transition={{ duration: 0.35 }}
+            className="relative w-full max-w-6xl bg-[#050811] shadow-2xl overflow-hidden"
+            style={{
+              clipPath:
+                "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)",
+              boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.07)",
+            }}
           >
-            {/* Línea de energía superior */}
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-defensya-blue to-transparent opacity-50" />
+            <div
+              className="absolute top-0 right-0 w-7 h-7 bg-defensya-blue/70 z-30"
+              style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
+            />
 
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/2">
-              <span className="hidden  md:block text-[10px] font-mono text-gray-400 uppercase tracking-tighter mt-5">
-                Sector: {producto.categoria}
-              </span>
+            <div className="h-px w-full bg-linear-to-r from-transparent via-defensya-blue to-transparent opacity-50" />
+
+            <div className="flex items-center justify-between px-6 py-3.5 border-b border-white/5 bg-white/[0.02]">
+              <div className="flex items-center gap-6">
+                <span className="font-mono mt-5 sm:mt-0 text-[9px] tracking-widest text-defensya-blue uppercase">
+                  Sector: {producto.categoria}
+                </span>
+                <div className="hidden md:flex items-center gap-1.5">
+                  <div className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="font-mono text-[8px] text-white/20 uppercase tracking-widest">
+                    Ficha técnica — Activo operativo
+                  </span>
+                </div>
+              </div>
               <button
                 onClick={onClose}
-                className="py-2 mt-5   hover:bg-defensya-blue/10 hover:text-defensya-blue transition-colors text-gray-400 ml-auto"
+                className="p-1.5 mt-5 sm:mt-0 hover:bg-defensya-blue/10 hover:text-white transition-colors text-white/20"
               >
-                <X size={24} />
+                <X size={18} />
               </button>
             </div>
 
             <div className="grid lg:grid-cols-2">
-
-              {/* ── VISOR DE IMÁGENES ── */}
-              <div className="relative overflow-hidden border-r border-white/5 bg-neutral-950
-                              /* FIX 3 — altura responsiva:
-                                 · móvil:  aspect-ratio 4/3 (suficiente para ver el producto completo)
-                                 · lg:     altura fija mínima para cuadrar con la ficha técnica */
-                              aspect-4/3 lg:aspect-auto lg:min-h-125">
-
+              <div className="relative overflow-hidden  border-r border-white/5 bg-[#060810] aspect-[4/3] lg:aspect-auto lg:min-h-[500px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentSlide}
@@ -264,95 +403,77 @@ function ProductModal({
                       src={images[currentSlide]}
                       alt={`${producto.nombre} — imagen ${currentSlide + 1}`}
                       fill
-                      /**
-                       * FIX 4 — object-contain: muestra la imagen completa sin
-                       * recortar, independientemente del ratio de aspecto.
-                       * El fondo neutro (bg-neutral-950) disimula el letterbox.
-                       * Sin esto, imágenes 1920×1280 se cortaban en móvil.
-                       *
-                       * FIX 5 — sizes: igual que en la card, evita que Next.js
-                       * espere al layout para decidir qué variante descargar.
-                       *
-                       * FIX 6 — priority: la imagen visible al abrir el modal
-                       * se precarga con máxima prioridad para que aparezca
-                       * instantáneamente, sin esperar un click.
-                       */
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority={currentSlide === 0}
                       className="object-contain opacity-90"
                     />
-                    {/* Malla técnica decorativa */}
-                    <div className="absolute inset-0 bg-[url('/images/grid-noise.png')] opacity-10 pointer-events-none" />
+                    <div
+                      className="absolute inset-0 opacity-[0.07] pointer-events-none"
+
+                    />
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Brackets de enfoque */}
-                <div className="absolute inset-8 border border-white/10 pointer-events-none">
-                  <div className="absolute top-0 left-0  w-4 h-4 border-t-2 border-l-2 border-defensya-blue/40" />
-                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-defensya-blue/40" />
-                  <div className="absolute bottom-0 left-0  w-4 h-4 border-b-2 border-l-2 border-defensya-blue/40" />
-                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-defensya-blue/40" />
-                </div>
 
-                {/* Controles de paginación */}
                 {images.length > 1 && (
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
                     <button
                       onClick={prevSlide}
-                      className="p-2 bg-black/50 border border-white/10 hover:bg-defensya-blue text-white transition-all backdrop-blur-md"
+                      className="p-1.5 bg-black/60 border border-white/8 hover:bg-defensya-blue text-white transition-all backdrop-blur-md"
                     >
-                      <ChevronLeft size={16} />
+                      <ChevronLeft size={14} />
                     </button>
-                    <span className="text-[10px] font-mono text-white tracking-[0.3em]">
+                    <span className="text-[9px] font-mono text-white/30 tracking-[0.3em]">
                       {pad(currentSlide + 1)} / {pad(images.length)}
                     </span>
                     <button
                       onClick={nextSlide}
-                      className="p-2 bg-black/50 border border-white/10 hover:bg-defensya-blue text-white transition-all backdrop-blur-md"
+                      className="p-1.5 bg-black/60 border border-white/8 hover:bg-defensya-blue text-white transition-all backdrop-blur-md"
                     >
-                      <ChevronRight size={16} />
+                      <ChevronRight size={14} />
                     </button>
                   </div>
                 )}
               </div>
 
-              {/* ── FICHA TÉCNICA ── */}
               <div className="p-8 lg:p-12 flex flex-col max-h-[70vh] overflow-y-auto scrollbar-hide">
                 <header className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-bold font-display italic uppercase tracking-tighter dark:text-white leading-none mb-4">
+                  <p className="font-mono text-[9px] tracking-widest text-defensya-blue/60 uppercase mb-3">
+                    {producto.categoria} / Especificaciones
+                  </p>
+                  <h2 className="text-4xl lg:text-5xl font-bold font-display italic uppercase tracking-tighter text-white leading-none mb-4">
                     {producto.nombre}
                   </h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                  <p className="text-md text-white/70 leading-relaxed font-mono">
                     {producto.descripcion}
                   </p>
                 </header>
 
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-[10px] font-mono font-bold text-defensya-blue uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
-                       Especificaciones
-                    </h4>
-                    <ul className="space-y-3">
-                      {producto.detalles.map((detalle, idx) => (
-                        <li
-                          key={idx}
-                          className="flex gap-4 p-3 bg-gray-50 dark:bg-white/3 border border-gray-100 dark:border-white/5 group/item hover:border-defensya-blue/20 transition-colors"
-                        >
-                          <span className="font-mono text-[10px] text-defensya-blue mt-1 shrink-0">
-                            [{pad(idx + 1)}]
-                          </span>
-                          <span className="text-sm text-gray-600 dark:text-gray-300 group-hover/item:text-white transition-colors italic">
-                            {detalle}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div>
+                  <h4 className="flex items-center gap-2 text-[9px] font-mono font-bold text-defensya-blue uppercase tracking-[0.35em] mb-4">
+                    
+                    Parámetros de sistema
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {producto.detalles.map((detalle, idx) => (
+                      <li
+                        key={idx}
+                        className="flex gap-3 p-3 bg-white/[0.03] border border-white/5 hover:border-defensya-blue/20 hover:bg-white/[0.05] transition-all group/item"
+                      >
+                        <span className="font-mono text-[9px] text-defensya-blue mt-0.5 shrink-0 group-hover/item:text-defensya-blue transition-colors">
+                          {pad(idx + 1)}
+                        </span>
+                        <span className="text-sm text-white/70 group-hover/item:text-white/65 transition-colors font-mono leading-relaxed">
+                          {detalle}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <footer className="mt-auto pt-10 flex items-center justify-between border-t border-gray-100 dark:border-white/5 text-[9px] font-mono text-gray-500 uppercase tracking-widest">
+                <footer className="mt-auto pt-8 flex items-center justify-between border-t border-white/5 text-[8px] font-mono text-white/15 uppercase tracking-widest">
                   <div className="flex items-center gap-2">
-                    <Shield size={12} className="text-defensya-blue" />
+                    <Shield size={10} className="text-defensya-blue/50" />
                     NATO STANAG COMPLIANT
                   </div>
                   <span>©2026 Defensya Ops</span>
