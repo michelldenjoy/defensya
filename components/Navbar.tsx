@@ -90,7 +90,7 @@ function EmpresaDropdown({ onClose }: { onClose?: () => void }) {
         role="menu"
         aria-label="Empresa submenu"
         className={`absolute left-0 top-full mt-2 z-50 w-56
-                    border border-slate-200 dark:border-white/[0.08]
+                    border border-slate-200 dark:border-white/8
                     bg-white dark:bg-defensya-navy-light
                     shadow-xl shadow-black/10 dark:shadow-black/50
                     overflow-hidden transition-all duration-200 origin-top
@@ -101,7 +101,7 @@ function EmpresaDropdown({ onClose }: { onClose?: () => void }) {
                     }`}
       >
         {/* Top accent line */}
-        <div className="h-px bg-gradient-to-r from-transparent via-defensya-blue/50 to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-defensya-blue/50 to-transparent" />
 
         <div className="flex flex-col p-1.5">
           {EMPRESA_ITEMS.map((item) => (

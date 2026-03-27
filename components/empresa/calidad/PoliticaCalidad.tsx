@@ -99,7 +99,7 @@ function ObjetivosValoresTabs() {
   return (
     <div>
       {/* Tab switcher */}
-      <div className="flex border-b border-white/[0.08] mb-10 gap-0">
+      <div className="flex border-b border-white/8 mb-10 gap-0">
         {(["objetivos", "valores"] as Tab[]).map((t) => (
           <button
             key={t}
@@ -112,7 +112,7 @@ function ObjetivosValoresTabs() {
               ? "Objetivos Estratégicos"
               : "Valores Fundamentales"}
             {tab === t && (
-              <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-defensya-blue" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-defensya-blue" />
             )}
           </button>
         ))}
@@ -120,11 +120,11 @@ function ObjetivosValoresTabs() {
 
       {/* OBJETIVOS */}
       {tab === "objetivos" && (
-        <div className="space-y-0 border-t border-white/[0.06]">
+        <div className="space-y-0 border-t border-white/6">
           {objetivos.map((item, i) => (
             <div
               key={i}
-              className="group flex gap-6 py-6 border-b border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200 px-2"
+              className="group flex gap-6 py-6 border-b border-white/6 hover:bg-white/2 transition-colors duration-200 px-2"
             >
               <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
                 {String(i + 1).padStart(2, "0")}
@@ -137,11 +137,11 @@ function ObjetivosValoresTabs() {
 
       {/* VALORES */}
       {tab === "valores" && (
-        <div className="space-y-0 border-t border-white/[0.06]">
+        <div className="space-y-0 border-t border-white/6">
           {valores.map((item, i) => (
             <div
               key={i}
-              className="group flex gap-6  py-5 border-b border-white/[0.06] hover:bg-white/[0.02] transition-colors duration-200 px-2 items-start"
+              className="group flex gap-6  py-5 border-b border-white/6 hover:bg-white/2 transition-colors duration-200 px-2 items-start"
             >
               <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
                 {String(i + 1).padStart(2, "0")}
@@ -211,7 +211,7 @@ export default function PoliticaCalidad() {
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
-              <div className="inline-flex items-stretch gap-4 border border-gray-200 dark:border-white/[0.08] self-start">
+              <div className="inline-flex items-stretch gap-4 border border-gray-200 dark:border-white/8 self-start">
                 <div className="w-1 bg-defensya-blue shrink-0" />
                 <div className="px-4 py-4">
                   <p className="text-[11px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-1">
@@ -330,7 +330,7 @@ export default function PoliticaCalidad() {
                       </span>
 
                       <span
-                        className={`shrink-0 w-[3px] self-stretch rounded-full transition-colors duration-200 ${
+                        className={`shrink-0 w-0.75 self-stretch rounded-full transition-colors duration-200 ${
                           isOpen
                             ? "bg-defensya-blue"
                             : "bg-gray-200 dark:bg-white/[0.07]"
@@ -435,7 +435,7 @@ export default function PoliticaCalidad() {
               {compromisos.map(({ num, label, desc }) => (
                 <div
                   key={num}
-                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-7 hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors duration-200"
+                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-7 hover:bg-gray-50 dark:hover:bg-white/3 transition-colors duration-200"
                 >
                   {/* Number + accent line */}
                   <div className="flex items-center gap-3 mb-5">
@@ -490,7 +490,7 @@ export default function PoliticaCalidad() {
             <Link
               href="/empresa/sostenibilidad"
               className="group inline-flex items-center gap-4 border border-white/20
-                         px-7 py-4 w-3xs hover:bg-white/[0.05] hover:border-white/40
+                         px-7 py-4 w-3xs hover:bg-white/5 hover:border-white/40
                          transition-all duration-200 shrink-0 self-start lg:self-center"
             >
               <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-white">

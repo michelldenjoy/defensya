@@ -110,7 +110,7 @@ export default function Timeline() {
                                 ${
                                   isLeft
                                     ? "lg:pr-16 lg:py-16 p-8"
-                                    : "lg:py-16 p-8 order-last lg:order-none"
+                                    : "lg:py-16 p-8 order-last lg:order-0"
                                 }`}
                   >
                     {isLeft ? (

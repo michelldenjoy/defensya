@@ -96,9 +96,9 @@ const areas = [
   },
 ];
 
-// ─── Sub-componente
 
-function SectionTag({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+
+function SectionTag({ children = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
       className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
@@ -240,8 +240,8 @@ export default function Sostenibilidad() {
                         {item.id}
                       </span>
                       <span
-                        className={`shrink-0 w-[3px] self-stretch rounded-full transition-colors duration-200 ${
-                          isOpen ? "bg-defensya-blue" : "bg-white/[0.08]"
+                        className={`shrink-0 w-0.75 self-stretch rounded-full transition-colors duration-200 ${
+                          isOpen ? "bg-defensya-blue" : "bg-white/8"
                         }`}
                       />
                       <h3
@@ -297,7 +297,7 @@ export default function Sostenibilidad() {
               {areas.map(({ num, label, desc, icon }) => (
                 <div
                   key={num}
-                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors duration-200"
+                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/3 transition-colors duration-200"
                 >
                   <div className="flex items-center justify-between mb-5">
                     <div className="text-defensya-blue opacity-60 group-hover:opacity-100 transition-opacity duration-200">
@@ -309,7 +309,7 @@ export default function Sostenibilidad() {
                   </div>
                   <div className="flex items-center gap-2 mb-5">
                     <div className="h-px w-5 bg-defensya-blue" />
-                    <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.06]" />
+                    <div className="h-px flex-1 bg-gray-100 dark:bg-white/6" />
                   </div>
                   <h3
                     className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
@@ -345,7 +345,7 @@ export default function Sostenibilidad() {
             </div>
 
             <div className="border border-gray-200 dark:border-white/[0.07] p-8 lg:p-10 flex gap-6 items-start">
-              <div className="w-[3px] self-stretch bg-defensya-blue shrink-0 rounded-full" />
+              <div className="w-0.75 self-stretch bg-defensya-blue shrink-0 rounded-full" />
               <div>
                 <p className="text-[11px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-4">
                   Declaración final
@@ -388,7 +388,7 @@ export default function Sostenibilidad() {
           <Link
             href="/empresa/calidad-certificacion"
             className="group inline-flex items-center gap-4 border border-white/20
-                       px-7 py-4 w-xs hover:bg-white/[0.05] hover:border-white/40
+                       px-7 py-4 w-xs hover:bg-white/5 hover:border-white/40
                        transition-all duration-200 shrink-0 self-start lg:self-center"
           >
             <svg

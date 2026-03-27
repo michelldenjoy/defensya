@@ -17,7 +17,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Vision",
     descripcion:
       "Sistema integrado en el BEVS para la optimización de la visión estereoscópica en operaciones de reabastecimiento en vuelo.",
-    imagen: "/images/aeronautic.jpg", 
+    imagen: "/images/aeronautic.jpg",
     detalles: [
       "Elimina problemas de 'ghosting' y distorsiones visuales",
       "Permite al operador (ARO) una percepción de profundidad real",
@@ -50,50 +50,58 @@ export const PRODUCTOS: Producto[] = [
       "Monitoreo AIS integrado y seguimiento de objetivos ARPAS",
     ],
   },
-    {
-      id: "cameras-multi-spectral",
-      nombre: "Cameras Multi Spectral",
-      categoria: "Vision",
-      descripcion: "Gama completa de cámaras de alta resolución (hasta 4K) adaptables a cualquier lente, con unidad de procesamiento integrada para algoritmos avanzados.",
-      imagen: ["/products/camera1.webp", "/products/camera2.webp", "/products/camera3.webp", "/products/camera4.webp", "/products/camera5.webp", "/products/camera6.webp"] ,  
-      detalles: [
-        "Sensores VIS de alta sensibilidad (Color Nocturno)",
-        "Tecnologías Infrarrojas: NIR, SWIR (640x480) y LWIR (1080p)",
-        "Unidad de procesamiento integrada para análisis de imagen en tiempo real"
-      ]
-    },
-    {
-      id: "supervision-designation-bench",
-      nombre: "Supervision & Designation",
-      categoria: "Vision",
-      descripcion: "Sistema electro-óptico modular de alta precisión diseñado para misiones de vigilancia, adquisición de objetivos y guiado láser en entornos tácticos.",
-      imagen: "/images/aeronautic.jpg",
-      detalles: [
-        "Arquitectura Modular: Configuración de hasta 3 slots simultáneos para sensores multiespectrales.",
-        "Estabilización Activa: Sistema de imagen estabilizada con capacidades de Auto-Tracking (seguimiento automático).",
-        "Designación Láser: Emisor de 1064nm (>70mJ, 30Hz) bajo normativa OTAN STANAG 3733 para guiado de precisión.",
-        "Inteligencia Operativa: Rutinas programables por el usuario y opciones de iluminación IR integrada.",
-        "Sensor VIS (Visible): Resolución hasta 4K, Zoom óptico 20x con estabilización digital.",
-        "Sensor Térmico (LWIR): Resolución desde 640x480 hasta 1080p con tecnología SRA (Super Resolution).",
-        "Sensor NIR/SWIR: Resolución 1080p con zoom óptico 20x y alta sensibilidad en espectros no visibles.",
-        "Láser Designador: Pulsado 1064nm, Energía > 70mJ, Frecuencia hasta 30Hz.",
-        "Cumplimiento Normativo: NATO STANAG 3733 y estándares MIL-STD para entornos de combate."
-      ]
-
-    },
-    {
-      id: "pan-tilt-bench-hdtp",
-      nombre: "Pan & Tilt Bench",
-      categoria: "Vision",
-      descripcion: "Plataforma móvil ultraligera fabricada en polímeros técnicos y fibra de carbono para el posicionamiento de sensores.",
-      imagen: "/products/pan&tiltt.png",
-      detalles: [
-        "Velocidad extrema: Pan 280°/s y Tilt 190°/s con repetibilidad de ±0.01°",
-        "Construcción en Aluminio 7071 y fibra de carbono (<4kg)",
-        "Alimentación 28Vdc conforme a normativas MIL-STD"
-      ]
-    },
-  
+  {
+    id: "cameras-multi-spectral",
+    nombre: "Cameras Multi Spectral",
+    categoria: "Vision",
+    descripcion:
+      "Gama completa de cámaras de alta resolución (hasta 4K) adaptables a cualquier lente, con unidad de procesamiento integrada para algoritmos avanzados.",
+    imagen: [
+      "/products/camera1.webp",
+      "/products/camera2.webp",
+      "/products/camera3.webp",
+      "/products/camera4.webp",
+      "/products/camera5.webp",
+      "/products/camera6.webp",
+    ],
+    detalles: [
+      "Sensores VIS de alta sensibilidad (Color Nocturno)",
+      "Tecnologías Infrarrojas: NIR, SWIR (640x480) y LWIR (1080p)",
+      "Unidad de procesamiento integrada para análisis de imagen en tiempo real",
+    ],
+  },
+  {
+    id: "supervision-designation-bench",
+    nombre: "Supervision & Designation",
+    categoria: "Vision",
+    descripcion:
+      "Sistema electro-óptico modular de alta precisión diseñado para misiones de vigilancia, adquisición de objetivos y guiado láser en entornos tácticos.",
+    imagen: "/images/aeronautic.jpg",
+    detalles: [
+      "Arquitectura Modular: Configuración de hasta 3 slots simultáneos para sensores multiespectrales.",
+      "Estabilización Activa: Sistema de imagen estabilizada con capacidades de Auto-Tracking (seguimiento automático).",
+      "Designación Láser: Emisor de 1064nm (>70mJ, 30Hz) bajo normativa OTAN STANAG 3733 para guiado de precisión.",
+      "Inteligencia Operativa: Rutinas programables por el usuario y opciones de iluminación IR integrada.",
+      "Sensor VIS (Visible): Resolución hasta 4K, Zoom óptico 20x con estabilización digital.",
+      "Sensor Térmico (LWIR): Resolución desde 640x480 hasta 1080p con tecnología SRA (Super Resolution).",
+      "Sensor NIR/SWIR: Resolución 1080p con zoom óptico 20x y alta sensibilidad en espectros no visibles.",
+      "Láser Designador: Pulsado 1064nm, Energía > 70mJ, Frecuencia hasta 30Hz.",
+      "Cumplimiento Normativo: NATO STANAG 3733 y estándares MIL-STD para entornos de combate.",
+    ],
+  },
+  {
+    id: "pan-tilt-bench-hdtp",
+    nombre: "Pan & Tilt Bench",
+    categoria: "Vision",
+    descripcion:
+      "Plataforma móvil ultraligera fabricada en polímeros técnicos y fibra de carbono para el posicionamiento de sensores.",
+    imagen: "/products/pan&tiltt.png",
+    detalles: [
+      "Velocidad extrema: Pan 280°/s y Tilt 190°/s con repetibilidad de ±0.01°",
+      "Construcción en Aluminio 7071 y fibra de carbono (<4kg)",
+      "Alimentación 28Vdc conforme a normativas MIL-STD",
+    ],
+  },
 
   // --- 2. GESTIÓN DE DATOS Y GRABACIÓN ---
   {
@@ -141,7 +149,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Datos",
     descripcion:
       "Sistema de registro integral de misión para la captura de señales críticas de vuelo.",
-    imagen: ["/products/videodata.webp", "/products/videodata2.webp" ],
+    imagen: ["/products/videodata.webp", "/products/videodata2.webp"],
     detalles: [
       "Grabación sincronizada de múltiples canales de audio y vídeo",
       "Diseño preparado para post-análisis de misión (Debriefing)",
@@ -253,7 +261,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Sistemas de visualización crítica diseñados para garantizar la fluidez de imagen, eliminando el riesgo de congelación de cuadros (frames).",
-      imagen: "/images/aeronautic.jpg",
+    imagen: "/images/aeronautic.jpg",
     detalles: [
       "Aplicación crítica en reabastecimiento en vuelo y diagnóstico médico",
       "Evita errores de interpretación por pérdida de señal de entrada",
@@ -266,7 +274,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Displays de formato ancho que generan una visión periférica completa del área de trabajo, optimizando la seguridad operativa.",
-      imagen: "/images/aeronautic.jpg",
+    imagen: "/images/aeronautic.jpg",
     detalles: [
       "Generación de superposiciones (overlays) de datos en tiempo real",
       "Prevención de colisiones mediante visualización de área ampliada",
@@ -279,7 +287,12 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Pantallas de alta resistencia totalmente personalizables, diseñadas para operar bajo condiciones ambientales extremas.",
-      imagen: ["/products/rugged7-3.webp", "/products/rugged7-2.webp", "/products/rugged7.webp", "/products/rugged7-1.webp" ],
+    imagen: [
+      "/products/rugged7-3.webp",
+      "/products/rugged7-2.webp",
+      "/products/rugged7.webp",
+      "/products/rugged7-1.webp",
+    ],
     detalles: [
       "Certificación Militar: MIL-STD-461F y MIL-STD-810G",
       "Alta luminosidad (>500cd) para legibilidad bajo luz solar directa",
@@ -292,7 +305,12 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Estaciones de trabajo portátiles de alto rendimiento con arquitectura reforzada para despliegue en campo.",
-      imagen: ["/products/tactical.png", "/products/tactical2.png", "/products/tactical3.jpg"],
+    imagen: [
+      "/products/tactical.png",
+      "/products/tactical2.png",
+      "/products/tactical3.jpg",
+      "/products/tacticalmini.webp",
+    ],
     detalles: [
       "Procesador Intel Core i7 10th Gen y hasta 16GB DDR4",
       "Pantalla de alta resolución (267 PPI) de 12.3 pulgadas",
@@ -305,7 +323,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Dispositivo de despliegue rápido para la reproducción y análisis de imágenes registradas durante misiones.",
-      imagen: "/products/portable.webp",
+    imagen: "/products/portable.webp",
     detalles: [
       "Monitoreo sincronizado de audio y vídeo con superposición de datos",
       "Herramienta clave para el post-análisis de reabastecimiento aéreo",
@@ -318,7 +336,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Displays multifunción de última generación con procesador i7 de 13ª generación para procesamiento de datos masivo.",
-      imagen: "/products/ruggedmfcd.webp",
+    imagen: "/products/ruggedmfcd.webp",
     detalles: [
       'Pantalla de 13" con resolución 2736 x 1824',
       "Arquitectura ampliable hasta 32GB de RAM y 4TB SSD",

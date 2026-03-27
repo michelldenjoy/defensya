@@ -15,7 +15,7 @@ const Footer = () => {
           fill
           className="object-cover mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050609] via-[#050609]/90 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#050609] via-[#050609]/90 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

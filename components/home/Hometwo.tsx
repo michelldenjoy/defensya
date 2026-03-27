@@ -84,7 +84,7 @@ export default function Hometwo() {
           className="relative group"
         >
           {/* Marco de diseño que envuelve la imagen para darle "aire" y profesionalidad */}
-          <div className="relative aspect-[1849/1253] w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
+          <div className="relative aspect-1849/1253 w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
             <Image
               src="/images/aeronautic.jpg"
               alt="Plataforma aeronáutica Defensya"
@@ -94,7 +94,7 @@ export default function Hometwo() {
             />
 
             {/* Overlay táctico muy sutil solo en los bordes */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
 
             {/* Brackets de HUD en las esquinas de la imagen */}
             <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-defensya-blue/40" />
@@ -240,9 +240,9 @@ export default function Hometwo() {
                 className={`grid md:grid-cols-[180px_220px_1fr] gap-6 items-center
                  py-8 border-b border-white/8
                  hover:bg-white/3 transition-colors px-4 -mx-4 group ${
-                   highlight ? "bg-white/[0.02]" : "bg-transparent"
+                   highlight ? "bg-white/2" : "bg-transparent"
                  }
-        hover:bg-white/[0.05]`}
+        hover:bg-white/5`}
               >
                 {/* Nombre del Producto */}
                 <span

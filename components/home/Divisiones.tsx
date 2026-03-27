@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { motion, AnimatePresence, } from "framer-motion";
 import Image from "next/image";
 
 interface Division {
@@ -139,7 +139,7 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
               backgroundImage:
-                "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)",
+                "repeating-linear-linear(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)",
             }}
           />
 
@@ -152,9 +152,9 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
             priority
           />
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+          {/* linear overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/30 to-black/10" />
+          <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent" />
 
           {/* Tag badge */}
           <div className="absolute top-4 left-4 z-20">
@@ -192,7 +192,7 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
           </div>
 
           {/* Progress bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 z-20">
             <motion.div
               className="h-full bg-defensya-blue"
               initial={false}
@@ -230,8 +230,8 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
 
           {/* Divider */}
           <div className="flex items-center gap-2 mb-3">
-            <div className="h-[1px] w-6 bg-defensya-blue" />
-            <div className="h-[1px] flex-1 bg-gray-200 dark:bg-white/[0.06]" />
+            <div className="h-px w-6 bg-defensya-blue" />
+            <div className="h-px flex-1 bg-gray-200 dark:bg-white/6" />
           </div>
 
           {/* Description with expand toggle */}
@@ -245,7 +245,7 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
             </p>
 
             {!expanded && (
-              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-[#0a0f1a] to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-8 bg-linear-to-t from-white dark:from-[#0a0f1a] to-transparent pointer-events-none" />
             )}
           </div>
 
@@ -284,8 +284,8 @@ function MobileCard({ division, index, total, onPrev, onNext, direction }: Mobil
             <span
               className={`block transition-all duration-300 rounded-none ${
                 i === index
-                  ? "w-6 h-[3px] bg-defensya-blue"
-                  : "w-[6px] h-[3px] bg-gray-300 dark:bg-white/20 group-active:bg-gray-400"
+                  ? "w-6 h-0.75 bg-defensya-blue"
+                  : "w-1.5 h-0.75 bg-gray-300 dark:bg-white/20 group-active:bg-gray-400"
               }`}
             />
           </button>
@@ -314,8 +314,8 @@ function DesktopRow({ division, index, isActive, onActivate }: DesktopRowProps) 
         border-l-[3px] transition-all duration-300
         ${
           isActive
-            ? "border-defensya-blue bg-white dark:bg-white/[0.04] shadow-[4px_0_24px_rgba(0,0,0,0.06)] dark:shadow-none translate-x-1"
-            : "border-transparent hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/[0.02] opacity-60 hover:opacity-90"
+            ? "border-defensya-blue bg-white dark:bg-white/4 shadow-[4px_0_24px_rgba(0,0,0,0.06)] dark:shadow-none translate-x-1"
+            : "border-transparent hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/2 opacity-60 hover:opacity-90"
         }
       `}
     >
@@ -361,7 +361,7 @@ function DesktopRow({ division, index, isActive, onActivate }: DesktopRowProps) 
       {isActive && (
         <motion.div
           layoutId="active-glow"
-          className="absolute left-0 top-0 bottom-0 w-[3px] bg-defensya-blue"
+          className="absolute left-0 top-0 bottom-0 w-0.75 bg-defensya-blue"
           style={{ boxShadow: "2px 0 12px rgba(var(--color-defensya-blue-rgb, 0,120,255), 0.5)" }}
           transition={{ duration: 0.25 }}
         />
@@ -460,11 +460,11 @@ export default function Divisiones() {
           <div className="lg:col-span-4 flex flex-col">
             {/* Decorative top border */}
             <div className="flex items-center gap-3 mb-4 px-6">
-              <div className="h-[1px] flex-1 bg-gray-200 dark:bg-white/[0.08]" />
+              <div className="h-px flex-1 bg-gray-200 dark:bg-white/8" />
               <span className="font-mono text-[9px] tracking-[0.3em] text-gray-400 dark:text-gray-600 uppercase">
                 Sectores
               </span>
-              <div className="h-[1px] w-4 bg-gray-200 dark:bg-white/[0.08]" />
+              <div className="h-px w-4 bg-gray-200 dark:bg-white/8" />
             </div>
 
             {divisions.map((division, idx) => (
@@ -508,8 +508,8 @@ export default function Divisiones() {
                 />
 
                 {/* Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent" />
 
 
                 {/* Content */}
@@ -559,7 +559,7 @@ export default function Divisiones() {
             </div>
 
             {/* Progress bar bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5 z-30">
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/5 z-30">
               <motion.div
                 className="h-full bg-defensya-blue"
                 initial={false}

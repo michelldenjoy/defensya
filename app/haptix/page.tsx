@@ -6,14 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
-  Zap,
-  ShieldAlert,
-  Gauge,
   GitBranch,
   Settings,
 } from "lucide-react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface SpecItem {
   label: string;
@@ -36,12 +32,11 @@ interface Version {
 }
 
 interface ModoOperativo {
-  icon: React.ElementType;
+
   titulo: string;
   descripcion: string;
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────────
 
 const HAPTIX_IMAGES = [
   { src: "/products/haptixfrontal.png" },
@@ -52,19 +47,16 @@ const HAPTIX_IMAGES = [
 
 const MODOS_OPERATIVOS: ModoOperativo[] = [
   {
-    icon: Gauge,
     titulo: "Tracking Mode",
     descripcion:
       "Reduce la fricción y las fuerzas necesarias para mover el stylus. Aísla al usuario de la carga mecánica real del botalón, permitiendo movimientos fluidos y sin esfuerzo.",
   },
   {
-    icon: ShieldAlert,
     titulo: "Anti-collision",
     descripcion:
       'Crea "paredes virtuales" de software para evitar impactos con el cockpit, fuselaje o alas del receptor. Mantiene el equipo estrictamente dentro del margen de seguridad.',
   },
   {
-    icon: Zap,
     titulo: "Contact Aiding",
     descripcion:
       "Genera un campo de fuerza virtual que atrae o repele la boquilla del receptáculo. Facilita la inserción perfecta, evitando situaciones no deseadas mediante fuerzas escaladas.",
@@ -103,7 +95,7 @@ const ESPECIFICACIONES_TECNICAS: SpecSection[] = [
   },
 ];
 
-// ─── Sub-components w-32 ───────────────────────────────────────────────────────────
+
 
 function SectionTag({ children = false }: { children: React.ReactNode; light?: boolean }) {
   return (
@@ -113,7 +105,7 @@ function SectionTag({ children = false }: { children: React.ReactNode; light?: b
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+
 
 export default function Page() {
   const [current, setCurrent] = useState(0);
@@ -175,7 +167,7 @@ export default function Page() {
             ].map((stat, i) => (
               <div
                 key={stat.label}
-                className={`px-8 py-7 bg-white/[0.02] ${i === 1 ? "border-l border-white/[0.07]" : ""}`}
+                className={`px-8 py-7 bg-white/2 ${i === 1 ? "border-l border-white/[0.07]" : ""}`}
               >
                 <p
                   className="font-bold text-3xl text-defensya-blue leading-none mb-2"
@@ -200,8 +192,8 @@ export default function Page() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#040508] to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#040508]/40 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-8 bg-linear-to-r from-[#040508] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#040508]/40 to-transparent" />
           <div className="absolute top-8 left-8 w-5 h-5 border-t border-l border-defensya-blue/40" />
           <div className="absolute top-8 right-8 w-5 h-5 border-t border-r border-defensya-blue/40" />
           <div className="absolute bottom-8 left-8 w-5 h-5 border-b border-l border-defensya-blue/40" />
@@ -209,8 +201,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ══ COMPARATIVA ═════════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 lg:px-16 bg-gray-50 dark:bg-[#080a0f] border-b border-gray-100 dark:border-white/[0.05]">
+      
+      <section className="py-24 px-6 lg:px-16 bg-gray-50 dark:bg-[#080a0f] border-b border-gray-100 dark:border-white/5">
         <div className="max-w-7xl mx-auto">
 
           <div className="grid lg:grid-cols-2 items-center gap-10 lg:gap-20 mb-16">
@@ -230,7 +222,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.05] border border-gray-200 dark:border-white/[0.05]">
+          <div className="grid lg:grid-cols-2 gap-px bg-gray-200 dark:bg-white/5 border border-gray-200 dark:border-white/5">
 
            
             <motion.div
@@ -286,7 +278,7 @@ export default function Page() {
                   "Libera la segunda mano para gestión de sistemas.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-md text-gray-600 dark:text-gray-300">
-                    <span className="w-[3px] h-[3px] rounded-full bg-defensya-blue mt-2 shrink-0" />
+                    <span className="w-0.75 h-0.75 rounded-full bg-defensya-blue mt-2 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -296,8 +288,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ══ CAPACIDADES Y HARDWARE ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 lg:px-16 border-b border-gray-100 dark:border-white/[0.05] bg-white dark:bg-[#050609]">
+      {/* ══ CAPACIDADES Y HARDWARE */}
+      <section className="py-24 px-6 lg:px-16 border-b border-gray-100 dark:border-white/5 bg-white dark:bg-[#050609]">
         <div className="max-w-7xl mx-auto">
 
           <div className="grid items-center lg:grid-cols-2 gap-10 lg:gap-20 mb-16">
@@ -324,7 +316,7 @@ export default function Page() {
               <div className="absolute top-6 left-6 w-10 h-10 border-t-2 border-l-2 border-defensya-blue z-20" />
               <div className="absolute bottom-6 right-6 w-10 h-10 border-b-2 border-r-2 border-defensya-blue z-20" />
 
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-3/4 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current}
@@ -340,7 +332,7 @@ export default function Page() {
                       fill
                       className="object-contain p-4"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-30" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-30" />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -361,7 +353,7 @@ export default function Page() {
                 </button>
               </div>
 
-              {/* Dot indicators */}
+              {/* Dot indicatores */}
               <div className="absolute top-8 right-8 flex gap-2 z-30 bg-black/40 px-3 py-2 rounded-full backdrop-blur-sm">
                 {HAPTIX_IMAGES.map((_, i) => (
                   <div
@@ -392,7 +384,7 @@ export default function Page() {
               ].map(({ titulo, desc }, i) => (
                 <div
                   key={i}
-                  className="p-6 lg:p-7 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/[0.05] hover:border-defensya-blue/30 transition-colors group"
+                  className="p-6 lg:p-7 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/5 hover:border-defensya-blue/30 transition-colors group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="h-px w-5 bg-defensya-blue" />
@@ -430,7 +422,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-px bg-gray-200 dark:bg-white/[0.05] border border-gray-200 dark:border-white/[0.05]">
+            <div className="grid md:grid-cols-3 gap-px bg-gray-200 dark:bg-white/5 border border-gray-200 dark:border-white/5">
               {MODOS_OPERATIVOS.map((modo, i) => {
                 
                 return (
@@ -440,9 +432,9 @@ export default function Page() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="group bg-white dark:bg-[#050609] p-7 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors relative"
+                    className="group bg-white dark:bg-[#050609] p-7 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/3 transition-colors relative"
                   >
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-transparent group-hover:bg-defensya-blue/60 transition-colors duration-300" />
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-transparent group-hover:bg-defensya-blue/60 transition-colors duration-300" />
                     <div className="flex items-center justify-between mb-5">
                      
                       <span className="font-mono text-[10px] tracking-[0.3em] text-gray-300 dark:text-gray-600">
@@ -451,7 +443,7 @@ export default function Page() {
                     </div>
                     <div className="flex items-center gap-2 mb-4">
                       <div className="h-px w-4 bg-defensya-blue" />
-                      <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.06]" />
+                      <div className="h-px flex-1 bg-gray-100 dark:bg-white/6" />
                     </div>
                     <h4
                       className="text-2xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
@@ -470,7 +462,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ══ EVOLUCIÓN ═════════════════════════════════════════════ */}
+      {/* ══ EVOLUCIÓN  */}
       <section className="py-24 px-6 lg:px-16 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
 
@@ -493,7 +485,7 @@ export default function Page() {
 
           <div className="grid lg:grid-cols-[1fr_360px] gap-12 lg:gap-20 items-start">
 
-            {/* Texto narrativo */}
+           
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -509,7 +501,7 @@ export default function Page() {
                 </p>
               </div>
 
-              {/* Hito V5 */}
+              {/* VERSION 5 */}
               <div className="border-l-4 border-defensya-blue bg-defensya-blue/5 p-7 relative overflow-hidden group">
                 <Settings
                   className="absolute -bottom-6 -right-6 text-defensya-blue/10 group-hover:rotate-90 transition-transform duration-1000"
@@ -531,7 +523,7 @@ export default function Page() {
             </motion.div>
 
             {/* Timeline */}
-            <div className="border border-white/[0.07] p-6 bg-white/[0.02]">
+            <div className="border border-white/[0.07] p-6 bg-white/2">
               <p className="text-[11px] font-mono tracking-[0.3em] text-gray-500 uppercase mb-5">
                 Development Roadmap
               </p>
@@ -545,7 +537,7 @@ export default function Page() {
                     transition={{ delay: i * 0.1 }}
                     className={`relative flex items-center gap-5 p-4 border-l-2 transition-all ${
                       version.current
-                        ? "border-defensya-blue bg-defensya-blue/[0.08]"
+                        ? "border-defensya-blue bg-defensya-blue/8"
                         : version.future
                         ? "border-dashed border-gray-700 opacity-60 hover:opacity-100"
                         : "border-white/[0.07] opacity-50 hover:opacity-80"
@@ -587,7 +579,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ══ ESPECIFICACIONES TÉCNICAS ═══════════════════════════════════════ */}
+      {/* ══ ESPECIFICACIONES TÉCNICAS */}
       <section className="py-24 px-6 lg:px-16 bg-white dark:bg-[#050609]">
         <div className="max-w-7xl mx-auto">
 
@@ -608,7 +600,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 dark:bg-white/[0.05] border border-gray-200 dark:border-white/[0.05]">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 dark:bg-white/5 border border-gray-200 dark:border-white/5">
             {ESPECIFICACIONES_TECNICAS.map((seccion, i) => (
               <motion.div
                 key={seccion.titulo}
@@ -625,7 +617,7 @@ export default function Page() {
                   {seccion.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-4 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/[0.05] hover:border-defensya-blue/20 transition-colors"
+                      className="p-4 bg-gray-50 dark:bg-black/20 border border-gray-100 dark:border-white/5 hover:border-defensya-blue/20 transition-colors"
                     >
                       <p className="text-[10px] font-mono uppercase text-gray-400 tracking-wider mb-1.5">
                         {item.label}
@@ -664,8 +656,8 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Footer */}
-          <div className="mt-16 pt-8 border-t border-gray-100 dark:border-white/[0.05] flex items-center justify-between flex-wrap gap-4">
+          
+          <div className="mt-16 pt-8 border-t border-gray-100 dark:border-white/5 flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
               <div className="h-px w-6 bg-defensya-blue" />
               <span className="font-mono text-[10px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">

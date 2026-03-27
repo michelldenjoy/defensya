@@ -279,17 +279,17 @@ export default function Refueling() {
                 className={`
         relative border-b border-r border-white/8 p-8 lg:p-10 group
         transition-all duration-500 flex flex-col overflow-hidden
-        ${highlight ? "bg-white/[0.02]" : "bg-transparent"}
+        ${highlight ? "bg-white/[2" : "bg-transparent"}
         hover:bg-white/[0.05]
       `}
               >
                 {/* ── EFECTO HIGHLIGHT: Línea de luz superior ── */}
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-defensya-sky/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-defensya-sky/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* ── EFECTO HIGHLIGHT: Brillo radial en la esquina ── */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-defensya-sky/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                <div className="flex-grow relative z-10">
+                <div className="grow relative z-10">
                   <div className="flex justify-between items-start mb-4">
                     <span className="text-[11px] font-mono tracking-[0.2em] text-defensya-sky uppercase font-bold">
                       {tag}
