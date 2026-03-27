@@ -232,7 +232,7 @@ function ProductCard({
           alt={producto.nombre}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover opacity-65 group-hover:opacity-65 transition-all duration-700 group-hover:scale-105"
+          className="object-cover opacity-65 group-hover:opacity-90 transition-all duration-700 group-hover:scale-105"
         />
 
         {/* Triángulo de esquina, desaparece en hover  */}
