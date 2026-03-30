@@ -13,7 +13,7 @@ const PATENTS_DATA = [
   { title: "System for Night Vision of Selected Objects", url: "https://www.patentsencyclopedia.com/app/20110266457" },
 ]
 
-// ── Arrow icon ────────────────────────────────────────────────────────────────
+// ── Arrow icon 
 
 function ArrowUpRight() {
   return (
@@ -27,7 +27,7 @@ function ArrowUpRight() {
   )
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
+
 
 export default function PatentsList() {
   return (
@@ -39,7 +39,7 @@ export default function PatentsList() {
     >
       <div className="max-w-7xl mx-auto">
 
-        {/* ── Header ──────────────────────────────────────────────────── */}
+      
         <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center
                         border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14">
           <div>
@@ -77,7 +77,7 @@ export default function PatentsList() {
           </div>
         </div>
 
-        {/* ── Stat strip ──────────────────────────────────────────────── */}
+        {/* ── Stat strip */}
         {/* <div className="grid grid-cols-3 gap-6 mb-14 pb-14
                         border-b border-gray-200 dark:border-white/[0.07]">
           {[
@@ -99,7 +99,7 @@ export default function PatentsList() {
           ))}
         </div> */}
 
-        {/* ── Patents list ─────────────────────────────────────────────── */}
+        {/* ── Patents list */}
         <div className=" dark:border-white/[0.07]">
           {PATENTS_DATA.map((patent, i) => (
             <Link
@@ -127,7 +127,7 @@ export default function PatentsList() {
                 {patent.title}
               </p>
 
-              {/* Arrow — appears on hover */}
+            
               <span className="text-defensya-blue opacity-0 group-hover:opacity-100
                                translate-x-1 group-hover:translate-x-0
                                transition-all duration-200 shrink-0">

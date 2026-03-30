@@ -192,7 +192,7 @@ export default function Page() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-y-0 left-0 w-8 bg-linear-to-r from-[#040508] to-transparent" />
+         {/* Esquinas de imagen */}
           <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#040508]/40 to-transparent" />
           <div className="absolute top-8 left-8 w-5 h-5 border-t border-l border-defensya-blue/40" />
           <div className="absolute top-8 right-8 w-5 h-5 border-t border-r border-defensya-blue/40" />

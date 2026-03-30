@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Twitter, ArrowUpRight } from 'lucide-react'; // Asumiendo que usas lucide-react
+import { Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="relative pt-24 pb-4 overflow-hidden border-t border-white/5 bg-[#050609]">
       
-      {/* BACKGROUND TECH EFFECT */}
+      
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
         <Image 
           src="/defensyatech.png"
@@ -15,7 +15,7 @@ const Footer = () => {
           fill
           className="object-cover mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-[#050609] via-[#050609]/85 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-[#050609]/65 to-black" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

@@ -240,8 +240,11 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
-                Tecnologías Propietarias
+              <p
+                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
+              >
+                Tecnologías
               </p>
               <h2
                 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
@@ -258,20 +261,19 @@ export default function Refueling() {
 
           {/* Boomerang + Haptix */}
           <div className="grid md:grid-cols-2 border-t border-l border-white/8 relative">
-            {/* El contenedor ahora tiene 'relative' para los efectos de luz */}
             {[
               {
                 name: "Boomerang®",
                 tag: "Precision Receptacle Location",
                 desc: "Tecnología diseñada para mejorar la precisión en la localización del receptáculo de repostaje. Reduce significativamente las latencias del sistema aire-aire, permitiendo operaciones de reabastecimiento estables incluso en condiciones de fuerte turbulencia.",
-                highlight: false, // Puedes marcar uno como destacado por defecto si quieres
+                highlight: false,
               },
               {
                 name: "Haptix®",
                 tag: "Haptic Boom Control",
                 desc: "Dispositivo de control manual con retroalimentación háptica que permite controlar el botalón de repostaje de forma natural e intuitiva. Facilita la transición desde operaciones manuales hacia entornos de automatización A3R®.",
                 href: "/haptix",
-                highlight: true, // Este resaltará más al ser el proyecto principal
+                highlight: true,
               },
             ].map(({ name, tag, desc, href, highlight }) => (
               <div
@@ -283,8 +285,8 @@ export default function Refueling() {
         hover:bg-white/[0.05]
       `}
               >
-                {/* ── EFECTO HIGHLIGHT: Línea de luz superior ── */}
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-defensya-sky/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* ── EFECTO HIGHLIGHT ── */}
+                <div className="absolute top-0 left-0 w-full  h-0.5 bg-linear-to-r from-transparent via-defensya-sky/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* ── EFECTO HIGHLIGHT: Brillo radial en la esquina ── */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-defensya-sky/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -297,9 +299,9 @@ export default function Refueling() {
                   </div>
 
                   <h3
-                    className="text-3xl lg:text-4xl font-bold uppercase leading-none tracking-tight text-white mb-6 group-hover:text-defensya-sky transition-colors duration-300"
+                    className="text-3xl lg:text-4xl font-bold uppercase leading-none  tracking-tight text-white mb-6 group-hover:text-defensya-sky transition-colors duration-300"
                     style={{
-                      fontFamily: "var(--font-display, 'Inter', sans-serif)", // Más serio y profesional
+                      fontFamily: "var(--font-display, 'Inter', sans-serif)",
                     }}
                   >
                     {name}
