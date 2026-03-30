@@ -10,12 +10,12 @@ const Footer = () => {
       {/* BACKGROUND TECH EFFECT */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
         <Image 
-          src="/techwave.png"
+          src="/defensyatech.png"
           alt="Technical background"
           fill
           className="object-cover mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-[#050609] via-[#050609]/90 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#050609] via-[#050609]/85 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

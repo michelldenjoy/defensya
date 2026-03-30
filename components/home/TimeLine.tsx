@@ -7,7 +7,8 @@ const HITOS = [
     title: "El Origen de una Visión",
     description:
       "Nace Defensya Ingeniería de Sistemas en Madrid. Establecimos nuestro propósito: resolver los desafíos de visualización y monitorización más críticos donde las soluciones convencionales no alcanzan los estándares de misión.",
-    image: "/images/hito-fundacion.jpg",
+    image: "/logodefensyanew.webp",
+    className: "object-contain",
   },
   {
     year: "2011",
@@ -15,7 +16,8 @@ const HITOS = [
     title: "Optimización FAL C295",
     description:
       "Desarrollamos nuestro Detector de Deflexión láser para Airbus. Logramos un hito en la línea de montaje: reducir los tiempos de testeo de superficies móviles de 10 horas a tan solo 15 minutos con precisión micrométrica.",
-    image: "/images/hito-c295.jpg",
+    image: "/products/deflexion.jpeg",
+    src: "/products/deflexion.jpeg",
   },
   {
     year: "2015",
@@ -23,7 +25,7 @@ const HITOS = [
     title: "Consolidación en el A330 MRTT",
     description:
       "Nos convertimos en pieza clave del avión cisterna de referencia mundial. Diseñamos el sistema de Espejos Dicróicos 3D, eliminando el 'ghosting' visual y garantizando la seguridad absoluta en operaciones de reabastecimiento en vuelo.",
-    image: "/images/aeronautic.jpg",
+    image: "/images/a330mrtt.jpg",
   },
   {
     year: "2019",
@@ -31,7 +33,7 @@ const HITOS = [
     title: "Nacimiento de Boom Tag®",
     description:
       "Revolucionamos la trazabilidad con tecnología RFID sin batería. Creamos una base de datos digital integrada en cada componente de la pértiga de reabastecimiento, resistiendo las condiciones ambientales más extremas de la atmósfera.",
-    image: "/images/hito-patentes.jpg",
+    image: "/images/boomtagtimeline.jpg",
   },
   {
     year: "2024",
