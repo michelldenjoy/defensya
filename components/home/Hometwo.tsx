@@ -400,7 +400,7 @@ export default function Hometwo() {
             </p>
             <Link
               href="/contacto"
-              className="px-8 py-3 bg-defensya-blue text-white text-xs tracking-widest
+              className="px-8 py-3 w-40 bg-defensya-blue text-white text-xs tracking-widest
                          uppercase font-medium hover:bg-defensya-navy-accent transition-colors
                          whitespace-nowrap"
             >
