@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 
 function ArrowUpRight({ size = 12 }: { size?: number }) {
   return (
@@ -40,10 +42,20 @@ function DownloadIcon({ size = 12 }: { size?: number }) {
   );
 }
 
+
+
+function SectionTag({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
+      {children}
+    </p>
+  );
+}
+
 export default function Certificaciones() {
   return (
     <section
-      className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
+      className="px-6 lg:px-16 py-20 bg-white dark:bg-defensya-navy
                  border-t border-gray-200 dark:border-white/[0.07]"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
@@ -264,5 +276,8 @@ export default function Certificaciones() {
         </div>
       </div>
     </section>
+
   );
 }
+
+

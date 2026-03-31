@@ -86,7 +86,7 @@ export default function Hometwo() {
           {/* Marco de diseño que envuelve la imagen para darle "aire" y profesionalidad */}
           <div className="relative aspect-1849/1253 w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
             <Image
-              src="/images/aeronautic.jpg"
+              src="/aeronauticlogo.png"
               alt="Plataforma aeronáutica Defensya"
               fill
               className="object-contain" // IMPORTANTE: Muestra la imagen completa sin recortes
