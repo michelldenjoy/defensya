@@ -1,10 +1,51 @@
 "use client";
 
+
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { motion, AnimatePresence } from "framer-motion";
+
+type Status = "" | "sending" | "success" | "error";
+
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/[0.07]" />;
 }
 
 export default function Careers() {
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<Status>("");
+  const [fileName, setFileName] = useState<string>("");
+
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFileName(e.target.files[0].name);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      // IMPORTANTE: Asegúrate de añadir NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID en Vercel
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID!, // ID del nuevo template de Careers
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setStatus("success");
+      setFileName("");
+      formRef.current?.reset();
+    } catch (error) {
+      console.error("Error Quandum Recruitment:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
@@ -202,27 +243,15 @@ export default function Careers() {
           <div className="grid lg:grid-cols-[1fr_56%] gap-16 lg:gap-24 items-start">
             {/* Left — context */}
             <div className="lg:sticky lg:top-24">
-              <p
-                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                            dark:text-gray-500 uppercase mb-3"
-              >
+              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
                 Candidatura
               </p>
-              <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                           leading-none tracking-tight mb-6"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Envíanos
-                <br />
-                tu talento
+              <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight mb-6"
+                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}>
+                Envíanos<br />tu talento
               </h2>
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
-                ¿No ves una posición abierta que encaje? Envíanos tu CV para
-                futuras oportunidades. Revisamos cada candidatura con atención.
+                ¿No ves una posición abierta que encaje? Envíanos tu CV para futuras oportunidades. Revisamos cada candidatura con atención.
               </p>
 
               <div className="mt-10 border-t border-gray-200 dark:border-white/[0.07]">
@@ -231,146 +260,98 @@ export default function Careers() {
                   { label: "Modalidad", value: "Presencial — Madrid" },
                   { label: "Sector", value: "Defensa & Aeronáutica" },
                 ].map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between py-3
-                               border-b border-gray-200 dark:border-white/6"
-                  >
-                    <span
-                      className="text-[12px] font-mono tracking-widest
-                                     text-gray-400 dark:text-gray-500 uppercase"
-                    >
-                      {label}
-                    </span>
-                    <span className="text-xs font-medium text-gray-900 dark:text-white">
-                      {value}
-                    </span>
+                  <div key={label} className="flex items-center justify-between py-3 border-b border-gray-200 dark:border-white/6">
+                    <span className="text-[12px] font-mono tracking-widest text-gray-400 dark:text-gray-500 uppercase">{label}</span>
+                    <span className="text-xs font-medium text-gray-900 dark:text-white">{value}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Right — form */}
-            <form className="flex flex-col gap-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Field label="Nombre completo">
-                  <input
-                    type="text"
-                    placeholder="Juan García"
-                    className={inputCls}
-                    required
-                  />
-                </Field>
-                <Field label="Correo electrónico">
-                  <input
-                    type="email"
-                    placeholder="juan@email.com"
-                    className={inputCls}
-                    required
-                  />
-                </Field>
-              </div>
-
-              <Field label="Puesto de interés">
-                <select className={inputCls}>
-                  <option value="" defaultValue="">
-                    Selecciona un puesto
-                  </option>
-                  {[
-                    "Técnico de Mecanizado",
-                    "Programador CAM - CATIA",
-                    "Ingeniería Mecánica",
-                    "Ingeniería de Diseño",
-                    "Ingeniería Electrónica",
-                    "Técnico de Calidad",
-                    "Técnico de Mantenimiento",
-                    "Técnico de Electrónica",
-                  ].map((pos) => (
-                    <option key={pos} value={pos}>
-                      {pos}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-
-              <Field label="Área de interés">
-                <select className={inputCls}>
-                  <option value="" defaultValue="">
-                    Selecciona un área
-                  </option>
-                  <option>Software</option>
-                  <option>Electrónica</option>
-                  <option>Visión / Óptica</option>
-                  <option>Fabricación 3D</option>
-                  <option>Sanidad</option>
-                  <option>Otros</option>
-                </select>
-              </Field>
-
-              <Field label="Mensaje / Motivación">
-                <textarea
-                  rows={4}
-                  placeholder="Cuéntanos por qué quieres unirte al equipo de Defensya..."
-                  className={inputCls + " resize-none"}
-                />
-              </Field>
-
-              {/* CV upload */}
-              <Field label="Adjuntar CV">
-                <label
-                  className="flex items-center gap-4 cursor-pointer
-                             border border-dashed border-gray-300 dark:border-white/5
-                             px-5 py-4 hover:border-defensya-blue
-                             dark:hover:border-defensya-blue transition-colors group"
-                >
-                  <input
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    className="sr-only"
-                    required
-                  />
-
-                  <svg
-                    width="18"
-                    height="18"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    className="text-gray-400 dark:text-gray-500
-                               group-hover:text-defensya-blue transition-colors shrink-0"
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                {status === "success" ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-20 flex flex-col items-center justify-center text-center space-y-6 border border-defensya-blue/20 bg-defensya-blue/5 rounded-sm px-6"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                    />
-                  </svg>
-                  <div>
-                    <p
-                      className="text-xs font-medium text-gray-700 dark:text-gray-300
-                                  group-hover:text-defensya-blue transition-colors"
-                    >
-                      Seleccionar archivo
+                    <div className="w-16 h-16 rounded-full border-2 border-defensya-blue flex items-center justify-center mb-4">
+                      <svg className="w-8 h-8 text-defensya-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold uppercase tracking-tight italic">Candidatura Recibida</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm max-w-sm leading-relaxed">
+                      Gracias por tu interés en Defensya. Tu perfil ha sido enviado al equipo de selección. Te responderemos a la mayor brevedad posible.
                     </p>
-                    <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
-                      PDF, DOC o DOCX — máx. 5 MB
-                    </p>
-                  </div>
-                </label>
-              </Field>
+                    <button onClick={() => setStatus("")} className="text-[10px] font-mono text-defensya-blue uppercase tracking-[0.2em]">[ Volver ]</button>
+                  </motion.div>
+                ) : (
+                  <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <Field label="Nombre completo">
+                        <input type="text" name="user_name" placeholder="Juan García" className={inputCls} required />
+                      </Field>
+                      <Field label="Correo electrónico">
+                        <input type="email" name="user_email" placeholder="juan@email.com" className={inputCls} required />
+                      </Field>
+                    </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="mt-2 px-8 py-3.5 bg-defensya-blue text-white
-                           text-xs tracking-widest uppercase font-medium
-                           hover:bg-defensya-navy-accent transition-colors
-                           self-start"
-              >
-                Enviar Candidatura
-              </button>
-            </form>
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <Field label="Puesto de interés">
+                        <select name="position" className={inputCls} required>
+                          <option value="">Selecciona un puesto</option>
+                          {["Técnico de Mecanizado", "Programador CAM - CATIA", "Ingeniería Mecánica", "Ingeniería de Diseño", "Ingeniería Electrónica", "Técnico de Calidad", "Técnico de Mantenimiento", "Técnico de Electrónica"].map((pos) => (
+                            <option key={pos} value={pos}>{pos}</option>
+                          ))}
+                        </select>
+                      </Field>
+                      <Field label="Área de interés">
+                        <select name="area" className={inputCls} required>
+                          <option value="">Selecciona un área</option>
+                          <option>Software</option><option>Electrónica</option><option>Visión / Óptica</option><option>Fabricación 3D</option><option>Sanidad</option><option>Otros</option>
+                        </select>
+                      </Field>
+                    </div>
+
+                    <Field label="Mensaje / Motivación">
+                      <textarea name="message" rows={4} placeholder="Cuéntanos por qué quieres unirte al equipo de Defensya..." className={inputCls + " resize-none"} required />
+                    </Field>
+
+                    {/* CV upload */}
+                    <Field label="Adjuntar CV">
+                      <label className={`flex items-center gap-4 cursor-pointer border border-dashed px-5 py-4 transition-colors group ${fileName ? 'border-defensya-blue bg-defensya-blue/5' : 'border-gray-300 dark:border-white/5 hover:border-defensya-blue'}`}>
+                        <input type="file" name="my_file" accept=".pdf,.doc,.docx" className="sr-only" required onChange={handleFileChange} />
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} className={fileName ? "text-defensya-blue" : "text-gray-400 group-hover:text-defensya-blue"}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                        <div>
+                          <p className="text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-defensya-blue">
+                            {fileName ? fileName : "Seleccionar archivo"}
+                          </p>
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">PDF, DOC o DOCX — máx. 5 MB</p>
+                        </div>
+                      </label>
+                    </Field>
+
+                    <div className="flex items-center gap-6 mt-2">
+                      <button
+                        type="submit"
+                        disabled={status === "sending"}
+                        className="px-8 py-3.5 bg-defensya-blue text-white text-xs tracking-widest uppercase font-medium hover:bg-defensya-navy-accent transition-colors disabled:opacity-50"
+                      >
+                        {status === "sending" ? "Enviando Candidatura..." : "Enviar Candidatura"}
+                      </button>
+                      {status === "error" && (
+                        <p className="text-[10px] font-mono text-red-500 uppercase tracking-tighter">Error en el envío</p>
+                      )}
+                    </div>
+                  </form>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
