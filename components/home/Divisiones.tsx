@@ -390,7 +390,7 @@ export default function Divisiones() {
   const goNext = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
 
   return (
-    <section className="w-full py-12 md:py-28 lg:py-32 bg-gray-50 dark:bg-defensya-navy border-t border-gray-200 dark:border-white/10 overflow-x-hidden">
+    <section className="w-full py-12 md:py-20 bg-gray-50 dark:bg-defensya-navy border-t border-gray-200 dark:border-white/10 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}

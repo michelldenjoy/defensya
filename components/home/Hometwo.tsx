@@ -106,7 +106,7 @@ export default function Hometwo() {
       <Rule />
 
       {/* ───────── QUÉ HACEMOS ───────── */}
-      <section className="py-28 px-6 lg:px-16">
+      <section className="py-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div
             className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16
@@ -180,7 +180,7 @@ export default function Hometwo() {
       <Rule />
 
       {/* ───────── INNOVACIÓN ───── */}
-      <section className="py-28 px-6 lg:px-16 bg-defensya-navy">
+      <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
@@ -314,7 +314,7 @@ export default function Hometwo() {
       <Rule />
 
       {/* ──────────── CAPACIDADES ─────────────────── */}
-      <section className="py-28 px-6 lg:px-16">
+      <section className="py-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
@@ -336,7 +336,7 @@ export default function Hometwo() {
                 de Ingeniería
               </h2>
             </div>
-            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed  pt-8 ">
+            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed ">
               Cubrimos el stack completo de ingeniería aeroespacial, desde el
               diseño electrónico hasta la inteligencia artificial embarcada, con
               aplicación directa en entornos de alta exigencia.
@@ -374,7 +374,7 @@ export default function Hometwo() {
       <Rule />
 
       {/* ──────────── COLABORACION ───── */}
-      <section className="py-28 px-6 lg:px-16 bg-defensya-navy">
+      <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
             <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
