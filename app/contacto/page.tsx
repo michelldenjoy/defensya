@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface FormData {
   name: string;
@@ -60,33 +61,33 @@ export default function ContactView() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus("sending");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
 
-  try {
-    const result = await emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-      },
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-    );
+    try {
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
-    if (result.status === 200) {
-      setStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setStatus(""), 5000);
+      if (result.status === 200) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus(""), 5000);
+      }
+    } catch (error) {
+      console.error("Error en el sistema Quandum Email:", error);
+      setStatus("error");
     }
-  } catch (error) {
-    console.error("Error en el sistema Quandum Email:", error);
-    setStatus("error");
-  }
-};
+  };
 
   return (
     <main
@@ -117,8 +118,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               Canal de contacto
             </span>
           </div>
-          <div className="flex items-center gap-2">
-          </div>
+          <div className="flex items-center gap-2"></div>
         </div>
       </div>
 
@@ -140,7 +140,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Contacta con 
+                Contacta con
                 <br />
                 <span className="text-defensya-blue">defensya</span>
               </h1>
@@ -221,86 +221,118 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              <div className="grid sm:grid-cols-2 gap-8">
-                <Field num="01" label="Nombre completo">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Juan García"
-                    className={inputCls }
-                  />
-                </Field>
-                <Field num="02" label="Correo electrónico">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="email@corporativo.com"
-                    className={inputCls}
-                  />
-                </Field>
-              </div>
+            {/* Reemplaza tu etiqueta <form> por esto */}
+            <AnimatePresence mode="wait">
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="py-20 flex flex-col items-center justify-center text-center space-y-6 border border-defensya-blue/20 bg-defensya-blue/5 rounded-sm"
+                >
+                  <div className="w-16 h-16 rounded-full border-2 border-defensya-blue flex items-center justify-center mb-4">
+                    <svg
+                      className="w-8 h-8 text-defensya-blue"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
 
-              <Field num="03" label="Asunto">
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="ej: Consulta sobre sistemas de visión"
-                  className={inputCls}
-                />
-              </Field>
-
-              <Field num="04" label="Mensaje">
-                <textarea
-                  rows={5}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Describe tu consulta, proyecto o propuesta de colaboración..."
-                  className={inputCls + " resize-none"}
-                />
-              </Field>
-
-              {/* Submit row */}
-              <div
-                className="pt-6 border-t border-white/[0.07]
-                              flex flex-col sm:flex-row sm:items-center
-                              justify-between gap-5"
-              >
-
-                <div className="flex items-center gap-5 shrink-0">
-                  {status === "success" && (
-                    <p className="text-[10px] font-mono text-defensya-blue tracking-wide">
-                      ✓ Enviado correctamente
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold uppercase tracking-tight font-display">
+                      Mensaje Recibido
+                    </h3>
+                    <p className="text-white/60 text-sm max-w-sm mx-auto leading-relaxed">
+                      Gracias por contactar con nuestro equipo. Su
+                      consulta ha sido procesada correctamente. Le
+                      responderemos a la mayor brevedad posible.
                     </p>
-                  )}
-                  {status === "error" && (
-                    <p className="text-[10px] font-mono text-red-400 tracking-wide">
-                      Error — inténtalo de nuevo
-                    </p>
-                  )}
+                  </div>
+
                   <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="px-8 py-3.5 bg-defensya-blue text-white
-                               text-xs tracking-widest uppercase font-medium
-                               hover:bg-defensya-navy-accent transition-colors
-                               disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                    onClick={() => setStatus("")}
+                    className="text-[10px] font-mono text-defensya-blue uppercase tracking-[0.2em] hover:text-white transition-colors"
                   >
-                    {status === "sending" ? "Enviando..." : "Enviar consulta"}
+                    [ Enviar otro mensaje ]
                   </button>
-                </div>
-              </div>
-            </form>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+                  {/* ... todos tus campos Field de antes ... */}
+                  <div className="grid sm:grid-cols-2 gap-8">
+                    <Field num="01" label="Nombre completo">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        placeholder="Juan García"
+                        className={inputCls}
+                      />
+                    </Field>
+                    <Field num="02" label="Correo electrónico">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        placeholder="email@corporativo.com"
+                        className={inputCls}
+                      />
+                    </Field>
+
+                    <Field num="03" label="Asunto">
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="ej: Consulta sobre sistemas de visión"
+                        className={inputCls}
+                      />
+                    </Field>
+                    <Field num="04" label="Mensaje">
+                      <textarea
+                        rows={5}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        placeholder="Describe tu consulta, proyecto o propuesta de colaboración..."
+                        className={inputCls + " resize-none"}
+                      />
+                    </Field>
+                  </div>
+                  <div className="pt-6 border-t border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                    <div className="flex items-center gap-5 shrink-0">
+                      {status === "error" && (
+                        <p className="text-[10px] font-mono text-red-400 tracking-wide">
+                          Error de conexión — intente de nuevo
+                        </p>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={status === "sending"}
+                        className="px-8 py-3.5 bg-defensya-blue text-white text-xs tracking-widest uppercase font-medium hover:bg-defensya-blue/80 transition-colors disabled:opacity-40"
+                      >
+                        {status === "sending"
+                          ? "Procesando..."
+                          : "Enviar consulta"}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
