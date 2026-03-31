@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-
 
 function ArrowUpRight({ size = 12 }: { size?: number }) {
   return (

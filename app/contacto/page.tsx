@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -59,14 +60,33 @@ export default function ContactView() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-    // TODO: conectar con EmailJS
-    // emailjs.send("SERVICE_ID","TEMPLATE_ID", formData, "PUBLIC_KEY")
-    //   .then(() => setStatus("success"))
-    //   .catch(() => setStatus("error"))
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus("sending");
+
+  try {
+    const result = await emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+    );
+
+    if (result.status === 200) {
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus(""), 5000);
+    }
+  } catch (error) {
+    console.error("Error en el sistema Quandum Email:", error);
+    setStatus("error");
+  }
+};
 
   return (
     <main
