@@ -94,7 +94,7 @@ export default function ContactView() {
       className="relative w-full min-h-screen bg-defensya-navy text-white overflow-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      {/* ── DECORATIVE BG px- ───────────────*/}
+     
       <div className="pointer-events-none select-none absolute inset-0 flex items-center justify-center">
         <div className="absolute w-200 h-200 rounded-full border border-white/2.5" />
         <div className="absolute w-125 h-125 rounded-full border border-white/2.5" />
@@ -106,7 +106,7 @@ export default function ContactView() {
                       bg-[radial-gradient(ellipse_at_top_right,#1E40AF14,transparent_70%)]"
       />
 
-      {/* ── TOPBAR ───── */}
+    
       <div
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-16 pb-10
                       border-b border-white/[0.07]"
@@ -122,7 +122,7 @@ export default function ContactView() {
         </div>
       </div>
 
-      {/* ── MAIN GRID ──────── */}
+     
       <div className="relative z-10 max-w-7xl mx-auto px-6 ">
         <div className="grid lg:grid-cols-[1fr_58%] min-h-[80vh]">
           {/* ── LEFT ─────── */}
@@ -150,7 +150,7 @@ export default function ContactView() {
               </p>
             </div>
 
-            {/* Contact details + mini map */}
+            {/* INFORMACION DE CONTACTO */}
             <div className="mt-14 flex flex-col gap-0 border-t border-white/[0.07]">
               {[
                 {
@@ -193,9 +193,9 @@ export default function ContactView() {
             </div>
           </div>
 
-          {/* ── RIGHT — FORM ──────── */}
+          {/* ── DERECHA FORM ──────── */}
           <div className="py-16 mx-auto lg:py-24 lg:pl-16">
-            {/* Form header */}
+            
             <div className="flex items-start justify-between mb-12">
               <div>
                 <p className="text-[12px] font-mono tracking-[0.3em] text-white/25 uppercase mb-1.5">
@@ -212,7 +212,7 @@ export default function ContactView() {
                 </h2>
               </div>
 
-              {/* Corner bracket decoration */}
+              {/* esquinas */}
               <div className="relative w-10 h-10 shrink-0 hidden sm:block mt-1">
                 <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-defensya-blue/90" />
                 <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-defensya-blue/90" />
@@ -221,7 +221,7 @@ export default function ContactView() {
               </div>
             </div>
 
-            {/* Reemplaza tu etiqueta <form> por esto */}
+            
             <AnimatePresence mode="wait">
               {status === "success" ? (
                 <motion.div
@@ -265,7 +265,7 @@ export default function ContactView() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-                  {/* ... todos tus campos Field de antes ... */}
+                
                   <div className="grid sm:grid-cols-2 gap-8">
                     <Field num="01" label="Nombre completo">
                       <input
