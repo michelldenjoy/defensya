@@ -37,7 +37,7 @@ const CATS: { key: CatKey; label: string; tag: string }[] = [
 const pad  = (n: number) => String(n).padStart(2, "0");
 const pad3 = (n: number) => String(n).padStart(3, "0");
 
-// ─── PAGE ─────────────────────────────────────────────────────────────────────
+
 
 export default function ProductosPage() {
   const [filtro, setFiltro]       = useState<CatKey>("Todos");
@@ -76,7 +76,7 @@ export default function ProductosPage() {
       <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
 
         {/* ── SIDEBAR ── */}
-        <aside className="w-full lg:w-68 shrink-0 p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-[#06080D]/80 backdrop-blur-md">
+        <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy-light backdrop-blur-md">
           <div className="mb-10">
             <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-sky uppercase mb-2">
               DEFENSYA
@@ -86,7 +86,7 @@ export default function ProductosPage() {
             </p>
           </div>
 
-          <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-hide">
+          <nav className="flex lg:flex-col gap-1  overflow-x-auto  pb-4 lg:pb-0 scrollbar-hide">
             {CATS.map((cat) => {
               const count  = PRODUCTOS.filter(
                 (p) => cat.key === "Todos" || p.categoria === cat.key
@@ -190,7 +190,7 @@ function ProductCard({
       onClick={onOpen}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative cursor-pointer bg-[#0A0D14] overflow-hidden"
+      className="group relative cursor-pointer bg-defensya-navy-light overflow-hidden"
       style={{
        
         clipPath: hovered ? CLIP_HOVER : CLIP_DEFAULT,
@@ -201,14 +201,14 @@ function ProductCard({
       {/* LINEA DE ESCANER*/}
       <div className="absolute inset-x-0 h-px bg-defensya-blue/20 z-20 -top-1 opacity-0 group-hover:animate-[def-scan_3.5s_linear_infinite] group-hover:opacity-100 pointer-events-none" />
 
-      {/* Accent strip izquierdo */}
-      {/* <div className="absolute left-0 top-0 bottom-0 w-px bg-defensya-blue/25 group-hover:bg-defensya-blue/80 transition-colors duration-500 z-10" /> */}
+      {/* borde izquierdo de card */}
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-defensya-blue/25 group-hover:bg-defensya-blue/80 transition-colors duration-500 z-10" />
 
       {/* ── Header strip: ID + signal bars ── */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 bg-white/[0.02]">
-        <span className="font-mono text-[9px] tracking-[0.35em] text-defensya-blue font-bold">
+        {/* <span className="font-mono text-[9px] tracking-[0.35em] text-defensya-blue font-bold">
           {assetId}
-        </span>
+        </span> */}
         <div className="flex items-center gap-2">
           <div className="flex items-end gap-px">
             {[3, 5, 7, 9].map((h, i) => (
@@ -219,9 +219,9 @@ function ProductCard({
               />
             ))}
           </div>
-          <span className="font-mono text-[8px] tracking-widest text-white/15 uppercase">
+          {/* <span className="font-mono text-[8px] tracking-widest text-white/15 uppercase">
             NOM
-          </span>
+          </span> */}
         </div>
       </div>
 
@@ -256,7 +256,7 @@ function ProductCard({
           ].map((pos, i) => (
             <div
               key={i}
-              className={`absolute ${pos} border-defensya-blue/35 group-hover:border-defensya-blue/75 transition-all duration-300`}
+              className={`absolute ${pos} border-defensya-blue/35 group-hover:border-white transition-all duration-300`}
               style={{ width: 14, height: 14, transitionDelay: `${i * 30}ms` }}
             />
           ))}
@@ -265,9 +265,9 @@ function ProductCard({
         {/* RADAR CENTRAL EN CARD */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           <div className="relative w-8 h-8">
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-defensya-sky/30" />
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-defensya-sky/30" />
-            <div className="absolute inset-[30%] rounded-full border border-defensya-sky/30" />
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-white" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white" />
+            <div className="absolute inset-[30%] rounded-full border border-white" />
           </div>
         </div>
 
@@ -280,7 +280,7 @@ function ProductCard({
 
         {/* Nombre */}
         <div className="absolute bottom-4 left-5 right-5">
-          <h3 className="text-[22px] font-bold font-display italic uppercase tracking-tighter text-white leading-none transition-colors duration-300">
+          <h3 className="text-[22px] font-semibold font-display uppercase tracking-wide text-white leading-none transition-colors duration-300">
             {producto.nombre}
           </h3>
         </div>

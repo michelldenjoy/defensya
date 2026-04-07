@@ -190,7 +190,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Test",
     descripcion:
       "Generador de señales de vídeo para el testeo de monitores industriales y militares.",
-    imagen: "/products/pattern.jpg",
+    imagen: "/products/pattern.webp",
     detalles: [
       "Hasta 8 salidas ópticas SDI independientes",
       "Selección de patrones mediante canal serie",

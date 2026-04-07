@@ -117,14 +117,14 @@ export default function Page() {
     <main className="bg-white dark:bg-defensya-navy text-gray-900 dark:text-gray-100 min-h-screen selection:bg-defensya-blue/30">
 
       
-      <section className="min-h-screen grid lg:grid-cols-[1fr_45%] bg-[#040508] text-gray-100 border-b border-white/5 relative overflow-hidden">
+      <section className="min-h-screen grid lg:grid-cols-[1fr_45%] bg-blue-950 text-gray-100 border-b border-white/5 relative overflow-hidden">
         {/* IZQUIERDA TEXTO */}
         <div className="relative z-10 flex flex-col justify-center px-8 lg:px-20 pt-36 pb-20 border-r border-white/5">
           <motion.span
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky mb-6 block uppercase"
+            className="text-[12px] font-mono tracking-[0.3em] text-slate-200 mb-6 block uppercase"
           >
             The Haptix Concept
           </motion.span>
@@ -140,8 +140,8 @@ export default function Page() {
             <br />
             Reabastecimiento
             <br />
-            <span className="text-defensya-blue">Semiautomático</span>{" "}
-            <span className="text-defensya-blue">y Robusto</span>
+            <span>Semiautomático</span>{" "}
+            <span>y Robusto</span>
           </motion.h1>
 
           <motion.p
@@ -170,7 +170,7 @@ export default function Page() {
                 className={`px-8 py-7 bg-white/2 ${i === 1 ? "border-l border-white/[0.07]" : ""}`}
               >
                 <p
-                  className="font-bold text-3xl text-defensya-blue leading-none mb-2"
+                  className="font-bold text-3xl text-gray-100 leading-none mb-2"
                   style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
                 >
                   {stat.value}
@@ -194,10 +194,10 @@ export default function Page() {
           />
          {/* Esquinas de imagen */}
           <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#040508]/40 to-transparent" />
-          <div className="absolute top-8 left-8 w-5 h-5 border-t border-l border-defensya-blue/40" />
-          <div className="absolute top-8 right-8 w-5 h-5 border-t border-r border-defensya-blue/40" />
-          <div className="absolute bottom-8 left-8 w-5 h-5 border-b border-l border-defensya-blue/40" />
-          <div className="absolute bottom-8 right-8 w-5 h-5 border-b border-r border-defensya-blue/40" />
+          <div className="absolute top-8 left-8 w-5 h-5 border-t border-l border-white" />
+          <div className="absolute top-8 right-8 w-5 h-5 border-t border-r border-white" />
+          <div className="absolute bottom-8 left-8 w-5 h-5 border-b border-l border-white" />
+          <div className="absolute bottom-8 right-8 w-5 h-5 border-b border-r border-white" />
         </div>
       </section>
 

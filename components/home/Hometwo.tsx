@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award, Target } from "lucide-react"; // Añadidos iconos de autoridad
 import { motion } from "framer-motion";
 
 function Rule() {
@@ -41,11 +41,11 @@ export default function Hometwo() {
                 fontFamily: "var(--font-display, 'Inter', sans-serif)",
               }}
             >
-              Ingeniería
+              Tecnología
               <br />
-              para el límite
+              <span className="text-defensya-blue italic">Soberana</span>
               <br />
-              <span className="text-defensya-blue italic">de lo posible</span>
+              Aeroespacial
             </h1>
 
             <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12 border-l border-defensya-blue/20 pl-6">
@@ -105,70 +105,74 @@ export default function Hometwo() {
 
       <Rule />
 
+{/* ───────── TRUST STRIP ───────── */}
+      <section className="py-12 bg-gray-50 dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+            <div className="flex items-center gap-4">
+                <Award className="text-defensya-blue" size={32} />
+                <div>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Reconocimiento</p>
+                    <p className="text-sm font-bold uppercase">Airbus Top Award Supplier</p>
+                </div>
+            </div>
+            <div className="flex items-center gap-4">
+                <ShieldCheck className="text-defensya-blue" size={32} />
+                <div>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Estándar</p>
+                    <p className="text-sm font-bold uppercase">Certificación EN 9100 / ISO 9001</p>
+                </div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Target className="text-defensya-blue" size={32} />
+                <div>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Soberanía</p>
+                    <p className="text-sm font-bold uppercase">Tecnología 100% Europea</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
       {/* ───────── QUÉ HACEMOS ───────── */}
-      <section className="py-20 px-6 lg:px-16">
+      <section className="py-24 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div
-            className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16
-                        border-b border-gray-200 dark:border-white/[0.07] pb-10"
-          >
-            <div>
-              <p
-                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3"
-              >
-                Capacidades
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div className="max-w-2xl">
+              <p className="text-[11px] font-mono tracking-[0.4em] text-defensya-blue uppercase mb-4">
+                Capacidades Core
               </p>
-              <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
-                         leading-none text-gray-900 dark:text-white"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Qué hacemos
+              <h2 className="text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tighter">
+                Sistemas de <br />Alto Rendimiento
               </h2>
             </div>
-            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg ">
-              Combinamos hardware, software y procesamiento inteligente para
-              mejorar la percepción y el control de plataformas aéreas en
-              entornos operativos de alta exigencia.
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
+              Arquitecturas modulares que integran inteligencia artificial y procesamiento en tiempo real para el dominio del espacio aéreo.
             </p>
           </div>
 
-          <div
-            className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
-                          divide-gray-200 dark:divide-white/[0.07]"
-          >
+          <div className="grid md:grid-cols-3 gap-12">
             {[
               {
                 num: "01",
-                title: "Sistemas Avanzados de Visión",
-                desc: "Visión y percepción embarcadas para mejorar la conciencia situacional y las capacidades operativas de aeronaves modernas.",
+                title: "Visión Computacional",
+                desc: "Algoritmos avanzados para la detección y seguimiento de activos en condiciones de visibilidad nula.",
               },
               {
                 num: "02",
-                title: "Automatización Air‑to‑Air",
-                desc: "Tecnologías que automatizan las operaciones de reabastecimiento aéreo, mejorando la precisión, la eficiencia y la seguridad.",
+                title: "Smart Refueling",
+                desc: "Líderes en automatización del reabastecimiento en vuelo (A3R/A4R) con precisión milimétrica.",
               },
               {
                 num: "03",
-                title: "Sistemas Electrónicos y Embebidos",
-                desc: "Hardware de alto rendimiento, sensores y software embebido para aplicaciones aeroespaciales, de defensa e industriales.",
+                title: "Sistemas Críticos",
+                desc: "Desarrollo de hardware y software bajo estándares de seguridad aeronáutica más exigentes.",
               },
             ].map(({ num, title, desc }) => (
-              <div
-                key={num}
-                className="px-0 md:px-8 first:pl-0 last:pr-0 py-8 md:py-0 group"
-              >
-                <span className="text-[12px] font-mono text-defensya-blue tracking-widest mb-6 block">
+              <div key={num} className="group cursor-default">
+                <div className="text-4xl font-bold text-defensya-blue/20 group-hover:text-defensya-blue transition-colors mb-6 font-mono">
                   {num}
-                </span>
-                <h3 className="text-2xl font-semibold mb-3 leading-snug">
-                  {title}
-                </h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+                </div>
+                <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{title}</h3>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-balance">
                   {desc}
                 </p>
               </div>
