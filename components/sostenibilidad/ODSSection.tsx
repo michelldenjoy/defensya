@@ -134,8 +134,7 @@ export default function ODSSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-md text-gray-500 dark:text-gray-400 max-w-sm
-                         leading-relaxed md:pb-2"
+              className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8"
             >
               Alineamos nuestra actividad con la Agenda 2030, contribuyendo
               activamente en áreas clave para un futuro tecnológico sostenible.

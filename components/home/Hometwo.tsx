@@ -2,12 +2,28 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Award, Target } from "lucide-react"; // Añadidos iconos de autoridad
+import { ArrowRight,  } from "lucide-react"; 
 import { motion } from "framer-motion";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
 }
+
+const items = [
+  {
+    label: "Reconocimiento",
+    value: "Airbus Top Award Supplier",
+  },
+  {
+    label: "Estándar",
+    value: "Certificación EN 9100 / ISO 9001",
+  },
+  {
+    label: "Soberanía",
+    value: "Tecnología 100% Europea",
+  },
+];
+
 
 export default function Hometwo() {
   return (
@@ -43,7 +59,7 @@ export default function Hometwo() {
             >
               Tecnología
               <br />
-              <span className="text-defensya-blue italic">Soberana</span>
+              <span className="text-defensya-blue ">Soberana</span>
               <br />
               Aeroespacial
             </h1>
@@ -106,38 +122,33 @@ export default function Hometwo() {
       <Rule />
 
 {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-12 bg-gray-50 dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-            <div className="flex items-center gap-4">
-                <Award className="text-defensya-blue" size={32} />
-                <div>
-                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Reconocimiento</p>
-                    <p className="text-sm font-bold uppercase">Airbus Top Award Supplier</p>
-                </div>
-            </div>
-            <div className="flex items-center gap-4">
-                <ShieldCheck className="text-defensya-blue" size={32} />
-                <div>
-                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Estándar</p>
-                    <p className="text-sm font-bold uppercase">Certificación EN 9100 / ISO 9001</p>
-                </div>
-            </div>
-            <div className="flex items-center gap-4">
-                <Target className="text-defensya-blue" size={32} />
-                <div>
-                    <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Soberanía</p>
-                    <p className="text-sm font-bold uppercase">Tecnología 100% Europea</p>
-                </div>
-            </div>
-        </div>
-      </section>
+<section className="py-12 bg-defensya-navy-light dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+        
+        {items.map((item) => (
+          <div key={item.label} className="flex items-center gap-4">
 
-      {/* ───────── QUÉ HACEMOS ───────── */}
+            <div>
+              <p className="text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
+                {item.label}
+              </p>
+              <p className="text-sm text-white font-bold uppercase">
+                {item.value}
+              </p>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+      {/* ───────── QUÉ HACEMOS className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3" ───────── */}
       <section className="py-24 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
-              <p className="text-[11px] font-mono tracking-[0.4em] text-defensya-blue uppercase mb-4">
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
                 Capacidades Core
               </p>
               <h2 className="text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tighter">
@@ -207,7 +218,7 @@ export default function Hometwo() {
                 del reabastecimiento
               </h2>
             </div>
-            <p className="text-md text-gray-400 leading-relaxed max-w-lg ">
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
               Nuestras soluciones propietarias cubren el ciclo completo del
               reabastecimiento aéreo automatizado, desde la percepción hasta el
               control háptico del botalón.
@@ -323,8 +334,7 @@ export default function Hometwo() {
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
               <p
-                className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                            dark:text-gray-500 uppercase mb-3"
+                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3"
               >
                 Ingeniería
               </p>
@@ -340,7 +350,7 @@ export default function Hometwo() {
                 de Ingeniería
               </h2>
             </div>
-            <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed ">
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
               Cubrimos el stack completo de ingeniería aeroespacial, desde el
               diseño electrónico hasta la inteligencia artificial embarcada, con
               aplicación directa en entornos de alta exigencia.
@@ -398,7 +408,7 @@ export default function Hometwo() {
           </div>
 
           <div className="flex flex-col gap-3 lg:items-end shrink-0">
-            <p className="text-md text-gray-400 leading-relaxed max-w-md mb-2">
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
               Trabajamos con fabricantes, organizaciones de defensa y socios
               tecnológicos para desarrollar los sistemas del futuro.
             </p>

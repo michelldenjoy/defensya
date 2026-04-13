@@ -395,8 +395,7 @@ export default function Divisiones() {
 
         {/* ── Header ── */}
         <div className="mb-8 md:mb-16 lg:mb-20">
-          <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
+          <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
             Áreas Tecnológicas
           </p>
           <div className="flex items-end justify-between gap-4 flex-wrap">

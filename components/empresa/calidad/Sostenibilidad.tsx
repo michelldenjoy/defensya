@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 
-
+// SOSTENIBILIDAD STRIP EN CALIDAD ********************************
 
 function SectionTag({ children }: { children: React.ReactNode }) {
     return (

@@ -52,8 +52,7 @@ export default function Timeline() {
         {/* ── Header ── */}
         <div className="mb-20 border-b border-gray-200 dark:border-white/[0.07] pb-10">
           <p
-            className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                        dark:text-gray-500 uppercase mb-3"
+            className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3"
           >
             Nuestra Trayectoria
           </p>

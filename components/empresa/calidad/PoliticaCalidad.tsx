@@ -86,6 +86,13 @@ function SectionTag({ children }: { children: React.ReactNode }) {
     </p>
   );
 }
+function SectionTagg({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+      {children}
+    </p>
+  );
+}
 
 // ─── Tabs (Objetivos / Valores) ─────────
 
@@ -302,7 +309,7 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div className="lg:pt-1">
-              <SectionTag> Declaración</SectionTag>
+              <SectionTagg> Declaración</SectionTagg>
               <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500 leading-relaxed mt-3">
                 Texto oficial del sistema de gestión de calidad de Defensya
                 Ingeniería Internacional.

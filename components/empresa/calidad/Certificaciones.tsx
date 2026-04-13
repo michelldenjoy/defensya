@@ -64,7 +64,7 @@ export default function Certificaciones() {
         >
           <div>
             <p
-              className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
+              className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3"
             >
               Certificacion Oficial
             </p>

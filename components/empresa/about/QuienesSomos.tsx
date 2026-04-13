@@ -82,8 +82,7 @@ const QuienesSomos = () => {
         <div className="max-w-7xl mx-auto">
 
           <div className="mb-16">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
               Experiencia
             </p>
             <h2
@@ -133,7 +132,8 @@ const QuienesSomos = () => {
         <div className="max-w-7xl mx-auto">
 
           <div className="mb-16">
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
+            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3">
               Trayectoria
             </p>
             <h2
