@@ -43,10 +43,12 @@ export default function PatentsList() {
         <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center
                         border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14">
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
-               I+D+i
-            </p>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-6 h-px bg-defensya-blue" />
+            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
+              Nuestras Patentes
+            </span>
+          </div>
             <h2
               className="text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase
                          leading-none tracking-tight text-gray-900 dark:text-white"

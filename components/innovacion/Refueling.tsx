@@ -49,17 +49,10 @@ export default function Refueling() {
 
       {/* ── DESAFÍO / VISIÓN ───── */}
       <section
-        className="px-6 lg:px-16 py-24
+        className="px-6 lg:px-16 py-20
                           border-b border-gray-200 dark:border-white/[0.07]"
       >
         <div className="max-w-7xl mx-auto">
-          <p
-            className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                        dark:text-gray-500 uppercase mb-12"
-          >
-            Contexto
-          </p>
-
           <div
             className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x
                           divide-gray-200 dark:divide-white/[0.07]"
@@ -118,7 +111,8 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-14">
             <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-sky uppercase mb-3">
+              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3">
                 Automatización
               </p>
               <h2

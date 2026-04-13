@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight,  } from "lucide-react"; 
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 function Rule() {
@@ -24,14 +24,12 @@ const items = [
   },
 ];
 
-
 export default function Hometwo() {
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-    
       <section className="pt-14 min-h-[85vh] grid lg:grid-cols-[1fr_55%] overflow-hidden">
         {/* texto izquierda */}
         <div
@@ -121,26 +119,23 @@ export default function Hometwo() {
 
       <Rule />
 
-{/* ───────── TRUST STRIP ───────── */}
-<section className="py-12 bg-defensya-navy-light dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-        
-        {items.map((item) => (
-          <div key={item.label} className="flex items-center gap-4">
-
-            <div>
-              <p className="text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
-                {item.label}
-              </p>
-              <p className="text-sm text-white font-bold uppercase">
-                {item.value}
-              </p>
+      {/* ───────── TRUST STRIP ───────── */}
+      <section className="py-12 bg-defensya-navy-light dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+          {items.map((item) => (
+            <div key={item.label} className="flex items-center gap-4">
+              <div>
+                <p className="text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
+                  {item.label}
+                </p>
+                <p className="text-sm text-white font-bold uppercase">
+                  {item.value}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
 
       {/* ───────── QUÉ HACEMOS className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3" ───────── */}
@@ -152,11 +147,13 @@ export default function Hometwo() {
                 Capacidades Core
               </p>
               <h2 className="text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tighter">
-                Sistemas de <br />Alto Rendimiento
+                Sistemas de <br />
+                Alto Rendimiento
               </h2>
             </div>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
-              Arquitecturas modulares que integran inteligencia artificial y procesamiento en tiempo real para el dominio del espacio aéreo.
+              Arquitecturas modulares que integran inteligencia artificial y
+              procesamiento en tiempo real para el dominio del espacio aéreo.
             </p>
           </div>
 
@@ -182,7 +179,9 @@ export default function Hometwo() {
                 <div className="text-4xl font-bold text-defensya-blue/20 group-hover:text-defensya-blue transition-colors mb-6 font-mono">
                   {num}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{title}</h3>
+                <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">
+                  {title}
+                </h3>
                 <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-balance">
                   {desc}
                 </p>
@@ -331,11 +330,9 @@ export default function Hometwo() {
       {/* ──────────── CAPACIDADES ─────────────────── */}
       <section className="py-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
-              <p
-                className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3"
-              >
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
                 Ingeniería
               </p>
               <h2
@@ -391,8 +388,10 @@ export default function Hometwo() {
       <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400
-                          dark:text-gray-500 uppercase mb-3">
+            <p
+              className="text-[12px] font-mono tracking-[0.3em] text-gray-400
+                          dark:text-gray-500 uppercase mb-3"
+            >
               Colaboración
             </p>
             <h2
