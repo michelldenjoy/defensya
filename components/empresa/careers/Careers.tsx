@@ -16,32 +16,81 @@ export default function Careers() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("");
   const [fileName, setFileName] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
 
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
+      const selectedFile = e.target.files[0];
+  
+      // Validación (opcional pero recomendable)
+      if (selectedFile.size > 5 * 1024 * 1024) {
+        alert("Máx 5MB");
+        return;
+      }
+  
+      setFile(selectedFile);
+      setFileName(selectedFile.name);
     }
   };
+
+
+  const uploadToCloudinary = async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append(
+      "upload_preset",
+      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!
+    );
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+  
+    const data = await res.json();
+    return data.secure_url;
+  };
+
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-
+  
     try {
-      // IMPORTANTE: Asegúrate de añadir NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID en Vercel
-      await emailjs.sendForm(
+      if (!file) {
+        alert("Por favor sube tu CV");
+        return;
+      }
+  
+      // 1. Subir archivo
+      const fileUrl = await uploadToCloudinary(file);
+  
+      // 2. Enviar email con link (NO archivo)
+      await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID!, // ID del nuevo template de Careers
-        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID!,
+        {
+          user_name: formRef.current?.user_name.value,
+          user_email: formRef.current?.user_email.value,
+          position: formRef.current?.position.value,
+          area: formRef.current?.area.value,
+          message: formRef.current?.message.value,
+          cv_link: fileUrl, // 👈 IMPORTANTE
+        },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
-
+  
       setStatus("success");
+      setFile(null);
       setFileName("");
       formRef.current?.reset();
     } catch (error) {
-      console.error("Error Quandum Recruitment:", error);
+      console.error("Error:", error);
       setStatus("error");
     }
   };
