@@ -95,8 +95,8 @@ export default function ContactView() {
       className="relative w-full min-h-screen bg-defensya-navy text-white overflow-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <CyberBackground  />
-     
+      <CyberBackground />
+
       <div className="pointer-events-none select-none absolute inset-0 flex items-center justify-center">
         <div className="absolute w-200 h-200 rounded-full border border-white/2.5" />
         <div className="absolute w-125 h-125 rounded-full border border-white/2.5" />
@@ -108,7 +108,6 @@ export default function ContactView() {
                       bg-[radial-gradient(ellipse_at_top_right,#1E40AF14,transparent_70%)]"
       />
 
-    
       {/* <div
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-16 pb-10
                       border-b border-white/[0.07]"
@@ -124,7 +123,6 @@ export default function ContactView() {
         </div>
       </div> */}
 
-     
       <div className="relative z-10 max-w-7xl mx-auto px-6 ">
         <div className="grid lg:grid-cols-[1fr_58%] min-h-[80vh]">
           {/* ── LEFT ─────── */}
@@ -146,10 +144,18 @@ export default function ContactView() {
                 <br />
                 <span className="text-defensya-blue">defensya</span>
               </h1>
-              <p className="text-sm text-white/35 leading-relaxed max-w-xs">
-                Consultas sobre ingeniería, auditorías de proyectos o
-                colaboración en I+D. Respondemos con la máxima confidencialidad.
+              <div className="bg-black/5 backdrop-blur-xs border border-white/10 rounded-xl p-8 lg:p-10">
+              <p className="text-sm text-white/50 leading-relaxed max-w-xs">
+                <strong className="text-white">
+                  Hablemos de soluciones técnicas.{" "}
+                </strong>
+                <br />
+                Si buscas asesoría en ingeniería, auditorías especializadas o
+                alianzas estratégicas en I+D, nuestro equipo está listo para
+                colaborar. Garantizamos absoluta confidencialidad en el
+                tratamiento de su información.
               </p>
+              </div>
             </div>
 
             {/* INFORMACION DE CONTACTO */}
@@ -197,150 +203,146 @@ export default function ContactView() {
 
           {/* ── DERECHA FORM ──────── */}
           <div className="py-16 mx-auto lg:py-24 lg:pl-16">
-              <div className="bg-black/10 backdrop-blur-md border border-white/10 rounded-xl p-8 lg:p-10">
-            
-            <div className="flex items-start justify-between mb-12">
-              <div>
-                <p className="text-[12px] font-mono tracking-[0.3em] text-white/25 uppercase mb-1.5">
-                  Formulario
-                </p>
-                <h2
-                  className="text-3xl  font-bold uppercase leading-none tracking-tight"
-                  style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  }}
-                >
-                  Nueva consulta
-                </h2>
-              </div>
-
-              {/* esquinas */}
-              <div className="relative w-10 h-10 shrink-0 hidden sm:block mt-1">
-                <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-defensya-blue/90" />
-                <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-defensya-blue/90" />
-                <span className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-defensya-blue/90" />
-                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-defensya-blue/90" />
-              </div>
-            </div>
-
-            
-            <AnimatePresence mode="wait">
-              {status === "success" ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="py-20 flex flex-col items-center justify-center text-center space-y-6 border border-defensya-blue/20 bg-defensya-blue/5 rounded-sm"
-                >
-                  <div className="w-16 h-16 rounded-full border-2 border-defensya-blue flex items-center justify-center mb-4">
-                    <svg
-                      className="w-8 h-8 text-defensya-blue"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold uppercase tracking-tight font-display">
-                      Mensaje Recibido
-                    </h3>
-                    <p className="text-white/60 text-sm max-w-sm mx-auto leading-relaxed">
-                      Gracias por contactar con nuestro equipo. Su
-                      consulta ha sido procesada correctamente. Le
-                      responderemos a la mayor brevedad posible.
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => setStatus("")}
-                    className="text-[10px] font-mono text-defensya-blue uppercase tracking-[0.2em] hover:text-white transition-colors"
+            <div className="bg-black/10 backdrop-blur-xs border border-white/10 rounded-xl p-8 lg:p-10">
+              <div className="flex items-start justify-between mb-12">
+                <div>
+                  <p className="text-[12px] font-mono tracking-[0.3em] text-white/25 uppercase mb-1.5">
+                    Formulario
+                  </p>
+                  <h2
+                    className="text-3xl  font-bold uppercase leading-none tracking-tight"
+                    style={{
+                      fontFamily:
+                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    }}
                   >
-                    [ Enviar otro mensaje ]
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-                
-                  <div className="grid sm:grid-cols-2 gap-8">
-                    <Field num="01" label="Nombre completo">
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        placeholder="Juan García"
-                        className={inputCls}
-                      />
-                    </Field>
-                    <Field num="02" label="Correo electrónico">
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder="email@corporativo.com"
-                        className={inputCls}
-                      />
-                    </Field>
+                    Nueva consulta
+                  </h2>
+                </div>
 
-                    <Field num="03" label="Asunto">
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="ej: Consulta sobre sistemas de visión"
-                        className={inputCls}
-                      />
-                    </Field>
-                    <Field num="04" label="Mensaje">
-                      <textarea
-                        rows={5}
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        placeholder="Describe tu consulta, proyecto o propuesta de colaboración..."
-                        className={inputCls + " resize-none"}
-                      />
-                    </Field>
-                  </div>
-                  <div className="pt-6 border-t border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-                    <div className="flex items-center gap-5 shrink-0">
-                      {status === "error" && (
-                        <p className="text-[10px] font-mono text-red-400 tracking-wide">
-                          Error de conexión — intente de nuevo
-                        </p>
-                      )}
-                      <button
-                        type="submit"
-                        disabled={status === "sending"}
-                        className="px-8 py-3.5 bg-defensya-blue text-white text-xs tracking-widest uppercase font-medium hover:bg-defensya-blue/80 transition-colors disabled:opacity-40"
+                {/* esquinas */}
+                <div className="relative w-10 h-10 shrink-0 hidden sm:block mt-1">
+                  <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-defensya-blue/90" />
+                  <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-defensya-blue/90" />
+                  <span className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-defensya-blue/90" />
+                  <span className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-defensya-blue/90" />
+                </div>
+              </div>
+
+              <AnimatePresence mode="wait">
+                {status === "success" ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="py-20 flex flex-col items-center justify-center text-center space-y-6 border border-defensya-blue/20 bg-defensya-blue/5 rounded-sm"
+                  >
+                    <div className="w-16 h-16 rounded-full border-2 border-defensya-blue flex items-center justify-center mb-4">
+                      <svg
+                        className="w-8 h-8 text-defensya-blue"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        {status === "sending"
-                          ? "Procesando..."
-                          : "Enviar consulta"}
-                      </button>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
                     </div>
-                  </div>
-                </form>
-              )}
-            </AnimatePresence>
+
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-bold uppercase tracking-tight font-display">
+                        Mensaje Recibido
+                      </h3>
+                      <p className="text-white/60 text-sm max-w-sm mx-auto leading-relaxed">
+                        Gracias por contactar con nuestro equipo. Su consulta ha
+                        sido procesada correctamente. Le responderemos a la
+                        mayor brevedad posible.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setStatus("")}
+                      className="text-[10px] font-mono text-defensya-blue uppercase tracking-[0.2em] hover:text-white transition-colors"
+                    >
+                      [ Enviar otro mensaje ]
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+                    <div className="grid sm:grid-cols-2 gap-8">
+                      <Field num="01" label="Nombre completo">
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          placeholder="Juan García"
+                          className={inputCls}
+                        />
+                      </Field>
+                      <Field num="02" label="Correo electrónico">
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="email@corporativo.com"
+                          className={inputCls}
+                        />
+                      </Field>
+
+                      <Field num="03" label="Asunto">
+                        <input
+                          type="text"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          placeholder="ej: Consulta sobre sistemas de visión"
+                          className={inputCls}
+                        />
+                      </Field>
+                      <Field num="04" label="Mensaje">
+                        <textarea
+                          rows={5}
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          placeholder="Describe tu consulta, proyecto o propuesta de colaboración..."
+                          className={inputCls + " resize-none"}
+                        />
+                      </Field>
+                    </div>
+                    <div className="pt-6 border-t border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                      <div className="flex items-center gap-5 shrink-0">
+                        {status === "error" && (
+                          <p className="text-[10px] font-mono text-red-400 tracking-wide">
+                            Error de conexión — intente de nuevo
+                          </p>
+                        )}
+                        <button
+                          type="submit"
+                          disabled={status === "sending"}
+                          className="px-8 py-3.5 bg-defensya-blue text-white text-xs tracking-widest uppercase font-medium hover:bg-defensya-blue/80 transition-colors disabled:opacity-40"
+                        >
+                          {status === "sending"
+                            ? "Procesando..."
+                            : "Enviar consulta"}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
-      </div>
     </main>
-    
   );
 }
