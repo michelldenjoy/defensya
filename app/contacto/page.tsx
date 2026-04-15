@@ -144,8 +144,8 @@ export default function ContactView() {
                 <br />
                 <span className="text-defensya-blue">defensya</span>
               </h1>
-              <div className="bg-black/5 backdrop-blur-xs border border-white/10 rounded-xl p-8 lg:p-10">
-              <p className="text-sm text-white/50 leading-relaxed max-w-xs">
+              <div className="bg-black/5 backdrop-blur-xs max-w-sm border border-white/10 rounded-xl p-8 lg:p-8">
+              <p className="text-sm text-white/50 leading-relaxed">
                 <strong className="text-white">
                   Hablemos de soluciones técnicas.{" "}
                 </strong>
@@ -202,7 +202,7 @@ export default function ContactView() {
           </div>
 
           {/* ── DERECHA FORM ──────── */}
-          <div className="py-16 mx-auto lg:py-24 lg:pl-16">
+          <div className="py-16 md:mx-auto  lg:py-24 lg:pl-16">
             <div className="bg-black/10 backdrop-blur-xs border border-white/10 rounded-xl p-8 lg:p-10">
               <div className="flex items-start justify-between mb-12">
                 <div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import AirplaneScene from "../ui/AirplaneScene";
+import ThreePlane from "../ui/ThreePlane";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -91,25 +91,19 @@ export default function Hometwo() {
           </motion.div>
         </div>
 
-        {/* imagen derecha - Ajustada para formato horizontal */}
+        {/* imagen derecha */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative group"
-        >
-          {/* Marco de diseño que envuelve la imagen para darle "aire" y profesionalidad */}
-          <div className="relative aspect-1849/1253 w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
-              <AirplaneScene />
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="relative group"
+>
+  <div className="relative aspect-video w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#05080e]/50">
+    <ThreePlane />
 
-            {/* Overlay táctico muy sutil solo en los bordes */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
-
-            {/* Brackets de HUD en las esquinas de la imagen */}
-            <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-defensya-blue/40" />
-            <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-defensya-blue/40" />
-          </div>
-        </motion.div>
+  
+  </div>
+</motion.div>
       </section>
 
       <Rule />
