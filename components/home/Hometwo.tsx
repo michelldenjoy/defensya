@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import AirplaneScene from "../ui/AirplaneScene";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -99,13 +100,7 @@ export default function Hometwo() {
         >
           {/* Marco de diseño que envuelve la imagen para darle "aire" y profesionalidad */}
           <div className="relative aspect-1849/1253 w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#0a0c10]">
-            <Image
-              src="/aeronauticlogo.png"
-              alt="Plataforma aeronáutica Defensya"
-              fill
-              className="object-contain" // IMPORTANTE: Muestra la imagen completa sin recortes
-              priority
-            />
+              <AirplaneScene />
 
             {/* Overlay táctico muy sutil solo en los bordes */}
             <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />

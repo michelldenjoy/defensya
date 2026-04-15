@@ -16,10 +16,10 @@ const QuienesSomos = () => {
     >
 
       {/* ── HERO ── */}
-      <section className="px-6 lg:px-16 pt-20 pb-28 border-b border-gray-200 dark:border-white/[0.07]">
+      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
 
-          <div className="flex items-center gap-3 mb-10">
+          <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Empresa — Quiénes somos
@@ -27,14 +27,15 @@ const QuienesSomos = () => {
           </div>
 
           <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
-            <h1
-              className="text-[clamp(3rem,7vw,6rem)] font-bold uppercase
-                         leading-[0.95] tracking-tight text-gray-900 dark:text-white"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+          <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
+                         leading-[0.95] tracking-tight "
             >
-              Tecnología,<br />
-              innovación<br />
-              <span className="text-defensya-blue">y excelencia</span>
+              Tecnología
+              <br />
+              Avance
+              <br />
+              <span className="text-defensya-blue"> Innovación</span>
             </h1>
 
             <div className="lg:pb-2">

@@ -110,7 +110,7 @@ export default function ODSSection() {
             </span>
           </motion.div>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between
+          <div className="flex flex-col md:flex-row items-center justify-between
                           gap-6 md:gap-12 mb-12">
 
             <motion.div
@@ -119,14 +119,14 @@ export default function ODSSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h2
-                className="text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase
-                           leading-[0.95] tracking-tight text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-              >
-                Nuestro impacto<br />
-                <span className="text-defensya-blue">en los ODS</span>
-              </h2>
+            <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
+                         leading-[0.95] tracking-tight "
+            >
+              Nuestro impacto
+              <br />
+              <span className="text-defensya-blue"> en los ODS</span>
+            </h1>
             </motion.div>
 
             <motion.p

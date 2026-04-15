@@ -49,15 +49,16 @@ export default function PatentsList() {
               Nuestras Patentes
             </span>
           </div>
-            <h2
-              className="text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase
-                         leading-none tracking-tight text-gray-900 dark:text-white"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+          <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
+                         leading-[0.95] tracking-tight "
             >
-              Investigación,<br />
-              <span className="text-defensya-blue">Desarrollo</span> <br />
-              e Innovación
-            </h2>
+              Investigación
+              <br />
+              Desarrollo
+              <br/>
+              <span className="text-defensya-blue"> Innovación</span>
+            </h1>
           </div>
 
           <div className="lg:pb-1">

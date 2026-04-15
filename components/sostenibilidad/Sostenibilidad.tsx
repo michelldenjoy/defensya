@@ -121,27 +121,23 @@ export default function Sostenibilidad() {
     >
       <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
-          <div className="flex items-center gap-3 mb-14">
+          <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Empresa — Sostenibilidad
             </span>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-center">
             <div>
-              <SectionTag>Compromiso medioambiental</SectionTag>
-              <h1
-                className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold uppercase leading-[0.95] text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-              >
-                Compromiso
-                <br />
-                Ambiental y
-                <br />
-                <span className="text-defensya-blue">Sostenibilidad</span>
-              </h1>
+            <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
+                         leading-[0.95] tracking-tight "
+            >
+              Compromiso
+              <br/>
+              <span className="text-defensya-blue"> Ambiental</span>
+            </h1>
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
@@ -165,7 +161,7 @@ export default function Sostenibilidad() {
                 ))}
               </div>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 En Defensya, la calidad de nuestros servicios y la protección del entorno
                 son pilares inseparables. Operamos bajo un Sistema de Gestión de Calidad
                 y Medio Ambiente diseñado para optimizar cada proceso, garantizando la

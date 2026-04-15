@@ -48,7 +48,7 @@ export default function HeroSection({
         {/* CONTENIDO PRINCIPAL */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white leading-[1.1] uppercase ">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.1] uppercase ">
               {title}
             </h1>
   

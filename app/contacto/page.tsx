@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { AnimatePresence, motion } from "framer-motion";
+import CyberBackground from "@/components/ui/CyberBackground";
 
 interface FormData {
   name: string;
@@ -94,6 +95,7 @@ export default function ContactView() {
       className="relative w-full min-h-screen bg-defensya-navy text-white overflow-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
+      <CyberBackground  />
      
       <div className="pointer-events-none select-none absolute inset-0 flex items-center justify-center">
         <div className="absolute w-200 h-200 rounded-full border border-white/2.5" />
@@ -107,7 +109,7 @@ export default function ContactView() {
       />
 
     
-      <div
+      {/* <div
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-16 pb-10
                       border-b border-white/[0.07]"
       >
@@ -120,7 +122,7 @@ export default function ContactView() {
           </div>
           <div className="flex items-center gap-2"></div>
         </div>
-      </div>
+      </div> */}
 
      
       <div className="relative z-10 max-w-7xl mx-auto px-6 ">
@@ -195,6 +197,7 @@ export default function ContactView() {
 
           {/* ── DERECHA FORM ──────── */}
           <div className="py-16 mx-auto lg:py-24 lg:pl-16">
+              <div className="bg-black/10 backdrop-blur-md border border-white/10 rounded-xl p-8 lg:p-10">
             
             <div className="flex items-start justify-between mb-12">
               <div>
@@ -336,6 +339,8 @@ export default function ContactView() {
           </div>
         </div>
       </div>
+      </div>
     </main>
+    
   );
 }

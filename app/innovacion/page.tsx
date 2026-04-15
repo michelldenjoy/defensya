@@ -9,7 +9,7 @@ export default function page() {
       <HeroSection
         label="Innovación"
         title="Innovamos el Reabastecimiento Aéreo"
-        subtitle="Desde sistemas avanzados de reabastecimiento hasta nuevas patentes aeroespaciales, impulsamos la innovación que define la próxima generación de defensa."
+        subtitle=""
         image="/images/innovation.webp"
       />
       <Refueling />

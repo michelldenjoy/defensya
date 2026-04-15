@@ -8,11 +8,11 @@ export default function Refueling() {
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       <section
-        className="px-6 lg:px-16 pt-16 pb-28
+        className="px-6 lg:px-16 pt-16 pb-24
                           border-b border-gray-200 dark:border-white/[0.07]"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3 mb-14">
+          <div className="flex items-center gap-3 mb-6">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Innovación — Reabastecimiento Air-to-Air
@@ -20,19 +20,13 @@ export default function Refueling() {
           </div>
 
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center">
-            <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-bold uppercase
-                         leading-[0.95] tracking-tight"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
+          <h1
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
+                         leading-[0.95] tracking-tight "
             >
-              Innovación en
+              Ingeniería para entornos de
               <br />
-              Reabastecimiento
-              <br />
-              <span className="text-defensya-blue">Air-to-Air</span>
+              <span className="text-defensya-blue"> alta seguridad</span>
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
