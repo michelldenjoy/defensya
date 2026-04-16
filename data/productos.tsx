@@ -17,7 +17,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Vision",
     descripcion:
       "Sistema integrado en el BEVS para la optimización de la visión estereoscópica en operaciones de reabastecimiento en vuelo.",
-    imagen: "/images/aeronautic.jpg",
+    imagen:[ "/products/mirror2.jpeg", "/products/mirror.jpeg"],
     detalles: [
       "Elimina problemas de 'ghosting' y distorsiones visuales",
       "Permite al operador (ARO) una percepción de profundidad real",
@@ -261,7 +261,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Sistemas de visualización crítica diseñados para garantizar la fluidez de imagen, eliminando el riesgo de congelación de cuadros (frames).",
-    imagen: "/images/aeronautic.jpg",
+    imagen: ["/products/monitor.png", "/products/monitores.jpeg"],
     detalles: [
       "Aplicación crítica en reabastecimiento en vuelo y diagnóstico médico",
       "Evita errores de interpretación por pérdida de señal de entrada",
@@ -274,7 +274,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Displays",
     descripcion:
       "Displays de formato ancho que generan una visión periférica completa del área de trabajo, optimizando la seguridad operativa.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/products/panoramic.png",
     detalles: [
       "Generación de superposiciones (overlays) de datos en tiempo real",
       "Prevención de colisiones mediante visualización de área ampliada",

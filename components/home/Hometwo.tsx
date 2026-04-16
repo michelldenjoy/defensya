@@ -31,7 +31,7 @@ export default function Hometwo() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <section className="pt-14 min-h-[85vh] grid lg:grid-cols-[1fr_55%] overflow-hidden">
+      <section className="pt-14 min-h-[85vh] items-center grid lg:grid-cols-[1fr_55%] overflow-hidden">
         {/* texto izquierda */}
         <div
           className="flex flex-col justify-center px-6 lg:px-20 pt-20 pb-16
@@ -72,8 +72,8 @@ export default function Hometwo() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/productos"
-                className="px-8 py-3 bg-defensya-blue text-white text-[11px] tracking-[0.2em]
-                     uppercase font-bold hover:bg-defensya-navy-accent transition-all hover:px-10"
+                className="px-5 py-3 bg-defensya-blue text-white text-[11px] tracking-[0.2em]
+                     uppercase font-bold hover:bg-defensya-navy-accent transition-all hover:px-7"
               >
                 Nuestros Proyectos
               </Link>
@@ -86,24 +86,20 @@ export default function Hometwo() {
                 Sobre Defensya
               </Link>
             </div>
-
-            {/* metadata strip */}
           </motion.div>
         </div>
 
         {/* imagen derecha */}
         <motion.div
-  initial={{ opacity: 0, scale: 0.98 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
-  className="relative group"
->
-  <div className="relative aspect-video w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#05080e]/50">
-    <ThreePlane />
-
-  
-  </div>
-</motion.div>
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative group"
+        >
+          <div className="relative aspect-video w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#05080e]/50">
+            <ThreePlane />
+          </div>
+        </motion.div>
       </section>
 
       <Rule />

@@ -200,12 +200,12 @@ export default function PoliticaCalidad() {
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center">
             <div>
               <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
-                         leading-[0.95] tracking-tight "
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
+                         leading-[0.95] tracking-tight uppercase"
             >
-              Declaración de la 
+              Política de
               <br />
-              <span className="text-defensya-blue"> Política de Calidad</span>
+              <span className="text-defensya-blue"> Calidad</span>
             </h1>
             </div>
 

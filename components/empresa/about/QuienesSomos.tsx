@@ -28,8 +28,8 @@ const QuienesSomos = () => {
 
           <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
           <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
-                         leading-[0.95] tracking-tight "
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
+                         leading-[0.95] tracking-tight uppercase "
             >
               Tecnología
               <br />
