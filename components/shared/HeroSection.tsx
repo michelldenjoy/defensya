@@ -18,7 +18,7 @@ export default function HeroSection({
   video
 }: HeroProps) {
   return (
-    <section className="relative w-full border-b border-white/8 bg-[#080A0E] overflow-hidden">
+    <section className="relative w-full border-b border-white/8 bg-[#080a0e] overflow-hidden">
 
       {/* VIDEO */}
       {video && (
@@ -42,7 +42,7 @@ export default function HeroSection({
       )}
 
       {/* overlay */}
-      <div className="absolute inset-0 bg-linear-to-l from-slate-900/10 via-transparent to-black/70" />
+     
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 
         {/* CONTENIDO PRINCIPAL */}

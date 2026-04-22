@@ -75,7 +75,7 @@ export default function ThreePlane() {
 
       // Camera
       const cam = new THREE.PerspectiveCamera(42, W() / H(), 0.1, 500);
-      cam.position.set(0, 5, 34);
+      cam.position.set(0, 5, 36);
       cam.lookAt(0, 0, 0);
 
       // Composer
