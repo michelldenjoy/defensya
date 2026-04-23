@@ -15,7 +15,7 @@ const divisions: Division[] = [
   {
     title: "Defensa",
     tag: "SEC-01",
-    image: "/images/defensa.jpg",
+    image: "/images/defensa2.jpg",
     description:
       "En Defensya contamos con un equipo de especialistas altamente cualificados y con instalaciones preparadas para afrontar proyectos complejos dentro del sector defensa. Más de veinte años de experiencia avalan nuestra capacidad para desarrollar soluciones tecnológicas fiables, innovadoras y adaptadas a los requisitos más exigentes del sector.",
   },

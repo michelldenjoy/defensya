@@ -9,8 +9,8 @@ export default function page() {
       <HeroSection
         label="Sostenibilidad"
         title="Trabajamos por un Futuro Sostenible"
-        subtitle="Trabajamos continuamente para integrar soluciones ecológicas en nuestros productos y procesos."
-        image="/images/sostenibilidad.jpg"
+        subtitle=""
+        image="/images/sostenibilidad.png"
       />
 
       <Sostenibilidad />

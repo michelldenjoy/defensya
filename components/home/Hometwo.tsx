@@ -97,7 +97,13 @@ export default function Hometwo() {
           className="relative group"
         >
           <div className="relative aspect-video w-full shadow-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-[#05080e]/50">
-            <ThreePlane />
+            {/* <ThreePlane /> */}
+            <Image
+              src="/images/refueling2.webp"
+              alt="Defensya Hero Image"
+              fill
+              className="object-cover object-center group-hover:scale-105 transition-transform"
+            />
           </div>
         </motion.div>
       </section>

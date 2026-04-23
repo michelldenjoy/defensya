@@ -309,7 +309,7 @@ export const PRODUCTOS: Producto[] = [
       "/products/tactical.png",
       "/products/tactical2.png",
       "/products/tactical3.jpg",
-      "/products/tacticalmini.webp",
+   
     ],
     detalles: [
       "Procesador Intel Core i7 10th Gen y hasta 16GB DDR4",
