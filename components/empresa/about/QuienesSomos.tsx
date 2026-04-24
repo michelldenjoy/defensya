@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Link } from "lucide-react";
 
 const experienceItems = [
   {
@@ -482,9 +483,12 @@ const QuienesSomos = () => {
             <div className="flex flex-col gap-8">
               <p className="text-base text-gray-400 leading-relaxed border-l-2 border-[#0ea5e9]/30 pl-5">
                 Nuestro equipo acumula más de{" "}
-                <span className="text-white font-semibold">
+                <a
+                  href="/innovacion#patents"
+                  className="text-white font-semibold"
+                >
                   veinte patentes registradas
-                </span>
+                </a>
                 , algunas de las cuales se encuentran actualmente en operación
                 en aeronaves como el{" "}
                 <span className="text-[#0ea5e9] font-semibold">A330 MRTT</span>.

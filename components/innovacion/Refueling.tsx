@@ -21,8 +21,7 @@ export default function Refueling() {
 
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center">
           <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
-                         leading-[0.95] tracking-tight "
+              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase "
             >
               Ingeniería para entornos de
               <br />
