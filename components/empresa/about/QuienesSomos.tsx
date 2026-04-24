@@ -340,13 +340,13 @@ const QuienesSomos = () => {
                 {/* Content */}
                 <div className="absolute inset-0 p-7 flex flex-col justify-end group-hover:justify-center transition-all duration-500">
                   {/* Number label */}
-                  <span className="text-[11px] font-mono tracking-[0.3em] text-[#0ea5e9] mb-3">
+                  <span className="text-[11px] text-center font-mono tracking-[0.3em] text-[#0ea5e9] mb-3">
                     {item.num} <span className="text-gray-300">{item.tag}</span>
                   </span>
 
                   {/* Title */}
                   <h3
-                    className="text-white mb-0 translate-y-3 group-hover:translate-y-0 transition-transform duration-500"
+                    className="text-white mb-0 text-center translate-y-3 group-hover:translate-y-0 transition-transform duration-500"
                     style={{
                       fontFamily:
                         "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -360,10 +360,10 @@ const QuienesSomos = () => {
                     {item.title}
                   </h3>
 
-                  {/* Divider */}
+                  {/* linea divisora debajo del titulo */}
                   <div className="my-4 h-px relative overflow-hidden">
                     <div
-                      className="absolute left-0 top-0 h-full bg-[#0ea5e9]/30 w-0 group-hover:w-full"
+                      className="absolute left-0 top-0 h-full bg-[#0ea5e9]/30 w-35 group-hover:w-full"
                       style={{
                         transition:
                           "width 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s",
@@ -389,7 +389,7 @@ const QuienesSomos = () => {
         </div>
       </section>
 
-      {/* ─────────── AVIACIÓN ─────────── */}
+      {/* ─────────── LIDERAZGO AVIACIÓN ─────────── */}
       <section className="relative py-32 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
         {/* Tech grid */}
         <div className="tech-grid absolute inset-0 pointer-events-none" />
