@@ -59,7 +59,6 @@ export default function Hometwo() {
              <span className="text-defensya-blue" >Ingeniería </span> <br /> Avanzada <br /> para el futuro
               <br />
               <span className="text-defensya-blue">Aeroespacial</span>
-
             </h1>
 
             <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12 border-l border-defensya-blue/20 pl-6">
@@ -131,19 +130,25 @@ export default function Hometwo() {
                           dark:text-gray-500 uppercase mb-3" ───────── */}
       <section className="py-24 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-2xl">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
+            <div>
               <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                Capacidades Core
+                Ingeniería
               </p>
-              <h2 className="text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tighter">
-                Sistemas de <br />
+              <h2
+                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
+              >
+                Sistemas de 
+                <br />
                 Alto Rendimiento
               </h2>
             </div>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
-              Arquitecturas modulares que integran inteligencia artificial y
-              procesamiento en tiempo real para el dominio del espacio aéreo.
+              Arquiecturas modulares que integran inteligencia artificial y procesamiento en tiempo real para el dominio del espacio aéreo.
             </p>
           </div>
 
