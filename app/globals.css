@@ -154,6 +154,10 @@ body {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
 }
+@keyframes defensya-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0.45); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 114, 206, 0); }
+}
 
 /* ── Product card ───────────────────────────────────────────────────────────── */
 .dc {
