@@ -15,7 +15,7 @@ export default function Refueling() {
           <div className="flex items-center gap-3 mb-6">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Innovación — Reabastecimiento Air-to-Air
+              Reabastecimiento Air-to-Air
             </span>
           </div>
 

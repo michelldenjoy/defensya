@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-
 const objetivos = [
   {
     id: "01",
@@ -55,7 +54,16 @@ const areas = [
     label: "Gestión de residuos",
     desc: "Reducción y tratamiento controlado de residuos industriales en todos los procesos de fabricación.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <polyline points="3 6 5 6 21 6" />
         <path d="M19 6l-1 14H6L5 6" />
         <path d="M10 11v6M14 11v6M9 6V4h6v2" />
@@ -67,7 +75,16 @@ const areas = [
     label: "Eficiencia energética",
     desc: "Optimización del consumo energético en instalaciones y equipos de producción.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
@@ -77,7 +94,16 @@ const areas = [
     label: "Cadena de suministro",
     desc: "Selección y colaboración con proveedores que cumplan los requisitos ambientales establecidos.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <circle cx="12" cy="12" r="2" />
         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
       </svg>
@@ -88,7 +114,16 @@ const areas = [
     label: "Formación ambiental",
     desc: "Capacitación continua del equipo en buenas prácticas medioambientales y normativa vigente.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
       </svg>
@@ -96,23 +131,24 @@ const areas = [
   },
 ];
 
-
-
-function SectionTag({ children = false }: { children: React.ReactNode; light?: boolean }) {
+function SectionTag({
+  children = false,
+}: {
+  children: React.ReactNode;
+  light?: boolean;
+}) {
   return (
-    <p
-      className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
-    >
+    <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
       {children}
     </p>
   );
 }
 
-
 export default function Sostenibilidad() {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
-  const toggle = (id: string) => setOpenItem((prev) => (prev === id ? null : id));
+  const toggle = (id: string) =>
+    setOpenItem((prev) => (prev === id ? null : id));
 
   return (
     <main
@@ -124,20 +160,17 @@ export default function Sostenibilidad() {
           <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Empresa — Sostenibilidad
+              Impacto Positivo
             </span>
           </div>
 
           <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-center">
             <div>
-            <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-semibold
-                         leading-[0.95] tracking-tight "
-            >
-              Compromiso
-              <br/>
-              <span className="text-defensya-blue"> Ambiental</span>
-            </h1>
+              <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
+                Compromiso
+                <br />
+                <span className="text-defensya-blue"> Ambiental</span>
+              </h1>
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
@@ -147,10 +180,16 @@ export default function Sostenibilidad() {
                   { val: "ISO 9001", label: "Calidad" },
                   { val: "ISO 14001", label: "Medio Ambiente" },
                 ].map(({ val, label }) => (
-                  <div key={label} className="bg-white dark:bg-defensya-navy px-5 py-4">
+                  <div
+                    key={label}
+                    className="bg-white dark:bg-defensya-navy px-5 py-4"
+                  >
                     <p
                       className="text-2xl font-bold text-defensya-blue"
-                      style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                      style={{
+                        fontFamily:
+                          "var(--font-display, 'Barlow Condensed', sans-serif)",
+                      }}
                     >
                       {val}
                     </p>
@@ -162,60 +201,34 @@ export default function Sostenibilidad() {
               </div>
 
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
-                En Defensya, la calidad de nuestros servicios y la protección del entorno
-                son pilares inseparables. Operamos bajo un Sistema de Gestión de Calidad
-                y Medio Ambiente diseñado para optimizar cada proceso, garantizando la
-                satisfacción del cliente y la preservación de los recursos naturales.
+                En Defensya, la calidad de nuestros servicios y la protección
+                del entorno son pilares inseparables. Operamos bajo un Sistema
+                de Gestión de Calidad y Medio Ambiente diseñado para optimizar
+                cada proceso, garantizando la satisfacción del cliente y la
+                preservación de los recursos naturales.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══ PULL QUOTE ════════ */}
-      <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-6 lg:gap-10 items-start">
-            <span
-              className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-            >
-              "
-            </span>
-            <div>
-              <p
-                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug max-w-3xl"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-              >
-                Todas nuestras actividades se desarrollan desde la perspectiva
-                de la protección y conservación del medio ambiente como garantía
-                de progreso y continuidad.
-              </p>
-              <div className="flex items-center gap-3 mt-6">
-                <div className="h-px w-8 bg-defensya-blue" />
-                <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
-                  Dirección General — Política Medioambiental
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ══ OBJETIVOS ════ */}
       <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
+          <div className="grid items-center lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div>
               <SectionTag light>Objetivos</SectionTag>
               <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                className="text-3xl lg:text-5xl  font-bold uppercase leading-tight text-white"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Compromiso
+                Sostenibilidad
                 <br />
-                Medioambiental
+                Operativa
               </h2>
               <p className="text-sm text-gray-500 leading-relaxed mt-4">
                 {objetivos.length} compromisos activos
@@ -242,22 +255,39 @@ export default function Sostenibilidad() {
                       />
                       <h3
                         className={`flex-1 text-base lg:text-lg font-bold uppercase transition-colors duration-200 ${
-                          isOpen ? "text-white" : "text-gray-400 group-hover:text-gray-200"
+                          isOpen
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-gray-200"
                         }`}
-                        style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                        style={{
+                          fontFamily:
+                            "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        }}
                       >
                         {item.titulo}
                       </h3>
                       <svg
-                        width="16" height="16" viewBox="0 0 16 16" fill="none"
-                        className={`shrink-0 text-gray-500 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        className={`shrink-0 text-gray-500 transition-transform duration-300 ${
+                          isOpen ? "rotate-45" : ""
+                        }`}
                       >
-                        <path d="M8 3V13M3 8H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                        <path
+                          d="M8 3V13M3 8H13"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        isOpen ? "max-h-64 opacity-100 pb-5" : "max-h-0 opacity-0"
+                        isOpen
+                          ? "max-h-64 opacity-100 pb-5"
+                          : "max-h-0 opacity-0"
                       }`}
                     >
                       <p className="text-sm text-gray-400 leading-relaxed pl-12">
@@ -275,17 +305,17 @@ export default function Sostenibilidad() {
       {/* ══ ÁREAS DE ACTUACIÓN ════ */}
       <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
+          <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
             <div>
               <SectionTag>Acción</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Áreas de
-                <br />
-                Actuación
+                Áreas de Actuación
               </h2>
             </div>
 
@@ -309,7 +339,10 @@ export default function Sostenibilidad() {
                   </div>
                   <h3
                     className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
-                    style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                    style={{
+                      fontFamily:
+                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    }}
                   >
                     {label}
                   </h3>
@@ -326,17 +359,17 @@ export default function Sostenibilidad() {
       {/* ══ DECLARACIÓN FINAL ══════ */}
       <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-
+          <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
             <div>
               <SectionTag>Declaración</SectionTag>
               <h2
-                className="text-3xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
-                Posición
-                <br />
-                oficial
+                Posición oficial
               </h2>
             </div>
 
@@ -347,10 +380,11 @@ export default function Sostenibilidad() {
                   Declaración final
                 </p>
                 <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed italic">
-                  "Defensya Ingeniería Internacional establece, implanta y mejora
-                  un Sistema de Gestión de la Calidad y Medio Ambiente, asegurando,
-                  controlando y optimizando la calidad de sus servicios con el objetivo
-                  de satisfacer las necesidades de los clientes."
+                  "Defensya Ingeniería Internacional establece, implanta y
+                  mejora un Sistema de Gestión de la Calidad y Medio Ambiente,
+                  asegurando, controlando y optimizando la calidad de sus
+                  servicios con el objetivo de satisfacer las necesidades de los
+                  clientes."
                 </p>
                 <div className="flex items-center gap-3 mt-6">
                   <div className="h-px w-6 bg-gray-300 dark:bg-white/20" />
@@ -365,39 +399,38 @@ export default function Sostenibilidad() {
       </section>
 
       {/* ══ CTA — POLÍTICA DE CALIDAD ═════ */}
-      <section className="px-6 lg:px-16 py-20 bg-defensya-navy">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-center">
-          <div>
-            <SectionTag light>Cumplimiento</SectionTag>
-            <h2
-              className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+      <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex gap-6 lg:gap-10 items-start">
+            <span
+              className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
             >
-              Política de Calidad
-            </h2>
-            <p className="text-sm text-gray-400 leading-relaxed mt-3 max-w-md">
-              Consulta la declaración de nuestra política de calidad y las
-              certificaciones que avalan nuestros procesos y sistemas de gestión.
-            </p>
-          </div>
-
-          <Link
-            href="/empresa/calidad-certificacion"
-            className="group inline-flex items-center gap-4 border border-white/20
-                       px-7 py-4 w-xs hover:bg-white/5 hover:border-white/40
-                       transition-all duration-200 shrink-0 self-start lg:self-center"
-          >
-            <svg
-              width="14" height="14" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" strokeWidth={1.5}
-              className="text-defensya-blue group-hover:-translate-x-1 transition-transform duration-200"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4 4-4M20 12H3" />
-            </svg>
-            <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-white">
-              Ver Política de Calidad
+              "
             </span>
-          </Link>
+            <div>
+              <p
+                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug max-w-3xl"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
+              >
+                Todas nuestras actividades se desarrollan desde la perspectiva
+                de la protección y conservación del medio ambiente como garantía
+                de progreso y continuidad.
+              </p>
+              <div className="flex items-center gap-3 mt-6">
+                <div className="h-px w-8 bg-defensya-blue" />
+                <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
+                  Dirección General — Política Medioambiental
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

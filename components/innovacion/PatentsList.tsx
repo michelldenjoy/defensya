@@ -296,9 +296,9 @@ export default function PatentsList() {
             Referencia
           </span>
           <span className="flex-1 text-[10px] font-mono tracking-[0.18em] text-slate-500 dark:text-white/20 uppercase">
-            Título de la invención
+           Nombre
           </span>
-          <span className="hidden md:block text-[9px] font-mono tracking-[0.18em] text-gray-300 dark:text-white/20 uppercase">
+          <span className="hidden md:block text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-white/20 uppercase">
             Estado
           </span>
         </div>
@@ -359,7 +359,7 @@ export default function PatentsList() {
             <div className="mt-6 flex items-center gap-3">
               <span className="w-6 h-px bg-defensya-blue/40" />
               <span className="text-[10px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase">
-                Defensya Engineering — 2024
+                Defensya Engineering 
               </span>
             </div>
           </div>
