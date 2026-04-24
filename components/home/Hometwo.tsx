@@ -56,11 +56,10 @@ export default function Hometwo() {
                 fontFamily: "var(--font-display, 'Inter', sans-serif)",
               }}
             >
-              Tecnología
+             <span className="text-defensya-blue" >Ingeniería </span> <br /> Avanzada <br /> para el futuro
               <br />
-              <span className="text-defensya-blue ">Soberana</span>
-              <br />
-              Aeroespacial
+              <span className="text-defensya-blue">Aeroespacial</span>
+
             </h1>
 
             <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mb-12 border-l border-defensya-blue/20 pl-6">

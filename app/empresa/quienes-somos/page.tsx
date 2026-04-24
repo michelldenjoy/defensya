@@ -8,8 +8,8 @@ export default function page() {
     <div>
       <HeroAbout
         
-        title="Quiénes somos"
-        subtitle="Defensya es una empresa líder en el sector de defensa y seguridad, con más de 25 años de experiencia en el diseño, desarrollo e integración de sistemas avanzados para clientes militares y civiles en todo el mundo."
+        title="Sobre Defensya"
+        subtitle=""
         image="/logodefensyanew.png"
       />
      <QuienesSomos  />

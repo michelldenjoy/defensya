@@ -10,18 +10,18 @@ const Footer = () => {
       
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
         <Image 
-          src="/defensyatech.png"
+          src="/textura2.jpg"
           alt="Technical background"
           fill
           className="object-cover mix-blend-overlay"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black via-[#050609]/65 to-black" />
+        <div className="absolute inset-0 bg-linear-to-t from-transparent via-[#050609]/90 to-black/70" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           
-          {/* COLUMNA 1: BRAND & MISSION */}
+          {/* COLUMNA 1:  BRAND & MISSION */}
           <div className="lg:col-span-2 space-y-8">
             <div className="flex flex-col gap-2">
                <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
@@ -54,9 +54,9 @@ const Footer = () => {
               Compañía
             </h3>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link href="/empresa/quienes-somos" className="hover:text-defensya-sky transition-colors flex items-center gap-1 group">Sobre Nosotros <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+              <li><Link href="/empresa/quienes-somos" className="hover:text-defensya-sky transition-colors flex items-center gap-1 group">Sobre Defensya <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
               <li><Link href="/innovacion" className="hover:text-defensya-sky transition-colors">Innovación & Patentes</Link></li>
-              <li><Link href="/empresa/calidad-certificacion" className="hover:text-defensya-sky transition-colors">Calidad MIL-SPEC</Link></li>
+              <li><Link href="/empresa/calidad-certificacion" className="hover:text-defensya-sky transition-colors">Política de Calidad</Link></li>
               <li><Link href="/empresa/careers" className="font-medium hover:text-defensya-sky transition-colors">Trabaja con nosotros</Link></li>
             </ul>
           </div>

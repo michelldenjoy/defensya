@@ -38,7 +38,143 @@ const QuienesSomos = () => {
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
 
+<style>{`
+        :root {
+          --blue: #0ea5e9;
+          --blue-dim: #0369a1;
+          --navy: #060d18;
+          --grid-col: rgba(14,165,233,0.06);
+        }
 
+        @keyframes scanline {
+          0%   { transform: translateY(-100%); opacity: 0; }
+          10%  { opacity: 1; }
+          90%  { opacity: 1; }
+          100% { transform: translateY(1200%); opacity: 0; }
+        }
+        @keyframes pulse-ring {
+          0%   { transform: scale(0.85); opacity: 0.8; }
+          70%  { transform: scale(1.15); opacity: 0; }
+          100% { transform: scale(1.15); opacity: 0; }
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50%       { opacity: 0; }
+        }
+        @keyframes reveal-up {
+          from { opacity: 0; transform: translateY(32px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hline {
+          from { width: 0; }
+          to   { width: 100%; }
+        }
+        @keyframes ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes radar-sweep {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+
+        .tech-grid {
+          background-image:
+            linear-gradient(var(--grid-col) 1px, transparent 1px),
+            linear-gradient(90deg, var(--grid-col) 1px, transparent 1px);
+          background-size: 64px 64px;
+        }
+
+        .scanline-bar {
+          position: absolute;
+          left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--blue), transparent);
+          animation: scanline 6s linear infinite;
+          pointer-events: none;
+        }
+
+        .hero-num {
+          font-family: 'Courier New', monospace;
+          font-size: clamp(9rem, 20vw, 18rem);
+          font-weight: 900;
+          line-height: 0.85;
+          letter-spacing: -0.05em;
+          background: linear-gradient(180deg, rgba(14,165,233,0.18) 0%, transparent 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          user-select: none;
+          pointer-events: none;
+        }
+
+        .card-img-wrap {
+          transition: transform 700ms cubic-bezier(0.22,1,0.36,1);
+        }
+        .experience-card:hover .card-img-wrap {
+          transform: scale(1.08);
+        }
+
+        .corner-tl, .corner-tr, .corner-bl, .corner-br {
+          position: absolute;
+          width: 18px; height: 18px;
+          border-color: rgba(14,165,233,0.5);
+          border-style: solid;
+        }
+        .corner-tl { top: 0; left: 0;  border-width: 2px 0 0 2px; }
+        .corner-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+        .corner-bl { bottom: 0; left: 0;  border-width: 0 0 2px 2px; }
+        .corner-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+        .hud-line {
+          animation: hline 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
+        }
+
+        .ticker-track {
+          display: flex;
+          gap: 0;
+          animation: ticker 22s linear infinite;
+          width: max-content;
+        }
+
+        .stat-value {
+          font-family: 'Barlow Condensed', 'Courier New', monospace;
+          font-size: clamp(2.8rem, 5vw, 4.5rem);
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          color: var(--blue);
+          line-height: 1;
+        }
+
+        .radar-ring {
+          border: 1px solid rgba(14,165,233,0.15);
+          border-radius: 50%;
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .radar-sweep-line {
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 50%; height: 1px;
+          transform-origin: left center;
+          background: linear-gradient(90deg, rgba(14,165,233,0.6), transparent);
+          animation: radar-sweep 4s linear infinite;
+        }
+
+        .reveal-up {
+          animation: reveal-up 0.9s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+      `}</style>
       {/* ─────────── TICKER BAND ─────────── */}
       <div className="w-full overflow-hidden bg-[#0ea5e9]/10 border-b border-[#0ea5e9]/20 py-2">
         <div className="ticker-track text-[11px] font-mono tracking-[0.25em] text-defensya-navy dark:text-white uppercase">
@@ -69,7 +205,7 @@ const QuienesSomos = () => {
           <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Sobre Defensya
+              Quienes Somos
             </span>
           </div>
 
