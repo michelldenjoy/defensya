@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ThreePlane from "../ui/ThreePlane";
+import Divisiones from "./Divisiones";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -109,7 +110,7 @@ export default function Hometwo() {
       <Rule />
 
       {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-12 bg-defensya-navy-light dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
+      <section className="py-12 bg-defensya-navy dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
           {items.map((item) => (
             <div key={item.label} className="flex items-center gap-4">
@@ -128,11 +129,11 @@ export default function Hometwo() {
 
       {/* ───────── QUÉ HACEMOS className="text-[12px] font-mono tracking-[0.3em] text-gray-400
                           dark:text-gray-500 uppercase mb-3" ───────── */}
-      <section className="py-24 px-6 lg:px-16">
+      <section className="py-22 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-navy uppercase mb-3">
                 Ingeniería
               </p>
               <h2
@@ -188,8 +189,68 @@ export default function Hometwo() {
 
       <Rule />
 
+
+<Divisiones />
+
+
+      {/* ──────────── CAPACIDADES ─────────────────── */}
+      <section className="py-20 px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
+            <div>
+              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+                Ingeniería
+              </p>
+              <h2
+                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
+              >
+                Capacidades
+                <br />
+                de Ingeniería
+              </h2>
+            </div>
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
+              Cubrimos el stack completo de ingeniería aeroespacial, desde el
+              diseño electrónico hasta la inteligencia artificial embarcada, con
+              aplicación directa en entornos de alta exigencia.
+            </p>
+          </div>
+
+          <div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0
+                          border-t border-l border-gray-200 dark:border-white/[0.07]"
+          >
+            {[
+              "Diseño Electrónico",
+              "Sistemas Embebidos",
+              "Procesamiento de Señal",
+              "Sistemas de Visión",
+              "IA y Aprendizaje Automático",
+              "Sistemas de Datos Seguros",
+            ].map((capability, i) => (
+              <div
+                key={i}
+                className="border-b border-r  border-gray-200 dark:border-white/[0.07]
+                           p-6 flex items-center justify-between group
+                           hover:bg-gray-50 dark:hover:bg-white/2 transition-colors"
+              >
+                <span className="text-md font-medium">{capability}</span>
+                <span className="text-[12px] font-mono text-gray-300 dark:text-white/20">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* ───────── INNOVACIÓN ───── */}
-      <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
+      <section className="py-22 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
@@ -322,65 +383,12 @@ export default function Hometwo() {
 
       <Rule />
 
-      {/* ──────────── CAPACIDADES ─────────────────── */}
-      <section className="py-20 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
-            <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-                Ingeniería
-              </p>
-              <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Capacidades
-                <br />
-                de Ingeniería
-              </h2>
-            </div>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
-              Cubrimos el stack completo de ingeniería aeroespacial, desde el
-              diseño electrónico hasta la inteligencia artificial embarcada, con
-              aplicación directa en entornos de alta exigencia.
-            </p>
-          </div>
 
-          <div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0
-                          border-t border-l border-gray-200 dark:border-white/[0.07]"
-          >
-            {[
-              "Diseño Electrónico",
-              "Sistemas Embebidos",
-              "Procesamiento de Señal",
-              "Sistemas de Visión",
-              "IA y Aprendizaje Automático",
-              "Sistemas de Datos Seguros",
-            ].map((capability, i) => (
-              <div
-                key={i}
-                className="border-b border-r  border-gray-200 dark:border-white/[0.07]
-                           p-6 flex items-center justify-between group
-                           hover:bg-gray-50 dark:hover:bg-white/2 transition-colors"
-              >
-                <span className="text-md font-medium">{capability}</span>
-                <span className="text-[12px] font-mono text-gray-300 dark:text-white/20">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Rule />
 
       {/* ──────────── COLABORACION ───── */}
-      <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
+      {/* <section className="py-20 px-6 lg:px-16 bg-defensya-navy">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_auto] gap-12 items-center">
           <div>
             <p
@@ -416,7 +424,7 @@ export default function Hometwo() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

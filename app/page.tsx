@@ -7,7 +7,7 @@ export default function page() {
     <div>      
       <HeroHome />
       <Hometwo />
-      <Divisiones />
+      {/* <Divisiones /> */}
   
     </div>
   )

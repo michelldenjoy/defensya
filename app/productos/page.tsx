@@ -76,9 +76,9 @@ export default function ProductosPage() {
       <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
 
         {/* ── SIDEBAR ── */}
-        <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy-light backdrop-blur-md">
+        <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy backdrop-blur-md">
           <div className="mb-10">
-            <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-sky uppercase mb-2">
+            <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-steel uppercase mb-2">
               DEFENSYA
             </p>
             <p className="text-2xl font-bold font-display uppercase italic text-white">
@@ -105,7 +105,7 @@ export default function ProductosPage() {
                   />
                   <span
                     className={`font-mono text-base tabular-nums
-                    ${active ? "text-defensya-sky text-bold" : "text-white/15"}`}
+                    ${active ? "text-white text-bold" : "text-white/15"}`}
                   >
                     {pad(count)}
                   </span>
