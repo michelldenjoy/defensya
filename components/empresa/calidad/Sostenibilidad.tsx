@@ -37,30 +37,34 @@ export default function Sostenibilidad() {
             </div>
 
             <Link
-              href="/empresa/sostenibilidad"
-              className="group inline-flex items-center gap-4 border border-white/20
-                         px-7 py-4 w-3xs hover:bg-white/5 hover:border-white/40
-                         transition-all duration-200 shrink-0 self-start lg:self-center"
+            href="/empresa/sostenibilidad"
+            className="
+              group relative inline-flex items-center gap-3
+              px-7 py-3.5
+              border border-defensya-blue text-white
+              text-[11px] font-mono tracking-[0.25em] uppercase
+              bg-defensya-blue hover:font-bold hover:scale-105
+              transition-all duration-200
+            "
+            style={{
+              clipPath:
+                "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
+            }}
+          >
+            {/* TL corner accent */}
+            <span
+              className="pointer-events-none absolute top-0 left-0 w-[10px] h-px opacity-50
+                         group-hover:opacity-100 transition-opacity duration-200"
+              style={{ transformOrigin: "top left", transform: "rotate(-45deg) translateX(-4px)" }}
+            />
+            Explorar 
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" strokeWidth={1.5}
+              className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200"
             >
-              <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-white">
-                Ver Sostenibilidad
-              </span>
-              <svg
-                width="14"
-                height="14"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                className="text-defensya-blue group-hover:translate-x-1 transition-transform duration-200"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4-4 4M3 12h18"
-                />
-              </svg>
-            </Link>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4-4 4M3 12h18" />
+            </svg>
+          </Link>
           </div>
         </div>
       </section>

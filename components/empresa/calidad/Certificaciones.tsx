@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ClipButton } from "@/components/home/HeroSection";
 
 function ArrowUpRight({ size = 12 }: { size?: number }) {
   return (
@@ -40,8 +41,6 @@ function DownloadIcon({ size = 12 }: { size?: number }) {
   );
 }
 
-
-
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
@@ -63,9 +62,7 @@ export default function Certificaciones() {
                         border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14"
         >
           <div>
-            <p
-              className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3"
-            >
+            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
               Certificacion Oficial
             </p>
             <h2
@@ -174,43 +171,21 @@ export default function Certificaciones() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                href="/doc/ISO9001.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5
-                           bg-defensya-blue text-white
-                           px-5 py-2.5 text-xs tracking-widest uppercase font-medium
-                           hover:bg-defensya-navy-accent transition-colors"
-              >
-                <ArrowUpRight />
+            <div className="flex flex-wrap gap-3 mt-8" >
+              <ClipButton href="/doc/ISO9001.pdf" variant="primary"   target="_blank" rel="noopener noreferrer">
                 Ver Certificado
-              </a>
+              </ClipButton>
 
-              <a
-                href="/doc/ISO9001.pdf"
-                download
-                className="group inline-flex items-center gap-2.5
-                           border border-gray-300 dark:border-white/20
-                           text-gray-700 dark:text-gray-300
-                           px-5 py-2.5 text-xs tracking-widest uppercase font-medium
-                           hover:border-defensya-blue hover:text-defensya-blue
-                           dark:hover:border-defensya-blue dark:hover:text-defensya-blue
-                           transition-all duration-200"
-              >
-                <DownloadIcon />
+              <ClipButton href="/doc/ISO9001.pdf" variant="outline">
                 Descargar PDF
-              </a>
+              </ClipButton>
             </div>
           </div>
 
           {/* RIGHT  */}
           <div className="flex flex-col bg-defensya-navy p-8 lg:p-12">
             <div className="mb-6 pb-6 ">
-              <p
-                className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
-              >
+              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
                 Compromiso
               </p>
               <blockquote className="text-base lg:text-lg text-white leading-relaxed italic">
@@ -220,9 +195,7 @@ export default function Certificaciones() {
               </blockquote>
             </div>
 
-            <p
-              className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3"
-            >
+            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
               Pilares del sistema
             </p>
 
@@ -254,9 +227,7 @@ export default function Certificaciones() {
                   className="flex gap-5 py-4 border-b border-white/6
                              group hover:bg-white/3 transition-colors -mx-2 px-2"
                 >
-                  <span
-                    className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6"
-                  >
+                  <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
                     {num}
                   </span>
                   <div>
@@ -274,8 +245,5 @@ export default function Certificaciones() {
         </div>
       </div>
     </section>
-
   );
 }
-
-

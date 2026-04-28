@@ -22,13 +22,13 @@ const divisions: Division[] = [
     tag: "SEC-01",
     title: "Defensa",
     image: "/images/defensa2.jpg",
-    desc: "En Defensya contamos con un equipo de especialistas altamente cualificados y con instalaciones preparadas para afrontar proyectos complejos dentro del sector defensa. Más de veinte años de experiencia avalan nuestra capacidad.",
+    desc: "Contamos con un equipo de ingenieros altamente cualificados y con instalaciones preparadas para afrontar proyectos complejos dentro del sector de defensa. Más de dos décadas avalan nuestra capacidad.",
   },
   {
     num: "02",
     tag: "SEC-02",
     title: "Aeronáutica",
-    image: "/images/aeronautic.jpg",
+    image: "/images/aeronautica.jpg",
     desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada en colaboración con empresas de reconocido prestigio.",
   },
   {
@@ -65,30 +65,14 @@ const MAX_INDEX = divisions.length - CARDS_VISIBLE; // = 2
 function Corners() {
   return (
     <>
+      {/* esquina superior izquierda */}
       <span
-        className="pointer-events-none absolute top-[10px] left-[10px] w-4 h-4"
-        style={{ borderTop: "1px solid #0ea5e9", borderLeft: "1px solid #0ea5e9" }}
+        className="pointer-events-none absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-300/50 transition-colors duration-300 group-hover:border-white"
       />
+
+      {/* esquina inferior derecha */}
       <span
-        className="pointer-events-none absolute top-[10px] right-[10px] w-4 h-4"
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.15)",
-          borderRight: "1px solid rgba(255,255,255,0.15)",
-        }}
-      />
-      <span
-        className="pointer-events-none absolute bottom-[10px] left-[10px] w-4 h-4"
-        style={{
-          borderBottom: "1px solid rgba(255,255,255,0.15)",
-          borderLeft: "1px solid rgba(255,255,255,0.15)",
-        }}
-      />
-      <span
-        className="pointer-events-none absolute bottom-[10px] right-[10px] w-4 h-4"
-        style={{
-          borderBottom: "1px solid rgba(14,165,233,0.55)",
-          borderRight: "1px solid rgba(14,165,233,0.55)",
-        }}
+        className="pointer-events-none absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-300/50 transition-colors duration-300 group-hover:border-white"
       />
     </>
   );
@@ -120,7 +104,7 @@ function DivisionCard({ item }: { item: Division }) {
       </div>
 
       {/* Hover texture */}
-      <div
+      {/* <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         style={{
           backgroundImage: "url('/textura5.jpg')",
@@ -128,7 +112,7 @@ function DivisionCard({ item }: { item: Division }) {
           backgroundPosition: "center",
           mixBlendMode: "overlay",
         }}
-      />
+      /> */}
 
       {/* Base gradient */}
       <div
@@ -142,15 +126,17 @@ function DivisionCard({ item }: { item: Division }) {
       {/* Hover blue tint */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "rgba(14,165,233,0.07)" }}
+        style={{ background: "rgba(0, 0, 0, 0.60)" }}
       />
 
-      <Corners />
+<div className="relative group w-full h-full">
+  <Corners />
+</div>
 
       {/* Ghost number */}
       <span
         className="pointer-events-none absolute top-2 right-4 font-mono font-black select-none
-                   text-white/[0.04] group-hover:text-[#0ea5e9]/[0.09] transition-colors duration-500"
+                   text-white/[0.04] group-hover:text-blue-300/50 transition-colors duration-500"
         style={{ fontSize: "7rem", lineHeight: 1 }}
       >
         {item.num}
@@ -158,9 +144,9 @@ function DivisionCard({ item }: { item: Division }) {
 
       {/* Tag pill */}
       <div className="absolute top-5 left-5 z-10">
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-[#0ea5e9] border border-[#0ea5e9]/40 px-2 py-[3px] uppercase">
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-blue-300/50 border border-blue-300/50 px-2 py-[3px] uppercase">
           <span
-            className="w-1 h-1 rounded-full bg-[#0ea5e9]"
+            className="w-1 h-1 rounded-full bg-blue-300/50"
             // style={{ animation: "blink 1.4s step-end infinite" }}
           />
           {item.tag}
@@ -169,7 +155,7 @@ function DivisionCard({ item }: { item: Division }) {
 
       {/* Content — slides to center on hover */}
       <div className="absolute inset-0 p-7 flex flex-col justify-end group-hover:justify-center transition-all duration-500 z-10">
-        {/* <span className="text-[11px] text-center font-mono tracking-[0.3em] text-[#0ea5e9] mb-3">
+        {/* <span className="text-[11px] text-center font-mono tracking-[0.3em] text-blue-300/50 mb-3">
           {item.num} <span className="text-gray-400">{item.tag}</span>
         </span> */}
 
@@ -191,7 +177,7 @@ function DivisionCard({ item }: { item: Division }) {
         <div className="my-4 h-px relative overflow-hidden">
           <div className="h-full w-full bg-white/10" />
           <div
-            className="absolute left-0 top-0 h-full bg-[#0ea5e9]/50 w-8 group-hover:w-full"
+            className="absolute left-0 top-0 h-full bg-blue-300/50 w-8 group-hover:w-full"
             style={{ transition: "width 0.5s cubic-bezier(0.22,1,0.36,1) 0.08s" }}
           />
         </div>
@@ -223,8 +209,8 @@ function ArrowBtn({
 }) {
   const clip =
     direction === "prev"
-      ? "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)"
-      : "polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 calc(100% - 8px))";
+      ? "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))"
+      : "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)";
 
   return (
     <button
@@ -235,7 +221,7 @@ function ArrowBtn({
         w-12 h-12 flex items-center justify-center
         border border-white/15 bg-black/40 backdrop-blur-sm
         text-white/50
-        hover:text-white hover:border-[#0ea5e9]/60 hover:bg-black/70
+        hover:text-white hover:border-blue-300/60 hover:bg-black/70
         disabled:opacity-20 disabled:cursor-not-allowed
         transition-all duration-200
       "
@@ -289,7 +275,7 @@ function DesktopCarousel() {
                 style={{
                   width: visible ? "28px" : "8px",
                   height: "3px",
-                  background: visible ? "#0ea5e9" : "rgba(255,255,255,0.12)",
+                  background: visible ? "rgba(147, 197, 253, 0.5)" : "#ffffff",
                 }}
               />
             );
@@ -418,16 +404,16 @@ function MobileSlider() {
             {item.num}
           </span>
           <div className="absolute top-5 left-5 z-10">
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-[#0ea5e9] border border-[#0ea5e9]/40 px-2 py-[3px] uppercase">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-blue-300/50 border border-blue-300/50 px-2 py-[3px] uppercase">
               <span
-                className="w-1 h-1 rounded-full bg-[#0ea5e9]"
+                className="w-1 h-1 rounded-full bg-blue-300/50"
                 style={{ animation: "blink 1.4s step-end infinite" }}
               />
               {item.tag}
             </span>
           </div>
           <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-            <span className="text-[11px] font-mono tracking-[0.3em] text-[#0ea5e9] mb-2">
+            <span className="text-[11px] font-mono tracking-[0.3em] text-blue-300/50 mb-2">
               {item.num} <span className="text-gray-400">{item.tag}</span>
             </span>
             <h3
@@ -443,7 +429,7 @@ function MobileSlider() {
               {item.title}
             </h3>
             <div className="h-px w-full bg-white/10 mb-3 relative overflow-hidden">
-              <div className="absolute inset-y-0 left-0 w-8 bg-[#0ea5e9]/50" />
+              <div className="absolute inset-y-0 left-0 w-8 bg-blue-300/50" />
             </div>
             <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
               {item.desc}
@@ -475,7 +461,7 @@ function MobileSlider() {
           {/* Progress bar */}
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/5 z-20">
             <motion.div
-              className="h-full bg-[#0ea5e9]"
+              className="h-full bg-blue-300/50"
               initial={false}
               animate={{ width: `${((activeIndex + 1) / divisions.length) * 100}%` }}
               transition={{ duration: 0.4, ease: "easeOut" }}
@@ -528,9 +514,7 @@ export default function Divisiones() {
                 fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
               }}
             >
-              Sectores que
-              <br />
-              Manejamos
+              Sectores que Manejamos
             </h2>
           </div>
         </div>
@@ -541,7 +525,7 @@ export default function Divisiones() {
             {divisions.map((d) => (
               <span
                 key={d.title}
-                className="shrink-0 snap-start px-4 py-1.5 font-mono text-[10px] tracking-[0.2em] uppercase border border-[#0ea5e9]/30 text-gray-400 whitespace-nowrap"
+                className="shrink-0 snap-start px-4 py-1.5 font-mono text-[10px] tracking-[0.2em] uppercase border border-blue-300/50 text-gray-400 whitespace-nowrap"
               >
                 {d.num} {d.title}
               </span>
@@ -561,7 +545,7 @@ export default function Divisiones() {
           <span className="font-mono text-[10px] tracking-[0.3em] text-gray-600 uppercase">
             Defensya · Ingeniería de Defensa
           </span>
-          <div className="h-px w-12 bg-[#0ea5e9]/30" />
+          <div className="h-px w-12 bg-blue-300/50" />
         </div>
       </div>
 
