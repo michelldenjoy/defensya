@@ -41,8 +41,8 @@ export default function Hometwo() {
       <Rule />
 
       {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-12 bg-defensya-navy dark:bg-white/[0.02] border-y border-gray-200 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+      <section className="py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8  transition-all">
           {items.map((item) => (
             <div key={item.label} className="flex items-center gap-4">
               <div>
@@ -71,9 +71,7 @@ export default function Hometwo() {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Sistemas de 
-                <br />
-                Alto Rendimiento
+                Sistemas de Alto Rendimiento
               </h2>
             </div>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
@@ -100,7 +98,7 @@ export default function Hometwo() {
               },
             ].map(({ num, title, desc }) => (
               <div key={num} className="group cursor-default">
-                <div className="text-4xl font-bold text-defensya-blue/20 group-hover:text-defensya-blue transition-colors mb-6 font-mono">
+                <div className="text-4xl font-bold text-defensya-blue/20 group-hover:text-defensya-blue transition-colors mb-6 font-mono dark:text-blue-300/50">
                   {num}
                 </div>
                 <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">
@@ -126,7 +124,7 @@ export default function Hometwo() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
             <div>
-              <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
+              <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
                 Especialización
               </p>
               <h2

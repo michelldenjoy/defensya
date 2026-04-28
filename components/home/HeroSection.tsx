@@ -82,8 +82,8 @@ export function ClipButton({
         target={target}
         rel={rel}
         className="group relative inline-flex items-center gap-3 px-6 py-3.5
-                   bg-defensya-navy-light text-white text-[11px] tracking-[0.25em] uppercase font-bold
-                   hover:bg-defensya-blue transition-colors duration-200"
+                   bg-defensya-navy-light dark:bg-defensya-blue text-white text-[11px] tracking-[0.25em] uppercase font-bold
+                   hover:bg-defensya-blue  transition-colors duration-200"
         style={{ clipPath: clip }}
       >
         {children}
@@ -113,7 +113,7 @@ export function ClipButton({
       className="group relative  inline-flex items-center gap-3 px-6 py-3.5
                  border  text-[11px] tracking-[0.25em] uppercase font-bold
                  text-gray-800 hover:bg-defensya-blue hover:text-white
-                 transition-all duration-200"
+                 transition-all duration-200 dark:text-white dark:border-0"
       style={{ clipPath: clip }}
     >
       {/* Tiny TL blue accent */}
@@ -133,7 +133,7 @@ export function ClipButton({
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-14 min-h-[85vh] grid  lg:grid-cols-[1fr_55%] overflow-hidden bg-white">
+    <section className="relative pt-14 min-h-[85vh] grid  lg:grid-cols-[1fr_55%] overflow-hidden bg-white dark:bg-defensya-navy">
 
       {/* ── Tech grid behind everything items ── */}
       <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none z-0" />
@@ -178,13 +178,13 @@ export default function HeroSection() {
               fontSize: "clamp(2.8rem, 6vw, 5.2rem)",
             }}
           >
-            <span className="text-defensya-blue">Ingeniería</span>
+            <span className="text-defensya-blue dark:text-white">Ingeniería</span>
             <br />
-            Avanzada
+           <span className="dark:text-white">Avanzada</span> 
             <br />
-            para el Futuro
+            <span className="dark:text-blue-300">para el futuro</span>
             <br />
-            <span className="text-defensya-blue">Aeroespacial</span>
+            <span className="text-defensya-blue dark:text-white">Aeroespacial</span>
           </h1>
 
           {/* ── Descriptor ── */}
@@ -210,28 +210,28 @@ export default function HeroSection() {
           {/* ── Bottom data strip ── */}
           <div className="flex items-center gap-6">
             <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase">
+              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Fundada
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold">
+              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
                 2002
               </span>
             </div>
             <div className="w-px h-8 bg-white/10" />
             <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase">
+              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Sectores
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold">
+              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
                 05 ÁREAS
               </span>
             </div>
             <div className="w-px h-8 bg-white/10" />
             <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase">
+              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Certificación
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold">
+              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
                 ISO 9001
               </span>
             </div>

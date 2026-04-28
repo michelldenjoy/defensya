@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 
-
-
 const declaracion = [
   {
     id: "01",
@@ -188,25 +186,22 @@ export default function PoliticaCalidad() {
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       {/* ══ HERO ═════ */}
-      <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
+      <section className="grid lg:grid-cols-[1fr_auto]  gap-10 items-end my-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3">
-            <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Empresa — Calidad y Certificaciones
-            </span>
-          </div>
 
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center">
             <div>
               <h1
-              className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
+                className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
                          leading-[0.95] tracking-tight uppercase"
-            >
-              Política de
-              <br />
-              <span className="text-defensya-blue"> Calidad</span>
-            </h1>
+              >
+                Política de
+                <br />
+                <span className="text-defensya-blue dark:text-blue-300">
+                  {" "}
+                  Calidad
+                </span>
+              </h1>
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
@@ -264,7 +259,7 @@ export default function PoliticaCalidad() {
       </section>
 
       {/* ══ QUOTE ════ */}
-      <section className="px-6 lg:px-16 py-16 bg-defensya-navy border-b border-white/[0.07]">
+      <section className="px-6 lg:px-16 py-16 bg-defensya-navy border-b border-white/[0.07] dark:bg-black/40">
         <div className="max-w-7xl mx-auto">
           <div className="flex gap-6 lg:gap-10 items-start">
             <span
@@ -463,7 +458,6 @@ export default function PoliticaCalidad() {
           </div>
         </div>
       </section> */}
-
     </main>
   );
 }

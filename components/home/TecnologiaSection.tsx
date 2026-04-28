@@ -139,7 +139,7 @@ function ProductRow({
 export default function TecnologiasSection() {
   return (
     <section
-      className="relative bg-defensya-navy py-32 px-6 lg:px-16 overflow-hidden"
+      className="relative bg-defensya-navy py-32 px-6 lg:px-16 overflow-hidden dark:bg-black/40"
       
     >
       {/* Tech grid */}
@@ -164,7 +164,6 @@ export default function TecnologiasSection() {
           <div>
             {/* Status label */}
             <div className="flex items-center gap-3 mb-5">
-
               <span className="w-6 h-px bg-slate-400" />
               <span className="font-mono text-[11px] tracking-[0.35em] text-slate-400 uppercase">
                 Tecnologías

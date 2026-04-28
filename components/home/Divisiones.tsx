@@ -83,7 +83,7 @@ function Corners() {
 function DivisionCard({ item }: { item: Division }) {
   return (
     <div
-      className="experience-card group relative overflow-hidden bg-black cursor-pointer flex-shrink-0"
+      className="experience-card group relative overflow-hidden bg-black cursor-pointer flex-shrink-0 "
       style={{
         // exact 1/3 of track minus proportional gap share
         width: `calc((100% - ${CARD_GAP * (CARDS_VISIBLE - 1)}px) / ${CARDS_VISIBLE})`,
@@ -261,7 +261,7 @@ function DesktopCarousel() {
   return (
     <div>
       {/* ── Controls bar ARRIBA ── */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-8 ">
 
         {/* Segment indicators */}
         <div className="flex items-center gap-[6px]">
@@ -495,7 +495,7 @@ function MobileSlider() {
 export default function Divisiones() {
   return (
     <section
-      className="relative py-22 px-6 lg:px-16 bg-defensya-navy overflow-hidden"
+      className="relative py-22 px-6 lg:px-16 bg-defensya-navy overflow-hidden dark:bg-black/40"
       // style={{ background: "#070e1a" }}
     >
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
