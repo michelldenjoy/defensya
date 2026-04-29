@@ -54,16 +54,17 @@ export default function HeroHome() {
           volar
           <br />
           ideas
-<br />
-          
-          <span
-            className="font-black text-white/[0.15] select-none tracking-wide leading-none"
-            style={{ fontSize: "6.5rem", fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-          >
-            DEFENSYA
-          </span>
         </h1>
 
+        <span
+          className="font-black text-white/[0.15] select-none tracking-wide leading-none"
+          style={{
+            fontSize: "6.5rem",
+            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+          }}
+        >
+          DEFENSYA
+        </span>
         <div
           className="flex flex-col sm:flex-row sm:items-end
                         justify-between gap-8 lg:gap-16"

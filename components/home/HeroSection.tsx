@@ -238,7 +238,7 @@ export default function HeroSection() {
               <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Fundada
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
+              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
                 2002
               </span>
             </div>
@@ -247,7 +247,7 @@ export default function HeroSection() {
               <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Sectores
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
+              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
                 05 ÁREAS
               </span>
             </div>
@@ -256,7 +256,7 @@ export default function HeroSection() {
               <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Certificación
               </span>
-              <span className="font-mono text-[13px] text-defensya-blue font-bold dark:text-white">
+              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
                 ISO 9001
               </span>
             </div>

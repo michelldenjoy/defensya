@@ -488,7 +488,7 @@ const QuienesSomos = () => {
                 </a>
                 , algunas de las cuales se encuentran actualmente en operación
                 en aeronaves como el{" "}
-                <span className="text-[#0ea5e9] font-semibold">A330 MRTT</span>.
+                <span className="text-white font-semibold">A330 MRTT</span>.
               </p>
               <p className="text-base text-gray-400 leading-relaxed pl-5">
                 También supervisamos trabajos realizados por otras empresas de
