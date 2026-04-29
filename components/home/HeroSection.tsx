@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-
 function Corners({ size = 20 }: { size?: number }) {
   return (
     <>
@@ -12,8 +11,10 @@ function Corners({ size = 20 }: { size?: number }) {
       <span
         className="pointer-events-none absolute z-20"
         style={{
-          top: 14, left: 14,
-          width: size, height: size,
+          top: 14,
+          left: 14,
+          width: size,
+          height: size,
           borderTop: "1.5px solid #0ea5e9",
           borderLeft: "1.5px solid #0ea5e9",
         }}
@@ -22,8 +23,10 @@ function Corners({ size = 20 }: { size?: number }) {
       <span
         className="pointer-events-none absolute z-20"
         style={{
-          top: 14, right: 14,
-          width: size, height: size,
+          top: 14,
+          right: 14,
+          width: size,
+          height: size,
           borderTop: "1px solid rgba(255,255,255,0.18)",
           borderRight: "1px solid rgba(255,255,255,0.18)",
         }}
@@ -32,8 +35,10 @@ function Corners({ size = 20 }: { size?: number }) {
       <span
         className="pointer-events-none absolute z-20"
         style={{
-          bottom: 14, left: 14,
-          width: size, height: size,
+          bottom: 14,
+          left: 14,
+          width: size,
+          height: size,
           borderBottom: "1px solid rgba(255,255,255,0.18)",
           borderLeft: "1px solid rgba(255,255,255,0.18)",
         }}
@@ -42,8 +47,10 @@ function Corners({ size = 20 }: { size?: number }) {
       <span
         className="pointer-events-none absolute z-20"
         style={{
-          bottom: 14, right: 14,
-          width: size, height: size,
+          bottom: 14,
+          right: 14,
+          width: size,
+          height: size,
           borderBottom: "1.5px solid rgba(14,165,233,0.55)",
           borderRight: "1.5px solid rgba(14,165,233,0.55)",
         }}
@@ -69,7 +76,7 @@ export function ClipButton({
   target?: string;
   rel?: string;
 }) {
-  // Primary: cut bottom-right corner | Outline: cut top-left corner   
+  // Primary: cut bottom-right corner | Outline: cut top-left corner
   const clip =
     variant === "primary"
       ? "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))"
@@ -89,16 +96,26 @@ export function ClipButton({
         {children}
         {/* Arrow */}
         <svg
-          width="12" height="12" viewBox="0 0 12 12" fill="none"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
           className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200"
         >
-          <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M2 6h8M7 3l3 3-3 3"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
         {/* Cut-corner accent line */}
         <span
           className="pointer-events-none  absolute bottom-0 right-0 bg-white/25"
           style={{
-            width: "14px", height: "1px",
+            width: "14px",
+            height: "1px",
             transformOrigin: "bottom right",
             transform: "rotate(-45deg) translateX(4px)",
           }}
@@ -112,14 +129,16 @@ export function ClipButton({
       href={href}
       className="group relative  inline-flex items-center gap-3 px-6 py-3.5
                  border  text-[11px] tracking-[0.25em] uppercase font-bold
-                 text-gray-800 hover:bg-defensya-blue hover:text-white
+                 text-gray-800 hover:bg-defensya-blue hover:text-white hover:border-defensya-blue
                  transition-all duration-200 dark:text-white dark:border-0"
       style={{ clipPath: clip }}
     >
       {/* Tiny TL blue accent */}
       <span
         className="pointer-events-none absolute  top-0 left-0  opacity-60"
-        style={{ width: "14px", height: "1px",
+        style={{
+          width: "14px",
+          height: "1px",
           transformOrigin: "top left",
           transform: "rotate(-45deg) translateX(-4px)",
         }}
@@ -134,7 +153,6 @@ export function ClipButton({
 export default function HeroSection() {
   return (
     <section className="relative pt-14 min-h-[85vh] grid  lg:grid-cols-[1fr_55%] overflow-hidden bg-white dark:bg-defensya-navy">
-
       {/* ── Tech grid behind everything items ── */}
       <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none z-0" />
 
@@ -149,7 +167,10 @@ export default function HeroSection() {
         {/* Subtle vertical accent line far left */}
         <span
           className="hidden lg:block pointer-events-none absolute left-0 top-0 bottom-0 w-px"
-          style={{ background: "linear-gradient(to bottom, transparent, #0ea5e9 40%, transparent)" }}
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, #0ea5e9 40%, transparent)",
+          }}
         />
 
         <motion.div
@@ -178,13 +199,17 @@ export default function HeroSection() {
               fontSize: "clamp(2.8rem, 6vw, 5.2rem)",
             }}
           >
-            <span className="text-defensya-blue dark:text-white">Ingeniería</span>
+            <span className="text-defensya-blue dark:text-white">
+              Ingeniería
+            </span>
             <br />
-           <span className="dark:text-white">Avanzada</span> 
+            <span className="dark:text-white">Avanzada</span>
             <br />
             <span className="dark:text-blue-300">para el futuro</span>
             <br />
-            <span className="text-defensya-blue dark:text-white">Aeroespacial</span>
+            <span className="text-defensya-blue dark:text-white">
+              Aeroespacial
+            </span>
           </h1>
 
           {/* ── Descriptor ── */}
@@ -193,8 +218,8 @@ export default function HeroSection() {
                        border-l-2 border-defensya-navy-light pl-5"
           >
             Defensya desarrolla tecnologías avanzadas para los sistemas
-            aeroespaciales del futuro. Visión artificial y software
-            inteligente donde el margen de error es inexistente.
+            aeroespaciales del futuro. Visión artificial y software inteligente
+            donde el margen de error es inexistente.
           </p>
 
           {/* ── Buttons ── */}
@@ -251,12 +276,12 @@ export default function HeroSection() {
       >
         {/* ── Image frame ── */}
         <div className="relative w-full group " style={{ maxWidth: "720px" }}>
-
           {/* Outer glow ring (very subtle) */}
           <div
             className="absolute -inset-px pointer-events-none"
             style={{
-              background: "linear-gradient(135deg, rgba(14,165,233,0.25) 0%, transparent 50%)",
+              background:
+                "linear-gradient(135deg, rgba(14,165,233,0.25) 0%, transparent 50%)",
               clipPath:
                 "polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px))",
             }}
@@ -289,8 +314,6 @@ export default function HeroSection() {
               }}
             />
 
-
-
             {/* Blue hover tint */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -314,7 +337,6 @@ export default function HeroSection() {
                 <span className="font-mono text-[9px] tracking-[0.3em] text-defensya-steel uppercase">
                   Sistema de Reabastecimiento
                 </span>
-
               </div>
 
               {/* Right: ghost large label */}
@@ -329,10 +351,16 @@ export default function HeroSection() {
             {/* ── Diagonal cut accent line (mirrors clip corner) ── */}
             <svg
               className="absolute top-0 right-0 pointer-events-none z-20"
-              width="48" height="48" viewBox="0 0 48 48" fill="none"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
             >
               <line
-                x1="0" y1="32" x2="32" y2="0"
+                x1="0"
+                y1="32"
+                x2="32"
+                y2="0"
                 stroke="#0ea5e9"
                 strokeWidth="1"
                 strokeOpacity="0.5"
@@ -342,10 +370,16 @@ export default function HeroSection() {
             {/* Same diagonal at bottom-left */}
             <svg
               className="absolute bottom-0 left-0 pointer-events-none z-20"
-              width="48" height="48" viewBox="0 0 48 48" fill="none"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
             >
               <line
-                x1="0" y1="16" x2="16" y2="48"
+                x1="0"
+                y1="16"
+                x2="16"
+                y2="48"
                 stroke="rgba(255,255,255,0.08)"
                 strokeWidth="1"
               />
@@ -355,10 +389,7 @@ export default function HeroSection() {
           {/* ── External bottom strip: progress-style bar ── */}
           <div className="mt-3 flex items-center gap-3">
             <div className="h-px flex-1 bg-white/5" />
-            <div
-              className="h-px bg-[#0ea5e9]/50"
-              style={{ width: "40%" }}
-            />
+            <div className="h-px bg-[#0ea5e9]/50" style={{ width: "40%" }} />
             <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase whitespace-nowrap">
               DSY-AERO · 2025
             </span>

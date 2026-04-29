@@ -10,7 +10,7 @@ export default function page() {
       <HeroSection
         label="Calidad y Certificación"
         title="Comprometidos con la Excelencia"
-        subtitle="El cumplimiento de los estándares internacionales es la base de nuestra ingeniería. Sostenemos un sistema de gestión orientado a la optimización de procesos y la excelencia técnica, acreditado por las principales entidades de certificación del sector."
+        subtitle=""
         video="/certification.mp4"
       />
       <PoliticaCalidad />

@@ -52,7 +52,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
 export default function Certificaciones() {
   return (
     <section
-      className="px-6 lg:px-16 py-20 bg-white dark:bg-defensya-navy
+      className="px-6 lg:px-16 py-20 bg-white dark:bg-black/40 
                  border-t border-gray-200 dark:border-white/[0.07]"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >

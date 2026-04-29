@@ -243,9 +243,9 @@ export default function PatentsList() {
 
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="w-6 h-px bg-defensya-blue" />
-              <span className="text-[11px] font-mono tracking-[0.3em] text-defensya-blue uppercase">
-                Nuestras Patentes
+              <span className="w-6 h-px bg-slate-400" />
+              <span className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase "> 
+                I + D + i
               </span>
             </div>
             <h2
@@ -253,11 +253,10 @@ export default function PatentsList() {
                 tracking-tight text-gray-900 dark:text-white uppercase"
               style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
-              Investigación
+              Nuestras
+
               <br />
-              Desarrollo
-              <br />
-              <span className="text-defensya-blue">Innovación</span>
+              <span className="text-defensya-blue">Patentes</span>
             </h2>
           </div>
 

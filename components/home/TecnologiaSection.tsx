@@ -110,7 +110,7 @@ function ProductRow({
               px-5 py-2.5
               border border-defensya-blue bg-defensya-blue text-white
               text-[10px] font-mono tracking-[0.2em] uppercase
-             hover:font-bold  hover:scale-105
+             hover:scale-105
               transition-all duration-200
             "
             style={{
@@ -235,7 +235,7 @@ export default function TecnologiasSection() {
               px-7 py-3.5
               border border-defensya-blue text-white
               text-[11px] font-mono tracking-[0.25em] uppercase
-              bg-defensya-blue hover:font-bold hover:scale-105
+              bg-defensya-blue hover:scale-105
               transition-all duration-200
             "
             style={{
@@ -243,7 +243,7 @@ export default function TecnologiasSection() {
                 "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
             }}
           >
-            {/* TL corner accent */}
+            {/* TL corner accent scale */}
             <span
               className="pointer-events-none absolute top-0 left-0 w-[10px] h-px opacity-50
                          group-hover:opacity-100 transition-opacity duration-200"

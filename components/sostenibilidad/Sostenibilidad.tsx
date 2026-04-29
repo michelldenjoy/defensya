@@ -169,7 +169,7 @@ export default function Sostenibilidad() {
               <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
                 Compromiso
                 <br />
-                <span className="text-defensya-blue"> Ambiental</span>
+                <span className="dark:text-blue-300"> Ambiental</span>
               </h1>
             </div>
 
@@ -185,7 +185,7 @@ export default function Sostenibilidad() {
                     className="bg-white dark:bg-defensya-navy px-5 py-4"
                   >
                     <p
-                      className="text-2xl font-bold text-defensya-blue"
+                      className="text-2xl font-bold "
                       style={{
                         fontFamily:
                           "var(--font-display, 'Barlow Condensed', sans-serif)",

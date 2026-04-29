@@ -4,7 +4,7 @@ import { useState } from "react";
 const declaracion = [
   {
     id: "01",
-    titulo: "Excelencia como objetivo ineludible",
+    titulo: "Excelencia como objetivo innegociable",
     texto:
       "La Dirección de DEFENSYA INGENIERIA INTERNACIONAL busca obtener, como objetivo ineludible, la excelencia en todas sus actividades y, en consecuencia, la consolidación como empresa del sector ingeniería de telecomunicación, electrónica e informática y afines, a través de la satisfacción diaria de sus clientes, para lo cual, y consciente de la importancia de la calidad de los servicios creados por nuestra compañía, decidió implantar un Sistema de Gestión de la Calidad basado en las normas ISO 9001:2015.",
   },
@@ -197,7 +197,7 @@ export default function PoliticaCalidad() {
               >
                 Política de
                 <br />
-                <span className="text-defensya-blue dark:text-blue-300">
+                <span className="text-defensya-blue dark:text-white">
                   {" "}
                   Calidad
                 </span>
@@ -212,7 +212,7 @@ export default function PoliticaCalidad() {
                     Certificación activa
                   </p>
                   <p
-                    className="text-3xl font-bold text-defensya-blue"
+                    className="text-3xl font-bold text-defensya-blue dark:text-white"
                     style={{
                       fontFamily:
                         "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -249,9 +249,7 @@ export default function PoliticaCalidad() {
               </div>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Sistema de Gestión de la Calidad implantado en base a la norma
-                internacional ISO 9001:2015, orientado a la excelencia y la
-                mejora continua en todas las actividades de la empresa.
+              El cumplimiento de los estándares internacionales es la base de nuestra ingeniería. Sostenemos un sistema de gestión orientado a la optimización de procesos y la rigurosidad técnica, acreditado por las principales entidades de certificación del sector.
               </p>
             </div>
           </div>
@@ -279,7 +277,7 @@ export default function PoliticaCalidad() {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                La excelencia en todas las actividades es un objetivo ineludible
+                El compromiso con la calidad en todas las actividades es un objetivo ineludible
                 para Defensya Ingeniería Internacional.
               </p>
               <div className="flex items-center gap-3 mt-6">

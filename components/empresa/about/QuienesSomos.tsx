@@ -37,8 +37,7 @@ const QuienesSomos = () => {
       className="w-full bg-white dark:bg-[#060d18] text-gray-900 dark:text-white overflow-x-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-
-<style>{`
+      <style>{`
         :root {
           --blue: #0ea5e9;
           --blue-dim: #0369a1;
@@ -215,7 +214,7 @@ const QuienesSomos = () => {
               <br />
               Avance
               <br />
-              <span className="text-defensya-blue"> Innovación</span>
+              <span className="text-defensya-blue dark:text-blue-300"> Innovación</span>
             </h1>
 
             <div className="lg:pb-2">
@@ -238,7 +237,7 @@ const QuienesSomos = () => {
       </section>
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-32 px-6 lg:px-16 bg-[#a8a9aa20] dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative py-32 px-6 lg:px-16 bg-gray-50 dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
@@ -262,13 +261,7 @@ const QuienesSomos = () => {
                 Nuestra Experiencia
               </h2>
             </div>
-            <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono text-gray-400">
-              <span
-                className="w-2 h-2 rounded-full bg-[#0ea5e9]"
-                style={{ animation: "blink 1.4s step-end infinite" }}
-              />
-              3 ÁREAS CLAVE ◆ DEFENSYA.
-            </div>
+
           </div>
 
           {/* Cards grid texture*/}

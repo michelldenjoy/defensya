@@ -218,9 +218,6 @@ function HitoCard({
           style={{ maxHeight: active ? "220px" : "0px" }}
         >
           <div className="pt-5 mt-5 border-t border-gray-100 dark:border-white/[0.06]">
-            <p className="text-[10px] font-mono tracking-[0.22em] text-defensya-blue/50 uppercase mb-3">
-              / contexto /
-            </p>
             <p className="text-xs text-gray-400 dark:text-gray-500 leading-[1.9]">
               {hito.extra}
             </p>
