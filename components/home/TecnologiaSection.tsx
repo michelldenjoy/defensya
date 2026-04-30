@@ -81,10 +81,7 @@ export default function TecnologiasSection() {
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end mb-20">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="w-2 h-2 rounded-full bg-defensya-blue"
-                style={{ animation: "blink 1.4s step-end infinite" }} />
-              <span className="w-6 h-px bg-defensya-blue/50" />
-              <span className="font-mono text-[11px] tracking-[0.35em] text-defensya-blue uppercase">
+              <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
                 Tecnologías
               </span>
             </div>
@@ -110,12 +107,12 @@ export default function TecnologiasSection() {
         </div>
 
       
-        <div className="hidden md:grid md:grid-cols-[56px_200px_260px_1fr] gap-6
+        {/* <div className="hidden md:grid md:grid-cols-[56px_200px_260px_1fr] gap-6
                         px-5 -mx-5 pb-3 border-b border-white/[0.12]">
           {["#", "Producto", "Clasificación", "Descripción"].map((h) => (
             <span key={h} className="font-mono text-[9px] tracking-[0.3em] text-gray-700 uppercase">{h}</span>
           ))}
-        </div>
+        </div> */}
 
         {/* ── FILAS  A3R A4R  BOOMERANG ── */}
         <div className="mb-4">
@@ -241,20 +238,16 @@ export default function TecnologiasSection() {
                 {haptixStats.map(({ label, value }) => (
                   <div key={label}
                        className="flex items-center gap-4 px-5 py-3
-                                  border border-white/[0.08] bg-white/[0.03]
-                                  hover:border-defensya-blue/40 hover:bg-defensya-blue/[0.06]
+                                  border border-white/[0.08] bg-defensya-blue/10
+                                  hover:border-defensya-blue/40 hover:bg-defensya-blue/50
                                   transition-all duration-200">
                     <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[8px] tracking-[0.3em] text-gray-600 uppercase">{label}</span>
+                      <span className="font-mono text-[8px] tracking-[0.3em] text-gray-500 uppercase">{label}</span>
                       <span className="font-mono text-[15px] font-bold text-white leading-none">{value}</span>
                     </div>
                   </div>
                 ))}
               </div>
-
-              <p className="mt-4 font-mono text-[9px] tracking-[0.25em] text-gray-700 uppercase text-right">
-                REF-HPTX/04
-              </p>
             </div>
           </div>
 
