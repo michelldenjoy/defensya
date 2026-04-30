@@ -169,7 +169,7 @@ export default function Sostenibilidad() {
               <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
                 Compromiso
                 <br />
-                <span className="dark:text-blue-300"> Ambiental</span>
+                <span className="dark:text-blue-300 text-defensya-blue"> Ambiental</span>
               </h1>
             </div>
 

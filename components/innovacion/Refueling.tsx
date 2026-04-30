@@ -25,7 +25,7 @@ export default function Refueling() {
             >
               Ingeniería para entornos de
               <br />
-              <span className="text-blue-300"> alta seguridad</span>
+              <span className="dark:text-blue-300 text-defensya-blue"> alta seguridad</span>
             </h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-2">
