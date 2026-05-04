@@ -38,7 +38,7 @@ export default function HeroHome() {
       />
 
       {/* ── CONTENT ── */}
-      <div
+      {/* <div
         className="relative z-10 max-w-7xl mx-auto w-full
                         pb-10"
       >
@@ -71,7 +71,7 @@ export default function HeroHome() {
         >
           <p className="text-xl text-gray-300 leading-relaxed max-w-md"></p>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

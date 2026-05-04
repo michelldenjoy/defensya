@@ -20,11 +20,15 @@ const items = [
   },
   {
     label: "Estándar",
-    value: "Certificación EN 9100 / ISO 9001",
+    value: "Certificación ISO 9001",
   },
   {
     label: "Soberanía",
     value: "Tecnología 100% Europea",
+  },
+  {
+    label: "Alcance",
+    value: "Presencia en Programas Internacionales",
   },
 ];
 
@@ -34,38 +38,33 @@ export default function Hometwo() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-
-<HeroSection />
-
-
-      <Rule />
+      <HeroSection />
 
       {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 flex flex-wrap justify-around items-center gap-8  transition-all">
-          {items.map((item) => (
-            <div key={item.label} className="flex items-center gap-4">
-              <div>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
+      <section className="py-6 mt-8 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
+            {items.map((item) => (
+              <div key={item.label} className="flex flex-col justify-center">
+                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
                   {item.label}
                 </p>
-                <p className="text-sm text-white font-bold uppercase">
+                <p className="text-xs sm:text-sm text-white font-bold uppercase leading-tight">
                   {item.value}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ───────── QUÉ HACEMOS ───────── */}
-      <section className="py-22 px-6 lg:px-16">
+      <section className="py-22 px-6 lg:px-16 ">
         <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
-            <div>
- 
+          <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-start lg:items-center mb-16">
+            <div className="pr-3">
               <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
+                className="text-[clamp(1.9rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -74,8 +73,10 @@ export default function Hometwo() {
                 Sistemas de Alto Rendimiento
               </h2>
             </div>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
-              Arquiecturas modulares que integran inteligencia artificial y procesamiento en tiempo real para el dominio del espacio aéreo.
+
+            <p className="text-xs sm:text-sm lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-200 dark:border-white/10 pl-3 lg:pl-8 max-w-none lg:max-w-md">
+              Arquitecturas modulares que integran inteligencia artificial y
+              procesamiento en tiempo real para el dominio del espacio aéreo.
             </p>
           </div>
 
@@ -115,38 +116,34 @@ export default function Hometwo() {
 
       <Rule />
 
-
-<Divisiones />
-
+      <Divisiones />
 
       {/* ──────────── CAPACIDADES ─────────────────── */}
       <section className="py-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center mb-16">
-            <div>
-              <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
-                Especialización
-              </p>
+          <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-start lg:items-center mb-16">
+            <div className="pr-3">
               <h2
-                className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
+                className="text-[clamp(1.9rem,4vw,3.5rem)] font-bold uppercase leading-none tracking-tight"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Capacidades y Soluciones
+                Capacidades y soluciones
               </h2>
             </div>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8">
-              Cubrimos el stack completo de ingeniería aeroespacial, desde el
-              diseño electrónico hasta la inteligencia artificial embarcada, con
-              aplicación directa en entornos de alta exigencia.
+
+            <p className="text-xs sm:text-sm lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-200 dark:border-white/10 pl-3 lg:pl-8 max-w-none lg:max-w-md">
+              Cubrimos el stack completo, desde el diseño electrónico hasta la
+              inteligencia artificial embarcada, con aplicación directa en
+              entornos de alta exigencia.
             </p>
           </div>
 
           <div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0
-                          border-t border-l border-gray-200 dark:border-white/[0.07]"
+            border-t border-l border-gray-200 dark:border-white/[0.07]"
           >
             {[
               "Diseño Electrónico",
@@ -175,12 +172,7 @@ export default function Hometwo() {
       {/* ───────── INNOVACIÓN ───── */}
       <TecnologiasSection />
 
-
-     
-
       <Rule />
-
-
 
       <Rule />
 

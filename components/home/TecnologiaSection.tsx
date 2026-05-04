@@ -78,30 +78,23 @@ export default function TecnologiasSection() {
       <div className="max-w-7xl mx-auto relative">
 
         {/* ── Header ── */}
-        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end mb-20">
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
-                Tecnologías
-              </span>
-            </div>
-            <h2 className="font-bold uppercase leading-[0.9] tracking-tight text-white"
+        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end md:mb-15">
+        <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
+            <div className="pr-3">
+              <h2
+                className="text-[clamp(1.7rem,4vw,3.5rem)] font-bold uppercase leading-none text-gray-50 tracking-tight"
                 style={{
-                  fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                }}>
-              Impulsamos el futuro
-              <br />
-              <span className="text-defensya-blue">del reabastecimiento</span>
-            </h2>
-          </div>
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
+              >
+                Impulsamos el futuro del repostaje en vuelo
+              </h2>
+            </div>
 
-          <div className="relative max-w-sm border-l-2 border-defensya-blue/25 pl-6
-                         before:content-[''] before:absolute before:-top-2 before:left-[-2px]
-                         before:w-[2px] before:h-4 before:bg-defensya-blue">
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Nuestras soluciones cubren el ciclo completo del reabastecimiento aéreo
-              automatizado, desde la percepción hasta el control háptico del botalón.
+            <p className="text-xs sm:text-sm lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-200 dark:border-white/10 pl-3 lg:pl-8 max-w-none lg:max-w-md">
+            Nuestras soluciones cubren el ciclo completo del reabastecimiento aéreo
+            automatizado, desde la percepción hasta el control háptico del botalón.
             </p>
           </div>
         </div>
