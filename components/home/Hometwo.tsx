@@ -8,6 +8,7 @@ import ThreePlane from "../ui/ThreePlane";
 import Divisiones from "./Divisiones";
 import HeroSection from "./HeroSection";
 import TecnologiasSection from "./TecnologiaSection";
+import Capacidades from "./Capacidades";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -58,8 +59,10 @@ export default function Hometwo() {
         </div>
       </section>
 
+      <Capacidades />
+
       {/* ───────── QUÉ HACEMOS ───────── */}
-      <section className="py-22 px-6 lg:px-16 ">
+      {/* <section className="py-22 px-6 lg:px-16 ">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-start lg:items-center mb-16">
             <div className="pr-3">
@@ -112,14 +115,16 @@ export default function Hometwo() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Rule />
 
       <Divisiones />
 
+      
+
       {/* ──────────── CAPACIDADES ─────────────────── */}
-      <section className="py-20 px-6 lg:px-16">
+      {/* <section className="py-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-start lg:items-center mb-16">
             <div className="pr-3">
@@ -167,7 +172,7 @@ export default function Hometwo() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ───────── INNOVACIÓN ───── */}
       <TecnologiasSection />

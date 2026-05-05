@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-
-
 const rows = [
   {
     num: "01",
@@ -28,31 +26,36 @@ const rows = [
 ];
 
 const haptixStats = [
-  { label: "Hardware",    value: "V4.0"      },
-  { label: "I/O Std",    value: "ARINC 429" },
-  { label: "Operativo",  value: "28V DC"    },
-  { label: "Versión",    value: "Certified"  },
+  { label: "Hardware", value: "V4.0" },
+  { label: "I/O Std", value: "ARINC 429" },
+  { label: "Operativo", value: "28V DC" },
+  { label: "Versión", value: "Certified" },
 ];
 
-
-
-function ProductRow({ num, name, tag, desc }: typeof rows[0]) {
+function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
   return (
-    <div className="group relative grid md:grid-cols-[56px_200px_260px_1fr] gap-6 items-center
+    <div
+      className="group relative grid md:grid-cols-[56px_200px_260px_1fr] gap-6 items-center
                     py-7 px-5 -mx-5 border-b border-white/[0.07]
-                    hover:bg-white/[0.03] transition-all duration-300">
-
+                    hover:bg-white/[0.03] transition-all duration-300"
+    >
       {/* Left accent bar */}
-      <span className="pointer-events-none absolute left-0 top-0 bottom-0 w-[2px] bg-defensya-blue
-                      scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+      <span
+        className="pointer-events-none absolute left-0 top-0 bottom-0 w-[2px] bg-defensya-blue
+                      scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"
+      />
 
       <span className="font-mono text-[11px] text-gray-600 group-hover:text-defensya-blue transition-colors duration-300">
         {num}
       </span>
 
-      <span className="text-2xl font-bold uppercase leading-none text-white
+      <span
+        className="text-2xl font-bold uppercase leading-none text-white
                       group-hover:text-defensya-blue transition-colors duration-300"
-            style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}>
+        style={{
+          fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+        }}
+      >
         {name}
       </span>
 
@@ -67,19 +70,15 @@ function ProductRow({ num, name, tag, desc }: typeof rows[0]) {
   );
 }
 
-
 export default function TecnologiasSection() {
   return (
-    <section className="relative py-32 px-6 lg:px-16 overflow-hidden bg-defensya-navy">
+    <section className="relative py-10 px-6 lg:px-16 overflow-hidden bg-defensya-navy">
       <div className="tech-grid absolute inset-0 opacity-50 pointer-events-none" />
-      <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(to right, transparent, #0ea5e9 40%, transparent)", opacity: 0.25 }} />
 
       <div className="max-w-7xl mx-auto relative">
-
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end md:mb-15">
-        <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
+          <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
             <div className="pr-3">
               <h2
                 className="text-[clamp(1.7rem,4vw,3.5rem)] font-bold uppercase leading-none text-gray-50 tracking-tight"
@@ -93,13 +92,13 @@ export default function TecnologiasSection() {
             </div>
 
             <p className="text-xs sm:text-sm lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-200 dark:border-white/10 pl-3 lg:pl-8 max-w-none lg:max-w-md">
-            Nuestras soluciones cubren el ciclo completo del reabastecimiento aéreo
-            automatizado, desde la percepción hasta el control háptico del botalón.
+              Nuestras soluciones cubren el ciclo completo del reabastecimiento
+              aéreo automatizado, desde la percepción hasta el control háptico
+              del botalón.
             </p>
           </div>
         </div>
 
-      
         {/* <div className="hidden md:grid md:grid-cols-[56px_200px_260px_1fr] gap-6
                         px-5 -mx-5 pb-3 border-b border-white/[0.12]">
           {["#", "Producto", "Clasificación", "Descripción"].map((h) => (
@@ -109,11 +108,13 @@ export default function TecnologiasSection() {
 
         {/* ── FILAS  A3R A4R  BOOMERANG ── */}
         <div className="mb-4">
-          {rows.map((p) => <ProductRow key={p.name} {...p} />)}
+          {rows.map((p) => (
+            <ProductRow key={p.name} {...p} />
+          ))}
         </div>
 
         {/* HAPTIX — hero block */}
-            
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +122,8 @@ export default function TecnologiasSection() {
           transition={{ duration: 0.65 }}
           className="relative mt-4 overflow-hidden group"
           style={{
-            clipPath: "polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px))",
+            clipPath:
+              "polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px))",
           }}
         >
           {/* ── IMAGEN ── */}
@@ -136,58 +138,77 @@ export default function TecnologiasSection() {
           </div>
 
           {/*  overlays */}
-          <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(6,13,24,0.97) 0%, rgba(6,13,24,0.80) 45%, rgba(6,13,24,0.30) 100%)" }} />
-          <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(6,13,24,0.60) 0%, transparent 60%)" }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(6,13,24,0.97) 0%, rgba(6,13,24,0.80) 45%, rgba(6,13,24,0.30) 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(6,13,24,0.60) 0%, transparent 60%)",
+            }}
+          />
 
           {/* Blue hover tint */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{ background: "rgba(14,165,233,0.05)" }} />
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{ background: "rgba(14,165,233,0.05)" }}
+          />
 
           {/* Corner brackets */}
           <>
-            <span className="pointer-events-none absolute z-20"
-              style={{ top: 14, left: 14, width: 22, height: 22,
-                borderTop: "1.5px solid #0ea5e9", borderLeft: "1.5px solid #0ea5e9" }} />
-            <span className="pointer-events-none absolute z-20"
-              style={{ top: 14, right: 14, width: 22, height: 22,
-                borderTop: "1px solid rgba(255,255,255,0.12)", borderRight: "1px solid rgba(255,255,255,0.12)" }} />
-            <span className="pointer-events-none absolute z-20"
-              style={{ bottom: 14, left: 14, width: 22, height: 22,
-                borderBottom: "1px solid rgba(255,255,255,0.12)", borderLeft: "1px solid rgba(255,255,255,0.12)" }} />
-            <span className="pointer-events-none absolute z-20"
-              style={{ bottom: 14, right: 14, width: 22, height: 22,
-                borderBottom: "1.5px solid rgba(14,165,233,0.45)", borderRight: "1.5px solid rgba(14,165,233,0.45)" }} />
+            <span
+              className="pointer-events-none absolute z-20"
+              style={{
+                top: 14,
+                left: 14,
+                width: 22,
+                height: 22,
+                borderTop: "1.5px solid #27389c",
+                borderLeft: "1.5px solid #27389c",
+              }}
+            />
+
+            <span
+              className="pointer-events-none absolute z-20"
+              style={{
+                bottom: 14,
+                right: 14,
+                width: 22,
+                height: 22,
+                borderBottom: "1.5px solid rgba(14,165,233,0.45)",
+                borderRight: "1.5px solid rgba(14,165,233,0.45)",
+              }}
+            />
           </>
-
-          {/* Diagonal accent on clip corner */}
-          <svg className="absolute top-0 right-0 pointer-events-none z-20"
-            width="52" height="52" viewBox="0 0 52 52" fill="none">
-            <line x1="0" y1="34" x2="34" y2="0" stroke="#0ea5e9" strokeWidth="1" strokeOpacity="0.5" />
-          </svg>
-
+          
           {/* Ghost number */}
-          <span className="pointer-events-none absolute bottom-4 right-8 font-mono font-black select-none
+          {/* <span
+            className="pointer-events-none absolute bottom-4 right-8 font-mono font-black select-none
                           text-white/[0.04] group-hover:text-defensya-blue/[0.07] transition-colors duration-500"
-            style={{ fontSize: "9rem", lineHeight: 1 }}>
+            style={{ fontSize: "9rem", lineHeight: 1 }}
+          >
             04
-          </span>
+          </span> */}
 
-      
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center
-                          gap-8 lg:gap-16 px-8 sm:px-12 py-12 lg:py-14">
-
+          <div
+            className="relative z-10 flex flex-col lg:flex-row lg:items-center
+                          gap-8 lg:gap-16 px-8 sm:px-12 py-12 lg:py-14"
+          >
             {/* Left — text */}
             <div className="flex-1 max-w-xl">
-
-
-         
-              <h3 className="font-bold uppercase leading-[0.88] tracking-tight text-white mb-2"
-                  style={{
-                    fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                    fontSize: "clamp(2.8rem, 5vw, 4.5rem)",
-                  }}>
+              <h3
+                className="font-bold uppercase leading-[0.88] tracking-tight text-white mb-2"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(2.8rem, 5vw, 4.5rem)",
+                }}
+              >
                 Haptix<span className="text-defensya-blue">®</span>
               </h3>
 
@@ -195,17 +216,18 @@ export default function TecnologiasSection() {
                 Haptic Boom Control System
               </p>
 
-           
-              <div className="h-px w-12 bg-defensya-blue/50 mb-6
-                             group-hover:w-32 transition-all duration-500" />
+              <div
+                className="h-px w-12 bg-defensya-blue/50 mb-6
+                             group-hover:w-32 transition-all duration-500"
+              />
 
               <p className="text-sm text-gray-300 leading-relaxed max-w-md mb-8">
-                Control háptico avanzado para el botalón de repostaje. Una sola mano,
-                retroalimentación física en tiempo real y protección de envolvente por software.
-                El único dispositivo de su clase en el mercado.
+                Control háptico avanzado para el botalón de repostaje. Una sola
+                mano, retroalimentación física en tiempo real y protección de
+                envolvente por software. El único dispositivo de su clase en el
+                mercado.
               </p>
 
-      
               <Link
                 href="/haptix"
                 className="group/btn inline-flex items-center gap-3
@@ -213,30 +235,46 @@ export default function TecnologiasSection() {
                            font-mono text-[11px] tracking-[0.25em] uppercase font-bold
                            hover:bg-defensya-blue/80 transition-all duration-200"
                 style={{
-                  clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                  clipPath:
+                    "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
                 }}
               >
                 Explorar Haptix®
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                  className="group-hover/btn:translate-x-1 transition-transform duration-200">
-                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4"
-                    strokeLinecap="round" strokeLinejoin="round" />
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  className="group-hover/btn:translate-x-1 transition-transform duration-200"
+                >
+                  <path
+                    d="M2 6h8M7 3l3 3-3 3"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </Link>
             </div>
 
-   
             <div className="lg:self-stretch lg:flex lg:flex-col lg:justify-center shrink-0">
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-2">
                 {haptixStats.map(({ label, value }) => (
-                  <div key={label}
-                       className="flex items-center gap-4 px-5 py-3
+                  <div
+                    key={label}
+                    className="flex items-center gap-4 px-5 py-3
                                   border border-white/[0.08] bg-defensya-blue/10
                                   hover:border-defensya-blue/40 hover:bg-defensya-blue/50
-                                  transition-all duration-200">
+                                  transition-all duration-200"
+                  >
                     <div className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[8px] tracking-[0.3em] text-gray-500 uppercase">{label}</span>
-                      <span className="font-mono text-[15px] font-bold text-white leading-none">{value}</span>
+                      <span className="font-mono text-[8px] tracking-[0.3em] text-gray-500 uppercase">
+                        {label}
+                      </span>
+                      <span className="font-mono text-[15px] font-bold text-white leading-none">
+                        {value}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -246,8 +284,10 @@ export default function TecnologiasSection() {
 
           {/* Bottom progress bar */}
           <div className="absolute bottom-0 inset-x-0 h-[2px] bg-white/5 z-20">
-            <div className="h-full bg-defensya-blue/60 w-4/5
-                           group-hover:w-full transition-all duration-700" />
+            <div
+              className="h-full bg-defensya-blue/60 w-4/5
+                           group-hover:w-full transition-all duration-700"
+            />
           </div>
         </motion.div>
 
@@ -261,14 +301,25 @@ export default function TecnologiasSection() {
                        hover:border-defensya-blue hover:bg-defensya-blue
                        transition-all duration-200"
             style={{
-              clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
+              clipPath:
+                "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
             }}
           >
             nuestra Innovación
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" strokeWidth={1.5}
-              className="group-hover:translate-x-1 transition-transform duration-200">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4-4 4M3 12h18" />
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              className="group-hover:translate-x-1 transition-transform duration-200"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4-4 4M3 12h18"
+              />
             </svg>
           </Link>
 

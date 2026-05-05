@@ -66,14 +66,10 @@ function Corners() {
   return (
     <>
       {/* esquina superior izquierda */}
-      <span
-        className="pointer-events-none absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-300/50 transition-colors duration-300 group-hover:border-white"
-      />
+      <span className="pointer-events-none absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-300/50 transition-colors duration-300 group-hover:border-white" />
 
       {/* esquina inferior derecha */}
-      <span
-        className="pointer-events-none absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-300/50 transition-colors duration-300 group-hover:border-white"
-      />
+      <span className="pointer-events-none absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-300/50 transition-colors duration-300 group-hover:border-white" />
     </>
   );
 }
@@ -86,7 +82,9 @@ function DivisionCard({ item }: { item: Division }) {
       className="experience-card group relative overflow-hidden bg-black cursor-pointer flex-shrink-0 "
       style={{
         // exact 1/3 of track minus proportional gap share
-        width: `calc((100% - ${CARD_GAP * (CARDS_VISIBLE - 1)}px) / ${CARDS_VISIBLE})`,
+        width: `calc((100% - ${
+          CARD_GAP * (CARDS_VISIBLE - 1)
+        }px) / ${CARDS_VISIBLE})`,
         height: "500px",
         clipPath:
           "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
@@ -129,9 +127,9 @@ function DivisionCard({ item }: { item: Division }) {
         style={{ background: "rgba(0, 0, 0, 0.60)" }}
       />
 
-<div className="relative group w-full h-full">
-  <Corners />
-</div>
+      <div className="relative group w-full h-full">
+        <Corners />
+      </div>
 
       {/* Ghost number */}
       <span
@@ -178,7 +176,9 @@ function DivisionCard({ item }: { item: Division }) {
           <div className="h-full w-full bg-white/10" />
           <div
             className="absolute left-0 top-0 h-full bg-blue-300/50 w-8 group-hover:w-full"
-            style={{ transition: "width 0.5s cubic-bezier(0.22,1,0.36,1) 0.08s" }}
+            style={{
+              transition: "width 0.5s cubic-bezier(0.22,1,0.36,1) 0.08s",
+            }}
           />
         </div>
 
@@ -256,13 +256,15 @@ function DesktopCarousel() {
   const [current, setCurrent] = useState(0);
 
   const goPrev = useCallback(() => setCurrent((c) => Math.max(c - 1, 0)), []);
-  const goNext = useCallback(() => setCurrent((c) => Math.min(c + 1, MAX_INDEX)), []);
+  const goNext = useCallback(
+    () => setCurrent((c) => Math.min(c + 1, MAX_INDEX)),
+    []
+  );
 
   return (
     <div>
       {/* ── Controls bar ARRIBA ── */}
-      <div className="flex items-center justify-between mb-8 ">
-
+      <div className="flex items-center justify-between mb-4 ">
         {/* Segment indicators */}
         <div className="flex items-center gap-[6px]">
           {divisions.map((_, i) => {
@@ -285,19 +287,32 @@ function DesktopCarousel() {
         {/* Counter + arrows */}
         <div className="flex items-center gap-5">
           <span className="font-mono text-[11px] tracking-widest select-none">
-            <span className="text-white">{String(current + 1).padStart(2, "0")}</span>
+            <span className="text-white">
+              {String(current + 1).padStart(2, "0")}
+            </span>
             <span className="text-gray-600"> – </span>
             <span className="text-white">
-              {String(Math.min(current + CARDS_VISIBLE, divisions.length)).padStart(2, "0")}
+              {String(
+                Math.min(current + CARDS_VISIBLE, divisions.length)
+              ).padStart(2, "0")}
             </span>
             <span className="text-gray-600">
-              {" "}/ {String(divisions.length).padStart(2, "0")}
+              {" "}
+              / {String(divisions.length).padStart(2, "0")}
             </span>
           </span>
 
           <div className="flex gap-2">
-            <ArrowBtn direction="prev" disabled={current === 0} onClick={goPrev} />
-            <ArrowBtn direction="next" disabled={current >= MAX_INDEX} onClick={goNext} />
+            <ArrowBtn
+              direction="prev"
+              disabled={current === 0}
+              onClick={goPrev}
+            />
+            <ArrowBtn
+              direction="next"
+              disabled={current >= MAX_INDEX}
+              onClick={goNext}
+            />
           </div>
         </div>
       </div>
@@ -324,9 +339,17 @@ function DesktopCarousel() {
 // ─── Mobile Slider ────────────────────────────────────────────────────────────
 
 const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? "55%" : "-55%", opacity: 0, scale: 0.97 }),
+  enter: (dir: number) => ({
+    x: dir > 0 ? "55%" : "-55%",
+    opacity: 0,
+    scale: 0.97,
+  }),
   center: { x: 0, opacity: 1, scale: 1 },
-  exit: (dir: number) => ({ x: dir < 0 ? "55%" : "-55%", opacity: 0, scale: 0.97 }),
+  exit: (dir: number) => ({
+    x: dir < 0 ? "55%" : "-55%",
+    opacity: 0,
+    scale: 0.97,
+  }),
 };
 
 function MobileSlider() {
@@ -359,7 +382,9 @@ function MobileSlider() {
       }}
       onTouchEnd={() => {
         if (Math.abs(touchDelta.current) > 48) {
-          touchDelta.current > 0 ? goTo(activeIndex - 1) : goTo(activeIndex + 1);
+          touchDelta.current > 0
+            ? goTo(activeIndex - 1)
+            : goTo(activeIndex + 1);
         }
         touchStart.current = null;
         touchDelta.current = 0;
@@ -399,7 +424,11 @@ function MobileSlider() {
           <Corners />
           <span
             className="pointer-events-none absolute top-2 right-3 font-mono font-black select-none"
-            style={{ fontSize: "6rem", lineHeight: 1, color: "rgba(255,255,255,0.04)" }}
+            style={{
+              fontSize: "6rem",
+              lineHeight: 1,
+              color: "rgba(255,255,255,0.04)",
+            }}
           >
             {item.num}
           </span>
@@ -419,7 +448,8 @@ function MobileSlider() {
             <h3
               className="text-white mb-3"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
                 fontSize: "clamp(1.8rem, 6vw, 2.4rem)",
                 fontWeight: 600,
                 textTransform: "uppercase",
@@ -444,7 +474,12 @@ function MobileSlider() {
               className="w-9 h-9 flex items-center justify-center border border-white/20 bg-black/50 text-white/70 disabled:opacity-20 active:bg-white/10 transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path
+                  d="M9 2L4 7L9 12"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
             <button
@@ -454,7 +489,12 @@ function MobileSlider() {
               className="w-9 h-9 flex items-center justify-center border border-white/20 bg-black/50 text-white/70 disabled:opacity-20 active:bg-white/10 transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path
+                  d="M5 2L10 7L5 12"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
           </div>
@@ -463,7 +503,9 @@ function MobileSlider() {
             <motion.div
               className="h-full bg-blue-300/50"
               initial={false}
-              animate={{ width: `${((activeIndex + 1) / divisions.length) * 100}%` }}
+              animate={{
+                width: `${((activeIndex + 1) / divisions.length) * 100}%`,
+              }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             />
           </div>
@@ -473,7 +515,11 @@ function MobileSlider() {
       {/* Dot pagination */}
       <div className="flex items-center justify-center gap-2 mt-5">
         {divisions.map((d, i) => (
-          <button key={d.title} aria-label={`Ir a ${d.title}`} onClick={() => goTo(i)}>
+          <button
+            key={d.title}
+            aria-label={`Ir a ${d.title}`}
+            onClick={() => goTo(i)}
+          >
             <span
               className="block transition-all duration-300"
               style={{
@@ -501,9 +547,8 @@ export default function Divisiones() {
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
-
         {/* ── Header ── */}
-        <div className="flex items-end justify-between mb-16 gap-8 flex-wrap">
+        <div className="flex items-end justify-between mb-4 gap-8 flex-wrap">
           <div>
             <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
               Áreas Tecnológicas
@@ -511,7 +556,8 @@ export default function Divisiones() {
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
               }}
             >
               Sectores que Manejamos

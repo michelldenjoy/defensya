@@ -15,8 +15,8 @@ function Corners({ size = 20 }: { size?: number }) {
           left: 14,
           width: size,
           height: size,
-          borderTop: "1.5px solid #0ea5e9",
-          borderLeft: "1.5px solid #0ea5e9",
+          borderTop: "1.5px solid #27389c",
+          borderLeft: "1.5px solid #27389c",
         }}
       />
       {/* TR — subtle */}
@@ -151,7 +151,7 @@ export default function HeroSection() {
     <section
       className="
         relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr]
-        overflow-hidden bg-white dark:bg-defensya-navy
+        overflow-hidden bg-white dark:bg-defensya-navy pt-14 md:py-28
         /* Mobile: auto height. md+: full viewport height (min 560px, max 860px) */
         min-h-[auto] md:min-h-[560px] md:h-[calc(100svh-64px)] md:max-h-[860px]
       "
@@ -164,7 +164,7 @@ export default function HeroSection() {
       ════════════════════════════════════════════════════════ */}
       <div
         className="relative z-10 flex flex-col justify-center
-                   px-6 lg:px-16 xl:px-20 pt-20 pb-12 md:py-0
+                   px-6 lg:px-16 xl:px-20 
                    border-r border-white/[0.06]"
       >
         {/* Vertical accent line */}
@@ -263,7 +263,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.25 }}
         className="
-          relative z-10 group md:mt-10
+          relative z-10 group 
           /* Mobile: fixed aspect ratio so image has a decent height */
           aspect-[16/9] md:aspect-auto
           /* md+: stretch to fill the full grid-row height */
