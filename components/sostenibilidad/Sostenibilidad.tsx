@@ -157,19 +157,19 @@ export default function Sostenibilidad() {
     >
       <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Impacto Positivo
             </span>
-          </div>
+          </div> */}
 
           <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-center">
             <div>
               <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
-                Compromiso
-                <br />
-                <span className="dark:text-blue-300 text-defensya-blue"> Ambiental</span>
+              Trabajamos <br /> por un Futuro
+                
+                <span className="dark:text-blue-300 text-defensya-blue">  Sostenible</span>
               </h1>
             </div>
 

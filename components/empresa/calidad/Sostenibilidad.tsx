@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function SectionTag({ children }: { children: React.ReactNode }) {
     return (
-      <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
+      <p className="text-[12px] font-mono tracking-[0.3em] text-slate-500 dark:text-gray-500 uppercase mb-3">
         {children}
       </p>
     );
@@ -15,13 +15,13 @@ export default function Sostenibilidad() {
 
   return (
     <main >
-      <section className="px-6 lg:px-16 py-15 bg-defensya-navy">
+      <section className="px-6 lg:px-16 py-15 bg-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-20 items-center">
             <div>
               <SectionTag>Mejora continua</SectionTag>
               <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
+                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-black"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -29,7 +29,7 @@ export default function Sostenibilidad() {
               >
                 Sostenibilidad
               </h2>
-              <p className="text-sm text-gray-400 leading-relaxed mt-3 max-w-md">
+              <p className="text-sm text-gray-500 leading-relaxed mt-3 max-w-md">
                 Conoce el compromiso de Defensya con el desarrollo sostenible,
                 la responsabilidad medioambiental y el impacto social de nuestra
                 actividad.

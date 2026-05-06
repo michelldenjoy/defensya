@@ -62,9 +62,9 @@ export default function Certificaciones() {
                         border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14"
         >
           <div>
-            <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
+            {/* <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
               Certificacion Oficial
-            </p>
+            </p> */}
             <h2
               className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
                          leading-none tracking-tight text-gray-900 dark:text-white"
@@ -73,9 +73,7 @@ export default function Certificaciones() {
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
               }}
             >
-              Nuestras
-              <br />
-              Certificaciones
+              Certificación Oficial
             </h2>
           </div>
           <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1">

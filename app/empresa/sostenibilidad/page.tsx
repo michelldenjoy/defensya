@@ -8,7 +8,7 @@ export default function page() {
     <div>
       <HeroSection
         label="Sostenibilidad"
-        title="Trabajamos por un Futuro Sostenible"
+        title="Compromiso Ambiental"
         subtitle=""
         image="/images/sostenibilidad.png"
       />

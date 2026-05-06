@@ -195,11 +195,11 @@ export default function PoliticaCalidad() {
                 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
                          leading-[0.95] tracking-tight uppercase"
               >
-                Política de
+                Garantía de Operatividad en 
                 <br />
                 <span className="text-defensya-blue dark:text-white">
                   {" "}
-                  Calidad
+                  Entornos Críticos
                 </span>
               </h1>
             </div>

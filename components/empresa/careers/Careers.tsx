@@ -276,12 +276,12 @@ export default function Careers() {
 
         <div className="max-w-7xl mx-auto relative">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-10">
+          {/* <div className="flex items-center gap-3 mb-10">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="font-mono text-[11px] tracking-[0.35em] text-defensya-blue uppercase">
               Empresa — Careers
             </span>
-          </div>
+          </div> */}
 
           {/* INTRO */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
@@ -357,7 +357,7 @@ export default function Careers() {
       {/* **********LO QUE OFRECEMOS**********  */}
       <section
         className="relative px-6 lg:px-16 py-28 overflow-hidden
-                          bg-gray-50 dark:bg-defensya-navy
+                          bg-slate-100 dark:bg-defensya-navy
                           border-b border-gray-100 dark:border-white/[0.07]"
       >
         <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-30 pointer-events-none" />
@@ -383,14 +383,14 @@ export default function Careers() {
                   animationDelay: `${i * 0.1}s`,
                 }}
               >
-                <div className="absolute inset-0 bg-defensya-blue/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-defensya-blue/[0.04] opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
 
                 <Corners size={14} />
 
                 <span
                   className="absolute top-2 right-4 font-mono font-black select-none
                              text-black/[0.04] dark:text-white/[0.04]
-                             group-hover:text-defensya-blue/[0.08] transition-colors duration-500"
+                             group-hover:text-defensya-blue/[0.13] transition-colors duration-500"
                   style={{ fontSize: "5rem", lineHeight: 1 }}
                 >
                   {b.num}
@@ -523,7 +523,7 @@ export default function Careers() {
               />
 
               <p
-                className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-10
+                className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-10
                            border-l-2 border-defensya-blue/30 pl-5"
               >
                 ¿No ves una posición que encaje? Envíanos tu CV para futuras
@@ -539,13 +539,13 @@ export default function Careers() {
                                               border-b border-gray-100 dark:border-white/[0.07]"
                   >
                     <span
-                      className="font-mono text-[10px] tracking-[0.3em]
+                      className="font-mono text-[12px] tracking-[0.3em]
                                    text-gray-400 dark:text-gray-600 uppercase"
                     >
                       {label}
                     </span>
                     <span
-                      className="font-mono text-[11px]
+                      className="font-mono text-[13px]
                                    text-gray-900 dark:text-white"
                     >
                       {value}
@@ -562,7 +562,7 @@ export default function Careers() {
                 >
                   Defensya · HR Division
                 </span>
-                <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.04]" />
+                <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.04]" />
               </div>
             </div>
 
@@ -643,7 +643,7 @@ export default function Careers() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="relative p-7 sm:p-10
-                               bg-gray-50 dark:bg-white/[0.02]
+                               bg-slate-100 dark:bg-white/[0.02]
                                border border-gray-100 dark:border-white/[0.07]"
                     style={{
                       clipPath:

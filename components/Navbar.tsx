@@ -23,7 +23,7 @@ interface DropdownItem {
 const EMPRESA_ITEMS: DropdownItem[] = [
   { name: "Quiénes somos", href: "/empresa/quienes-somos" },
   { name: "Calidad y Certificaciones", href: "/empresa/calidad-certificacion" },
-  { name: "Sostenibilidad", href: "/empresa/sostenibilidad" },
+  { name: "Compromiso Sostenible", href: "/empresa/sostenibilidad" },
   { name: "Careers", href: "/empresa/careers" },
 ];
 
@@ -100,7 +100,7 @@ function EmpresaDropdown({ onClose }: { onClose?: () => void }) {
                         : "opacity-0 scale-y-95 -translate-y-1 pointer-events-none"
                     }`}
       >
-        {/* Top accent line */}
+        {/* Top accent sostenibilidad line */}
         <div className="h-px bg-linear-to-r from-transparent via-defensya-blue/50 to-transparent" />
 
         <div className="flex flex-col p-1.5">

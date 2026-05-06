@@ -37,7 +37,7 @@ const QuienesSomos = () => {
       className="w-full bg-white dark:bg-[#060d18] text-gray-900 dark:text-white overflow-x-hidden"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <style>{`
+      {/* <style>{`
         :root {
           --blue: #0ea5e9;
           --blue-dim: #0369a1;
@@ -173,9 +173,9 @@ const QuienesSomos = () => {
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
-      `}</style>
+      `}</style> */}
       {/* ─────────── TICKER BAND ─────────── */}
-      <div className="w-full overflow-hidden bg-[#0ea5e9]/10 border-b border-[#0ea5e9]/20 py-2">
+      {/* <div className="w-full overflow-hidden bg-[#0ea5e9]/10 border-b border-[#0ea5e9]/20 py-2">
         <div className="ticker-track text-[11px] font-mono tracking-[0.25em] text-defensya-navy dark:text-white uppercase">
           {[...Array(2)].map((_, ri) => (
             <React.Fragment key={ri}>
@@ -196,17 +196,17 @@ const QuienesSomos = () => {
             </React.Fragment>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* ─────────── HERO ─────────── */}
       <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <span className="w-6 h-px bg-defensya-blue" />
             <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
               Quienes Somos
             </span>
-          </div>
+          </div> */}
 
           <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
             <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
@@ -214,7 +214,10 @@ const QuienesSomos = () => {
               <br />
               Avance
               <br />
-              <span className="text-defensya-blue dark:text-blue-300"> Innovación</span>
+              <span className="text-defensya-blue dark:text-blue-300">
+                {" "}
+                Innovación
+              </span>
             </h1>
 
             <div className="lg:pb-2">
@@ -261,7 +264,6 @@ const QuienesSomos = () => {
                 Nuestra Experiencia
               </h2>
             </div>
-
           </div>
 
           {/* Cards grid texture*/}

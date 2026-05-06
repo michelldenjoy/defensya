@@ -121,10 +121,10 @@ function DivisionCard({ item }: { item: Division }) {
         }}
       />
 
-      {/* Hover blue tint */}
+      {/* ************** FONDO DE HOVER ************* */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "rgba(0, 0, 0, 0.60)" }}
+        style={{ background: "rgba(0, 0, 0, 0.90)" }}
       />
 
       <div className="relative group w-full h-full">
@@ -134,7 +134,7 @@ function DivisionCard({ item }: { item: Division }) {
       {/* Ghost number */}
       <span
         className="pointer-events-none absolute top-2 right-4 font-mono font-black select-none
-                   text-white/[0.04] group-hover:text-blue-300/50 transition-colors duration-500"
+                   text-white/[0.04] group-hover:text-blue-300/30 transition-colors duration-500"
         style={{ fontSize: "7rem", lineHeight: 1 }}
       >
         {item.num}
@@ -161,7 +161,7 @@ function DivisionCard({ item }: { item: Division }) {
           className="text-white text-center translate-y-3 group-hover:translate-y-0 transition-transform duration-500"
           style={{
             fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-            fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
+            fontSize: "clamp(2.6rem, 2.5vw, 2.2rem)",
             fontWeight: 600,
             letterSpacing: "-0.01em",
             lineHeight: 1.1,
@@ -184,7 +184,7 @@ function DivisionCard({ item }: { item: Division }) {
 
         <p
           className="
-            text-md text-gray-400 leading-relaxed text-center
+            text-lg text-gray-400 leading-relaxed text-center
             opacity-0 translate-y-4
             group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white
             transition-all duration-500 delay-75
@@ -226,7 +226,7 @@ function ArrowBtn({
         transition-all duration-200
       "
       style={{ clipPath: clip }}
-    >
+    >3
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         {direction === "prev" ? (
           <path
@@ -512,7 +512,7 @@ function MobileSlider() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Dot pagination */}
+      {/* Dot pagination background*/}
       <div className="flex items-center justify-center gap-2 mt-5">
         {divisions.map((d, i) => (
           <button
@@ -565,7 +565,7 @@ export default function Divisiones() {
           </div>
         </div>
 
-        {/* ── Mobile ── */}
+        {/* ── Mobile  ── */}
         <div className="lg:hidden">
           <div className="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide snap-x snap-mandatory">
             {divisions.map((d) => (
