@@ -77,7 +77,7 @@ export default function ProductosPage() {
 <ProductIntro />
 
 
-      <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
+      <div className="max-w-screen-2xl mx-4 flex flex-col lg:flex-row relative z-10">
 
         {/* ── SIDEBAR ── */}
         <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy backdrop-blur-md">

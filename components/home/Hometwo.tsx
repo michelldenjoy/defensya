@@ -63,7 +63,7 @@ export default function Hometwo() {
 
  <CapabilityCards />
 
-      <Capacidades />
+     
 
      
 

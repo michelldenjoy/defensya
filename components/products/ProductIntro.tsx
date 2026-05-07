@@ -2,8 +2,8 @@
 
 export default function ProductIntro() {
   return (
-    <section className="w-full bg-slate-100 border-b border-[#0ea5e9]/10 px-4 sm:px-6 lg:px-16 py-20">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-slate-100 border-b border-white px-6 lg:px-16 py-24">
+      <div className="max-w-7xl mx-4">
 
         {/* Eyebrow */}
         {/* <div className="flex items-center gap-3 mb-8">
