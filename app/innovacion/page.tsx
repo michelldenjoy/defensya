@@ -10,7 +10,7 @@ export default function page() {
         label="Innovación"
         title="Innovamos el Reabastecimiento Aéreo"
         subtitle=""
-        image="/images/innovation.webp"
+        image="/images/refueling1.jpeg"
       />
       <Refueling />
       <PatentsList />

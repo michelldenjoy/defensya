@@ -181,7 +181,6 @@ function DivisionCard({ item }: { item: Division }) {
             }}
           />
         </div>
-
         <p
           className="
             text-lg text-gray-400 leading-relaxed text-center

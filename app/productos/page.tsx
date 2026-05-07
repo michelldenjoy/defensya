@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { PRODUCTOS, Producto } from "@/data/productos";
 import HeroSection from "@/components/shared/HeroSection";
+import ProductIntro from "@/components/products/ProductIntro";
 
 
 type CatKey =
@@ -69,9 +70,12 @@ export default function ProductosPage() {
       <HeroSection
         label="Operational Assets"
         title="Ingeniería para el Límite"
-        subtitle="Sistemas aeroespaciales desarrollados bajo estándares militares para misiones críticas."
+        subtitle="Diseñamos y fabricamos sistemas críticos que combinan ingeniería electrónica, óptica y mecánica para aplicaciones aeroespaciales y de defensa."
         video="/products.mp4"
       />
+
+<ProductIntro />
+
 
       <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
 

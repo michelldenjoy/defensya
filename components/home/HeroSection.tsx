@@ -194,8 +194,6 @@ export default function HeroSection() {
               Ingeniería
             </span>
             <br />
-            <span className="dark:text-white">Avanzada</span>
-            <br />
             <span className="dark:text-blue-300">para el futuro</span>
             <br />
             <span className="text-defensya-blue dark:text-white">
@@ -282,7 +280,7 @@ export default function HeroSection() {
 
         {/* ── Photo — fills the entire column ── */}
         <Image
-          src="/images/refueling2.jpeg"
+          src="/images/defensa2.jpg"
           alt="Defensya Hero Image"
           fill
           priority

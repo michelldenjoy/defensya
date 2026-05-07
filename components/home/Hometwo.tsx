@@ -9,6 +9,7 @@ import Divisiones from "./Divisiones";
 import HeroSection from "./HeroSection";
 import TecnologiasSection from "./TecnologiaSection";
 import Capacidades from "./Capacidades";
+import CapabilityCards from "./CapabilityCards";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -59,7 +60,12 @@ export default function Hometwo() {
         </div>
       </section>
 
+
+ <CapabilityCards />
+
       <Capacidades />
+
+     
 
       {/* ───────── QUÉ HACEMOS ───────── */}
       {/* <section className="py-22 px-6 lg:px-16 ">

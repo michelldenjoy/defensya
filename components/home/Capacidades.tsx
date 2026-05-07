@@ -39,10 +39,11 @@ const capacidades = [
 
 export default function Capacidades() {
   return (
-    <section className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
-                        border-b border-gray-100 dark:border-white/[0.07]">
+    <section
+      className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
+                        border-b border-gray-100 dark:border-white/[0.07]"
+    >
       <div className="max-w-7xl mx-auto">
-
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end mb-20">
           <div>
@@ -56,7 +57,8 @@ export default function Capacidades() {
               className="font-bold uppercase leading-[0.9] tracking-tight
                          text-gray-900 dark:text-white"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
                 fontSize: "clamp(2.4rem, 5vw, 4rem)",
               }}
             >
@@ -66,8 +68,10 @@ export default function Capacidades() {
             </h2>
           </div>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-sm border-l-2 border-defensya-blue/30 pl-5 self-end mb-1">
+          <p
+            className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
+                       max-w-sm border-l-2 border-defensya-blue/30 pl-5 self-end mb-1"
+          >
             Cubrimos el stack completo, desde el diseño electrónico hasta la
             inteligencia artificial embarcada, con aplicación directa en
             entornos de alta exigencia.
@@ -86,14 +90,17 @@ export default function Capacidades() {
                          hover:border-defensya-blue/30
                          transition-all duration-300"
               style={{
-                clipPath: "polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px))",
+                clipPath:
+                  "polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px))",
                 animationDelay: `${i * 0.1}s`,
               }}
             >
               {/* Top line on hover */}
-              <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue
+              <span
+                className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue
                               scale-x-0 group-hover:scale-x-100
-                              transition-transform duration-400 origin-left" />
+                              transition-transform duration-400 origin-left"
+              />
 
               {/* Ghost number */}
               <span
@@ -106,9 +113,11 @@ export default function Capacidades() {
               </span>
 
               {/* Num tag */}
-              <span className="inline-flex mb-5 font-mono text-[10px] tracking-[0.3em]
+              <span
+                className="inline-flex mb-5 font-mono text-[10px] tracking-[0.3em]
                               text-defensya-blue border border-defensya-blue/30
-                              px-2 py-[3px] uppercase">
+                              px-2 py-[3px] uppercase"
+              >
                 {num}
               </span>
 
@@ -116,18 +125,25 @@ export default function Capacidades() {
                 className="text-xl font-bold uppercase leading-tight mb-3
                            text-gray-900 dark:text-white
                            group-hover:text-defensya-blue transition-colors duration-300"
-                style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
               >
                 {title}
               </h3>
 
               {/* Expanding divider */}
-              <div className="h-px w-8 bg-defensya-blue/40 group-hover:w-full
-                             transition-all duration-500 mb-4" />
+              <div
+                className="h-px w-8 bg-defensya-blue/40 group-hover:w-full
+                             transition-all duration-500 mb-4"
+              />
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
+              <p
+                className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
                            group-hover:text-gray-700 dark:group-hover:text-gray-300
-                           transition-colors duration-300">
+                           transition-colors duration-300"
+              >
                 {desc}
               </p>
             </div>
@@ -137,17 +153,21 @@ export default function Capacidades() {
         {/* ── Divider with label ── */}
         <div className="flex items-center gap-4 mb-10">
           <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.06]" />
-          <span className="font-mono text-[9px] tracking-[0.35em]
-                          text-gray-400 dark:text-gray-600 uppercase whitespace-nowrap">
+          <span
+            className="font-mono text-[9px] tracking-[0.35em]
+                          text-gray-400 dark:text-gray-600 uppercase whitespace-nowrap"
+          >
             Stack tecnológico
           </span>
           <div className="h-px w-12 bg-defensya-blue/30" />
         </div>
 
         {/* ── Capacidades grid ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-3
                         border-t border-l
-                        border-gray-100 dark:border-white/[0.07]">
+                        border-gray-100 dark:border-white/[0.07]"
+        >
           {capacidades.map((cap, i) => (
             <div
               key={i}
@@ -159,18 +179,24 @@ export default function Capacidades() {
                          transition-colors duration-200"
             >
               {/* Left accent bar */}
-              <span className="pointer-events-none absolute left-0 top-0 bottom-0 w-[2px]
+              <span
+                className="pointer-events-none absolute left-0 top-0 bottom-0 w-[2px]
                               bg-defensya-blue scale-y-0 group-hover:scale-y-100
-                              transition-transform duration-300 origin-top" />
+                              transition-transform duration-300 origin-top"
+              />
 
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300
+              <span
+                className="text-sm font-medium text-gray-700 dark:text-gray-300
                              group-hover:text-gray-900 dark:group-hover:text-white
-                             transition-colors duration-200">
+                             transition-colors duration-200"
+              >
                 {cap}
               </span>
 
-              <span className="font-mono text-[10px] text-gray-300 dark:text-white/20
-                             group-hover:text-defensya-blue transition-colors duration-200">
+              <span
+                className="font-mono text-[10px] text-gray-300 dark:text-white/20
+                             group-hover:text-defensya-blue transition-colors duration-200"
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
@@ -180,8 +206,10 @@ export default function Capacidades() {
         {/* ── Bottom meta ── */}
         <div className="mt-12 flex items-center gap-4">
           <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.04]" />
-          <span className="font-mono text-[10px] tracking-[0.3em]
-                          text-gray-400 dark:text-gray-700 uppercase">
+          <span
+            className="font-mono text-[10px] tracking-[0.3em]
+                          text-gray-400 dark:text-gray-700 uppercase"
+          >
             Defensya · Ingeniería de Defensa
           </span>
           <div className="h-px w-12 bg-defensya-blue/30" />
