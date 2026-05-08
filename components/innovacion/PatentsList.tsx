@@ -173,7 +173,7 @@ function PatentRow({
 
       {/* Patent ID — hidden on mobile, visible on sm+ */}
       <span
-        className="relative hidden sm:block shrink-0 text-[10px] font-mono
+        className="relative hidden sm:block shrink-0 text-[11px] font-mono
           tracking-[0.18em] text-gray-300 dark:text-white/20 uppercase
           group-hover:text-defensya-blue/50 transition-colors duration-300 w-32"
       >
@@ -253,7 +253,7 @@ export default function PatentsList() {
                 tracking-tight text-gray-900 dark:text-white uppercase"
               style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
-              Nuestras
+              Nuestras 
 
               <br />
               <span className="text-defensya-blue">Patentes</span>

@@ -343,16 +343,16 @@ export default function Refueling() {
           </div>
           {/* VENTAJAS OPERATIVAS */}
           <div>
-                           <h3
-                  className="text-2xl lg:text-4xl font-bold uppercase leading-none my-12
+            <h3
+              className="text-2xl lg:text-4xl font-bold uppercase leading-none my-12
                  text-gray-900 dark:text-white"
-                  style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  }}
-                >
-                  Ventajas operativas
-                </h3>
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              }}
+            >
+              Ventajas operativas
+            </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 "Mayor precisión en el contacto con la aeronave receptora.",
@@ -487,7 +487,14 @@ export default function Refueling() {
         <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
-          <SectionHeader title="Niveles de" accent="automatización" onDark />
+          <h2
+            className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white dark:text-white mb-6"
+            style={{
+              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            }}
+          >
+            Niveles de automatización
+          </h2>
 
           {/* Table header */}
           <div
@@ -497,7 +504,7 @@ export default function Refueling() {
             {["Sistema", "Clasificación", "Descripción"].map((h) => (
               <span
                 key={h}
-                className="font-mono text-[9px] tracking-[0.3em] text-gray-700 uppercase"
+                className="font-mono text-[10px] tracking-[0.3em] text-gray-500 uppercase"
               >
                 {h}
               </span>
@@ -519,7 +526,7 @@ export default function Refueling() {
             <div
               key={item.name}
               className="group relative flex flex-col sm:grid sm:grid-cols-[180px_220px_1fr]
-                            gap-3 sm:gap-6 lg:gap-8 items-start
+                            gap-3 sm:gap-6 lg:gap-8 items-center
                             py-7 px-5 -mx-5 border-b border-white/[0.07]
                             hover:bg-white/[0.03] transition-all duration-200"
             >
@@ -541,14 +548,14 @@ export default function Refueling() {
               </span>
 
               <span
-                className="hidden sm:block font-mono text-[10px] tracking-[0.2em]
-                             text-defensya-blue uppercase self-center"
+                className="hidden sm:block font-mono text-[11px] tracking-[0.2em]
+                             text-defensya-steel uppercase self-center"
               >
                 {item.tag}
               </span>
 
               <p
-                className="text-sm text-gray-400 leading-relaxed
+                className="text-md text-gray-400 leading-relaxed
                            group-hover:text-gray-300 transition-colors duration-300"
               >
                 {item.desc}
@@ -559,22 +566,25 @@ export default function Refueling() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          §4 VENTAJAS — LIGHT bg-white / dark:bg-defensya-navy
-      ══════════════════════════════════════════════════════════ */}
-
-      {/* ══════════════════════════════════════════════════════════
           §5 TECNOLOGÍAS CLAVE — DARK bg-defensya-navy
       ══════════════════════════════════════════════════════════ */}
       <section className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy">
         <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
-          <SectionHeader title="Tecnologías" accent="clave" onDark />
+        <h2
+            className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white dark:text-white mb-6"
+            style={{
+              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            }}
+          >
+            Tenologías Claves
+          </h2>
 
           {/* ── Boomerang — text row ── */}
           <div
             className="group relative flex flex-col sm:grid sm:grid-cols-[200px_220px_1fr]
-                          gap-3 sm:gap-6 lg:gap-8 items-start
+                          gap-3 sm:gap-6 lg:gap-8 items-center
                           py-7 px-5 -mx-5 border-y border-white/[0.07]
                           hover:bg-white/[0.03] transition-all duration-200 mb-4"
           >
@@ -595,14 +605,14 @@ export default function Refueling() {
             </span>
 
             <span
-              className="hidden sm:block font-mono text-[10px] tracking-[0.2em]
-                           text-defensya-blue uppercase self-center"
+              className="hidden sm:block font-mono text-[11px] tracking-[0.2em]
+                           text-defensya-steel uppercase self-center"
             >
               Precision Receptacle Location
             </span>
 
             <p
-              className="text-sm text-gray-400 leading-relaxed
+              className="text-md text-gray-400 leading-relaxed
                          group-hover:text-gray-300 transition-colors duration-300"
             >
               Tecnología diseñada para mejorar la precisión en la localización
@@ -623,7 +633,7 @@ export default function Refueling() {
             {/* Background image */}
             <div className="absolute inset-0">
               <Image
-                src="/products/haptix2.webp"
+                src="/products/haptix1.webp"
                 alt="Haptix® Control System"
                 fill
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"

@@ -167,9 +167,11 @@ export default function Sostenibilidad() {
           <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-center">
             <div>
               <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
-              Trabajamos <br /> por un Futuro
-                
-                <span className="dark:text-blue-300 text-defensya-blue">  Sostenible</span>
+                Trabajamos <br /> por un Futuro
+                <span className="dark:text-blue-300 text-defensya-blue">
+                  {" "}
+                  Sostenible
+                </span>
               </h1>
             </div>
 
@@ -211,7 +213,6 @@ export default function Sostenibilidad() {
           </div>
         </div>
       </section>
-
 
       {/* ══ OBJETIVOS ════ */}
       <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
