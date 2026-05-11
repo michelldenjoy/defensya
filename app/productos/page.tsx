@@ -442,32 +442,32 @@ function ProductModal({
 
               <div className="p-8 lg:p-12 flex flex-col max-h-[70vh] overflow-y-auto scrollbar-hide">
                 <header className="mb-8">
-                  <p className="font-mono text-[9px] tracking-widest text-defensya-blue/60 uppercase mb-3">
+                  <p className="font-mono text-[9px] tracking-widest text-blue-300 uppercase mb-3">
                     {producto.categoria} / Especificaciones
                   </p>
                   <h2 className="text-4xl lg:text-5xl font-bold font-display italic uppercase tracking-tighter text-white leading-none mb-4">
                     {producto.nombre}
                   </h2>
-                  <p className="text-md text-white/70 leading-relaxed font-mono">
+                  <p className="text-md text-white/70  leading-relaxed font-mono">
                     {producto.descripcion}
                   </p>
                 </header>
 
                 <div>
-                  <h4 className="flex items-center gap-2 text-[9px] font-mono font-bold text-defensya-blue uppercase tracking-[0.35em] mb-4">
+                  <h4 className="flex items-center  gap-2 text-[9px] font-mono font-bold text-blue-300 uppercase tracking-[0.35em] mb-4">
                     
                     Parámetros de sistema
                   </h4>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1.5 ">
                     {producto.detalles.map((detalle, idx) => (
                       <li
                         key={idx}
                         className="flex gap-3 p-3 bg-white/[0.03] border border-white/5 hover:border-defensya-blue/20 hover:bg-white/[0.05] transition-all group/item"
                       >
-                        <span className="font-mono text-[9px] text-defensya-blue mt-0.5 shrink-0 group-hover/item:text-defensya-blue transition-colors">
+                        <span className="font-mono text-[9px] text-gray-500 mt-1 shrink-0 group-hover/item:text-defensya-blue transition-colors">
                           {pad(idx + 1)}
                         </span>
-                        <span className="text-sm text-white/70 group-hover/item:text-white/65 transition-colors font-mono leading-relaxed">
+                        <span className="text-sm  text-white/70 group-hover/item:text-white/65 transition-colors font-mono leading-relaxed">
                           {detalle}
                         </span>
                       </li>

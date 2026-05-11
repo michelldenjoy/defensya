@@ -54,7 +54,7 @@ export default function ProductModal({
             className="absolute inset-0 bg-[#050609]/95 backdrop-blur-md"
           />
 
-          {/* Contenedor Principal */}
+          {/* Contenedor Principal parámetros */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

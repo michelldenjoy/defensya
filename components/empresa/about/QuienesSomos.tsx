@@ -240,7 +240,7 @@ const QuienesSomos = () => {
       </section>
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-32 px-6 lg:px-16 bg-gray-50 dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative py-32 px-6 lg:px-16 bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
@@ -249,7 +249,7 @@ const QuienesSomos = () => {
           <div className="flex items-end justify-between mb-16 gap-8 flex-wrap">
             <div>
               <h2
-                className="
+                className=" text-white
       font-bold uppercase leading-[0.9] tracking-[-0.02em]
       text-[2.5rem]
       md:text-[3.5rem]
@@ -327,7 +327,7 @@ const QuienesSomos = () => {
 
                 {/* Tag pill */}
                 <div className="absolute top-5 left-5">
-                  <span className="text-[10px] font-mono tracking-[0.3em] text-[#0ea5e9] border border-[#0ea5e9]/40 px-2 py-1 uppercase">
+                  <span className="text-[10px] font-mono tracking-[0.3em] text-blue-300 border border-blue-300/40 px-2 py-1 uppercase">
                     {item.tag}
                   </span>
                 </div>
@@ -335,7 +335,7 @@ const QuienesSomos = () => {
                 {/* Content */}
                 <div className="absolute inset-0 p-7 flex flex-col justify-end group-hover:justify-center transition-all duration-500">
                   {/* Number label */}
-                  <span className="text-[11px] text-center font-mono tracking-[0.3em] text-[#0ea5e9] mb-3">
+                  <span className="text-[11px] text-center font-mono tracking-[0.3em] text-blue-300 mb-3">
                     {item.num} <span className="text-gray-300">{item.tag}</span>
                   </span>
 
@@ -467,7 +467,7 @@ const QuienesSomos = () => {
                 ].map((c, i) => (
                   <span
                     key={i}
-                    className={`absolute w-5 h-5 border-[#0ea5e9]/60 ${c}`}
+                    className={`absolute w-5 h-5 border-defensya-steel ${c}`}
                   />
                 ))}
 
@@ -510,7 +510,7 @@ const QuienesSomos = () => {
                     className="flex gap-0 border-b border-[#0ea5e9]/10 last:border-b-0 group/row hover:bg-[#0ea5e9]/5 transition-colors duration-200"
                   >
                     <div className="w-36 shrink-0 px-4 py-3.5 border-r border-[#0ea5e9]/10">
-                      <span className="text-[10px] font-mono tracking-[0.25em] text-[#0ea5e9] uppercase">
+                      <span className="text-[10px] font-mono tracking-[0.25em] text-defensya-steel uppercase">
                         {k}
                       </span>
                     </div>

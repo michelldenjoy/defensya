@@ -66,7 +66,7 @@ export default function Certificaciones() {
               Certificacion Oficial
             </p> */}
             <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase
+              className="text-[clamp(2rem,4vw,6.5rem)] font-bold uppercase
                          leading-none tracking-tight text-gray-900 dark:text-white"
               style={{
                 fontFamily:

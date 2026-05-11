@@ -401,7 +401,11 @@ export default function Timeline() {
               Nuestra Trayectoria
             </p>
             <h2
-              className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-none
+              className="      text-[1.5rem]
+      sm:text-[2rem]
+      md:text-[2.6rem]
+      lg:text-[3.2rem]
+      xl:text-[3.5rem] font-bold uppercase leading-none
                 tracking-tight text-gray-900 dark:text-white"
               style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >

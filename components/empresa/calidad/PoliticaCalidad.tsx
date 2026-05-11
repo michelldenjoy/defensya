@@ -296,13 +296,21 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div className="lg:pt-1">
-              <SectionTagg> Declaración</SectionTagg>
+            <h2
+                className="text-2xl lg:text-4xl font-bold uppercase leading-tight text-black"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                }}
+              >
+                Declaración
+                
+              </h2>
               <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500 leading-relaxed mt-3">
                 Texto oficial del sistema de gestión de calidad de Defensya
                 Ingeniería Internacional.
               </p>
 
-              <div className="hidden lg:block w-px h-24 bg-gray-200 dark:bg-white/[0.07] mt-6 ml-px" />
             </div>
 
             <div className="space-y-0 border-t border-gray-200 dark:border-white/[0.07]">
@@ -387,7 +395,7 @@ export default function PoliticaCalidad() {
             <div>
               <SectionTag>Marco Estratégico</SectionTag>
               <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white"
+                className="text-2xl lg:text-4xl font-bold uppercase leading-tight text-white"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
