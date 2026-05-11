@@ -13,40 +13,58 @@ const capabilities = [
     label: "CAP_01",
     title: "Ingeniería de Sistemas de Misión",
     description:
-      "Diseñamos y optimizamos arquitecturas complejas para plataformas aéreas y espaciales, garantizando que cada componente opere en perfecta armonía bajo las condiciones más extremas.",
+      "Diseñamos arquitecturas críticas para plataformas aéreas, espaciales y autónomas, integrando subsistemas electrónicos, software y comunicaciones de alta confiabilidad.",
   },
+
   {
     id: 2,
     label: "CAP_02",
-    title: "Inteligencia y Percepción Avanzada",
+    title: "Electrónica y Sistemas Embebidos",
     description:
-      "Somos especialistas en visión artificial aplicada, permitiendo que los sistemas autónomos e instrumentales interpreten su entorno con precisión quirúrgica y en tiempo real.",
+      "Desarrollamos hardware especializado, firmware y sistemas en tiempo real optimizados para operar bajo condiciones exigentes y entornos de misión crítica.",
   },
+
   {
     id: 3,
     label: "CAP_03",
-    title: "Desarrollo de Software Crítico",
+    title: "Percepción Inteligente y Visión Computacional",
     description:
-      "Creamos el sistema nervioso de la tecnología moderna. Nuestro software está diseñado bajo estándares de seguridad donde el margen de error es inexistente.",
+      "Implementamos sistemas de visión artificial y fusión sensorial capaces de interpretar entornos complejos en tiempo real con alta precisión operativa.",
   },
+
   {
     id: 4,
     label: "CAP_04",
-    title: "Consultoría e Integración Tecnológica",
+    title: "Inteligencia Artificial Aplicada",
     description:
-      "Acompañamos a nuestros clientes en la modernización de sus flotas, integrando tecnologías disruptivas en estructuras existentes para elevar sus capacidades tácticas.",
+      "Aplicamos modelos avanzados de inteligencia artificial y aprendizaje automático para automatización, análisis predictivo y autonomía operativa.",
+  },
+
+  {
+    id: 5,
+    label: "CAP_05",
+    title: "Procesamiento de Señal y Datos Seguros",
+    description:
+      "Desarrollamos pipelines robustos para adquisición, procesamiento y protección de datos sensibles en sistemas distribuidos y plataformas críticas.",
+  },
+
+  {
+    id: 6,
+    label: "CAP_06",
+    title: "Integración y Modernización Tecnológica",
+    description:
+      "Integramos tecnologías avanzadas en infraestructuras existentes, acelerando capacidades operacionales y procesos de transformación tecnológica.",
   },
 ];
 
-
 const capacidades = [
-    "Diseño Electrónico",
-    "Sistemas Embebidos",
-    "Procesamiento de Señal",
-    "Sistemas de Visión",
-    "IA y Aprendizaje Automático",
-    "Sistemas de Datos Seguros",
-  ];
+  "Diseño Electrónico",
+  "Sistemas Embebidos",
+  "Procesamiento de Señal",
+  "Sistemas de Visión",
+  "IA y Aprendizaje Automático",
+  "Sistemas de Datos Seguros",
+];
 
 // ─── Corner Brackets ──────────────────────────────────────────────────────────
 
@@ -136,11 +154,6 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
           }}
         />
 
-        {/* Label */}
-        <p className="font-mono text-[9px] tracking-[0.3em] text-defensya-blue uppercase mb-3">
-          {cap.label}
-        </p>
-
         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
           {cap.description}
         </p>
@@ -190,31 +203,8 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         />
 
         {/* Ghost number */}
-        <span
-          className={`pointer-events-none absolute top-2 right-3 font-mono font-black
-                      select-none transition-colors duration-500
-                      ${
-                        hovered
-                          ? "text-defensya-blue/[0.10]"
-                          : "text-black/[0.04] dark:text-white/[0.04]"
-                      }`}
-          style={{ fontSize: "3.5rem", lineHeight: 1 }}
-        >
-          {cap.id.toString().padStart(2, "0")}
-        </span>
 
         {/* Label pill */}
-        <span
-          className={`inline-flex mb-5 font-mono text-[10px] tracking-[0.25em]
-                      border px-2 py-[3px] uppercase transition-colors duration-300
-                      ${
-                        hovered
-                          ? "text-defensya-blue border-defensya-blue/40"
-                          : "text-gray-400 dark:text-gray-600 border-gray-200 dark:border-white/[0.10]"
-                      }`}
-        >
-          {cap.label}
-        </span>
 
         {/* Title */}
         <h3
@@ -260,7 +250,7 @@ export default function CapabilityCards() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* ── Header ── */}
-        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-end mb-20">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center mb-20">
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="w-6 h-px bg-defensya-blue" />
@@ -284,8 +274,8 @@ export default function CapabilityCards() {
           </div>
 
           <p
-            className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-sm border-l-2 border-defensya-blue/30 pl-5 self-end mb-1"
+            className="text-sm md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1"
           >
             Transformamos desafíos complejos en soluciones tecnológicas fiables.
             Un centro de innovación dedicado a fortalecer la infraestructura
@@ -296,69 +286,27 @@ export default function CapabilityCards() {
         {/* ── Capabilities label row ── */}
         <div className="flex items-center gap-4 mb-8">
           <span
-            className="font-mono text-[9px] tracking-[0.35em]
+            className="font-mono text-[11px] tracking-[0.35em]
                           text-gray-400 dark:text-gray-600 uppercase whitespace-nowrap"
           >
             Capacidades Operativas
           </span>
-          <div className="flex-1 h-px bg-gray-100 dark:bg-white/[0.06]" />
-          <span className="font-mono text-[10px] text-defensya-blue">
-            {String(capabilities.length).padStart(2, "0")} servicios
-          </span>
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}
         </div>
-        <div
-          className="grid sm:grid-cols-2 lg:grid-cols-3
-                        border-t border-l
-                        border-gray-100 dark:border-white/[0.07]"
-        >
-          {capacidades.map((cap, i) => (
-            <div
-              key={i}
-              className="group relative flex items-center justify-between
-                         border-b border-r
-                         border-gray-100 dark:border-white/[0.07]
-                         px-6 py-5
-                         hover:bg-gray-50 dark:hover:bg-white/[0.03]
-                         transition-colors duration-200"
-            >
-              {/* Left accent bar */}
-              <span
-                className="pointer-events-none absolute left-0 top-0 bottom-0 w-[2px]
-                              bg-defensya-blue scale-y-0 group-hover:scale-y-100
-                              transition-transform duration-300 origin-top"
-              />
 
-              <span
-                className="text-sm font-medium text-gray-700 dark:text-gray-300
-                             group-hover:text-gray-900 dark:group-hover:text-white
-                             transition-colors duration-200"
-              >
-                {cap}
-              </span>
-
-              <span
-                className="font-mono text-[10px] text-gray-300 dark:text-white/20
-                             group-hover:text-defensya-blue transition-colors duration-200"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-            </div>
-          ))}
-        </div>
 
         {/* ── Divider ── */}
-        <div className="flex items-center gap-4 mb-12">
-          <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.06]" />
+        <div className="flex items-center gap-4 my-8">
+          <div className="h-px flex-1  bg-gray-200 dark:bg-white/[0.06]" />
           <span
             className="font-mono text-[9px] tracking-[0.35em]
-                          text-gray-400 dark:text-gray-600 uppercase"
+                          text-gray-400 dark:text-gray-500 uppercase"
           >
             Commitment
           </span>
@@ -368,7 +316,7 @@ export default function CapabilityCards() {
         {/* ── Commitment block ── */}
         <div
           className="relative p-8 sm:p-10 lg:p-14
-                     bg-slate-200/70 dark:bg-white/[0.02]
+                     bg-slate-200/70  dark:bg-white/[0.02]
                      border border-gray-100 dark:border-white/[0.07]"
           style={{
             clipPath:
@@ -405,7 +353,7 @@ export default function CapabilityCards() {
             DSY
           </span>
 
-          <p className="font-mono text-[14px] md:text-[20px] tracking-[0.3em] text-defensya-navy font-semibold uppercase mb-5">
+          <p className="font-mono text-[14px] md:text-[16px] tracking-[0.3em] text-defensya-navy dark:text-white font-semibold uppercase mb-5">
             Nuestro Compromiso
           </p>
 
@@ -429,11 +377,11 @@ export default function CapabilityCards() {
             <div className="h-px w-12 bg-defensya-blue/30" />
             <span
               className="font-mono text-[10px] tracking-[0.3em]
-                            text-gray-400 dark:text-gray-600 uppercase"
+                            text-gray-500 dark:text-gray-600 uppercase"
             >
               Defensya · Ingeniería Internacional
             </span>
-            <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.04]" />
+            <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.04]" />
           </div>
         </div>
       </div>
