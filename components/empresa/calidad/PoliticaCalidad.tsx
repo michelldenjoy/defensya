@@ -182,20 +182,20 @@ export default function PoliticaCalidad() {
 
   return (
     <main
-      className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
+      className="w-full bg-white dark:bg-defensya-navy  text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       {/* ══ HERO ═════ */}
       <section className="grid lg:grid-cols-[1fr_auto]  gap-10 items-end my-20">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl ">
 
-          <div className="grid lg:grid-cols-[1fr_40%] gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_40%] gap-12  lg:gap-20 items-center">
             <div>
               <h1
-                className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold
+                className="text-[clamp(2.8rem,7vw,6rem)] mx-8 md:mx-18 lg:mx-22 font-display font-bold
                          leading-[0.95] tracking-tight uppercase"
               >
-                Garantía de Operatividad en 
+                Garantía en 
                 <br />
                 <span className="text-defensya-blue dark:text-white">
                   {" "}
