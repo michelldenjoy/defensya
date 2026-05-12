@@ -27,7 +27,7 @@ const Footer = () => {
                <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
                 DEFENSYA
               </h2>
-              <span className="text-[10px] font-mono text-defensya-sky tracking-[0.3em] uppercase opacity-70">
+              <span className="text-[10px] font-mono text-blue-300 tracking-[0.3em] uppercase opacity-70">
                 Aerospace & Defense Systems
               </span>
             </div>
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* COLUMNA 2: EXPLORAR */}
           <div>
-            <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-defensya-sky pl-3">
+            <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-blue-200 pl-3">
               Compañía
             </h3>
             <ul className="space-y-4 text-slate-400 text-sm">
@@ -67,9 +67,9 @@ const Footer = () => {
               Sectores
             </h3>
             <ul className="space-y-4">
-              {['Aeronáutica', 'Defensa', 'Óptica Avanzada', 'Sanidad'].map((sector) => (
+              {['Aeronáutica', 'Defensa', 'Electrónica', 'Imagen & Video'].map((sector) => (
                 <li key={sector} className="flex items-center gap-3 font-mono text-[10px] text-slate-500 uppercase tracking-widest">
-                  <span className="w-1 h-1 bg-defensya-sky shadow-[0_0_8px_rgba(0,149,218,0.6)]" /> {sector}
+                  <span className="w-1 h-1 bg-blue-300 shadow-[0_0_8px_rgba(0,149,218,0.6)]" /> {sector}
                 </li>
               ))}
             </ul>
@@ -85,7 +85,7 @@ const Footer = () => {
                 Sectores Ingeniería I+D+i<br />
                 Centro de Operaciones Tácticas
               </p>
-              <a href="mailto:info@defensya.com" className="block text-defensya-sky font-mono text-sm hover:text-white transition-colors underline underline-offset-8 decoration-defensya-sky/30">
+              <a href="mailto:info@defensya.com" className="block text-blue-300 font-mono text-sm hover:text-white transition-colors underline underline-offset-8 decoration-defensya-sky/30">
                 info@defensya.com
               </a>
 
@@ -96,7 +96,7 @@ const Footer = () => {
         {/* BOTTOM BAR */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col gap-1">
-            <p className="text-slate-500 text-[10px] tracking-[0.2em] uppercase font-mono">
+            <p className="text-blue-300 text-[10px] tracking-[0.2em] uppercase font-mono">
               © {new Date().getFullYear()} DEFENSYA INGENIERIA INTERNACIONAL.
             </p>
 

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import React, { useState } from "react";
 
@@ -66,7 +67,6 @@ const capacidades = [
   "Sistemas de Datos Seguros",
 ];
 
-
 function Corners({
   size = 14,
   onDark = false,
@@ -115,7 +115,6 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      
       <div
         className={`
           absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
@@ -201,7 +200,6 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
           }}
         />
 
-
         {/* Title */}
         <h3
           className={`text-base font-bold uppercase leading-snug tracking-wide
@@ -248,10 +246,7 @@ export default function CapabilityCards() {
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center mb-20">
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              
-
-            </div>
+            <div className="flex items-center gap-3 mb-5"></div>
             <h2
               className="font-bold uppercase leading-[0.9] tracking-tight
                          text-gray-900 dark:text-white"
@@ -269,7 +264,7 @@ export default function CapabilityCards() {
 
           <p
             className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1"
+                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end"
           >
             Transformamos desafíos complejos en soluciones tecnológicas fiables.
             Un centro de innovación dedicado a fortalecer la infraestructura
@@ -288,15 +283,14 @@ export default function CapabilityCards() {
         </div> */}
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3  mb-6">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}
         </div>
 
-
         {/* ── Divider ── */}
-        <div className="flex items-center gap-4 my-8">
+        <div className="flex  items-center gap-4 my-8">
           <div className="h-px flex-1  bg-gray-200 dark:bg-white/[0.06]" />
           <span
             className="font-mono text-[9px] tracking-[0.35em]
@@ -319,25 +313,6 @@ export default function CapabilityCards() {
         >
           <Corners size={18} />
 
-          {/* Diagonal accent */}
-          <svg
-            className="absolute top-0 right-0 pointer-events-none"
-            width="44"
-            height="44"
-            viewBox="0 0 44 44"
-            fill="none"
-          >
-            <line
-              x1="0"
-              y1="30"
-              x2="30"
-              y2="0"
-              stroke="#0ea5e9"
-              strokeWidth="1"
-              strokeOpacity="0.4"
-            />
-          </svg>
-
           {/* Ghost label */}
           <span
             className="pointer-events-none absolute bottom-3 right-6 font-mono
@@ -347,23 +322,27 @@ export default function CapabilityCards() {
             DSY
           </span>
 
-          <p className="font-mono text-[14px] md:text-[16px] tracking-[0.3em] text-defensya-navy dark:text-white font-semibold uppercase mb-5">
+          <p className="font-mono  text-[14px] md:text-[16px] tracking-[0.3em] text-defensya-navy dark:text-white font-semibold uppercase mb-5">
             Nuestro Compromiso
           </p>
 
-          <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-3xl">
+          <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-6xl">
             No solo fabricamos tecnología;{" "}
             <span className="text-gray-900 dark:text-gray-200 font-medium">
-              entregamos la confianza necesaria para que organizaciones globales
-              operen en la vanguardia del sector.
+              entregamos la fiabilidad operativa necesaria para que
+              organizaciones globales operen en entornos críticos.
             </span>{" "}
             En{" "}
             <span className="text-defensya-blue font-semibold">Defensya</span>,
-            la innovación no es un objetivo,{" "}
-            <span className="text-gray-900 dark:text-gray-200 font-medium">
-              es el motor con el que impulsamos el futuro de la exploración y la
-              seguridad internacional.
-            </span>
+            la excelencia técnica se rige por{" "}
+            <Link
+              href="/empresa/calidad-certificacion"
+              className="text-defensya-blue font-medium underline underline-offset-4 hover:text-blue-400 transition-colors"
+            >
+              estándares de calidad internacionales
+            </Link>
+            , garantizando la seguridad en el futuro de la exploración y la
+            defensa global.
           </p>
 
           {/* Bottom meta */}

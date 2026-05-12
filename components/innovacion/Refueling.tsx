@@ -568,7 +568,7 @@ export default function Refueling() {
       {/* ══════════════════════════════════════════════════════════
           §5 TECNOLOGÍAS CLAVE — DARK bg-defensya-navy
       ══════════════════════════════════════════════════════════ */}
-      <section className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy">
+      <section className="relative px-6 lg:px-16 py-28 overflow-hidden bg-[#060d18]">
         <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">

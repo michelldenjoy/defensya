@@ -72,10 +72,10 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
 
 export default function TecnologiasSection() {
   return (
-    <section className="relative py-10 px-6 lg:px-16 overflow-hidden bg-defensya-navy">
+    <section className="relative py-20 px-6 lg:px-16 overflow-hidden bg-[#060d18]">
       <div className="tech-grid absolute inset-0 opacity-50 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-[99rem] mx-auto relative">
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center md:mb-15">
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
@@ -87,11 +87,11 @@ export default function TecnologiasSection() {
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
                 }}
               >
-                Impulsamos el futuro del repostaje en vuelo
+                Impulsamos el futuro <br /> del  repostaje en vuelo
               </h2>
             </div>
 
-            <p className="text-sm md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
                        max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1">
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
               aéreo automatizado, desde la percepción hasta el control háptico
