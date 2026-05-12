@@ -268,7 +268,7 @@ export default function HaptixPage() {
 
             {/* Descriptor */}
             <p
-              className="text-sm text-gray-400 leading-relaxed max-w-sm mb-12
+              className="text-md text-gray-400 leading-relaxed max-w-sm mb-12
                          border-l-2 border-defensya-blue/30 pl-5"
             >
               En entornos cambiantes, la complejidad operativa escala
@@ -425,10 +425,10 @@ export default function HaptixPage() {
               eyebrow="Contexto"
               title="El problema"
               accent="y la solución"
-              tag="HX-01"
+              tag=""
             />
             <p
-              className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed
+              className="text-md text-gray-500 dark:text-gray-400 leading-relaxed
                          border-l-2 border-defensya-blue/30 pl-5 mb-14"
             >
               Históricamente, el reabastecimiento en vuelo ha saturado las dos
@@ -446,7 +446,7 @@ export default function HaptixPage() {
               viewport={{ once: true, margin: "-80px" }}
               className="relative overflow-hidden p-8 lg:p-10 flex flex-col gap-7
                          bg-gray-50 dark:bg-white/[0.02]
-                         border border-gray-100 dark:border-white/[0.06] group"
+                         border border-red-200 dark:border-white/[0.06] group"
               style={{
                 clipPath:
                   "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
@@ -466,7 +466,7 @@ export default function HaptixPage() {
               <div className="flex items-center gap-3">
                 <span
                   className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.25em]
-                                border border-red-400/30 text-red-400 px-2 py-[3px] uppercase"
+                                border border-red-400/20 text-red-400/70 px-2 py-[3px] uppercase"
                 >
                   <span className="w-1 h-1 rounded-full bg-red-400" />
                   Control Tradicional
@@ -486,15 +486,15 @@ export default function HaptixPage() {
 
               <div className="h-px w-8 bg-red-400/40 group-hover:w-full transition-all duration-500" />
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                Históricamente, el reabastecimiento se ha basado en dos
+              <p className="text-md  text-gray-500 dark:text-gray-400 leading-relaxed">
+                Desde sus inicios, el reabastecimiento se ha basado en dos
                 joysticks: uno para el alabeo/cabeceo y otro para la extensión
                 del botalón. Esto satura ambas manos del Boomer, impidiéndole
                 gestionar otras funciones críticas sin soltar los mandos.
               </p>
 
               <div className="mt-auto p-5 bg-red-500/[0.05] border-l-2 border-red-500/40">
-                <p className="text-sm italic text-gray-500 dark:text-red-200/70 leading-relaxed">
+                <p className="text-md italic text-gray-500 dark:text-red-200/70 leading-relaxed">
                   "Los joysticks no intuitivos de la vieja escuela generan mayor
                   propensión al error humano y fatiga en misiones prolongadas."
                 </p>
@@ -509,7 +509,7 @@ export default function HaptixPage() {
               transition={{ delay: 0.12 }}
               className="relative overflow-hidden p-8 lg:p-10 flex flex-col gap-7
                          bg-gray-50 dark:bg-white/[0.02]
-                         border border-gray-100 dark:border-white/[0.06] group"
+                         border border-defensya-blue/20 dark:border-white/[0.06] group"
               style={{
                 clipPath:
                   "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
@@ -552,7 +552,7 @@ export default function HaptixPage() {
 
               <div className="h-px w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500" />
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 Con Haptix, solo se requiere{" "}
                 <strong className="text-gray-900 dark:text-white">
                   una mano
@@ -572,7 +572,7 @@ export default function HaptixPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300"
+                    className="flex items-start gap-3 text-md text-gray-600 dark:text-gray-300"
                   >
                     <span className="shrink-0 mt-[5px] w-1.5 h-1.5 bg-defensya-blue" />
                     {item}
@@ -597,10 +597,10 @@ export default function HaptixPage() {
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-6">
             <SectionHeader
-              eyebrow="Hardware"
+              eyebrow=""
               title="Interacción"
               accent="a escala real"
-              tag="HX-02"
+              tag=""
               onDark
             />
             <p className="text-md text-gray-400 leading-relaxed border-l-2 border-defensya-blue/30 pl-5 mb-14">
@@ -829,10 +829,10 @@ export default function HaptixPage() {
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16">
             <SectionHeader
-              eyebrow="Specs"
+              eyebrow=""
               title="Especificaciones"
               accent="Técnicas"
-              tag="HX-05"
+              tag=""
             />
             <p
               className="text-md text-gray-500 dark:text-gray-400 leading-relaxed
@@ -864,7 +864,7 @@ export default function HaptixPage() {
                 {/* Section title */}
                 <div className="px-7 pt-8 pb-4 border-b border-gray-100 dark:border-white/[0.07]">
                   <span
-                    className="font-mono text-[10px] tracking-[0.3em]
+                    className="font-mono text-[12px] tracking-[0.3em]
                                   text-gray-500 dark:text-gray-500 uppercase"
                   >
                     {sec.titulo}

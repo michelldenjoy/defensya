@@ -66,7 +66,6 @@ const capacidades = [
   "Sistemas de Datos Seguros",
 ];
 
-// ─── Corner Brackets ──────────────────────────────────────────────────────────
 
 function Corners({
   size = 14,
@@ -85,8 +84,8 @@ function Corners({
           left: 10,
           width: size,
           height: size,
-          borderTop: "1.5px solid #0ea5e9",
-          borderLeft: "1.5px solid #0ea5e9",
+          borderTop: "2.5px solid rgba(36, 38, 184, 1)",
+          borderLeft: "2.5px solid rgba(36, 38, 184, 1)",
         }}
       />
 
@@ -97,8 +96,8 @@ function Corners({
           right: 10,
           width: size,
           height: size,
-          borderBottom: "1.5px solid rgba(14,165,233,0.45)",
-          borderRight: "1.5px solid rgba(14,165,233,0.45)",
+          borderBottom: "2.5px solid rgba(36, 38, 184, 1)",
+          borderRight: "2.5px solid rgba(36, 38, 184, 1)",
         }}
       />
     </>
@@ -116,7 +115,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* ── Tooltip popup ── */}
+      
       <div
         className={`
           absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
@@ -141,16 +140,16 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         <span
           className="absolute top-0 left-0 w-4 h-4"
           style={{
-            borderTop: "1.5px solid #0ea5e9",
-            borderLeft: "1.5px solid #0ea5e9",
+            borderTop: "2px solid #27389c",
+            borderLeft: "2px solid #27389c",
           }}
         />
         {/* BR bracket */}
         <span
           className="absolute bottom-0 right-0 w-4 h-4"
           style={{
-            borderBottom: "1.5px solid rgba(14,165,233,0.4)",
-            borderRight: "1.5px solid rgba(14,165,233,0.4)",
+            borderBottom: "4.5px solid rgba(36, 38, 184, 1)",
+            borderRight: "4.5px solid rgba(36, 38, 184, 1)",
           }}
         />
 
@@ -202,9 +201,6 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
           }}
         />
 
-        {/* Ghost number */}
-
-        {/* Label pill */}
 
         {/* Title */}
         <h3
@@ -235,7 +231,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
   );
 }
 
-// ─── Main Section ─────────────────────────────────────────────────────────────
+// ─── Main Section  ─────────────────────────────────────────────────────────────
 
 export default function CapabilityCards() {
   return (
@@ -253,10 +249,8 @@ export default function CapabilityCards() {
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center mb-20">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="w-6 h-px bg-defensya-blue" />
-              <span className="font-mono text-[11px] tracking-[0.35em] text-defensya-blue uppercase">
-                Defensya · Ecosistema de Servicios
-              </span>
+              
+
             </div>
             <h2
               className="font-bold uppercase leading-[0.9] tracking-tight
@@ -274,7 +268,7 @@ export default function CapabilityCards() {
           </div>
 
           <p
-            className="text-sm md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+            className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
                        max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1"
           >
             Transformamos desafíos complejos en soluciones tecnológicas fiables.
@@ -284,14 +278,14 @@ export default function CapabilityCards() {
         </div>
 
         {/* ── Capabilities label row ── */}
-        <div className="flex items-center gap-4 mb-8">
+        {/* <div className="flex items-center gap-4 mb-6">
           <span
-            className="font-mono text-[11px] tracking-[0.35em]
-                          text-gray-400 dark:text-gray-600 uppercase whitespace-nowrap"
+            className="font-mono text-sm font-bold tracking-[0.25em]
+                          text-gray-700 dark:text-gray-200 uppercase whitespace-nowrap"
           >
             Capacidades Operativas
           </span>
-        </div>
+        </div> */}
 
         {/* ── Cards grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
