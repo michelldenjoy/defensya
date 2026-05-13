@@ -124,7 +124,7 @@ const Footer = () => {
                     key={sector}
                     className="flex items-center gap-3 font-mono text-[10px] text-slate-500 uppercase tracking-widest"
                   >
-                    <span className="w-1 h-1 bg-blue-300 shadow-[0_0_8px_rgba(0,149,218,0.6)]" />{" "}
+                    <span className="w-1 h-1 bg-blue-300/70 shadow-[0_0_8px_rgba(0,149,218,0.6)]" />{" "}
                     {sector}
                   </li>
                 )
@@ -145,7 +145,7 @@ const Footer = () => {
               </p>
               <a
                 href="mailto:info@defensya.com"
-                className="block text-blue-300 font-mono text-sm hover:text-white transition-colors underline underline-offset-8 decoration-defensya-sky/30"
+                className="block text-gray-100 font-mono text-sm hover:text-white transition-colors hover:underline underline-offset-9 decoration-defensya-sky/30"
               >
                 info@defensya.com
               </a>

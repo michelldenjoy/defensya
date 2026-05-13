@@ -34,7 +34,7 @@ const divisions: Division[] = [
     tag: "SEC-04",
     title: "Electrónica",
     image: "/images/electronica.webp",
-    desc: "Especialistas en el diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos de alta exigencia.",
+    desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos exigentes.",
   },
   {
     num: "04",
@@ -56,7 +56,7 @@ function Corners() {
   );
 }
 
-// ─── Single Card ──────────────────────────────────────────────────────────────
+// ─── Single Card gap ──────────────────────────────────────────────────────────────
 
 function DivisionCard({ item }: { item: Division }) {
   return (
@@ -163,11 +163,11 @@ function DivisionCard({ item }: { item: Division }) {
 export default function Divisiones() {
   return (
     <section
-      className="relative py-20 px-6 lg:px-16 bg-defensya-navy overflow-hidden dark:bg-black/40"
+      className="relative py-20 px-6 bg-defensya-navy overflow-hidden dark:bg-black/40"
     >
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
-      <div className="max-w-[99rem] mx-auto relative">
+      <div className="max-w-[99rem] relative">
         {/* ── Header ── */}
         <div className="my-8 pb-8 text-center">
           <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
@@ -187,7 +187,7 @@ export default function Divisiones() {
         </div>
 
         {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {divisions.map((item) => (
             <DivisionCard key={item.num} item={item} />
           ))}

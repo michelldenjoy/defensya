@@ -75,7 +75,7 @@ function SectionHeader({
         }`}
         style={{
           fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-          fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+          fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)",
         }}
       >
         {title}
@@ -225,7 +225,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
           style={{ borderBottom: "1.5px solid #0ea5e9", borderRight: "1.5px solid #0ea5e9" }}
         />
 
-        <p className="text-sm text-gray-400 leading-relaxed">{profile.desc}</p>
+        <p className="text-sm text-gray-100 leading-relaxed">{profile.desc}</p>
 
         {/* Arrow pointing down */}
         <span
@@ -242,7 +242,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
         className={`relative overflow-hidden cursor-default
                     border transition-all duration-300 px-6 py-7
                     ${hovered
-                      ? "border-defensya-blue/50 bg-defensya-blue/[0.07]"
+                      ? "border-defensya-blue/50  bg-defensya-blue/[0.07]"
                       : "border-white/[0.07] bg-white/[0.02]"
                     }`}
         style={{
@@ -290,7 +290,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
         <h3
           className={`text-base font-bold uppercase leading-snug tracking-wide
                       transition-colors duration-300
-                      ${hovered ? "text-defensya-blue" : "text-gray-200"}`}
+                      ${hovered ? "text-white" : "text-gray-300"}`}
           style={{
             fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
             fontSize: "1.05rem",
@@ -389,7 +389,7 @@ export default function Careers() {
               className="font-bold uppercase leading-[0.88] tracking-tight text-gray-900 dark:text-white"
               style={{
                 fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                fontSize: "clamp(3rem, 7vw, 6rem)",
+                fontSize: "clamp(3rem, 7vw, 5rem)",
               }}
             >
               <span className="text-defensya-blue dark:text-blue-300">Impulsa</span>
@@ -401,7 +401,7 @@ export default function Careers() {
             </h1>
 
             <div className="flex flex-col gap-8">
-              <p className="text-sm text-gray-500 dark:text-gray-300 leading-relaxed border-l-2 border-defensya-blue/30 pl-5">
+              <p className="text-md text-gray-500 dark:text-gray-300 leading-relaxed border-l-2 border-defensya-blue/30 pl-5">
                 En Defensya creemos que nuestro éxito se basa en el talento y la
                 pasión de nuestro equipo. Estamos en busca de profesionales
                 apasionados por la innovación aeroespacial. Únete a la misión de

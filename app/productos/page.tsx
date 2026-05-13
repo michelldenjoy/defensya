@@ -79,7 +79,7 @@ export default function ProductosPage() {
 
       <div className="max-w-screen-2xl mx-4 flex flex-col lg:flex-row relative z-10">
 
-        {/* ── SIDEBAR datos ── */}
+        {/* ── SIDEBAR datos items── */}
         <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy backdrop-blur-md">
           <div className="mb-10">
             <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-steel uppercase mb-2">
@@ -90,7 +90,7 @@ export default function ProductosPage() {
             </p>
           </div>
 
-          <nav className="flex lg:flex-col gap-1  overflow-x-auto  pb-4 lg:pb-0 scrollbar-hide">
+          <nav className="flex lg:flex-col gap-1  overflow-x-auto  pb-4 lg:pb- scrollbar-hide">
             {CATS.map((cat) => {
               const count  = PRODUCTOS.filter(
                 (p) => cat.key === "Todos" || p.categoria === cat.key
@@ -118,9 +118,9 @@ export default function ProductosPage() {
                       ${active ? "text-white" : "text-white/30"}`}>
                       {cat.label}
                     </p>
-                    <p className="text-[8px] font-mono text-white/15 mt-0.5 tracking-[0.4em] uppercase">
+                    {/* <p className="text-[8px] font-mono text-white/15 mt-0.5 tracking-[0.4em] uppercase">
                       {cat.tag}
-                    </p>
+                    </p> */}
                   </div>
                 </button>
               );
@@ -128,7 +128,7 @@ export default function ProductosPage() {
           </nav>
         </aside>
 
-        {/* ── GRID text-black ── */}
+        {/* ── GRID text-black catálogo ── */}
         <main className="flex-1 p-6 lg:p-12">
           <header className="flex items-end justify-between mb-10 pb-6 border-b border-white/5">
             <div>
