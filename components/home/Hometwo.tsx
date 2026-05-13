@@ -53,8 +53,8 @@ export default function Hometwo() {
                 <Image
                   src={item.icon}
                   alt={item.label}
-                  width={35}
-                  height={35}
+                  width={30}
+                  height={30}
                   className="shrink-0 opacity-90 brightness-0 invert" 
                 />
 

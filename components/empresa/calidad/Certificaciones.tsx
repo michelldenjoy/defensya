@@ -58,7 +58,7 @@ export default function Certificaciones() {
     >
       <div className="max-w-7xl mx-auto">
         <div
-          className="grid lg:grid-cols-[1fr_40%] gap-12 items-end
+          className="grid lg:grid-cols-[1fr_40%] gap-12 items-center
                         border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14"
         >
           <div>

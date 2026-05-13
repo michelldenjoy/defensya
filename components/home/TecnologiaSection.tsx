@@ -81,7 +81,7 @@ export default function TecnologiasSection() {
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
             <div className="pr-3">
               <h2
-                className="text-[clamp(1.7rem,4vw,3.5rem)] font-bold uppercase leading-none text-gray-50 tracking-tight"
+                className="text-[clamp(1.7rem,4vw,3rem)] font-bold uppercase leading-none text-gray-50 tracking-tight"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -91,7 +91,7 @@ export default function TecnologiasSection() {
               </h2>
             </div>
 
-            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+            <p className="text-sm md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
                        max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1">
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
               aéreo automatizado, desde la percepción hasta el control háptico

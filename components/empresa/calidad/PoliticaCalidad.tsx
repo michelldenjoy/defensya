@@ -186,29 +186,28 @@ export default function PoliticaCalidad() {
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       {/* ══ HERO ═════ */}
-      <section className="grid lg:grid-cols-[1fr_auto]  gap-10 items-end my-20">
-        <div className="max-w-8xl ">
+      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
 
-          <div className="grid lg:grid-cols-[1fr_40%] gap-12  lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
             <div>
               <h1
-                className="text-[clamp(2.8rem,7vw,6rem)] mx-8 md:mx-18 lg:mx-22 font-display font-bold
-                         leading-[0.95] tracking-tight uppercase"
+                className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase"
               >
                 Garantía en 
                 <br />
-                <span className="text-defensya-blue dark:text-white">
+                <span className="text-defensya-blue dark:text-blue-300">
                   {" "}
                   Entornos Críticos
                 </span>
               </h1>
             </div>
 
-            <div className="flex flex-col gap-6 lg:pt-8">
+            <div className="flex flex-col gap-6 ">
               <div className="inline-flex items-stretch gap-4 border border-gray-200 dark:border-white/8 self-start">
                 <div className="w-1 bg-defensya-blue shrink-0" />
                 <div className="px-4 py-4">
-                  <p className="text-[11px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-1">
+                  <p className="text-[11px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase ">
                     Certificación activa
                   </p>
                   <p

@@ -209,7 +209,7 @@ const QuienesSomos = () => {
           </div> */}
 
           <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
-            <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
+            <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
               Tecnología
               <br />
               Avance
@@ -221,13 +221,13 @@ const QuienesSomos = () => {
             </h1>
 
             <div className="lg:pb-2">
-              <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
                 Defensya es una empresa de base tecnológica orientada a la
                 innovación y el diseño en el desarrollo de soluciones avanzadas.
                 La Investigación y el Desarrollo (I+D) constituyen pilares
                 fundamentales de nuestra actividad.
               </p>
-              <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 Especializados en sistemas de visión, diseñamos y fabricamos
                 soluciones completas: monitores de vídeo, sistemas de gestión de
                 imagen, audio y datos, sistemas de iluminación LED y láser de
@@ -240,13 +240,13 @@ const QuienesSomos = () => {
       </section>
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-32 px-6 lg:px-16 bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative py-32 px-6 lg:px-16  bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
-        <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
+        <div className="tech-grid  absolute inset-0 opacity-60 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
           {/* Section header */}
-          <div className="flex items-end justify-between mb-16 gap-8 flex-wrap">
+          <div className="flex items-end justify-center text-center pb-8 my-14 gap-8 flex-wrap">
             <div>
               <h2
                 className=" text-white
@@ -385,12 +385,12 @@ const QuienesSomos = () => {
       </section>
 
       {/* ─────────── LIDERAZGO AVIACIÓN ─────────── */}
-      <section className="relative py-32 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
+      <section className="relative py-25 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
         {/* Tech grid */}
         <div className="tech-grid absolute inset-0 pointer-events-none" />
 
         {/* Radar decoration */}
-        <div
+        {/* <div
           className="absolute -right-48 top-1/2 -translate-y-1/2 w-[600px] h-[600px]  pointer-events-none opacity-90"
           aria-hidden="true"
         >
@@ -407,7 +407,7 @@ const QuienesSomos = () => {
             />
           ))}
           <div className="radar-sweep-line" />
-        </div>
+        </div> */}
 
         {/* Ambient glow */}
         <div
@@ -424,11 +424,11 @@ const QuienesSomos = () => {
             <h2
               className="
       font-bold uppercase mb-4 text-white tracking-[-0.02em]
-      text-[1.5rem]
-      sm:text-[2rem]
-      md:text-[2.6rem]
-      lg:text-[3.2rem]
-      xl:text-[3.5rem]
+      text-[1rem]
+      sm:text-[1.5rem]
+      md:text-[2rem]
+      lg:text-[2.3rem]
+      xl:text-[2.8rem]
     "
               style={{
                 fontFamily:

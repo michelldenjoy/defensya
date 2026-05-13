@@ -396,17 +396,17 @@ export default function Timeline() {
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <div className="mb-20 border-b border-gray-200 dark:border-white/[0.07] pb-10">
+          <div className="mb-20 text-center border-b border-gray-200 dark:border-white/[0.07] pb-10">
             <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
               Nuestra Trayectoria
             </p>
             <h2
-              className="      text-[1.5rem]
-      sm:text-[2rem]
-      md:text-[2.6rem]
-      lg:text-[3.2rem]
-      xl:text-[3.5rem] font-bold uppercase leading-none
-                tracking-tight text-gray-900 dark:text-white"
+              className="text-[1.5rem]
+      text-[2.5rem]
+      md:text-[3.5rem]
+      lg:text-[4rem]
+      xl:text-[4.5rem] font-bold uppercase leading-[0.9]
+                tracking-[-0.02em] text-gray-900 dark:text-white"
               style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
               Hitos de Ingeniería

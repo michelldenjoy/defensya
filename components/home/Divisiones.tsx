@@ -169,18 +169,21 @@ export default function Divisiones() {
 
       <div className="max-w-[99rem] mx-auto relative">
         {/* ── Header ── */}
-        <div className="mb-10">
+        <div className="my-8 pb-8 text-center">
           <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
             Áreas Tecnológicas
           </p>
           <h2
-            className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
-            style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-            }}
-          >
-            Sectores que Manejamos
-          </h2>
+              className="text-[2rem]
+      sm:text-[2.3rem]
+      md:text-[2.6rem]
+      lg:text-[3.5rem]
+      xl:text-[4rem] font-bold uppercase leading-none
+                tracking-tight text-white"
+              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+            >
+              Sectores que manejamos
+            </h2>
         </div>
 
         {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}

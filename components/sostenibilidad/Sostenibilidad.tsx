@@ -155,18 +155,12 @@ export default function Sostenibilidad() {
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      <section className="px-6 lg:px-16 pt-16 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
+      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          {/* <div className="flex items-center gap-3">
-            <span className="w-6 h-px bg-defensya-blue" />
-            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-blue uppercase">
-              Impacto Positivo
-            </span>
-          </div> */}
 
-          <div className="grid lg:grid-cols-[1fr_42%] gap-10 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
             <div>
-              <h1 className="text-[clamp(2.8rem,7vw,6rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
+              <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
                 Trabajamos <br /> por un Futuro
                 <span className="dark:text-blue-300 text-defensya-blue">
                   {" "}
@@ -176,31 +170,6 @@ export default function Sostenibilidad() {
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
-              {/* Cert badges */}
-              <div className="grid grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
-                {[
-                  { val: "ISO 9001", label: "Calidad" },
-                  { val: "ISO 14001", label: "Medio Ambiente" },
-                ].map(({ val, label }) => (
-                  <div
-                    key={label}
-                    className="bg-white dark:bg-defensya-navy px-5 py-4"
-                  >
-                    <p
-                      className="text-2xl font-bold "
-                      style={{
-                        fontFamily:
-                          "var(--font-display, 'Barlow Condensed', sans-serif)",
-                      }}
-                    >
-                      {val}
-                    </p>
-                    <p className="text-[11px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase mt-1">
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
 
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 En Defensya, la calidad de nuestros servicios y la protección
@@ -353,6 +322,8 @@ export default function Sostenibilidad() {
                 </div>
               ))}
             </div>
+
+            
           </div>
         </div>
       </section>

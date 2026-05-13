@@ -57,7 +57,7 @@ export default function ProductosPage() {
   const closeModal = ()             => setModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-gray-100 selection:bg-defensya-blue selection:text-white">
+    <div className="min-h-screen bg-gray-100 dark:bg-defensya-navy selection:bg-defensya-blue selection:text-white">
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
@@ -79,7 +79,7 @@ export default function ProductosPage() {
 
       <div className="max-w-screen-2xl mx-4 flex flex-col lg:flex-row relative z-10">
 
-        {/* ── SIDEBAR ── */}
+        {/* ── SIDEBAR datos ── */}
         <aside className="w-full lg:w-68 shrink-0  p-6 lg:p-10 border-r border-white/5 lg:sticky lg:top-0 lg:h-screen bg-defensya-navy backdrop-blur-md">
           <div className="mb-10">
             <p className="text-[10px] font-bold tracking-[0.5em] text-bold text-defensya-steel uppercase mb-2">
@@ -128,14 +128,14 @@ export default function ProductosPage() {
           </nav>
         </aside>
 
-        {/* ── GRID ── */}
+        {/* ── GRID text-black ── */}
         <main className="flex-1 p-6 lg:p-12">
           <header className="flex items-end justify-between mb-10 pb-6 border-b border-white/5">
             <div>
-              <p className="text-[9px] font-mono text-defensya-blue/60 tracking-widest uppercase mb-1">
+              <p className="text-[9px] font-mono text-defensya-blue/80 dark:text-gray-300 tracking-widest uppercase mb-1">
                 {pad(filteredItems.length)} assets found
               </p>
-              <h2 className="text-4xl font-bold font-display uppercase italic text-black tracking-tighter">
+              <h2 className="text-4xl font-bold font-display uppercase italic text-black dark:text-gray-100 tracking-tighter">
                 {filtro === "Todos" ? "Global Inventory" : filtro}
               </h2>
             </div>

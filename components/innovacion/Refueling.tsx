@@ -131,7 +131,7 @@ export default function Refueling() {
               style={{
                 fontFamily:
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
-                fontSize: "clamp(3rem, 7vw, 6rem)",
+                fontSize: "clamp(3rem, 4vw, 5rem)",
               }}
             >
               Ingeniería para
@@ -193,7 +193,15 @@ export default function Refueling() {
         <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-30 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
-          <SectionHeader title="El reto y" accent="nuestra visión" />
+          <h3
+            className="font-bold uppercase leading-[0.9] mb-9 tracking-tight"
+            style={{
+              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+              fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)",
+            }}
+          >
+            El reto y nuestra visión
+          </h3>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
             {/* LEFT — TEXT */}
@@ -345,7 +353,7 @@ export default function Refueling() {
           <div>
             <h3
               className="text-2xl lg:text-4xl font-bold uppercase leading-none my-12
-                 text-gray-900 dark:text-white"
+                 text-blue-900 dark:text-white"
               style={{
                 fontFamily:
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -572,7 +580,7 @@ export default function Refueling() {
         <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
-        <h2
+          <h2
             className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white dark:text-white mb-6"
             style={{
               fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
