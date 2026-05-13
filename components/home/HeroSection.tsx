@@ -318,7 +318,7 @@ export default function HeroSection() {
         >
           <div className="flex flex-col gap-1">
             <span className="font-mono text-[9px] tracking-[0.3em] text-defensya-steel uppercase">
-              Sistema de Reabastecimiento
+              {/* Sistema de Reabastecimiento */}
             </span>
           </div>
           <span

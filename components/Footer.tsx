@@ -1,15 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Linkedin, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="relative pt-24 pb-4 overflow-hidden border-t border-white/5 bg-[#050609]">
-      
-      
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        <Image 
+        <Image
           src="/textura2.jpg"
           alt="Technical background"
           fill
@@ -20,58 +18,117 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
-          
           {/* COLUMNA 1:  BRAND & MISSION */}
           <div className="lg:col-span-2 space-y-8">
             <div className="flex flex-col gap-2">
-               <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
+              <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
                 DEFENSYA
               </h2>
               <span className="text-[10px] font-mono text-blue-300 tracking-[0.3em] uppercase opacity-70">
                 Aerospace & Defense Systems
               </span>
             </div>
-            
+
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Ingeniería de vanguardia especializada en sistemas de visión artificial, 
-              automatización y control háptico para entornos de misión crítica.
+              Ingeniería de vanguardia especializada en sistemas de visión
+              artificial, automatización y control háptico para entornos de
+              misión crítica.
             </p>
 
-            {/* SOCIAL REDES - Adaptadas */}
+            {/* SOCIAL REDES */}
             <div className="flex gap-3">
-              <a href="https://linkedin.com/company/defensya" target="_blank" className="p-2.5 bg-white/5 border border-white/10 hover:border-defensya-sky/50 transition-all group">
-                <Linkedin size={16} className="text-slate-400 group-hover:text-defensya-sky" />
+              <a
+                href="https://linkedin.com/company/defensya"
+                target="_blank"
+                className="p-2.5 bg-white/5 border border-white/10 hover:border-defensya-sky/50 transition-all group"
+              >
+                <Linkedin
+                  size={16}
+                  className="text-slate-400 group-hover:text-defensya-sky"
+                />
               </a>
-              <a href="https://twitter.com/defensya" target="_blank" className="p-2.5 bg-white/5 border border-white/10 hover:border-defensya-sky/50 transition-all group">
-                <Twitter size={16} className="text-slate-400 group-hover:text-defensya-sky" />
+              <a
+                href="https://x.com/defensya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 bg-white/5 border border-white/10 hover:border-defensya-sky/50 transition-all group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-slate-400 group-hover:text-defensya-sky transition-colors"
+                >
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.639 7.584H.474l8.6-9.83L0 1.153h7.594l5.243 6.932L18.901 1.153Zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403Z" />
+                </svg>
               </a>
             </div>
           </div>
 
-          {/* COLUMNA 2: EXPLORAR */}
+          {/* COLUMNA 2: COMPAÑIA */}
           <div>
             <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-blue-200 pl-3">
               Compañía
             </h3>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link href="/empresa/quienes-somos" className="hover:text-defensya-sky transition-colors flex items-center gap-1 group">Sobre Defensya <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-              <li><Link href="/innovacion" className="hover:text-defensya-sky transition-colors">Innovación & Patentes</Link></li>
-              <li><Link href="/empresa/calidad-certificacion" className="hover:text-defensya-sky transition-colors">Política de Calidad</Link></li>
-              <li><Link href="/empresa/careers" className="font-medium hover:text-defensya-sky transition-colors">Trabaja con nosotros</Link></li>
+              <li>
+                <Link
+                  href="/empresa/quienes-somos"
+                  className="hover:text-defensya-sky transition-colors flex items-center gap-1 group"
+                >
+                  Sobre Defensya{" "}
+                  <ArrowUpRight
+                    size={12}
+                    className="opacity-0 group-hover:opacity-100 transition-all"
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/innovacion"
+                  className="hover:text-defensya-sky transition-colors"
+                >
+                  Innovación & Patentes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/empresa/calidad-certificacion"
+                  className="hover:text-defensya-sky transition-colors"
+                >
+                  Política de Calidad
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/empresa/careers"
+                  className="font-medium hover:text-defensya-sky transition-colors"
+                >
+                  Trabaja con nosotros
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* COLUMNA 3: SECTORES OPERATIVOS */}
+          {/* COLUMNA 3: SECTORES */}
           <div>
             <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-white/10 pl-3">
               Sectores
             </h3>
             <ul className="space-y-4">
-              {['Aeronáutica', 'Defensa', 'Electrónica', 'Imagen & Video'].map((sector) => (
-                <li key={sector} className="flex items-center gap-3 font-mono text-[10px] text-slate-500 uppercase tracking-widest">
-                  <span className="w-1 h-1 bg-blue-300 shadow-[0_0_8px_rgba(0,149,218,0.6)]" /> {sector}
-                </li>
-              ))}
+              {["Aeronáutica", "Defensa", "Electrónica", "Imagen & Video"].map(
+                (sector) => (
+                  <li
+                    key={sector}
+                    className="flex items-center gap-3 font-mono text-[10px] text-slate-500 uppercase tracking-widest"
+                  >
+                    <span className="w-1 h-1 bg-blue-300 shadow-[0_0_8px_rgba(0,149,218,0.6)]" />{" "}
+                    {sector}
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -82,13 +139,16 @@ const Footer = () => {
             </h3>
             <div className="space-y-4">
               <p className="text-slate-400 text-sm leading-snug">
-                Sectores Ingeniería I+D+i<br />
+                Sectores Ingeniería I+D+i
+                <br />
                 Centro de Operaciones Tácticas
               </p>
-              <a href="mailto:info@defensya.com" className="block text-blue-300 font-mono text-sm hover:text-white transition-colors underline underline-offset-8 decoration-defensya-sky/30">
+              <a
+                href="mailto:info@defensya.com"
+                className="block text-blue-300 font-mono text-sm hover:text-white transition-colors underline underline-offset-8 decoration-defensya-sky/30"
+              >
                 info@defensya.com
               </a>
-
             </div>
           </div>
         </div>
@@ -99,13 +159,24 @@ const Footer = () => {
             <p className="text-blue-300 text-[10px] tracking-[0.2em] uppercase font-mono">
               © {new Date().getFullYear()} DEFENSYA INGENIERIA INTERNACIONAL.
             </p>
-
           </div>
-          
+
           <div className="flex gap-8 text-[9px] text-slate-500 uppercase tracking-[0.2em] font-bold">
-            <Link href="/legal" className="hover:text-white transition-colors">Legal</Link>
-            <Link href="/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
-            <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+            <Link href="/legal" className="hover:text-white transition-colors">
+              Legal
+            </Link>
+            <Link
+              href="/privacidad"
+              className="hover:text-white transition-colors"
+            >
+              Privacidad
+            </Link>
+            <Link
+              href="/cookies"
+              className="hover:text-white transition-colors"
+            >
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

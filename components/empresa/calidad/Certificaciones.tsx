@@ -142,7 +142,7 @@ export default function Certificaciones() {
                   label: "Alcance",
                   value: "Ingeniería electrónica y telecomunicación",
                 },
-                { label: "Estado", value: "Certificado y vigente" },
+                { label: "Estado", value: "Certificado vigente" },
                 {
                   label: "Auditoría",
                   value: "Organismo externo independiente",
