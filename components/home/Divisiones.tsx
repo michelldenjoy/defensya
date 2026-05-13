@@ -167,16 +167,16 @@ export default function Divisiones() {
     >
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
-      <div className="max-w-[99rem] relative">
+      <div className="max-w relative">
         {/* ── Header ── */}
         <div className="my-8 pb-8 text-center">
           <p className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
             Áreas Tecnológicas
           </p>
           <h2
-              className="text-[2rem]
-      sm:text-[2.3rem]
-      md:text-[2.6rem]
+              className="text-[2.3rem]
+      sm:text-[2.5rem]
+      md:text-[3rem]
       lg:text-[3.5rem]
       xl:text-[4rem] font-bold uppercase leading-none
                 tracking-tight text-white"

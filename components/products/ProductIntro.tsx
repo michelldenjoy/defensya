@@ -2,7 +2,7 @@
 
 export default function ProductIntro() {
   return (
-    <section className="w-full dark:bg-defensya-navy border-b border-white px-6 lg:px-16 py-24">
+    <section className="w-full dark:bg-defensya-navy border-b border-white px-6 lg:px-16 py-24 lg:py-34">
       <div className="max-w-7xl mx-auto">
 
         {/* Eyebrow */}
@@ -14,7 +14,7 @@ export default function ProductIntro() {
         </div> */}
 
         {/* Headline + body in two columns */}
-        <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr_38%] gap-6 md:gap-6 lg:gap-16 items-center">
               <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
               La seguridad del <br />futuro 
             
