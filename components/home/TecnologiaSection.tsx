@@ -91,7 +91,7 @@ export default function TecnologiasSection() {
               </h2>
             </div>
 
-            <p className="text-sm md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
                        max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1">
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
               aéreo automatizado, desde la percepción hasta el control háptico

@@ -3,68 +3,49 @@ import Link from "next/link";
 
 import React, { useState } from "react";
 
-/*
-  Sección LIGHT por defecto — bg-white / dark:bg-defensya-navy
-  Sin blink dots · Paleta: defensya-blue, defensya-navy, white, black
-*/
-
 const capabilities = [
   {
     id: 1,
-    label: "CAP_01",
+    label: " 01",
     title: "Ingeniería de Sistemas de Misión",
     description:
       "Diseñamos arquitecturas críticas para plataformas aéreas, espaciales y autónomas, integrando subsistemas electrónicos, software y comunicaciones de alta confiabilidad.",
   },
-
   {
     id: 2,
-    label: "CAP_02",
+    label: " 02",
     title: "Electrónica y Sistemas Embebidos",
     description:
       "Desarrollamos hardware especializado, firmware y sistemas en tiempo real optimizados para operar bajo condiciones exigentes y entornos de misión crítica.",
   },
-
   {
     id: 3,
-    label: "CAP_03",
+    label: " 03",
     title: "Percepción Inteligente y Visión Computacional",
     description:
       "Implementamos sistemas de visión artificial y fusión sensorial capaces de interpretar entornos complejos en tiempo real con alta precisión operativa.",
   },
-
   {
     id: 4,
-    label: "CAP_04",
+    label: " 04",
     title: "Inteligencia Artificial Aplicada",
     description:
       "Aplicamos modelos avanzados de inteligencia artificial y aprendizaje automático para automatización, análisis predictivo y autonomía operativa.",
   },
-
   {
     id: 5,
-    label: "CAP_05",
+    label: " 05",
     title: "Procesamiento de Señal y Datos Seguros",
     description:
       "Desarrollamos pipelines robustos para adquisición, procesamiento y protección de datos sensibles en sistemas distribuidos y plataformas críticas.",
   },
-
   {
     id: 6,
-    label: "CAP_06",
+    label: "06",
     title: "Integración y Modernización Tecnológica",
     description:
       "Integramos tecnologías avanzadas en infraestructuras existentes, acelerando capacidades operacionales y procesos de transformación tecnológica.",
   },
-];
-
-const capacidades = [
-  "Diseño Electrónico",
-  "Sistemas Embebidos",
-  "Procesamiento de Señal",
-  "Sistemas de Visión",
-  "IA y Aprendizaje Automático",
-  "Sistemas de Datos Seguros",
 ];
 
 function Corners({
@@ -74,7 +55,6 @@ function Corners({
   size?: number;
   onDark?: boolean;
 }) {
-  const muted = onDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)";
   return (
     <>
       <span
@@ -88,7 +68,6 @@ function Corners({
           borderLeft: "2.5px solid rgba(36, 38, 184, 1)",
         }}
       />
-
       <span
         className="pointer-events-none absolute z-10"
         style={{
@@ -115,13 +94,14 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      {/* ── Tooltip (ahora con fondo azul sólido) ── */}
       <div
         className={`
           absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
-          bg-white dark:bg-defensya-navy
-          border border-defensya-blue/30
+          bg-defensya-blue
+          border border-white/10
           px-6 py-5
-          shadow-xl dark:shadow-none
+          shadow-xl
           transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
           origin-bottom
           ${
@@ -139,20 +119,31 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         <span
           className="absolute top-0 left-0 w-4 h-4"
           style={{
-            borderTop: "2px solid #27389c",
-            borderLeft: "2px solid #27389c",
+            borderTop: "2px solid rgba(255,255,255,0.40)",
+            borderLeft: "2px solid rgba(255,255,255,0.40)",
           }}
         />
         {/* BR bracket */}
         <span
           className="absolute bottom-0 right-0 w-4 h-4"
           style={{
-            borderBottom: "4.5px solid rgba(36, 38, 184, 1)",
-            borderRight: "4.5px solid rgba(36, 38, 184, 1)",
+            borderBottom: "2px solid rgba(255,255,255,0.40)",
+            borderRight: "2px solid rgba(255,255,255,0.40)",
           }}
         />
 
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        {/* Label tipo HUD */}
+        <p
+          className="font-mono text-[10px] tracking-[0.28em] uppercase font-semibold mb-2"
+          style={{ color: "rgba(255,255,255,0.50)" }}
+        >
+          {cap.label} · 
+        </p>
+
+        <p
+          className="text-md leading-relaxed font-light"
+          style={{ color: "rgba(255,255,255,0.88)" }}
+        >
           {cap.description}
         </p>
 
@@ -160,8 +151,8 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         <span
           className={`absolute -bottom-[7px] left-1/2 -translate-x-1/2
                       w-3 h-3 rotate-45
-                      bg-white dark:bg-defensya-navy
-                      border-r border-b border-defensya-blue/30
+                      bg-defensya-blue
+                      border-r border-b border-white/10
                       transition-opacity duration-300
                       ${hovered ? "opacity-100" : "opacity-0"}`}
         />
@@ -272,26 +263,16 @@ export default function CapabilityCards() {
           </p>
         </div>
 
-        {/* ── Capabilities label row ── */}
-        {/* <div className="flex items-center gap-4 mb-6">
-          <span
-            className="font-mono text-sm font-bold tracking-[0.25em]
-                          text-gray-700 dark:text-gray-200 uppercase whitespace-nowrap"
-          >
-            Capacidades Operativas
-          </span>
-        </div> */}
-
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3  mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-6">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}
         </div>
 
         {/* ── Divider ── */}
-        <div className="flex  items-center gap-4 my-8">
-          <div className="h-px flex-1  bg-gray-200 dark:bg-white/[0.06]" />
+        <div className="flex items-center gap-4 my-8">
+          <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.06]" />
           <span
             className="font-mono text-[9px] tracking-[0.35em]
                           text-gray-400 dark:text-gray-500 uppercase"
@@ -304,7 +285,7 @@ export default function CapabilityCards() {
         {/* ── Commitment block ── */}
         <div
           className="relative p-8 sm:p-10 lg:p-14
-                     bg-slate-200/70  dark:bg-white/[0.02]
+                     bg-slate-200/70 dark:bg-white/[0.02]
                      border border-gray-100 dark:border-white/[0.07]"
           style={{
             clipPath:
@@ -322,7 +303,7 @@ export default function CapabilityCards() {
             DSY
           </span>
 
-          <p className="font-mono  text-[14px] md:text-[16px] tracking-[0.3em] text-defensya-navy dark:text-white font-semibold uppercase mb-5">
+          <p className="font-mono text-[14px] md:text-[16px] tracking-[0.3em] text-defensya-navy dark:text-white font-semibold uppercase mb-5">
             Nuestro Compromiso
           </p>
 

@@ -79,19 +79,28 @@ function DivisionCard({ item }: { item: Division }) {
         />
       </div>
 
-      {/* Base gradient */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700"
         style={{
-          background:
-            "linear-gradient(175deg, rgba(6,13,24,0.55) 0%, rgba(6,13,24,0.88) 100%)",
+          backgroundImage: "url('/textura5.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
 
-      {/* Hover overlay */}
+      {/* Base gradient */}
+      <div
+        className="absolute inset-0 transition-all duration-700"
+        style={{
+          background:
+            "linear-gradient(175deg, rgba(6,13,24,0.6) 60%, rgba(6,13,24,0.92) 100%)",
+        }}
+      />
+
+      {/* Hover tint */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "rgba(0, 0, 0, 0.90)" }}
+        style={{ background: "rgba(14,165,233,0.08)" }}
       />
 
       {/* Corners */}
@@ -103,7 +112,7 @@ function DivisionCard({ item }: { item: Division }) {
       <span
         className="pointer-events-none absolute top-2 right-4 font-mono font-black select-none
                    text-white/[0.04] group-hover:text-blue-300/30 transition-colors duration-500"
-        style={{ fontSize: "clamp(4rem, 8vw, 7rem)", lineHeight: 1 }}
+        style={{ fontSize: "clamp(4rem, 6vw, 6rem)", lineHeight: 1 }}
       >
         {item.num}
       </span>
@@ -162,9 +171,7 @@ function DivisionCard({ item }: { item: Division }) {
 
 export default function Divisiones() {
   return (
-    <section
-      className="relative py-20 px-6 bg-defensya-navy overflow-hidden dark:bg-black/40"
-    >
+    <section className="relative py-20 px-6 bg-defensya-navy overflow-hidden dark:bg-black/40">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
       <div className="max-w relative">
@@ -174,16 +181,18 @@ export default function Divisiones() {
             Áreas Tecnológicas
           </p>
           <h2
-              className="text-[2.3rem]
+            className="text-[2.3rem]
       sm:text-[2.5rem]
       md:text-[3rem]
       lg:text-[3.5rem]
       xl:text-[4rem] font-bold uppercase leading-none
                 tracking-tight text-white"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
-            >
-              Sectores que manejamos
-            </h2>
+            style={{
+              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            }}
+          >
+            Sectores que manejamos
+          </h2>
         </div>
 
         {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}
