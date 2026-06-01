@@ -34,7 +34,7 @@ const divisions: Division[] = [
     tag: "SEC-04",
     title: "Electrónica",
     image: "/images/electronica.webp",
-    desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos exigentes.",
+    desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos de alta exigencia.",
   },
   {
     num: "04",
@@ -154,7 +154,7 @@ function DivisionCard({ item }: { item: Division }) {
 
         <p
           className="
-            text-sm text-gray-400 leading-relaxed text-center
+            text-md lg:text-lg text-gray-400 leading-relaxed text-center
             opacity-0 translate-y-4
             group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white
             transition-all duration-500 delay-75

@@ -141,7 +141,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         </p>
 
         <p
-          className="text-md leading-relaxed font-light"
+          className="text-lg leading-relaxed font-light"
           style={{ color: "rgba(255,255,255,0.88)" }}
         >
           {cap.description}
