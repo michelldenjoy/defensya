@@ -74,11 +74,11 @@ const QuienesSomos = () => {
       </section>
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-32 px-6 lg:px-16  bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative py-12 px-6 lg:px-16  bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid  absolute inset-0 opacity-60 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto relative">
+        <div className="w-full mx-auto relative">
           {/* Section header */}
           <div className="flex items-end justify-center text-center pb-8 my-14 gap-8 flex-wrap">
             <div>
@@ -114,7 +114,7 @@ const QuienesSomos = () => {
                 }}
               >
                 {/* Image */}
-                <div className="card-img-wrap absolute inset-0">
+                <div className="card-img-wrap absolute inset-0 group-hover:scale-105 transition-transform duration-700">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -167,18 +167,18 @@ const QuienesSomos = () => {
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 p-7 flex flex-col justify-end group-hover:justify-center transition-all duration-500">
+                <div className="absolute  inset-0 p-7 flex flex-col justify-end group-hover:justify-center transition-all duration-500">
                   {/* Number label */}
-                  <span className="text-[11px] text-center font-mono tracking-[0.3em] text-blue-300 mb-3">
+                  {/* <span className="text-[11px] text-center font-mono tracking-[0.3em] text-blue-300 mb-3">
                     {item.num} <span className="text-gray-300">{item.tag}</span>
-                  </span>
+                  </span> */}
 
                   {/* Title */}
                   <h3
                     className="text-white mb-0 text-center translate-y-3 group-hover:translate-y-0 transition-transform duration-500"
                     style={{
                       fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        "var(--font-display,  'Barlow Condensed', sans-serif)",
                       fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
                       fontWeight: 600,
                       letterSpacing: "-0.01em",
@@ -203,7 +203,7 @@ const QuienesSomos = () => {
 
                   {/* Desc */}
                   <p
-                    className="text-sm text-gray-400 leading-relaxed
+                    className="text-md lg:text-xl text-gray-400 leading-relaxed
     opacity-0 translate-y-4
     group-hover:opacity-100 group-hover:translate-y-0
     group-hover:text-base group-hover:text-white

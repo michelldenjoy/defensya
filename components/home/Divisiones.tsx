@@ -17,28 +17,28 @@ interface Division {
 const divisions: Division[] = [
   {
     num: "01",
-    tag: "SEC-01",
+    tag: "Def",
     title: "Defensa",
     image: "/images/defensa2.jpg",
     desc: "Contamos con un equipo de ingenieros altamente cualificados y con instalaciones preparadas para afrontar proyectos complejos dentro del sector de defensa. Más de dos décadas avalan nuestra capacidad.",
   },
   {
     num: "02",
-    tag: "SEC-02",
+    tag: "Aeron",
     title: "Aeronáutica",
     image: "/images/aeronautica.jpg",
     desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada en colaboración con empresas de reconocido prestigio.",
   },
   {
     num: "03",
-    tag: "SEC-04",
+    tag: "Electr",
     title: "Electrónica",
     image: "/images/electronica.webp",
     desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos de alta exigencia.",
   },
   {
     num: "04",
-    tag: "SEC-05",
+    tag: "img. y vid",
     title: "Imagen y Vídeo",
     image: "/images/imagevideo.png",
     desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real con latencia mínima.",

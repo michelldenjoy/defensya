@@ -169,8 +169,13 @@ export default function Certificaciones() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 mt-8" >
-              <ClipButton href="/doc/ISO9001.pdf" variant="primary"   target="_blank" rel="noopener noreferrer">
+            <div className="flex flex-wrap gap-3 mt-8">
+              <ClipButton
+                href="/doc/ISO9001.pdf"
+                variant="primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver Certificado
               </ClipButton>
 

@@ -392,7 +392,6 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div>
-              <SectionTag>Marco Estratégico</SectionTag>
               <h2
                 className="text-2xl lg:text-4xl font-bold uppercase leading-tight text-white"
                 style={{
