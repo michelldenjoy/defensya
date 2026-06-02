@@ -1,5 +1,5 @@
 import QuienesSomos from '@/components/empresa/about/QuienesSomos'
-import Timeline from '@/components/home/TimeLine'
+// import Timeline from '@/components/home/TimeLine'
 import HeroAbout from '@/components/empresa/about/HeroAbout'
 import React from 'react'
 
@@ -13,7 +13,7 @@ export default function page() {
         image="/logodefensyanew.png"
       />
      <QuienesSomos  />
-     <Timeline />
+     {/* <Timeline /> */}
     </div>
   )
 }

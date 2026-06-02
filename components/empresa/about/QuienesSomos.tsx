@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import MisionVision from "./MisionVision";
+import Timeline from "@/components/home/TimeLine";
 
 const experienceItems = [
   {
@@ -39,11 +41,11 @@ const QuienesSomos = () => {
     >
 
       {/* ─────────── HERO ─────────── */}
-      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
+      {/* <section className="px-8 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
 
-          <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
-            <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
+          <div className="grid md:grid-cols-[1fr_38%] gap-6 items-center">
+            <h1 className="text-[clamp(3.8rem,7vw,6rem)]  font-display font-bold leading-[0.95] tracking-tight uppercase">
               Tecnología
               <br />
               Avance
@@ -55,13 +57,13 @@ const QuienesSomos = () => {
             </h1>
 
             <div className="lg:pb-2">
-              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              <p className="text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
                 Defensya es una empresa de base tecnológica orientada a la
                 innovación y el diseño en el desarrollo de soluciones avanzadas.
                 La Investigación y el Desarrollo (I+D) constituyen pilares
                 fundamentales de nuestra actividad.
               </p>
-              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
                 Especializados en sistemas de visión, diseñamos y fabricamos
                 soluciones completas: monitores de vídeo, sistemas de gestión de
                 imagen, audio y datos, sistemas de iluminación LED y láser de
@@ -71,7 +73,10 @@ const QuienesSomos = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      <MisionVision />
 
       {/* ─────────── EXPERIENCIA ─────────── */}
       <section className="relative py-12 px-6 lg:px-16  bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
@@ -101,7 +106,7 @@ const QuienesSomos = () => {
           </div>
 
           {/* Cards grid texture*/}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {experienceItems.map((item, i) => (
               <div
                 key={item.num}
@@ -217,6 +222,8 @@ const QuienesSomos = () => {
           </div>
         </div>
       </section>
+
+      <Timeline />
 
       {/* ─────────── LIDERAZGO AVIACIÓN ─────────── */}
       <section className="relative py-25 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
