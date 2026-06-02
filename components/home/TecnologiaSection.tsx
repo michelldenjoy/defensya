@@ -45,12 +45,12 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
                       scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"
       />
 
-      <span className="font-mono text-[11px] text-gray-600 group-hover:text-defensya-blue transition-colors duration-300">
+      <span className="font-mono text-[11px] text-gray-500 group-hover:text-defensya-blue transition-colors duration-300">
         {num}
       </span>
 
       <span
-        className="text-2xl font-bold uppercase leading-none text-white
+        className="text-3xl font-bold uppercase leading-none text-defensya-navy dark:text-gray-200
                       group-hover:text-defensya-blue transition-colors duration-300"
         style={{
           fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -59,11 +59,11 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
         {name}
       </span>
 
-      <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase">
+      <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] text-gray-600 dark:text-gray-400 uppercase">
         {tag}
       </span>
 
-      <span className="text-sm text-gray-400 leading-snug group-hover:text-gray-300 transition-colors duration-300">
+      <span className="text-sm text-gray-600 leading-snug dark:text-gray-400  transition-colors duration-300">
         {desc}
       </span>
     </div>
@@ -72,27 +72,29 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
 
 export default function TecnologiasSection() {
   return (
-    <section className="relative py-20 px-6 lg:px-16 overflow-hidden bg-[#060d18]">
+    <section className="relative py-20 px-6 lg:px-16 overflow-hidden bg-white dark:bg-[#060d18]">
       <div className="tech-grid absolute inset-0 opacity-50 pointer-events-none" />
 
-      <div className="max-w-[99rem] mx-auto relative">
+      <div className="max-w-7xl mx-auto relative">
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center md:mb-15">
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
             <div className="pr-3">
-              <h2
-                className="text-[clamp(1.7rem,4vw,3rem)] font-bold uppercase leading-none text-gray-50 tracking-tight"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Impulsamos el futuro <br /> del  repostaje en vuelo
-              </h2>
+            <h2
+              className="font-bold uppercase leading-[0.9] tracking-tight
+                         text-gray-900 dark:text-white"
+              style={{
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontSize: "clamp(2.4rem, 5vw, 4rem)",
+              }}
+            >
+              Impulsamos  el futuro del <br /> <span className="text-defensya-blue">repostaje en vuelo</span> 
+            </h2>
             </div>
 
             <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end mb-1">
+                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end ">
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
               aéreo automatizado, desde la percepción hasta el control háptico
               del botalón.
@@ -222,7 +224,7 @@ export default function TecnologiasSection() {
                              group-hover:w-32 transition-all duration-500"
               />
 
-              <p className="text-sm text-gray-300 leading-relaxed max-w-md mb-8">
+              <p className="text-md text-gray-300 leading-relaxed max-w-md mb-8">
                 Control háptico avanzado para el botalón de repostaje. Una sola
                 mano, retroalimentación física en tiempo real y protección de
                 envolvente por software. El único dispositivo de su clase en el
@@ -240,7 +242,7 @@ export default function TecnologiasSection() {
                     "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
                 }}
               >
-                Explorar Haptix®
+                Explora el Haptix®
                 <svg
                   width="12"
                   height="12"
@@ -298,15 +300,14 @@ export default function TecnologiasSection() {
             href="/innovacion"
             className="group inline-flex items-center gap-3
                        px-7 py-3.5 border border-white/15 text-white
-                       font-mono text-[11px] font-bold tracking-[0.25em] uppercase
-                       hover:border-defensya-blue hover:bg-defensya-blue
+                       font-mono text-[11px] font-bold tracking-[0.25em] uppercase bg-defensya-navy hover:bg-defensya-blue
                        transition-all duration-200"
             style={{
               clipPath:
                 "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
             }}
           >
-            nuestra Innovación
+            Saber mas
             <svg
               width="14"
               height="14"

@@ -21,7 +21,7 @@ const capabilities = [
   {
     id: 3,
     label: " 03",
-    title: "Percepción Inteligente y Visión Computacional",
+    title: "Percepción y Visión Artificial",
     description:
       "Implementamos sistemas de visión artificial y fusión sensorial capaces de interpretar entornos complejos en tiempo real con alta precisión operativa.",
   },
@@ -99,7 +99,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         className={`
           absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
           bg-defensya-blue
-          border border-white/10
+          border  border-white/10
           px-6 py-5
           shadow-xl
           transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
@@ -235,9 +235,9 @@ export default function CapabilityCards() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* ── Header ── */}
-        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center mb-20">
-          <div>
-            <div className="flex items-center gap-3 mb-5"></div>
+        <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center md:mb-15">
+          <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
+            <div className="pr-3">
             <h2
               className="font-bold uppercase leading-[0.9] tracking-tight
                          text-gray-900 dark:text-white"
@@ -251,16 +251,15 @@ export default function CapabilityCards() {
               <br />
               <span className="text-defensya-blue">alta fiabilidad</span>
             </h2>
-          </div>
+            </div>
 
-          <p
-            className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end"
-          >
-            Transformamos desafíos complejos en soluciones tecnológicas fiables.
+            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end ">
+           Transformamos desafíos complejos en soluciones tecnológicas fiables.
             Un centro de innovación dedicado a fortalecer la infraestructura
             técnica de la industria aeroespacial y de defensa.
-          </p>
+            </p>
+          </div>
         </div>
 
         {/* ── Cards grid ── */}

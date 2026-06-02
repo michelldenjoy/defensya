@@ -153,7 +153,9 @@ export default function HeroSection() {
         relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr]
         overflow-hidden bg-white dark:bg-defensya-navy pt-14 md:py-28
         /* Mobile: auto height. md+: full viewport height (min 560px, max 860px) */
-        min-h-[auto] md:min-h-[560px] md:h-[calc(100svh-64px)] md:max-h-[860px]
+        md:min-h-[560px]
+    lg:h-[calc(100svh-64px)]
+    lg:max-h-[860px]
       "
     >
       {/* Tech grid */}
@@ -182,12 +184,12 @@ export default function HeroSection() {
           transition={{ duration: 0.65 }}
           className="flex flex-col"
         >
-          {/* ── Headline ── */}
+          {/* ── Headline aspect-[16/9] ── */}
           <h1
-            className="font-bold leading-[0.88] tracking-[-0.025em] uppercase text-black mb-8"
+            className="font-bold leading-[0.88] tracking-[-0.025em]  uppercase text-black mb-8"
             style={{
               fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-              fontSize: "clamp(2.8rem, 6vw, 5.2rem)",
+              fontSize: "clamp(3.3rem, 7.6vw, 6.2rem)",
             }}
           >
             <span className="text-defensya-blue dark:text-white">
@@ -203,7 +205,7 @@ export default function HeroSection() {
 
           {/* ── Descriptor ── */}
           <p
-            className="text-sm text-gray-500 leading-relaxed max-w-sm mb-12
+            className="text-md text-justify text-gray-500 leading-relaxed max-w-sm mb-12
                        border-l-2 border-defensya-navy-light pl-5"
           >
             Defensya desarrolla tecnologías avanzadas para los sistemas
@@ -222,7 +224,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── Bottom data strip ── */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 pb-4">
             <div className="flex flex-col gap-0.5">
               <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
                 Fundada
@@ -261,12 +263,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.25 }}
         className="
-          relative z-10 group 
-          /* Mobile: fixed aspect ratio so image has a decent height */
-          aspect-[16/9] md:aspect-auto
-          /* md+: stretch to fill the full grid-row height */
-          md:self-stretch
-        "
+          relative z-10 group aspect-[16/9] md:aspect-[5/5] lg:aspect-auto"
       >
         {/* Outer glow edge on left side (where it meets the text column) */}
         <div
