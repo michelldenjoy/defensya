@@ -222,36 +222,6 @@ export default function HeroSection() {
               Sobre Defensya
             </ClipButton>
           </div>
-
-          {/* ── Bottom data strip ── */}
-          <div className="flex items-center gap-6 pb-4">
-            <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
-                Fundada
-              </span>
-              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
-                2002
-              </span>
-            </div>
-            <div className="w-px h-8 bg-white/10" />
-            <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
-                Sectores
-              </span>
-              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
-                05 ÁREAS
-              </span>
-            </div>
-            <div className="w-px h-8 bg-white/10" />
-            <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[9px] tracking-[0.3em] text-gray-600 uppercase dark:text-gray-400">
-                Certificación
-              </span>
-              <span className="font-mono text-[13px] text-defensya-navy font-bold dark:text-white">
-                ISO 9001
-              </span>
-            </div>
-          </div>
         </motion.div>
       </div>
 

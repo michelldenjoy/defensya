@@ -2,9 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/* ─────────────────────────────────────────────────────────────────
-   DATOS
-───────────────────────────────────────────────────────────────── */
+
 const HITOS = [
   {
     year: "2006",
@@ -68,8 +66,6 @@ const HITOS = [
   },
 ];
 
-
-
 /* ─────────────────────────────────────────────────────────────────
    HOOK — scroll-triggered visibility
 ───────────────────────────────────────────────────────────────── */
@@ -80,7 +76,12 @@ function useVisible(threshold = 0.15) {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
       { threshold }
     );
     obs.observe(el);
@@ -89,9 +90,7 @@ function useVisible(threshold = 0.15) {
   return { ref, visible };
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   MILESTONE ROW
-───────────────────────────────────────────────────────────────── */
+
 function MilestoneRow({
   hito,
   index,
@@ -107,7 +106,10 @@ function MilestoneRow({
   const card = (
     <div
       className="p-10"
-      style={{ paddingRight: cardOnLeft ? "3rem" : undefined, paddingLeft: !cardOnLeft ? "3rem" : undefined }}
+      style={{
+        paddingRight: cardOnLeft ? "3rem" : undefined,
+        paddingLeft: !cardOnLeft ? "3rem" : undefined,
+      }}
     >
       <span
         className="block mb-3 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
@@ -129,7 +131,7 @@ function MilestoneRow({
       >
         {hito.title}
       </h3>
-      <div className="w-5 h-px bg-defensya-bluetext-defensya-blue mb-4" />
+      <div className="w-5 h-px bg-[#0e5fa3] mb-4" />
       <p
         className="font-light leading-[1.8] text-[rgba(11,31,56,0.5)] dark:text-[rgba(200,220,238,0.5)]"
         style={{ fontSize: "0.88rem" }}
@@ -146,7 +148,7 @@ function MilestoneRow({
         >
           {hito.metric}
           {hito.metricSuffix && (
-            <span className="text-defensya-blue">{hito.metricSuffix}</span>
+            <span className="text-[#0e5fa3]">{hito.metricSuffix}</span>
           )}
         </div>
         <span
@@ -188,7 +190,9 @@ function MilestoneRow({
       style={{
         opacity: isOpen && visible ? 1 : isOpen ? 0 : 0,
         transform: isOpen && visible ? "translateY(0)" : "translateY(12px)",
-        transition: `opacity 0.6s ease ${index * 80}ms, transform 0.6s ease ${index * 80}ms`,
+        transition: `opacity 0.6s ease ${index * 80}ms, transform 0.6s ease ${
+          index * 80
+        }ms`,
       }}
     >
       {/* Spine */}
@@ -200,7 +204,7 @@ function MilestoneRow({
                    border border-[rgba(14,95,163,0.35)] px-3 py-[3px] z-10"
       >
         <span
-          className="text-defensya-blue"
+          className="text-[#0e5fa3]"
           style={{
             fontFamily: "'Share Tech Mono', monospace",
             fontSize: "9px",
@@ -229,7 +233,7 @@ export default function TimelineSection() {
       className="relative bg-white dark:bg-[#07101d] border-t border-[rgba(14,95,163,0.18)]"
       style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
     >
-      {/* ── Marco perimetral ── */}
+      {/* ── Marco  ── */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.1)] pointer-events-none" />
       {/* Esquinas */}
       {(["tl", "tr", "bl", "br"] as const).map((pos) => (
@@ -238,13 +242,14 @@ export default function TimelineSection() {
 
       {/* ── Intro ── */}
       <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-14 pb-16">
-
         {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-8">
-          <span
-            className="w-[6px] h-[6px] bg-defensya-bluetext-defensya-blue shrink-0"
+        <div className="flex items-center gap-3 mb-10">
+
+          {/* Gema inicial */}
+          {/* <span
+            className="w-[6px] h-[6px] bg-[#0e5fa3] shrink-0"
             style={{ transform: "rotate(45deg)" }}
-          />
+          /> */}
           <span
             className="text-defensya-blue"
             style={{
@@ -254,71 +259,138 @@ export default function TimelineSection() {
               textTransform: "uppercase",
             }}
           >
-            Trayectoria · Defensya Systems · Est. 2006
+            Trayectoria · Defensya Systems 
           </span>
           <div className="flex-1 h-px bg-gradient-to-r from-[rgba(14,95,163,0.4)] to-transparent" />
-          <span
-            className="w-[6px] h-[6px] bg-defensya-bluetext-defensya-blue shrink-0"
+
+          {/* Gema final */}
+          {/* <span
+            className="w-[6px] h-[6px] bg-[#0e5fa3] shrink-0"
             style={{ transform: "rotate(45deg)" }}
-          />
+          /> */}
         </div>
 
-        {/* Heading */}
-        <h2
-          className="leading-[.92] tracking-[-0.02em] uppercase mb-6"
-          style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)" }}
-        >
-          <span className="font-bold text-defensya-blue">19 años </span>
-          <br />
-          <em
-            className="font-light text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.35)]"
-            style={{ fontStyle: "italic" }}
-          >
-            construyendo
-          </em>
-          <br />
-          <span className="font-bold text-[#0b1f38] dark:text-[#ccdcee]">
-            el futuro del vuelo
-          </span>
-        </h2>
+        {/* ── Dos columnas: Heading / Copy + CTA ── */}
+        <div className="grid md:grid-cols-[1fr_1px_1fr] items-stretch min-h-[280px]">
+          {/* LEFT — */}
+          <div className="flex flex-col justify-between pr-0 md:pr-12 pb-10 md:pb-0">
+            <h2
+              className="font-bold uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
+              style={{ fontSize: "clamp(3rem, 5.5vw, 4.4rem)" }}
+            >
+              <span className="text-defensya-blue">19 años</span>
+              <br />
+              <em
+                className="font-light text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.3)]"
+                style={{ fontStyle: "italic" }}
+              >
+                construyendo
+              </em>
+              <br />
+              el futuro
+              <br />
+              del vuelo
+            </h2>
 
-        <div className="w-7 h-px bg-defensya-bluetext-defensya-blue mb-6" />
+            {/* Referencia técnica como pie de columna */}
+            <span
+              className="text-[rgba(11,31,56,0.22)] dark:text-[rgba(200,220,238,0.18)] mt-8 block"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "8px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            >
+              DFS-HIST-001 · 5 hitos · since 2006
+            </span>
+          </div>
 
-        {/* Body text */}
-        <p
-          className="font-light leading-[1.85] tracking-[0.01em]
-                     text-[rgba(11,31,56,0.5)] dark:text-[rgba(200,220,238,0.45)]
-                     mb-10 max-w-lg"
-          style={{ fontSize: "1rem" }}
-        >
-          En Defensya nos superamos año tras año, desarrollando tecnologías que
-          elevan la eficacia y seguridad de las misiones en vuelo. Desde nuestros
-          primeros sistemas ópticos hasta las plataformas de visión autónoma de
-          hoy, cada hito ha sido una respuesta directa a un desafío real de la
-          aeronáutica y la defensa.{" "}
-          <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-            Descubre la historia de ingeniería que nos define.
-          </strong>
-        </p>
+          {/* SPINE */}
+          <div className="hidden md:flex flex-col items-center relative mx-10">
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-[rgba(14,95,163,0.15)]" />
+            {/* <div
+              className="absolute top-1/2 -translate-y-1/2 bg-white dark:bg-[#07101d]
+                         border border-[rgba(14,95,163,0.35)] px-2 py-[18px]"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "7px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "rgba(14,95,163,0.5)",
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                transform: "translateY(-50%) rotate(180deg)",
+              }}
+            >
+              CL / Eje
+            </div> */}
+          </div>
 
-        {/* CTA */}
-        <div className="flex items-center gap-5 flex-wrap mb-14">
-          <ClipToggleButton isOpen={isOpen} onToggle={() => setIsOpen((v) => !v)} />
-          <span
-            className="text-[rgba(11,31,56,0.3)] dark:text-[rgba(200,220,238,0.25)]"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "8px",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-            }}
-          >
-            5 hitos · 2006 — 2024
-          </span>
+          {/* RIGHT — Copy + botón */}
+          <div className="flex flex-col justify-between pl-0 md:pl-12 mt-10 md:mt-0">
+            {/* View tag */}
+            <div
+              className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
+                         pb-2 mb-6 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "8px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+              }}
+            >
+              <span>Nuestra Trayectoria</span>
+              {/* <div
+                className="flex items-center justify-center w-[17px] h-[17px]
+                           border border-[rgba(14,95,163,0.35)] text-[#0e5fa3] font-bold"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "9px",
+                }}
+              >
+                T
+              </div> */}
+            </div>
+
+            {/* Cuerpo de texto */}
+            <p
+              className="font-light leading-[1.88] tracking-[0.01em] flex-1
+                         text-[rgba(11,31,56,0.5)] dark:text-[rgba(200,220,238,0.45)]"
+              style={{ fontSize: "0.95rem" }}
+            >
+              En Defensya nos superamos año tras año, desarrollando tecnologías
+              que elevan la eficacia y seguridad de las misiones en vuelo. Desde
+              nuestros primeros sistemas ópticos hasta las plataformas de visión
+              autónoma de hoy, cada hito ha sido una respuesta directa a un
+              desafío real de la aeronáutica y la defensa.
+              <br />
+              <br />
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                Descubre la historia de ingeniería que nos define.
+              </strong>
+            </p>
+
+            {/* CTA */}
+            <div className="flex items-center gap-4 flex-wrap mt-8">
+              <ClipToggleButton
+                isOpen={isOpen}
+                onToggle={() => setIsOpen((v) => !v)}
+              />
+              {/* <span
+                className="text-[rgba(11,31,56,0.28)] dark:text-[rgba(200,220,238,0.25)]"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "8px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                }}
+              >
+                2006 — now
+              </span> */}
+            </div>
+          </div>
         </div>
-
- 
-        
       </div>
 
       {/* ── Timeline desplegable ── */}
@@ -336,10 +408,15 @@ export default function TimelineSection() {
           }}
         >
           {HITOS.map((hito, i) => (
-            <MilestoneRow key={hito.year} hito={hito} index={i} isOpen={isOpen} />
+            <MilestoneRow
+              key={hito.year}
+              hito={hito}
+              index={i}
+              isOpen={isOpen}
+            />
           ))}
 
-          {/* Doc ref footer */}
+
           <div
             className="flex items-center justify-between py-5 border-t border-[rgba(14,95,163,0.1)]"
             style={{
@@ -350,7 +427,9 @@ export default function TimelineSection() {
               color: "rgba(11,31,56,0.2)",
             }}
           >
-            <span>Defensya Systems · Trayectoria de ingeniería 2006 — 2024</span>
+            <span>
+              Defensya Systems · Trayectoria de ingeniería 2006 — 2024
+            </span>
             <span>DFS-HIST-001 · Hoja 1/1</span>
           </div>
         </div>
@@ -359,10 +438,7 @@ export default function TimelineSection() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   CLIP TOGGLE BUTTON — mismo shape que ClipButton corporativo,
-   adaptado como <button> con lógica de toggle (no es un link).
-───────────────────────────────────────────────────────────────── */
+/*CLIP TOGGLE BUTTON */
 function ClipToggleButton({
   isOpen,
   onToggle,
@@ -384,10 +460,8 @@ function ClipToggleButton({
       style={{ clipPath: clip }}
       aria-expanded={isOpen}
     >
-      {/* Label */}
-      <span>
-        {isOpen ? "Cerrar Timeline" : "Descubre nuestro Timeline"}
-      </span>
+      {/* BOTON TIMELINE */}
+      <span>{isOpen ? "Cerrar Timeline" : "Timeline de la empresa"}</span>
 
       {/* Icon — arrow que rota a × al abrir */}
       <svg
@@ -408,7 +482,7 @@ function ClipToggleButton({
         />
       </svg>
 
-      {/* Bisel — esquina inferior derecha, idéntico al ClipButton */}
+      {/* Bisel — esquina inferior derecha */}
       <span
         className="pointer-events-none absolute bottom-0 right-0 bg-white/25"
         style={{
@@ -422,9 +496,7 @@ function ClipToggleButton({
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   CORNER MARKS
-───────────────────────────────────────────────────────────────── */
+/* CORNER MARKS */
 type CornerPos = "tl" | "tr" | "bl" | "br";
 
 const cornerStyles: Record<CornerPos, string> = {

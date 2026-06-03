@@ -45,7 +45,7 @@ const QuienesSomos = () => {
       <MisionVision />
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-12 px-6 lg:px-16  bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative pt-10 pb-22 px-6 lg:px-16  bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid  absolute inset-0 opacity-60 pointer-events-none" />
 
@@ -70,7 +70,7 @@ const QuienesSomos = () => {
 
         {/* Doc ref */}
         <div
-          className="text-right text-white/25 leading-loose shrink-0"
+          className="text-right  text-white/25 leading-loose shrink-0"
           style={{
             fontFamily: "'Share Tech Mono', monospace",
             fontSize: "8px",
@@ -208,11 +208,9 @@ const QuienesSomos = () => {
       {/* <Timeline /> */}
 
       {/* ─────────── LIDERAZGO AVIACIÓN ─────────── */}
-      <section className="relative py-25 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
-        {/* Tech grid */}
+      {/* <section className="relative py-25 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
         <div className="tech-grid absolute inset-0 pointer-events-none" />
 
-        {/* Ambient glow */}
         <div
           className="absolute -left-40 bottom-0 w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
@@ -222,7 +220,6 @@ const QuienesSomos = () => {
         />
 
         <div className="max-w-7xl mx-auto relative">
-          {/* Header */}
           <div>
             <h2
               className="
@@ -243,7 +240,6 @@ const QuienesSomos = () => {
           </div>
 
           <div className="grid lg:grid-cols-[45%_1fr] gap-12 items-start">
-            {/* Image with HUD overlay */}
             <div className="relative group">
               <div
                 className="relative overflow-hidden"
@@ -261,7 +257,7 @@ const QuienesSomos = () => {
                 />
                 <div className="absolute inset-0 bg-linear-300 from-black/10 to-transparent pointer-events-none" />
 
-                {/* HUD corner marks */}
+                
                 {[
                   "top-0 left-0 border-t-2 border-l-2",
                   "top-0 right-0 border-t-2 border-r-2",
@@ -274,14 +270,14 @@ const QuienesSomos = () => {
                   />
                 ))}
 
-                {/* Scan line on hover */}
+                
                 <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="scanline-bar" />
                 </div>
               </div>
             </div>
 
-            {/* Text content */}
+            
             <div className="flex flex-col gap-8">
               <p className="text-base text-gray-400 leading-relaxed border-l-2 border-[#0ea5e9]/30 pl-5">
                 Nuestro equipo acumula más de{" "}
@@ -301,7 +297,7 @@ const QuienesSomos = () => {
                 estándares de calidad aeronáutica.
               </p>
 
-              {/* Capability list */}
+             
               <div className="mt-2 space-y-0 border border-[#0ea5e9]/10">
                 {[
                   ["PLATAFORMAS", "A330 MRTT, Aeronaves militares"],
@@ -328,7 +324,7 @@ const QuienesSomos = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 <TimelineSection />
       
     </main>
