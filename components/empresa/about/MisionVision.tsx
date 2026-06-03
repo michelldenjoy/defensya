@@ -1,247 +1,282 @@
 "use client";
 
+// Fuentes requeridas — añadir en tu layout.tsx o _document.tsx:
+// <link
+//   href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap"
+//   rel="stylesheet"
+// />
+
 const MisionVision = () => {
   return (
     <section
-      className="relative overflow-hidden dark:bg-defensya-navy bg-white"
-      style={{ fontFamily: "'Barlow', sans-serif" }}
+      className="relative overflow-hidden bg-[#f6f8fb] dark:bg-[#07101d]"
+      style={{ fontFamily: "'Rajdhani', sans-serif" }}
     >
-      {/* Tech grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(14,165,233,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.035) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-        }}
-      />
+      {/* ── Marco perimetral ── */}
+      <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.35)] pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-12 pt-20">
-        {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-10">
+      {/* ── Esquinas técnicas ── */}
+      {(["tl", "tr", "bl", "br"] as const).map((pos) => (
+        <CornerMark key={pos} position={pos} />
+      ))}
+
+      {/* ── Contenido ── */}
+      <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-12 pb-14">
+
+        {/* Cabecera */}
+        <div className="flex items-center justify-between mb-14">
           <span
-            className="w-2 h-2 bg-defensya-blue shrink-0"
-            style={{ transform: "rotate(45deg)" }}
-          />
-          <span
-            className="text-[10px] tracking-[.35em] dark:text-gray-300 text-defensya-blue whitespace-nowrap uppercase"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            className="border border-[rgba(14,95,163,0.35)] px-3 py-[3px] text-[#0e5fa3] dark:text-[#4fa8e0]"
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "8px",
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+            }}
           >
-            Identidad / Propósito
+            DFS-ID-001 · Rev C
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-[rgba(2,70,116,0.5)] to-transparent " />
           <span
-            className="text-[10px] tracking-[.35em] dark:text-gray-300 text-defensya-blue whitespace-nowrap uppercase"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            className="text-right text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "8px",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              lineHeight: "1.8",
+            }}
           >
-            Defensya · EST. 2006
+            Defensya Systems S.L.
+            <br />
+            Est. 2006
           </span>
-          <span
-            className="w-2 h-2 bg-defensya-blue shrink-0"
-            style={{ transform: "rotate(45deg)" }}
-          />
         </div>
 
-        {/* Main layout */}
-        <div className="grid md:grid-cols-[1fr_1px_1fr] mb-8 items-stretch min-h-[440px]">
-          {/* MISIÓN */}
-          <div className="flex flex-col justify-between gap-8 pr-0 md:pr-2">
-            <div className="relative">
-              <div className="flex justify-end mb-5">
-                <span
-                  className="text-[14px] tracking-[.3em] dark:text-gray-300 text-[#475569] uppercase"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
-                >
-                  Misión
-                </span>
-              </div>
+        {/* ── Columnas Misión / Visión ── */}
+        <div className="grid md:grid-cols-2 relative mb-10">
 
-              <div
-                className="relative"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 900,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                <span
-                  className="block text-slate-300/60 dark:text-white/[0.07] leading-[0.85] select-none pointer-events-none"
-                  style={{
-                    fontSize: "clamp(5rem, 9vw, 8rem)",
-                    letterSpacing: "-0.04em",
-                    marginLeft: "-3px",
-                  }}
-                >
-                  M
-                </span>
-                <h3
-                  className="relative z-10 text-defensya-navy font-bold dark:text-white -mt-6"
-                  style={{
-                    fontSize: "clamp(3.5rem, 5vw, 4.2rem)",
-                    lineHeight: 0.9,
-                  }}
-                >
-                  <span className=" font-light"> Lo que</span>
-                  <br />
-                  <span className="text-defensya-blue italic">hacemos</span>
-                </h3>
-              </div>
-
-              <div className="w-8 h-0.5 bg-defensya-blue mt-4 mb-5" />
-
-              <p className="text-md font-light dark:text-[#7c8fa8] leading-[1.85] tracking-wide">
-                Diseñar y desarrollar{" "}
-                <strong className="dark:text-[#cbd5e1] font-normal">
-                  soluciones tecnológicas avanzadas
-                </strong>{" "}
-                en visión, imagen, audio, datos e iluminación especializada —
-                proporcionando productos innovadores, fiables y de{" "}
-                <strong className="dark:text-[#cbd5e1] font-normal">
-                  alto rendimiento
-                </strong>{" "}
-                para sectores estratégicos donde la{" "}
-                <strong className="dark:text-[#cbd5e1] font-normal">
-                  precisión y la seguridad
-                </strong>{" "}
-                son fundamentales.
-              </p>
-
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[rgba(14,165,233,0.2)]" />
-            </div>
-
-            <div className="flex items-center gap-2.5 border-t border-[rgba(14,165,233,0.12)] pt-5">
-              <span
-                className="text-[10px] tracking-[.2em] dark:text-slate-400 text-[rgba(29,69,115,0.53)]"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
-              >
-                DFNS-001
-              </span>
-              <span className="w-1 h-1 rounded-full bg-[rgba(29,69,115,0.53)]" />
-              <span
-                className="text-[10px] tracking-[.15em] dark:text-slate-400 text-[rgba(29,69,115,0.53)]"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
-              >
-                OPTICS · SYSTEMS · DATA
-              </span>
+          {/* Eje divisor */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 pointer-events-none">
+            <div
+              className="absolute inset-y-0 left-0"
+              style={{ borderLeft: "1px dashed rgba(14,95,163,0.35)" }}
+            />
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                         bg-[#f6f8fb] dark:bg-[#07101d]
+                         border border-[rgba(14,95,163,0.35)] px-2 py-[3px]"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "7px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "rgba(14,95,163,0.35)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              CL / Eje
             </div>
           </div>
 
-          {/* SPINE */}
-          <div className="hidden md:block relative mx-10">
-            <div className="absolute inset-0 w-px bg-[rgba(14,165,233,0.15)] left-1/2" />
-            <div
-              className="absolute left-1/2 -translate-x-1/2 w-px"
+          {/* MISIÓN */}
+          <div className="pr-0 md:pr-10 lg:pr-16">
+            <ViewTag label="Vista 1 — Misión" number={1} />
+            <span
+              className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
               style={{
-                top: 0,
-                height: "80px",
-                background:
-                  "linear-gradient(180deg, transparent, rgba(14,165,233,0.5))",
-                animation: "spineGlow 3s ease-in-out infinite",
+                fontSize: "0.8rem",
+                fontWeight: 300,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
               }}
-            />
-            <div
-              className="absolute left-1/2 -translate-x-1/2 w-px"
+            >
+              Lo que hacemos
+            </span>
+            <span
+              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
               style={{
-                bottom: 0,
-                height: "80px",
-                background:
-                  "linear-gradient(0deg, transparent, rgba(14,165,233,0.5))",
-                animation: "spineGlow 3s ease-in-out 1.5s infinite",
+                fontSize: "clamp(3rem, 5vw, 4.2rem)",
+                fontWeight: 700,
+                letterSpacing: "-0.01em",
+                textTransform: "uppercase",
               }}
-            />
+            >
+              Misión
+            </span>
+            <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
+            <p
+              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
+              style={{ fontSize: "0.95rem", fontWeight: 400, letterSpacing: "0.01em" }}
+            >
+              Diseñar y desarrollar{" "}
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                soluciones tecnológicas avanzadas
+              </strong>{" "}
+              en visión, imagen, audio, datos e iluminación especializada —
+              proporcionando productos innovadores y de{" "}
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                alto rendimiento
+              </strong>{" "}
+              para sectores estratégicos donde la{" "}
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                precisión y la seguridad
+              </strong>{" "}
+              son fundamentales.
+            </p>
           </div>
 
           {/* VISIÓN */}
-          <div className="flex flex-col justify-between gap-8 pl-0 md:pl-2 mt-12 md:mt-0">
-            <div className="relative">
-              <div className="flex justify-end mb-5">
-                <span
-                  className="text-[14px] tracking-[.3em] dark:text-gray-300 text-[#475569] uppercase"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
-                >
-                  Visión
-                </span>
-              </div>
+          <div className="pl-0 md:pl-10 lg:pl-16 mt-12 md:mt-0">
+            <ViewTag label="Vista 2 — Visión" number={2} />
+            <span
+              className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
+              style={{
+                fontSize: "0.8rem",
+                fontWeight: 300,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            >
+              Hacia dónde vamos
+            </span>
+            <span
+              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
+              style={{
+                fontSize: "clamp(3rem, 5vw, 4.2rem)",
+                fontWeight: 700,
+                letterSpacing: "-0.01em",
+                textTransform: "uppercase",
+              }}
+            >
+              Visión
+            </span>
+            <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
+            <p
+              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
+              style={{ fontSize: "0.95rem", fontWeight: 400, letterSpacing: "0.01em" }}
+            >
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                Liderar la innovación
+              </strong>{" "}
+              en tecnologías de visión y control — convirtiéndonos en{" "}
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                referente de confianza
+              </strong>{" "}
+              para defensa, aeronáutica e industria gracias a nuestra{" "}
+              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
+                excelencia técnica
+              </strong>{" "}
+              y compromiso inquebrantable con la calidad.
+            </p>
+          </div>
+        </div>
 
-              <div
-                className="relative"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 900,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.02em",
-                }}
-              >
+        {/* ── Footer con title block ── */}
+        <div className="flex items-end justify-between border-t border-[rgba(14,95,163,0.35)] pt-4 gap-6 flex-wrap">
+          <span
+            className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "7.5px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+            }}
+          >
+            Defensya Systems · Todos los derechos reservados
+          </span>
+
+          {/* Title block — esquina inferior derecha */}
+          <div className="border-l border-t border-[rgba(14,95,163,0.35)] px-4 pt-2 pb-[7px] shrink-0">
+            <span
+              className="block text-[#0e5fa3] dark:text-[#4fa8e0] mb-[5px]"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "9.5px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            >
+              Defensya Systems S.L.
+            </span>
+            <div className="flex gap-4 flex-wrap border-t border-[rgba(14,95,163,0.12)] pt-[5px]">
+              {[
+                { label: "Fundada", value: "2006" },
+                { label: "Sede",    value: "España" },
+                { label: "Cert.",   value: "ISO 9001" },
+                { label: "Ámbito", value: "Defensa · Aero · Industria" },
+              ].map(({ label, value }) => (
                 <span
-                  className="block  text-slate-300/60 dark:text-white/[0.07] leading-[0.85] select-none pointer-events-none"
+                  key={label}
+                  className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
                   style={{
-                    fontSize: "clamp(5rem, 9vw, 8rem)",
-                    letterSpacing: "-0.04em",
-                    marginLeft: "-3px",
+                    fontFamily: "'Share Tech Mono', monospace",
+                    fontSize: "7.5px",
+                    letterSpacing: "0.13em",
+                    textTransform: "uppercase",
                   }}
                 >
-                  V
+                  {label}:{" "}
+                  <span className="text-[#0e5fa3] dark:text-[#4fa8e0]">{value}</span>
                 </span>
-                <h3
-                  className="relative z-10 text-defensya-navy dark:text-white -mt-6"
-                  style={{
-                    fontSize: "clamp(3.5rem, 5vw, 4.2rem)",
-                    lineHeight: 0.9,
-                  }}
-                >
-                  <span className=" font-light">Hacia dónde</span> <br />{" "}
-                  <span className="text-defensya-blue italic font-bold">
-                    vamos
-                  </span>
-                </h3>
-              </div>
-
-              <div className="w-8 h-0.5 bg-defensya-blue mt-4 mb-5" />
-
-              <p className="text-md font-light dark:text-[#7c8fa8] leading-[1.85] tracking-wide">
-                <strong className="dark:text-[#cbd5e1] font-normal">
-                  Liderar la innovación
-                </strong>{" "}
-                en tecnologías de visión y control — convirtiéndonos en
-                referente de confianza para defensa, aeronáutica e industria,
-                gracias a nuestra{" "}
-                <strong className="dark:text-[#cbd5e1] font-normal">
-                  excelencia técnica
-                </strong>
-                , capacidad de innovación y compromiso con la calidad.
-              </p>
-
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[rgba(14,165,233,0.2)]" />
-            </div>
-
-            <div className="flex items-center gap-2.5 border-t border-[rgba(14,165,233,0.12)] pt-5">
-              <span
-                className="text-[10px] tracking-[.2em] dark:text-slate-400 text-[rgba(29,69,115,0.53)]"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
-              >
-                DFNS-002
-              </span>
-              <span className="w-1 h-1 rounded-full bg-[rgba(29,69,115,0.53)]" />
-              <span
-                className="text-[10px] tracking-[.15em] dark:text-slate-400 text-[rgba(29,69,115,0.53)]"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
-              >
-                DEFENCE · AERO · INDUSTRY
-              </span>
+              ))}
             </div>
           </div>
         </div>
-      </div>
 
-      <style>{`
-        @keyframes spineGlow {
-          0%, 100% { opacity: 0.3; }
-          50%       { opacity: 1; }
-        }
-      `}</style>
+      </div>
     </section>
   );
 };
+
+/* ── Sub-componentes ── */
+
+type CornerPos = "tl" | "tr" | "bl" | "br";
+
+const cornerStyles: Record<CornerPos, string> = {
+  tl: "top-[14px] left-[14px]",
+  tr: "top-[14px] right-[14px] [transform:scaleX(-1)]",
+  bl: "bottom-[14px] left-[14px] [transform:scaleY(-1)]",
+  br: "bottom-[14px] right-[14px] [transform:scale(-1,-1)]",
+};
+
+const CornerMark = ({ position }: { position: CornerPos }) => (
+  <svg
+    className={`absolute w-4 h-4 pointer-events-none ${cornerStyles[position]}`}
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M0 16 L0 0 L16 0"
+      fill="none"
+      stroke="rgba(14,95,163,0.45)"
+      strokeWidth="1"
+    />
+  </svg>
+);
+
+const ViewTag = ({ label, number }: { label: string; number: number }) => (
+  <div
+    className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
+               pb-2 mb-6 text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
+    style={{
+      fontFamily: "'Share Tech Mono', monospace",
+      fontSize: "8px",
+      letterSpacing: "0.28em",
+      textTransform: "uppercase",
+    }}
+  >
+    <span>{label}</span>
+    <div
+      className="flex items-center justify-center w-[17px] h-[17px]
+                 border border-[rgba(14,95,163,0.35)]
+                 text-[#0e5fa3] dark:text-[#4fa8e0] font-bold"
+      style={{
+        fontFamily: "'Share Tech Mono', monospace",
+        fontSize: "9px",
+      }}
+    >
+      {number}
+    </div>
+  </div>
+);
 
 export default MisionVision;
