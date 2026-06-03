@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import MisionVision from "./MisionVision";
-import Timeline from "@/components/home/TimeLine";
+import TimelineSection from "@/components/home/TimelineSection";
+
+
+
 
 const experienceItems = [
   {
@@ -37,73 +40,48 @@ const QuienesSomos = () => {
   return (
     <main
       className="w-full bg-white dark:bg-[#060d18] text-gray-900 dark:text-white overflow-x-hidden"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
     >
-
-      {/* ─────────── HERO ─────────── */}
-      {/* <section className="px-8 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-
-          <div className="grid md:grid-cols-[1fr_38%] gap-6 items-center">
-            <h1 className="text-[clamp(3.8rem,7vw,6rem)]  font-display font-bold leading-[0.95] tracking-tight uppercase">
-              Tecnología
-              <br />
-              Avance
-              <br />
-              <span className="text-defensya-blue dark:text-blue-300">
-                {" "}
-                Innovación
-              </span>
-            </h1>
-
-            <div className="lg:pb-2">
-              <p className="text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-                Defensya es una empresa de base tecnológica orientada a la
-                innovación y el diseño en el desarrollo de soluciones avanzadas.
-                La Investigación y el Desarrollo (I+D) constituyen pilares
-                fundamentales de nuestra actividad.
-              </p>
-              <p className="text-sm md:text-md lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
-                Especializados en sistemas de visión, diseñamos y fabricamos
-                soluciones completas: monitores de vídeo, sistemas de gestión de
-                imagen, audio y datos, sistemas de iluminación LED y láser de
-                alta potencia, y cámaras de precisión para entornos operativos
-                exigentes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-
       <MisionVision />
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative py-12 px-6 lg:px-16  bg-defensya-navy dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative py-12 px-6 lg:px-16  bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid  absolute inset-0 opacity-60 pointer-events-none" />
 
         <div className="w-full mx-auto relative">
           {/* Section header */}
-          <div className="flex items-end justify-center text-center pb-8 my-14 gap-8 flex-wrap">
-            <div>
-              <h2
-                className=" text-white
-      font-bold uppercase leading-[0.9] tracking-[-0.02em]
-      text-[2.5rem]
-      md:text-[3.5rem]
-      lg:text-[4rem]
-      xl:text-[4.5rem]
-    "
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
-              >
-                Nuestra Experiencia
-              </h2>
-            </div>
-          </div>
+          <div className="flex items-center justify-between mb-14 border-b border-[rgba(14,165,233,0.15)] pb-6 gap-6 flex-wrap">
+        <div className="flex mt-8 flex-col gap-2.5">
+          {/* Title */}
+          <h2
+            className="leading-[0.9] tracking-[-0.02em]"
+            style={{
+              fontSize: "clamp(2.8rem, 5vw, 4rem)",
+              textTransform: "uppercase",
+            }}
+          >
+            <span className="font-bold text-gray-100">Nuestra </span>
+            <em className="text-white/50" style={{ fontWeight: 200 }}>
+              Experiencia
+            </em>
+          </h2>
+        </div>
+
+        {/* Doc ref */}
+        <div
+          className="text-right text-white/25 leading-loose shrink-0"
+          style={{
+            fontFamily: "'Share Tech Mono', monospace",
+            fontSize: "8px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+          }}
+        >
+          Aeronáutica · Defensa · Industria
+          <br />
+        </div>
+      </div>
 
           {/* Cards grid texture*/}
           <div className="grid md:grid-cols-3 gap-4">
@@ -208,11 +186,15 @@ const QuienesSomos = () => {
 
                   {/* Desc */}
                   <p
-                    className="text-md lg:text-xl text-gray-400 leading-relaxed
+                    className=" text-gray-400 leading-relaxed
     opacity-0 translate-y-4
     group-hover:opacity-100 group-hover:translate-y-0
     group-hover:text-base group-hover:text-white
     group-hover:text-center"
+    style={{
+      fontSize: "1.5rem",
+      maxHeight: 0,
+    }}
                   >
                     {item.desc}
                   </p>
@@ -223,32 +205,12 @@ const QuienesSomos = () => {
         </div>
       </section>
 
-      <Timeline />
+      {/* <Timeline /> */}
 
       {/* ─────────── LIDERAZGO AVIACIÓN ─────────── */}
       <section className="relative py-25 px-6 lg:px-16 bg-[#060d18] overflow-hidden">
         {/* Tech grid */}
         <div className="tech-grid absolute inset-0 pointer-events-none" />
-
-        {/* Radar decoration */}
-        {/* <div
-          className="absolute -right-48 top-1/2 -translate-y-1/2 w-[600px] h-[600px]  pointer-events-none opacity-90"
-          aria-hidden="true"
-        >
-          {[280, 220, 160, 100].map((s) => (
-            <div
-              key={s}
-              className="radar-ring"
-              style={{
-                width: s,
-                height: s,
-                marginLeft: -s / 2,
-                marginTop: -s / 2,
-              }}
-            />
-          ))}
-          <div className="radar-sweep-line" />
-        </div> */}
 
         {/* Ambient glow */}
         <div
@@ -367,6 +329,8 @@ const QuienesSomos = () => {
           </div>
         </div>
       </section>
+<TimelineSection />
+      
     </main>
   );
 };

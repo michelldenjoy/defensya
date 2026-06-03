@@ -1,16 +1,8 @@
-"use client";
-
-// Fuentes requeridas — añadir en tu layout.tsx o _document.tsx:
-// <link
-//   href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap"
-//   rel="stylesheet"
-// />
 
 const MisionVision = () => {
   return (
     <section
       className="relative overflow-hidden bg-[#f6f8fb] dark:bg-[#07101d]"
-      style={{ fontFamily: "'Rajdhani', sans-serif" }}
     >
       {/* ── Marco perimetral ── */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.35)] pointer-events-none" />
@@ -24,7 +16,7 @@ const MisionVision = () => {
       <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-12 pb-14">
 
         {/* Cabecera */}
-        <div className="flex items-center justify-between mb-14">
+        {/* <div className="flex items-center justify-between mb-14">
           <span
             className="border border-[rgba(14,95,163,0.35)] px-3 py-[3px] text-[#0e5fa3] dark:text-[#4fa8e0]"
             style={{
@@ -50,7 +42,7 @@ const MisionVision = () => {
             <br />
             Est. 2006
           </span>
-        </div>
+        </div> */}
 
         {/* ── Columnas Misión / Visión ── */}
         <div className="grid md:grid-cols-2 relative mb-10">
@@ -79,8 +71,8 @@ const MisionVision = () => {
           </div>
 
           {/* MISIÓN */}
-          <div className="pr-0 md:pr-10 lg:pr-16">
-            <ViewTag label="Vista 1 — Misión" number={1} />
+          <div className="pr-0 md:pr-10 lg:pr-16 mt-10">
+            {/* <ViewTag label="Vista 1 — Misión" number={1} /> */}
             <span
               className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
               style={{
@@ -95,7 +87,7 @@ const MisionVision = () => {
             <span
               className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
               style={{
-                fontSize: "clamp(3rem, 5vw, 4.2rem)",
+                fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.01em",
                 textTransform: "uppercase",
@@ -126,8 +118,8 @@ const MisionVision = () => {
           </div>
 
           {/* VISIÓN */}
-          <div className="pl-0 md:pl-10 lg:pl-16 mt-12 md:mt-0">
-            <ViewTag label="Vista 2 — Visión" number={2} />
+          <div className="pl-0 md:pl-10 lg:pl-16 mt-10">
+            {/* <ViewTag label="Vista 2 — Visión" number={2} /> */}
             <span
               className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
               style={{
@@ -142,7 +134,7 @@ const MisionVision = () => {
             <span
               className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
               style={{
-                fontSize: "clamp(3rem, 5vw, 4.2rem)",
+                fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.01em",
                 textTransform: "uppercase",
