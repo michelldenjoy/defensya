@@ -134,7 +134,7 @@ function MilestoneRow({
       <div className="w-5 h-px bg-[#0e5fa3] mb-4" />
       <p
         className="font-light leading-[1.8] text-[rgba(11,31,56,0.5)] dark:text-[rgba(200,220,238,0.5)]"
-        style={{ fontSize: "0.88rem" }}
+        style={{ fontSize: "1rem" }}
       >
         {hito.description}
       </p>
@@ -148,7 +148,7 @@ function MilestoneRow({
         >
           {hito.metric}
           {hito.metricSuffix && (
-            <span className="text-[#0e5fa3]">{hito.metricSuffix}</span>
+            <span className="text-defensya-blue">{hito.metricSuffix}</span>
           )}
         </div>
         <span
@@ -254,7 +254,7 @@ export default function TimelineSection() {
             className="text-defensya-blue"
             style={{
               fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "9px",
+              fontSize: "11px",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
             }}
@@ -297,7 +297,7 @@ export default function TimelineSection() {
               className="text-[rgba(11,31,56,0.22)] dark:text-[rgba(200,220,238,0.18)] mt-8 block"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "8px",
+                fontSize: "10px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
               }}
@@ -328,14 +328,14 @@ export default function TimelineSection() {
           </div>
 
           {/* RIGHT — Copy + botón */}
-          <div className="flex flex-col justify-between pl-0 md:pl-12 mt-10 md:mt-0">
+          <div className="flex flex-col justify-between pl-0 md:pl-12">
             {/* View tag */}
             <div
               className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
-                         pb-2 mb-6 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
+                         pb- mb-4 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "8px",
+                fontSize: "11px",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
@@ -357,7 +357,7 @@ export default function TimelineSection() {
             <p
               className="font-light leading-[1.88] tracking-[0.01em] flex-1
                          text-[rgba(11,31,56,0.5)] dark:text-[rgba(200,220,238,0.45)]"
-              style={{ fontSize: "0.95rem" }}
+              style={{ fontSize: "1.1rem" }}
             >
               En Defensya nos superamos año tras año, desarrollando tecnologías
               que elevan la eficacia y seguridad de las misiones en vuelo. Desde
@@ -365,7 +365,7 @@ export default function TimelineSection() {
               autónoma de hoy, cada hito ha sido una respuesta directa a un
               desafío real de la aeronáutica y la defensa.
               <br />
-              <br />
+              
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 Descubre la historia de ingeniería que nos define.
               </strong>

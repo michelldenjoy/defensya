@@ -63,8 +63,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       if (!isTouch || !touchStartRef.current) return;
-      const dx = Math.abs(e.changedTouches[0].clientX - touchStartRef.current.x);
-      const dy = Math.abs(e.changedTouches[0].clientY - touchStartRef.current.y);
+      const dx = Math.abs(
+        e.changedTouches[0].clientX - touchStartRef.current.x
+      );
+      const dy = Math.abs(
+        e.changedTouches[0].clientY - touchStartRef.current.y
+      );
       // Solo toggle si no hubo scroll (desplazamiento < 10px)
       if (dx < 10 && dy < 10) {
         setIsActive((prev) => !prev);
@@ -210,7 +214,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
             opacity-0 translate-y-5
             group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white/90
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-75
-            ${isTouch && isActive ? "!opacity-100 !translate-y-0 !text-white/90" : ""}
+            ${
+              isTouch && isActive
+                ? "!opacity-100 !translate-y-0 !text-white/90"
+                : ""
+            }
           `}
           style={{
             fontSize: "clamp(1rem, 2.8vw, 1.25rem)",
@@ -239,12 +247,15 @@ const QuienesSomos = () => {
 
         <div className="w-full mx-auto relative">
           {/* Section header */}
-          <div className="flex items-start sm:items-center justify-between mb-10 sm:mb-14 border-b border-[rgba(14,165,233,0.15)] pb-5 sm:pb-6 gap-4 flex-wrap">
+          <div className="flex items-center sm:items-center justify-between mb-10 sm:mb-14 border-b border-[rgba(14,165,233,0.15)] pb-5 sm:pb-6 gap-4 flex-wrap">
             <div className="flex mt-6 sm:mt-8 flex-col gap-2.5">
+              <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
+             
+              </p>
               <h2
                 className="leading-[0.9] tracking-[-0.02em]"
                 style={{
-                  fontSize: "clamp(2rem, 6vw, 4rem)",
+                  fontSize: "clamp(2rem, 5vw, 4rem)",
                   textTransform: "uppercase",
                 }}
               >
@@ -256,17 +267,17 @@ const QuienesSomos = () => {
             </div>
 
             {/* Doc ref */}
-            <div
-              className="text-right text-white/25 leading-loose shrink-0 hidden sm:block"
+            {/* <div
+              className="text-right  text-white/25 leading-loose shrink-0 hidden sm:block"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "8px",
+                fontSize: "10px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
               }}
             >
               Aeronáutica · Defensa · Industria
-            </div>
+            </div> */}
           </div>
 
           {/* Cards grid — 1 col mobile, 2 col tablet, 3 col desktop */}

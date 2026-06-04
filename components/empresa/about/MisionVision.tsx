@@ -104,7 +104,7 @@ const MisionVision = () => {
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 soluciones tecnológicas avanzadas
               </strong>{" "}
-              en visión, imagen, audio, datos e iluminación especializada —
+              en visión, imagen, audio, datos e iluminación especializada
               proporcionando productos innovadores y de{" "}
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 alto rendimiento
@@ -150,7 +150,7 @@ const MisionVision = () => {
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 Liderar la innovación
               </strong>{" "}
-              en tecnologías de visión y control — convirtiéndonos en{" "}
+              en tecnologías de visión y control convirtiéndonos en{" "}
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 referente de confianza
               </strong>{" "}
