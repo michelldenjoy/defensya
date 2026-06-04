@@ -162,7 +162,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
       {/* Content */}
       <div
         className={`
-          absolute inset-0 p-5 sm:p-7 flex flex-col justify-end transition-all duration-500
+          absolute inset-0 p-5 sm:p-7 flex flex-col justify-end
+          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
           group-hover:justify-center
           ${isTouch && isActive ? "!justify-center" : ""}
         `}
@@ -170,16 +171,17 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         {/* Title */}
         <h3
           className={`
-            text-white mb-0 text-center transition-transform duration-500
-            translate-y-3 group-hover:translate-y-0
-            ${isTouch && isActive ? "!translate-y-0" : ""}
+            text-white mb-0 text-center
+            transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+            translate-y-2 group-hover:translate-y-0 group-hover:scale-110
+            ${isTouch && isActive ? "!translate-y-0 !scale-110" : ""}
           `}
           style={{
             fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-            fontSize: "clamp(1.4rem, 4vw, 2.2rem)",
-            fontWeight: 600,
+            fontSize: "clamp(1.6rem, 4.5vw, 2.6rem)",
+            fontWeight: 700,
             letterSpacing: "-0.01em",
-            lineHeight: 1.1,
+            lineHeight: 1.05,
             textTransform: "uppercase",
           }}
         >
@@ -187,15 +189,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         </h3>
 
         {/* Divider */}
-        <div className="my-3 sm:my-4 h-px relative overflow-hidden">
+        <div className="my-4 sm:my-5 h-px relative overflow-hidden">
           <div
             className={`
-              absolute left-0 top-0 h-full bg-[#0ea5e9]/30
+              absolute left-0 top-0 h-full bg-[#0ea5e9]/50
               w-[140px] group-hover:w-full
               ${isTouch && isActive ? "!w-full" : ""}
             `}
             style={{
-              transition: "width 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s",
+              transition: "width 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s",
             }}
           />
           <div className="h-full w-full bg-white/10" />
@@ -204,14 +206,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         {/* Description */}
         <p
           className={`
-            text-gray-400 leading-relaxed text-center
-            opacity-0 translate-y-4
-            group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white
-            transition-all duration-500
-            ${isTouch && isActive ? "!opacity-100 !translate-y-0 !text-white" : ""}
+            leading-snug text-center
+            opacity-0 translate-y-5
+            group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white/90
+            transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-75
+            ${isTouch && isActive ? "!opacity-100 !translate-y-0 !text-white/90" : ""}
           `}
           style={{
-            fontSize: "clamp(0.85rem, 2.5vw, 1rem)",
+            fontSize: "clamp(1rem, 2.8vw, 1.25rem)",
             maxHeight: isTouch && isActive ? "200px" : undefined,
           }}
         >
