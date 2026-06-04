@@ -88,7 +88,7 @@ export function ClipButton({
         target={target}
         rel={rel}
         className="group relative inline-flex items-center gap-3 px-6 py-3.5
-                   bg-defensya-navy-light dark:bg-defensya-blue text-white text-[11px] tracking-[0.25em] uppercase font-bold
+                   bg-defensya-navy-light dark:bg-defensya-blue text-white text-[11px] lg:text-[12px] tracking-[0.25em] uppercase font-bold
                    hover:bg-defensya-blue transition-colors duration-200"
         style={{ clipPath: clip }}
       >
@@ -125,10 +125,11 @@ export function ClipButton({
     <Link
       href={href}
       className="group relative inline-flex items-center gap-3 px-6 py-3.5
-                 border text-[11px] tracking-[0.25em] uppercase font-bold
+                 border text-[11px] lg:text-[12px] tracking-[0.25em] uppercase font-bold
                  text-gray-800 hover:bg-defensya-blue hover:text-white hover:border-defensya-blue
                  transition-all duration-200 dark:text-white dark:border-0"
-      style={{ clipPath: clip }}
+      style={{ clipPath: clip,  fontFamily: "'Barlow Condensed', sans-serif" }}
+      
     >
       <span
         className="pointer-events-none absolute top-0 left-0 opacity-60"
@@ -186,7 +187,7 @@ export default function HeroSection() {
         >
           {/* ── Headline aspect-[16/9] ── */}
           <h1
-            className="font-bold leading-[0.88] tracking-[-0.025em]  uppercase text-black mb-8"
+            className="font-bold leading-[0.88] tracking-[-0.025em]  uppercase text-black md:mb-0 mb-8"
             style={{
               fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
               fontSize: "clamp(3.3rem, 7.6vw, 6.2rem)",
@@ -205,7 +206,7 @@ export default function HeroSection() {
 
           {/* ── Descriptor ── */}
           <p
-            className="text-md text-justify text-gray-500 leading-relaxed max-w-sm mb-12
+            className="text-sm md:text-md xl:text-lg  text-gray-500 leading-relaxed max-w-sm my-4 
                        border-l-2 border-defensya-navy-light pl-5"
           >
             Defensya desarrolla tecnologías avanzadas para los sistemas
@@ -214,7 +215,7 @@ export default function HeroSection() {
           </p>
 
           {/* ── Buttons ── */}
-          <div className="flex flex-wrap gap-3 mb-14">
+          <div className="flex flex-wrap gap-3 my-3">
             <ClipButton href="/productos" variant="primary">
               Nuestros Proyectos
             </ClipButton>

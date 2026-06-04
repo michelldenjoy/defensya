@@ -113,6 +113,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         style={{
           clipPath:
             "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)",
+            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
         }}
       >
         {/* TL bracket */}
@@ -121,6 +122,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
           style={{
             borderTop: "2px solid rgba(255,255,255,0.40)",
             borderLeft: "2px solid rgba(255,255,255,0.40)",
+            
           }}
         />
         {/* BR bracket */}
@@ -135,7 +137,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         {/* Label tipo HUD */}
         <p
           className="font-mono text-[10px] tracking-[0.28em] uppercase font-semibold mb-2"
-          style={{ color: "rgba(255,255,255,0.50)" }}
+          style={{ color: "rgba(255,255,255,0.50)",  }}
         >
           {cap.label} · 
         </p>
@@ -225,10 +227,10 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
 export default function CapabilityCards() {
   return (
     <section
-      className="relative w-full overflow-hidden py-28 px-6 lg:px-16
+      className="relative w-full overflow-hidden py-18 px-6 lg:px-16
                  bg-white dark:bg-defensya-navy
                  border-b border-gray-100 dark:border-white/[0.07]"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
     >
       {/* Tech grid — visible only in dark */}
       <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-30 pointer-events-none" />
@@ -253,7 +255,7 @@ export default function CapabilityCards() {
             </h2>
             </div>
 
-            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+            <p className="text-sm lg:text-lg  text-gray-500 dark:text-gray-400 leading-relaxed
                        max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end ">
            Transformamos desafíos complejos en soluciones tecnológicas fiables.
             Un centro de innovación dedicado a fortalecer la infraestructura
@@ -263,14 +265,14 @@ export default function CapabilityCards() {
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-2">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}
         </div>
 
         {/* ── Divider ── */}
-        <div className="flex items-center gap-4 my-8">
+        <div className="flex items-center gap-4 my-4">
           <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.06]" />
           <span
             className="font-mono text-[9px] tracking-[0.35em]
@@ -283,7 +285,7 @@ export default function CapabilityCards() {
 
         {/* ── Commitment block ── */}
         <div
-          className="relative p-8 sm:p-10 lg:p-14
+          className="relative p-8
                      bg-slate-200/70 dark:bg-white/[0.02]
                      border border-gray-100 dark:border-white/[0.07]"
           style={{
@@ -326,7 +328,7 @@ export default function CapabilityCards() {
           </p>
 
           {/* Bottom meta */}
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-6 flex items-center gap-4">
             <div className="h-px w-12 bg-defensya-blue/30" />
             <span
               className="font-mono text-[10px] tracking-[0.3em]

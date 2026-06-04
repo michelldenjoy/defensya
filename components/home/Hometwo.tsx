@@ -39,12 +39,13 @@ export default function Hometwo() {
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
     >
       <HeroSection />
 
       {/* ───────── TRUST STRIP ───────── */}
       <section className="py-6 mt-8 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
+      
         <div className="max-w-7xl mx-auto px-4 ">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (

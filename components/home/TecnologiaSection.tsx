@@ -72,7 +72,7 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
 
 export default function TecnologiasSection() {
   return (
-    <section className="relative py-20 px-6 lg:px-16 overflow-hidden bg-white dark:bg-[#060d18]">
+    <section className="relative py-18 px-6 lg:px-16 overflow-hidden bg-white dark:bg-[#060d18]">
       <div className="tech-grid absolute inset-0 opacity-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
@@ -80,21 +80,24 @@ export default function TecnologiasSection() {
         <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center md:mb-15">
           <div className="grid grid-cols-2 lg:grid-cols-[1fr_auto] gap-4 lg:gap-8 items-center lg:items-center ">
             <div className="pr-3">
-            <h2
-              className="font-bold uppercase leading-[0.9] tracking-tight
+              <h2
+                className="font-bold uppercase leading-[0.9] tracking-tight
                          text-gray-900 dark:text-white"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-                fontSize: "clamp(2.4rem, 5vw, 4rem)",
-              }}
-            >
-              Impulsamos  el futuro del <br /> <span className="text-defensya-blue">repostaje en vuelo</span> 
-            </h2>
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(2.4rem, 5vw, 4rem)",
+                }}
+              >
+                Impulsamos el futuro del <br />{" "}
+                <span className="text-defensya-blue">repostaje en vuelo</span>
+              </h2>
             </div>
 
-            <p className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
-                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end ">
+            <p
+              className="text-md md:text-md text-gray-500 dark:text-gray-400 leading-relaxed
+                       max-w-md border-l-2 border-defensya-blue/30 pl-5 self-end "
+            >
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
               aéreo automatizado, desde la percepción hasta el control háptico
               del botalón.
@@ -102,18 +105,45 @@ export default function TecnologiasSection() {
           </div>
         </div>
 
-        {/* <div className="hidden md:grid md:grid-cols-[56px_200px_260px_1fr] gap-6
-                        px-5 -mx-5 pb-3 border-b border-white/[0.12]">
-          {["#", "Producto", "Clasificación", "Descripción"].map((h) => (
-            <span key={h} className="font-mono text-[9px] tracking-[0.3em] text-gray-700 uppercase">{h}</span>
-          ))}
-        </div> */}
-
         {/* ── FILAS  A3R A4R  BOOMERANG ── */}
-        <div className="mb-8">
+        <div>
           {rows.map((p) => (
             <ProductRow key={p.name} {...p} />
           ))}
+        </div>
+
+
+        {/* ── BOTON SABER MAS ── */}
+        <div className="mb-8">
+          {" "}
+          <Link
+            href="/innovacion"
+            className="group inline-flex items-center gap-3
+                       px-7 py-3.5 border border-white/15 text-white
+                       font-mono text-[11px] font-bold tracking-[0.25em] uppercase bg-defensya-navy hover:bg-defensya-blue
+                       transition-all duration-200"
+            style={{
+              clipPath:
+                "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
+            }}
+          >
+            Saber mas
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              className="group-hover:translate-x-1 transition-transform duration-200"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4-4 4M3 12h18"
+              />
+            </svg>
+          </Link>
         </div>
 
         {/* HAPTIX — hero block */}
@@ -188,7 +218,7 @@ export default function TecnologiasSection() {
               }}
             />
           </>
-          
+
           {/* Ghost number */}
           {/* <span
             className="pointer-events-none absolute bottom-4 right-8 font-mono font-black select-none
@@ -296,7 +326,7 @@ export default function TecnologiasSection() {
 
         {/* ── Footer CTA ── */}
         <div className="mt-12 flex items-center justify-between flex-wrap gap-6">
-          <Link
+          {/* <Link
             href="/innovacion"
             className="group inline-flex items-center gap-3
                        px-7 py-3.5 border border-white/15 text-white
@@ -323,7 +353,9 @@ export default function TecnologiasSection() {
                 d="M17 8l4 4-4 4M3 12h18"
               />
             </svg>
-          </Link>
+          </Link> */}
+
+          <p></p>
 
           <div className="flex items-center gap-4">
             <div className="h-px w-12 bg-defensya-blue/30" />

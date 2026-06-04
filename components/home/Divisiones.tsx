@@ -171,8 +171,10 @@ function DivisionCard({ item }: { item: Division }) {
 
 export default function Divisiones() {
   return (
-    <section className="relative py-20 px-6 bg-defensya-navy overflow-hidden dark:bg-black/40">
+    <section className="relative py-16 px-6 bg-defensya-navy overflow-hidden dark:bg-black/40">
+      
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
+      
 
       <div className="max-w relative">
         {/* ── Header ── */}
@@ -181,18 +183,17 @@ export default function Divisiones() {
             Áreas Tecnológicas
           </p>
           <h2
-            className="text-[2.3rem]
-      sm:text-[2.5rem]
-      md:text-[3rem]
-      lg:text-[3.5rem]
-      xl:text-[4rem] font-bold uppercase leading-none
-                tracking-tight text-white"
-            style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-            }}
-          >
-            Sectores que manejamos
-          </h2>
+                className="leading-[0.9]  tracking-[-0.02em]"
+                style={{
+                  fontSize: "clamp(2.8rem, 5vw, 4rem)",
+                  textTransform: "uppercase",
+                }}
+              >
+                <span className="font-bold text-gray-100 ">Sectores </span>
+                <em className="text-white/50 " style={{ fontWeight: 200 }}>
+                que Manejamos
+                </em>
+              </h2>
         </div>
 
         {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}

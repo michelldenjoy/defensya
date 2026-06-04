@@ -76,7 +76,7 @@ const MisionVision = () => {
             <span
               className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
               style={{
-                fontSize: "0.8rem",
+                fontSize: "0.9rem",
                 fontWeight: 300,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -98,7 +98,7 @@ const MisionVision = () => {
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
               className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
-              style={{ fontSize: "0.95rem", fontWeight: 400, letterSpacing: "0.01em" }}
+              style={{ fontSize: "1.25rem", fontWeight: 400, letterSpacing: "0.01em" }}
             >
               Diseñar y desarrollar{" "}
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
@@ -123,7 +123,7 @@ const MisionVision = () => {
             <span
               className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
               style={{
-                fontSize: "0.8rem",
+                fontSize: "0.9rem",
                 fontWeight: 300,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -145,7 +145,7 @@ const MisionVision = () => {
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
               className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
-              style={{ fontSize: "0.95rem", fontWeight: 400, letterSpacing: "0.01em" }}
+              style={{ fontSize: "1.25rem", fontWeight: 400, letterSpacing: "0.01em" }}
             >
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 Liderar la innovación
