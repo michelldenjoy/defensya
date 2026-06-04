@@ -69,12 +69,12 @@ function ProductRow({ num, name, tag, desc }: (typeof rows)[0]) {
       </span>
 
       {/* Tag — solo visible desde md, ocupa su propia columna */}
-      <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] text-gray-600 dark:text-gray-400 uppercase leading-snug">
+      <span className="hidden md:block font-mono text-[12px] tracking-[0.2em] text-gray-600 dark:text-gray-400 uppercase leading-snug">
         {tag}
       </span>
 
       {/* Descripción — en mobile col 2 fila 2 (sangría visual alineada con el nombre) */}
-      <span className="text-sm text-gray-600 dark:text-gray-400 leading-snug col-start-2 md:col-auto">
+      <span className="text-md text-gray-600 dark:text-gray-400 leading-snug col-start-2 md:col-auto">
         {desc}
       </span>
     </div>
@@ -175,8 +175,8 @@ export default function TecnologiasSection() {
             </h2>
 
             <p
-              className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed
-                         max-w-sm border-l-2 border-defensya-blue/30 pl-4 lg:pl-5
+              className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed
+                         max-w-md border-l-2 border-defensya-blue/30 pl-4 lg:pl-5
                          lg:self-end"
             >
               Nuestras soluciones cubren el ciclo completo del reabastecimiento
@@ -266,7 +266,7 @@ export default function TecnologiasSection() {
 
               <div className="h-px w-12 bg-defensya-blue/50 mb-5 sm:mb-6 group-hover:w-28 transition-all duration-500" />
 
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-md mb-7 sm:mb-8">
+              <p className="text-sm sm:text-base md:text-lg  text-gray-300 leading-relaxed max-w-md mb-7 sm:mb-8">
                 Control háptico avanzado para el botalón de repostaje. Una sola
                 mano, retroalimentación física en tiempo real y protección de
                 envolvente por software. El único dispositivo de su clase en el

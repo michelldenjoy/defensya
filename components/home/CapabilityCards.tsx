@@ -269,8 +269,8 @@ export default function CapabilityCards() {
               <span className="text-defensya-blue">alta fiabilidad</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed
-                         max-w-sm border-l-2 border-defensya-blue/30 pl-4 lg:pl-5 lg:self-end">
+            <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed
+                         max-w-md border-l-2 border-defensya-blue/30 pl-4 lg:pl-5 lg:self-end">
               Transformamos desafíos complejos en soluciones tecnológicas
               fiables. Un centro de innovación dedicado a fortalecer la
               infraestructura técnica de la industria aeroespacial y de defensa.
@@ -295,7 +295,7 @@ export default function CapabilityCards() {
         </div>
 
         {/* ── Commitment block ── */}
-        <div
+        {/* <div
           className="relative p-6 sm:p-8
                      bg-slate-200/70 dark:bg-white/[0.02]
                      border border-gray-100 dark:border-white/[0.07]"
@@ -306,7 +306,7 @@ export default function CapabilityCards() {
         >
           <Corners size={16} />
 
-          {/* Ghost label */}
+         
           <span
             className="pointer-events-none absolute bottom-3 right-5 font-mono
                        font-black select-none text-black/[0.03] dark:text-white/[0.03]
@@ -342,7 +342,7 @@ export default function CapabilityCards() {
             defensa global.
           </p>
 
-          {/* Bottom meta */}
+          
           <div className="mt-5 sm:mt-6 flex items-center gap-4">
             <div className="h-px w-10 bg-defensya-blue/30" />
             <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.28em]
@@ -351,7 +351,7 @@ export default function CapabilityCards() {
             </span>
             <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.04]" />
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

@@ -1,6 +1,10 @@
 "use client";
-import { useState } from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 
+/* ─────────────────────────────────────────────────────────────────
+   DATOS
+───────────────────────────────────────────────────────────────── */
 const declaracion = [
   {
     id: "01",
@@ -57,43 +61,58 @@ const valores = [
   },
 ];
 
-const compromisos = [
-  {
-    num: "01",
-    label: "Excelencia operativa",
-    desc: "Búsqueda permanente de la excelencia en todos los procesos y actividades de la compañía.",
-  },
-  {
-    num: "02",
-    label: "Orientación al cliente",
-    desc: "Tratamiento personalizado y satisfacción de las expectativas de cada cliente como prioridad estratégica.",
-  },
-  {
-    num: "03",
-    label: "Mejora continua",
-    desc: "Revisión y actualización constante del sistema de gestión para adaptarse a nuevos requisitos y oportunidades.",
-  },
-];
+/* ─────────────────────────────────────────────────────────────────
+   SUB-COMPONENTES COMPARTIDOS
+───────────────────────────────────────────────────────────────── */
 
-// ─── Sub-componente
-
-function SectionTag({ children }: { children: React.ReactNode }) {
+/** Eyebrow con diamante — coherente con el resto de Defensya */
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
-      {children}
-    </p>
-  );
-}
-function SectionTagg({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[12px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-3">
-      {children}
-    </p>
+    <div className="flex items-center gap-3 mb-6 sm:mb-8">
+      <span
+        className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
+        style={{ transform: "rotate(45deg)" }}
+      />
+      <span
+        className="text-defensya-blue"
+        style={{
+          fontFamily: "'Share Tech Mono', monospace",
+          fontSize: "9px",
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+        }}
+      >
+        {children}
+      </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+    </div>
   );
 }
 
-// ─── Tabs (Objetivos / Valores) ─────────
+/** Separador horizontal técnico */
+function TechRule({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 my-8 sm:my-10">
+      <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.07]" />
+      <span
+        className="text-gray-400 dark:text-gray-500"
+        style={{
+          fontFamily: "'Share Tech Mono', monospace",
+          fontSize: "9px",
+          letterSpacing: "0.35em",
+          textTransform: "uppercase",
+        }}
+      >
+        {label}
+      </span>
+      <div className="h-px w-10 bg-defensya-blue/30" />
+    </div>
+  );
+}
 
+/* ─────────────────────────────────────────────────────────────────
+   TABS — Objetivos / Valores
+───────────────────────────────────────────────────────────────── */
 type Tab = "objetivos" | "valores";
 
 function ObjetivosValoresTabs() {
@@ -101,65 +120,99 @@ function ObjetivosValoresTabs() {
 
   return (
     <div>
-      {/* Tab switcher */}
-      <div className="flex border-b border-white/8 mb-10 gap-0">
-        {(["objetivos", "valores"] as Tab[]).map((t) => (
+      {/* Switcher */}
+      <div className="flex border-b border-white/10 mb-8 overflow-x-auto">
+        {(
+          [
+            { key: "objetivos", label: "Objetivos Estratégicos" },
+            { key: "valores", label: "Valores Fundamentales" },
+          ] as { key: Tab; label: string }[]
+        ).map(({ key, label }) => (
           <button
-            key={t}
-            onClick={() => setTab(t)}
-            className={`relative px-6 py-3 font-mono text-[12px] tracking-[0.25em] uppercase transition-colors duration-200 ${
-              tab === t ? "text-white" : "text-gray-500 hover:text-gray-300"
+            key={key}
+            onClick={() => setTab(key)}
+            className={`relative shrink-0 px-5 py-3 text-left transition-colors duration-200 ${
+              tab === key
+                ? "text-white"
+                : "text-gray-500 hover:text-gray-300"
             }`}
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "10px",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+            }}
           >
-            {t === "objetivos"
-              ? "Objetivos Estratégicos"
-              : "Valores Fundamentales"}
-            {tab === t && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-defensya-blue" />
+            {label}
+            {tab === key && (
+              <span className="absolute bottom-0 left-0 right-0 h-px bg-defensya-blue" />
             )}
           </button>
         ))}
       </div>
 
-      {/* OBJETIVOS */}
+      {/* Objetivos */}
       {tab === "objetivos" && (
-        <div className="space-y-0 border-t border-white/6">
+        <div className="border-t border-white/[0.06]">
           {objetivos.map((item, i) => (
             <div
               key={i}
-              className="group flex gap-6 py-6 border-b border-white/6 hover:bg-white/2 transition-colors duration-200 px-2"
+              className="group flex gap-5 sm:gap-6 py-5 sm:py-6
+                         border-b border-white/[0.06]
+                         hover:bg-white/[0.02] transition-colors duration-200 px-1"
             >
-              <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
+              <span
+                className="shrink-0 pt-0.5 w-6 text-defensya-blue"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                }}
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-sm text-gray-400 leading-relaxed">{item}</p>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light">
+                {item}
+              </p>
             </div>
           ))}
         </div>
       )}
 
-      {/* VALORES */}
+      {/* Valores */}
       {tab === "valores" && (
-        <div className="space-y-0 border-t border-white/6">
+        <div className="border-t border-white/[0.06]">
           {valores.map((item, i) => (
             <div
               key={i}
-              className="group flex gap-6  py-5 border-b border-white/6 hover:bg-white/2 transition-colors duration-200 px-2 items-start"
+              className="group flex gap-5 sm:gap-6 py-5 sm:py-6
+                         border-b border-white/[0.06]
+                         hover:bg-white/[0.02] transition-colors duration-200 px-1
+                         items-start"
             >
-              <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
+              <span
+                className="shrink-0 pt-1 w-6 text-defensya-blue"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                }}
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="flex flex-col gap-1">
+              <div>
                 <span
-                  className="text-md font-semibold tracking-wide uppercase text-white leading-none"
+                  className="block font-bold uppercase leading-none mb-2
+                               text-white tracking-wide"
                   style={{
                     fontFamily:
                       "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    fontSize: "1.1rem",
                   }}
                 >
                   {item.label}
                 </span>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-sm text-gray-400 leading-relaxed font-light">
                   {item.desc}
                 </p>
               </div>
@@ -171,50 +224,81 @@ function ObjetivosValoresTabs() {
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
+/* ─────────────────────────────────────────────────────────────────
+   MAIN PAGE
+───────────────────────────────────────────────────────────────── */
 export default function PoliticaCalidad() {
   const [openItem, setOpenItem] = useState<string | null>(null);
-
-  const toggleItem = (id: string) => {
+  const toggle = (id: string) =>
     setOpenItem((prev) => (prev === id ? null : id));
-  };
 
   return (
     <main
-      className="w-full bg-white dark:bg-defensya-navy  text-gray-900 dark:text-white"
+      className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
       style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
-      {/* ══ HERO ═════ */}
-      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
 
-          <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
+      {/* ══ HERO ═══════════════════════════════════════════════════ */}
+      <section className="relative px-5 sm:px-8 lg:px-16 pt-16 sm:pt-20 pb-16 sm:pb-24
+                          border-b border-gray-200 dark:border-white/[0.07] overflow-hidden">
+        <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-20 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative">
+          <Eyebrow>Calidad · Defensya Systems · ISO 9001:2015</Eyebrow>
+
+          {/* Heading + panel derecho */}
+          <div className="grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-start">
+
+            {/* LEFT — heading */}
             <div>
               <h1
-                className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase"
+                className="font-bold uppercase leading-[0.92] tracking-tight
+                           text-gray-900 dark:text-white mb-6"
+                style={{
+                  fontFamily:
+                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                }}
               >
-                Garantía en 
+                Garantía en
                 <br />
-                <span className="text-defensya-blue dark:text-blue-300">
-                  {" "}
+                <span className="text-defensya-blue">
                   Entornos Críticos
                 </span>
               </h1>
+
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400
+                            leading-relaxed max-w-lg">
+                El cumplimiento de los estándares internacionales es la base de
+                nuestra ingeniería. Sostenemos un sistema de gestión orientado a
+                la optimización de procesos y la rigurosidad técnica, acreditado
+                por las principales entidades de certificación del sector.
+              </p>
             </div>
 
-            <div className="flex flex-col gap-6 ">
-              <div className="inline-flex items-stretch gap-4 border border-gray-200 dark:border-white/8 self-start">
+            {/* RIGHT — métricas */}
+            <div className="flex flex-col gap-4">
+              {/* ISO badge */}
+              <div className="inline-flex items-stretch gap-0 border border-gray-200 dark:border-white/[0.1] self-start w-full sm:w-auto">
                 <div className="w-1 bg-defensya-blue shrink-0" />
-                <div className="px-4 py-4">
-                  <p className="text-[11px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase ">
+                <div className="px-5 py-4 flex-1">
+                  <p
+                    className="text-gray-400 dark:text-gray-500 mb-1"
+                    style={{
+                      fontFamily: "'Share Tech Mono', monospace",
+                      fontSize: "9px",
+                      letterSpacing: "0.3em",
+                      textTransform: "uppercase",
+                    }}
+                  >
                     Certificación activa
                   </p>
                   <p
-                    className="text-3xl font-bold text-defensya-blue dark:text-white"
+                    className="font-bold text-defensya-blue dark:text-white"
                     style={{
                       fontFamily:
                         "var(--font-display, 'Barlow Condensed', sans-serif)",
+                      fontSize: "clamp(1.6rem, 3vw, 2rem)",
                     }}
                   >
                     ISO 9001:2015
@@ -222,7 +306,9 @@ export default function PoliticaCalidad() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-px border border-gray-200 dark:border-white/[0.07] bg-gray-200 dark:bg-white/[0.07]">
+              {/* Grid de stats */}
+              <div className="grid grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.07]
+                              border border-gray-200 dark:border-white/[0.07]">
                 {[
                   { val: "+20", label: "Años de experiencia" },
                   { val: "100%", label: "Mejora continua" },
@@ -232,35 +318,42 @@ export default function PoliticaCalidad() {
                     className="bg-white dark:bg-defensya-navy px-5 py-4"
                   >
                     <p
-                      className="text-3xl font-bold text-gray-900 dark:text-white"
+                      className="font-bold text-gray-900 dark:text-white leading-none"
                       style={{
                         fontFamily:
                           "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        fontSize: "clamp(1.6rem, 3vw, 2rem)",
                       }}
                     >
                       {val}
                     </p>
-                    <p className="text-[11px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase mt-1">
+                    <p
+                      className="text-gray-400 dark:text-gray-500 mt-1"
+                      style={{
+                        fontFamily: "'Share Tech Mono', monospace",
+                        fontSize: "9px",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                      }}
+                    >
                       {label}
                     </p>
                   </div>
                 ))}
               </div>
-
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-              El cumplimiento de los estándares internacionales es la base de nuestra ingeniería. Sostenemos un sistema de gestión orientado a la optimización de procesos y la rigurosidad técnica, acreditado por las principales entidades de certificación del sector.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══ QUOTE ════ */}
-      <section className="px-6 lg:px-16 py-16 bg-defensya-navy border-b border-white/[0.07] dark:bg-black/40">
+      {/* ══ QUOTE ══════════════════════════════════════════════════ */}
+      <section className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16
+                          bg-defensya-navy border-b border-white/[0.07] dark:bg-black/40">
         <div className="max-w-7xl mx-auto">
-          <div className="flex gap-6 lg:gap-10 items-start">
+          <div className="flex gap-5 sm:gap-8 lg:gap-10 items-start">
             <span
-              className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
+              className="text-[5rem] sm:text-[7rem] lg:text-[9rem] leading-none font-bold
+                         text-defensya-blue/20 select-none shrink-0 -mt-3 sm:-mt-5"
               style={{
                 fontFamily:
                   "var(--font-display, 'Barlow Condensed', sans-serif)",
@@ -270,18 +363,27 @@ export default function PoliticaCalidad() {
             </span>
             <div>
               <p
-                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug lg:leading-snug max-w-3xl"
+                className="font-bold uppercase text-white leading-snug"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(1.2rem, 3.5vw, 2.2rem)",
                 }}
               >
-                El compromiso con la calidad en todas las actividades es un objetivo ineludible
-                para Defensya Ingeniería Internacional.
+                El compromiso con la calidad en todas las actividades es un
+                objetivo ineludible para Defensya Ingeniería Internacional.
               </p>
-              <div className="flex items-center gap-3 mt-6">
+              <div className="flex items-center gap-3 mt-5 sm:mt-6">
                 <div className="h-px w-8 bg-defensya-blue" />
-                <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
+                <span
+                  className="text-gray-500"
+                  style={{
+                    fontFamily: "'Share Tech Mono', monospace",
+                    fontSize: "9px",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Dirección General — Política de Calidad
                 </span>
               </div>
@@ -290,29 +392,35 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ DECLARACIÓN ══════*/}
-      <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
+      {/* ══ DECLARACIÓN ════════════════════════════════════════════ */}
+      <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20
+                          border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
+          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
+
+            {/* Sidebar */}
             <div className="lg:pt-1">
-            <h2
-                className="text-2xl lg:text-4xl font-bold uppercase leading-tight text-black"
+              <Eyebrow>DFS-QMS · Rev A</Eyebrow>
+              <h2
+                className="font-bold uppercase leading-tight
+                           text-gray-900 dark:text-white"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 }}
               >
                 Declaración
-                
               </h2>
-              <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500 leading-relaxed mt-3">
+              <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500
+                            leading-relaxed mt-3">
                 Texto oficial del sistema de gestión de calidad de Defensya
                 Ingeniería Internacional.
               </p>
-
             </div>
 
-            <div className="space-y-0 border-t border-gray-200 dark:border-white/[0.07]">
+            {/* Acordeón */}
+            <div className="border-t border-gray-200 dark:border-white/[0.07]">
               {declaracion.map((item) => {
                 const isOpen = openItem === item.id;
                 return (
@@ -321,15 +429,23 @@ export default function PoliticaCalidad() {
                     className="border-b border-gray-200 dark:border-white/[0.07]"
                   >
                     <button
-                      onClick={() => toggleItem(item.id)}
-                      className="w-full flex items-center gap-5 py-5 text-left group"
+                      onClick={() => toggle(item.id)}
+                      className="w-full flex items-center gap-4 sm:gap-5 py-5 text-left group"
                     >
-                      <span className="font-mono text-[11px] text-defensya-blue tracking-widest shrink-0 w-7">
+                      <span
+                        className="shrink-0 w-7 text-defensya-blue"
+                        style={{
+                          fontFamily: "'Share Tech Mono', monospace",
+                          fontSize: "11px",
+                          letterSpacing: "0.1em",
+                        }}
+                      >
                         {item.id}
                       </span>
 
+                      {/* Línea vertical de estado */}
                       <span
-                        className={`shrink-0 w-0.75 self-stretch rounded-full transition-colors duration-200 ${
+                        className={`shrink-0 w-px self-stretch rounded-full transition-colors duration-200 ${
                           isOpen
                             ? "bg-defensya-blue"
                             : "bg-gray-200 dark:bg-white/[0.07]"
@@ -337,7 +453,7 @@ export default function PoliticaCalidad() {
                       />
 
                       <h3
-                        className={`flex-1 text-base lg:text-lg font-bold uppercase transition-colors duration-200 ${
+                        className={`flex-1 font-bold uppercase transition-colors duration-200 leading-snug ${
                           isOpen
                             ? "text-gray-900 dark:text-white"
                             : "text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300"
@@ -345,11 +461,13 @@ export default function PoliticaCalidad() {
                         style={{
                           fontFamily:
                             "var(--font-display, 'Barlow Condensed', sans-serif)",
+                          fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
                         }}
                       >
                         {item.titulo}
                       </h3>
 
+                      {/* Icono +/× */}
                       <svg
                         width="16"
                         height="16"
@@ -368,14 +486,14 @@ export default function PoliticaCalidad() {
                       </svg>
                     </button>
 
+                    {/* Contenido expandible */}
                     <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isOpen
-                          ? "max-h-96 opacity-100 pb-5"
-                          : "max-h-0 opacity-0"
+                      className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                        isOpen ? "max-h-[600px] opacity-100 pb-6" : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed pl-12">
+                      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400
+                                    leading-relaxed font-light pl-12">
                         {item.texto}
                       </p>
                     </div>
@@ -387,81 +505,124 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ OBJETIVOS Y VALORES ═════ */}
-      <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
+      {/* ══ OBJETIVOS Y VALORES ════════════════════════════════════ */}
+      <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20
+                          bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
+          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
+
+            {/* Sidebar */}
             <div>
+              <Eyebrow>Gestión · Calidad</Eyebrow>
               <h2
-                className="text-2xl lg:text-4xl font-bold uppercase leading-tight text-white"
+                className="font-bold uppercase leading-tight text-white"
                 style={{
                   fontFamily:
                     "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 }}
               >
                 Objetivos
-                <br />y Valores
+                <br />
+                y Valores
               </h2>
             </div>
 
+            {/* Tabs */}
             <ObjetivosValoresTabs />
           </div>
         </div>
       </section>
 
-      {/* ══ PILARES DE ACTUACION ═══════ */}
-      {/* <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
+      {/* ══ COMPROMISO FINAL ═══════════════════════════════════════ */}
+      <section className="px-5 sm:px-8 lg:px-16 py-10
+                          border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
-            <div>
-              <SectionTag>Compromiso</SectionTag>
-              <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
+          <TechRule label="Commitment" />
+
+          <div
+            className="relative p-6 sm:p-10
+                       bg-slate-100 dark:bg-white/[0.02]
+                       border border-gray-200 dark:border-white/[0.07]"
+            style={{
+              clipPath:
+                "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
+            }}
+          >
+            {/* Corners */}
+            <span className="pointer-events-none absolute z-10"
+              style={{ top:10,left:10,width:16,height:16,
+                borderTop:"2px solid rgba(36,38,184,1)",
+                borderLeft:"2px solid rgba(36,38,184,1)" }} />
+            <span className="pointer-events-none absolute z-10"
+              style={{ bottom:10,right:10,width:16,height:16,
+                borderBottom:"2px solid rgba(36,38,184,1)",
+                borderRight:"2px solid rgba(36,38,184,1)" }} />
+
+            {/* Ghost DSY */}
+            <span
+              className="pointer-events-none absolute bottom-2 right-4
+                         font-mono font-black select-none
+                         text-black/[0.04] dark:text-white/[0.03] hidden sm:block"
+              style={{
+                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontSize: "5rem", lineHeight: 1,
+              }}
+            >
+              DSY
+            </span>
+
+            <p
+              className="font-semibold uppercase mb-4 text-defensya-navy dark:text-white"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+              }}
+            >
+              Nuestro Compromiso
+            </p>
+
+            <p className="text-sm sm:text-base lg:text-lg text-gray-500 dark:text-gray-400
+                          leading-relaxed font-light max-w-5xl relative z-10">
+              No solo fabricamos tecnología;{" "}
+              <span className="text-gray-900 dark:text-gray-200 font-medium">
+                entregamos la fiabilidad operativa necesaria para que
+                organizaciones globales operen en entornos críticos.
+              </span>{" "}
+              En{" "}
+              <span className="text-defensya-blue font-semibold">Defensya</span>,
+              la excelencia técnica se rige por{" "}
+              <Link
+                href="/empresa/calidad-certificacion"
+                className="text-defensya-blue font-medium underline underline-offset-4
+                           hover:text-blue-400 transition-colors"
+              >
+                estándares de calidad internacionales
+              </Link>
+              , garantizando la seguridad en el futuro de la exploración y la
+              defensa global.
+            </p>
+
+            <div className="mt-6 sm:mt-8 flex items-center gap-4 relative z-10">
+              <div className="h-px w-10 bg-defensya-blue/30" />
+              <span
+                className="text-gray-500 dark:text-gray-600"
                 style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "9px",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
                 }}
               >
-                Pilares de
-                <br />
-                actuación
-              </h2>
-            </div>
-
-            
-            <div className="grid sm:grid-cols-3 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
-              {compromisos.map(({ num, label, desc }) => (
-                <div
-                  key={num}
-                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-7 hover:bg-gray-50 dark:hover:bg-white/3 transition-colors duration-200"
-                >
-               
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="font-mono text-[11px] text-defensya-blue tracking-widest">
-                      {num}
-                    </span>
-                    <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.07]" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-defensya-blue opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  </div>
-
-                  <h3
-                    className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
-                    style={{
-                      fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
-                    }}
-                  >
-                    {label}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {desc}
-                  </p>
-                </div>
-              ))}
+                Defensya · Ingeniería Internacional
+              </span>
+              <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.04]" />
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
+
     </main>
   );
 }
