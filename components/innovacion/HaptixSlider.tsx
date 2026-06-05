@@ -71,10 +71,10 @@ function SecRule({ label, dark = true }: { label: string; dark?: boolean }) {
     <div className="flex items-center gap-3 mb-5">
       <div className="w-5 h-px bg-defensya-blue/50" />
       <span
-        className={dark ? "text-white/25" : "text-black/30"}
+        className={dark ? "text-white/60" : "text-black/30"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "8.5px",
+          fontSize: "12px",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
         }}
@@ -273,7 +273,7 @@ export default function HaptixSlider() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative flex gap-4 py-4
+                className="group relative flex gap-4 py-6
                            border-b border-white/[0.06] last:border-b-0
                            hover:bg-white/[0.02] transition-colors duration-200 px-1"
               >
@@ -297,7 +297,7 @@ export default function HaptixSlider() {
                                group-hover:text-defensya-blue transition-colors duration-300"
                     style={{
                       fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                      fontSize: "1rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {f.titulo}
@@ -323,10 +323,10 @@ export default function HaptixSlider() {
             {specsGroups.map(({ title, rows }) => (
               <div key={title} className="bg-defensya-navy p-4">
                 <div
-                  className="text-white/22 border-b border-white/[0.05] pb-2 mb-3"
+                  className="text-white/80 border-b border-white/[0.05] pb-2 mb-3"
                   style={{
                     fontFamily: "'Share Tech Mono', monospace",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     letterSpacing: "0.22em",
                     textTransform: "uppercase",
                   }}
@@ -339,14 +339,14 @@ export default function HaptixSlider() {
                     className="flex justify-between items-baseline py-[4px]
                                border-b border-white/[0.04] last:border-b-0"
                   >
-                    <span className="font-light text-white/32" style={{ fontSize: "0.75rem" }}>
+                    <span className="font-light text-white/32" style={{ fontSize: "0.85rem" }}>
                       {k}
                     </span>
                     <span
                       className="font-bold text-defensya-blue"
                       style={{
                         fontFamily: "'Share Tech Mono', monospace",
-                        fontSize: "10px",
+                        fontSize: "11px",
                         letterSpacing: "0.04em",
                       }}
                     >
