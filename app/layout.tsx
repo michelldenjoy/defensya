@@ -2,19 +2,14 @@ import "./globals.css"
 import Navbar from "../components/Navbar"
 import Footer from "@/components/Footer"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import { Share_Tech_Mono } from "next/font/google";
 
-import { Barlow_Condensed, DM_Sans } from "next/font/google";
-
-const barlowCondensed = Barlow_Condensed({
+const shareTechMono = Share_Tech_Mono({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-share-tech-mono",
+  display: "swap",
 });
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
-
 
 export default function RootLayout({
   children,
@@ -22,9 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    
-    <html className={`${barlowCondensed.variable} ${dmSans.variable}`} lang="es" suppressHydrationWarning> 
-      <body>
+    <html className={shareTechMono.variable} lang="es" suppressHydrationWarning> 
+      <body className={shareTechMono.className}>
         <ThemeProvider 
           attribute="class" 
           defaultTheme="system" 

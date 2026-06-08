@@ -153,7 +153,7 @@ export default function Sostenibilidad() {
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      
     >
       <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
@@ -191,10 +191,7 @@ export default function Sostenibilidad() {
               <SectionTag light>Objetivos</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl  font-bold uppercase leading-tight text-white"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
+
               >
                 Sostenibilidad
                 <br />
@@ -229,10 +226,7 @@ export default function Sostenibilidad() {
                             ? "text-white"
                             : "text-gray-400 group-hover:text-gray-200"
                         }`}
-                        style={{
-                          fontFamily:
-                            "var(--font-display, 'Barlow Condensed', sans-serif)",
-                        }}
+
                       >
                         {item.titulo}
                       </h3>
@@ -280,10 +274,7 @@ export default function Sostenibilidad() {
               <SectionTag>Acción</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
+
               >
                 Áreas de Actuación
               </h2>
@@ -309,10 +300,7 @@ export default function Sostenibilidad() {
                   </div>
                   <h3
                     className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
-                    style={{
-                      fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
-                    }}
+
                   >
                     {label}
                   </h3>
@@ -331,17 +319,14 @@ export default function Sostenibilidad() {
       </section>
 
       {/* ══ DECLARACIÓN FINAL ══════ */}
-      <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
+      {/* <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
             <div>
               <SectionTag>Declaración</SectionTag>
               <h2
                 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
+
               >
                 Posición oficial
               </h2>
@@ -370,7 +355,7 @@ export default function Sostenibilidad() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ CTA — POLÍTICA DE CALIDAD ═════ */}
       <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
@@ -378,23 +363,16 @@ export default function Sostenibilidad() {
           <div className="flex gap-6 lg:gap-10 items-start">
             <span
               className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
+
             >
               "
             </span>
             <div>
               <p
-                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug max-w-3xl"
-                style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                }}
+                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug lg:max-w-9xl"
+
               >
-                Todas nuestras actividades se desarrollan desde la perspectiva
-                de la protección y conservación del medio ambiente como garantía
+                Todas nuestras actividades se desarrollan desde la protección y conservación del medio ambiente como garantía
                 de progreso y continuidad.
               </p>
               <div className="flex items-center gap-3 mt-6">

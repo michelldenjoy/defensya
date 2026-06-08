@@ -91,7 +91,7 @@ export default function ODSSection() {
     <section
       className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
                  border-t border-gray-200 dark:border-white/[0.07]"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      
     >
       <div className="max-w-7xl mx-auto">
 
@@ -198,7 +198,7 @@ export default function ODSSection() {
                 <h3
                   className="text-2xl font-bold uppercase leading-tight
                              tracking-tight text-white mb-4"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                 
                 >
                   {item.title}
                 </h3>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useRef, useCallback } from "react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+
 
 interface Division {
   num: string;
@@ -27,7 +27,7 @@ const divisions: Division[] = [
     tag: "Aeron",
     title: "Aeronáutica",
     image: "/images/aeronautica.jpg",
-    desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada en colaboración con empresas de reconocido prestigio.",
+    desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada.",
   },
   {
     num: "03",
@@ -74,7 +74,6 @@ function Corners({ active }: { active: boolean }) {
   );
 }
 
-// ─── Single Card ──────────────────────────────────────────────────────────────
 
 function DivisionCard({ item }: { item: Division }) {
   const isTouch = useIsTouchDevice();
@@ -213,7 +212,7 @@ function DivisionCard({ item }: { item: Division }) {
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
             ${a ? "translate-y-0 scale-110" : "translate-y-3 group-hover:translate-y-0 group-hover:scale-110"}`}
           style={{
-            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            
             fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
             fontWeight: 700,
             letterSpacing: "-0.01em",
@@ -266,7 +265,7 @@ export default function Divisiones() {
         {/* ── Header ── */}
         <div className="my-8 text-center pb-8 px-4">
           <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
-          Aeronáutica · Defensa · Electrónica · IMG & VID
+          Defensa · Aeronáutica  · Electrónica · IMG & VID
           </p>
           <h2
             className="leading-[0.9] tracking-[-0.02em]"

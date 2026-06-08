@@ -107,7 +107,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
         `}
         style={{
           clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)",
-          fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+          
         }}
       >
         {/* Brackets */}
@@ -177,7 +177,7 @@ function CapabilityCard({ cap }: { cap: (typeof capabilities)[0] }) {
                           transition-colors duration-300
                           ${hovered || expanded ? "text-defensya-blue" : "text-gray-900 dark:text-gray-200"}`}
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                
                 fontSize: "1.05rem",
               }}
             >
@@ -227,7 +227,7 @@ export default function CapabilityCards() {
       className="relative w-full overflow-hidden py-16 sm:py-20 px-5 sm:px-8 lg:px-16
                  bg-white dark:bg-defensya-navy
                  border-b border-gray-100 dark:border-white/[0.07]"
-      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+      
     >
       <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-30 pointer-events-none" />
 
@@ -256,13 +256,13 @@ export default function CapabilityCards() {
           </div>
 
           {/* Título + bajada: apilados en mobile, dos columnas en lg */}
-          <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-16 items-end">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-16 items-center">
             <h2
-              className="font-bold uppercase leading-[0.9] tracking-tight
+              className="font-bold uppercase leading-[0.9] tracking-tighter
                          text-gray-900 dark:text-white"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                
+                fontSize: "clamp(2.4rem, 5vw, 4rem)",
               }}
             >
               Soluciones de{" "}
@@ -270,7 +270,7 @@ export default function CapabilityCards() {
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed
-                         max-w-md border-l-2 border-defensya-blue/30 pl-4 lg:pl-5 lg:self-end">
+                         lg:max-w-md max-w border-l-2 border-defensya-blue/30 pl-4 lg:pl-5 lg:self-end">
               Transformamos desafíos complejos en soluciones tecnológicas
               fiables. Un centro de innovación dedicado a fortalecer la
               infraestructura técnica de la industria aeroespacial y de defensa.
@@ -279,7 +279,7 @@ export default function CapabilityCards() {
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-2 ">
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}

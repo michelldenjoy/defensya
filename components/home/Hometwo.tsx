@@ -39,7 +39,7 @@ export default function Hometwo() {
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+     
     >
       <HeroSection />
 

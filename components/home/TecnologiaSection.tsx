@@ -166,7 +166,6 @@ export default function TecnologiasSection() {
               className="font-bold uppercase leading-[0.9] tracking-tight
                          text-gray-900 dark:text-white"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
                 fontSize: "clamp(2.2rem, 5vw, 4rem)",
               }}
             >
@@ -176,7 +175,7 @@ export default function TecnologiasSection() {
 
             <p
               className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed
-                         max-w-md border-l-2 border-defensya-blue/30 pl-4 lg:pl-5
+                         lg:max-w-md max-w border-l-2 border-defensya-blue/30 pl-4 lg:pl-5
                          lg:self-end"
             >
               Nuestras soluciones cubren el ciclo completo del reabastecimiento

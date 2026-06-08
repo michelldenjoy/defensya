@@ -26,6 +26,7 @@ const experienceItems = [
     tag: "AI / DATA",
     desc: "Expertos en redes neuronales, sistemas de aprendizaje, Inteligencia Artificial, seguridad y análisis de datos avanzado.",
     image: "/images/ai.jpg",
+    
   },
 ];
 
@@ -111,6 +112,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
           backgroundImage: "url('/textura5.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          
         }}
       />
 
@@ -120,13 +122,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         style={{
           background:
             "linear-gradient(175deg, rgba(6,13,24,0.6) 60%, rgba(6,13,24,0.92) 100%)",
+            
         }}
       />
 
       {/* Hover tint */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 touch-active-opacity transition-opacity duration-500"
-        style={{ background: "rgba(14,165,233,0.08)" }}
+        style={{ background: "rgba(14,165,233,0.08)", }}
       />
 
       {/* Corner brackets */}
@@ -138,7 +141,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
       {/* Ghost number */}
       <span
         className="absolute top-4 right-5 font-mono font-black text-white/5 group-hover:text-[#0ea5e9]/10 touch-active-num transition-colors duration-500"
-        style={{ fontSize: "clamp(4rem, 12vw, 7rem)", lineHeight: 1 }}
+        style={{ fontSize: "clamp(4rem, 12vw, 7rem)", lineHeight: 1,   }}
       >
         {item.num}
       </span>
@@ -181,7 +184,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
             ${isTouch && isActive ? "!translate-y-0 !scale-110" : ""}
           `}
           style={{
-            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+
             fontSize: "clamp(1.6rem, 4.5vw, 2.6rem)",
             fontWeight: 700,
             letterSpacing: "-0.01em",
@@ -236,12 +239,12 @@ const QuienesSomos = () => {
   return (
     <main
       className="w-full bg-white dark:bg-[#060d18] text-gray-900 dark:text-white overflow-x-hidden"
-      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+      style={{ fontFamily: "'Share Tech Mono', monospace" }}
     >
       <MisionVision />
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative pt-10 pb-16 sm:pb-22 px-4 sm:px-8 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
+      <section className="relative pt-20 pb-16 sm:pb-22 px-4 sm:px-8 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
         {/* Ghost grid */}
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
@@ -256,6 +259,7 @@ const QuienesSomos = () => {
                 style={{
                   fontSize: "clamp(2rem, 5vw, 4rem)",
                   textTransform: "uppercase",
+                  fontFamily: "'Share Tech Mono', monospace",
                 }}
               >
                 <span className="font-bold text-gray-100">Nuestra </span>
@@ -280,10 +284,15 @@ const QuienesSomos = () => {
           </div>
 
           {/* Cards grid — 1 col mobile, 2 col tablet, 3 col desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
+                          style={{
+
+                            fontFamily: "'Share Tech Mono', monospace",
+                          }}>
             {experienceItems.map((item, i) => (
               <ExperienceCard key={item.num} item={item} index={i} />
             ))}
+            
           </div>
         </div>
       </section>

@@ -90,7 +90,7 @@ export function ClipButton({
         className="group relative inline-flex items-center gap-3 px-6 py-3.5
                    bg-defensya-navy-light dark:bg-defensya-blue text-white text-[11px] lg:text-[12px] tracking-[0.25em] uppercase font-bold
                    hover:bg-defensya-blue transition-colors duration-200"
-        style={{ clipPath: clip }}
+        style={{ clipPath: clip, fontFamily: "'Share Tech Mono', monospace", }}
       >
         {children}
         <svg
@@ -128,7 +128,7 @@ export function ClipButton({
                  border text-[11px] lg:text-[12px] tracking-[0.25em] uppercase font-bold
                  text-gray-800 hover:bg-defensya-blue hover:text-white hover:border-defensya-blue
                  transition-all duration-200 dark:text-white dark:border-0"
-      style={{ clipPath: clip,  fontFamily: "'Barlow Condensed', sans-serif" }}
+      style={{ clipPath: clip,  fontFamily: "'Share Tech Mono', monospace", }}
       
     >
       <span
@@ -138,6 +138,7 @@ export function ClipButton({
           height: "1px",
           transformOrigin: "top left",
           transform: "rotate(-45deg) translateX(-4px)",
+          
         }}
       />
       {children}
@@ -151,8 +152,8 @@ export default function HeroSection() {
   return (
     <section
       className="
-        relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr]
-        overflow-hidden bg-white dark:bg-defensya-navy pt-14 md:py-28
+        relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2
+        overflow-hidden bg-white dark:bg-defensya-navy pt-12 md:py-20
         /* Mobile: auto height. md+: full viewport height (min 560px, max 860px) */
         md:min-h-[560px]
     lg:h-[calc(100svh-64px)]
@@ -167,7 +168,7 @@ export default function HeroSection() {
       ════════════════════════════════════════════════════════ */}
       <div
         className="relative z-10 flex flex-col justify-center
-                   px-6 lg:px-16 xl:px-20 
+                   px-6 xl:px-12 
                    border-r border-white/[0.06]"
       >
         {/* Vertical accent line */}
@@ -187,10 +188,9 @@ export default function HeroSection() {
         >
           {/* ── Headline aspect-[16/9] ── */}
           <h1
-            className="font-bold leading-[0.88] tracking-[-0.025em]  uppercase text-black md:mb-0 mb-8"
+            className="font-bold leading-[0.88] tracking-[-0.045em]  uppercase text-black md:mb-0 mb-8"
             style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-              fontSize: "clamp(3.3rem, 7.6vw, 6.2rem)",
+              fontSize: "clamp(3.3rem, 7.6vw, 5.6rem)",
             }}
           >
             <span className="text-defensya-blue dark:text-white">
@@ -206,7 +206,7 @@ export default function HeroSection() {
 
           {/* ── Descriptor ── */}
           <p
-            className="text-sm md:text-md xl:text-lg  text-gray-500 leading-relaxed max-w-sm my-4 
+            className="text-sm md:text-md xl:text-lg  text-gray-500 leading-relaxed max-w my-4 
                        border-l-2 border-defensya-navy-light pl-5"
           >
             Defensya desarrolla tecnologías avanzadas para los sistemas

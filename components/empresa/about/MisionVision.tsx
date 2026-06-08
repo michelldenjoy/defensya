@@ -1,9 +1,6 @@
-
 const MisionVision = () => {
   return (
-    <section
-      className="relative overflow-hidden bg-[#f6f8fb] dark:bg-[#07101d]"
-    >
+    <section className="relative overflow-hidden bg-[#f6f8fb] dark:bg-[#07101d]">
       {/* ── Marco perimetral ── */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.35)] pointer-events-none" />
 
@@ -14,39 +11,8 @@ const MisionVision = () => {
 
       {/* ── Contenido ── */}
       <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-12 pb-14">
-
-        {/* Cabecera */}
-        {/* <div className="flex items-center justify-between mb-14">
-          <span
-            className="border border-[rgba(14,95,163,0.35)] px-3 py-[3px] text-[#0e5fa3] dark:text-[#4fa8e0]"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "8px",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-            }}
-          >
-            DFS-ID-001 · Rev C
-          </span>
-          <span
-            className="text-right text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "8px",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              lineHeight: "1.8",
-            }}
-          >
-            Defensya Systems S.L.
-            <br />
-            Est. 2006
-          </span>
-        </div> */}
-
         {/* ── Columnas Misión / Visión ── */}
         <div className="grid md:grid-cols-2 relative mb-10">
-
           {/* Eje divisor */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 pointer-events-none">
             <div
@@ -59,7 +25,7 @@ const MisionVision = () => {
                          border border-[rgba(14,95,163,0.35)] px-2 py-[3px]"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "7px",
+                fontSize: "8px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 color: "rgba(14,95,163,0.35)",
@@ -74,31 +40,37 @@ const MisionVision = () => {
           <div className="pr-0 md:pr-10 lg:pr-16 mt-10">
             {/* <ViewTag label="Vista 1 — Misión" number={1} /> */}
             <span
-              className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
+              className="text-gray-400"
               style={{
-                fontSize: "0.9rem",
-                fontWeight: 300,
-                letterSpacing: "0.2em",
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "14px",
+                letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
             >
               Lo que hacemos
             </span>
             <span
-              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
+              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[1.3] mb-5"
               style={{
                 fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.01em",
                 textTransform: "uppercase",
+                fontFamily: "'Share Tech Mono', monospace",
               }}
             >
               Misión
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
-              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
-              style={{ fontSize: "1.25rem", fontWeight: 400, letterSpacing: "0.01em" }}
+              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.35]"
+              style={{
+                fontSize: "1.25rem",
+                fontWeight: 400,
+                letterSpacing: "0.01em",
+                fontFamily: "'Share Tech Mono', monospace",
+              }}
             >
               Diseñar y desarrollar{" "}
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
@@ -118,34 +90,40 @@ const MisionVision = () => {
           </div>
 
           {/* VISIÓN */}
-          <div className="pl-0 md:pl-10 lg:pl-16 mt-10">
+          <div className="pl-0 md:pl-10 lg:pl-16 mt-10 ">
             {/* <ViewTag label="Vista 2 — Visión" number={2} /> */}
             <span
-              className="block text-[rgba(11,31,56,0.4)] pb-3 dark:text-[rgba(200,220,238,0.38)] mb-[3px]"
+              className="text-gray-400"
               style={{
-                fontSize: "0.9rem",
-                fontWeight: 300,
-                letterSpacing: "0.2em",
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "14px",
+                letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
             >
               Hacia dónde vamos
             </span>
             <span
-              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[0.88] mb-5"
+              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[1.3] mb-5"
               style={{
                 fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.01em",
                 textTransform: "uppercase",
+                fontFamily: "'Share Tech Mono', monospace",
               }}
             >
               Visión
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
-              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.85]"
-              style={{ fontSize: "1.25rem", fontWeight: 400, letterSpacing: "0.01em" }}
+              className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.35]"
+              style={{
+                fontSize: "1.25rem",
+                fontWeight: 400,
+                letterSpacing: "0.01em",
+                fontFamily: "'Share Tech Mono', monospace",
+              }}
             >
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 Liderar la innovación
@@ -169,7 +147,7 @@ const MisionVision = () => {
             className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
             style={{
               fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "7.5px",
+              fontSize: "8.2px",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
             }}
@@ -193,28 +171,28 @@ const MisionVision = () => {
             <div className="flex gap-4 flex-wrap border-t border-[rgba(14,95,163,0.12)] pt-[5px]">
               {[
                 { label: "Fundada", value: "2006" },
-                { label: "Sede",    value: "España" },
-                { label: "Cert.",   value: "ISO 9001" },
+                { label: "Sede", value: "España" },
+                { label: "Cert.", value: "ISO 9001" },
                 { label: "Ámbito", value: "Defensa · Aero · Industria" },
               ].map(({ label, value }) => (
                 <span
                   key={label}
                   className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
                   style={{
-                    fontFamily: "'Share Tech Mono', monospace",
                     fontSize: "7.5px",
                     letterSpacing: "0.13em",
                     textTransform: "uppercase",
                   }}
                 >
                   {label}:{" "}
-                  <span className="text-[#0e5fa3] dark:text-[#4fa8e0]">{value}</span>
+                  <span className="text-[#0e5fa3] dark:text-[#4fa8e0]">
+                    {value}
+                  </span>
                 </span>
               ))}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -250,7 +228,6 @@ const ViewTag = ({ label, number }: { label: string; number: number }) => (
     className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
                pb-2 mb-6 text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)]"
     style={{
-      fontFamily: "'Share Tech Mono', monospace",
       fontSize: "8px",
       letterSpacing: "0.28em",
       textTransform: "uppercase",
@@ -262,7 +239,6 @@ const ViewTag = ({ label, number }: { label: string; number: number }) => (
                  border border-[rgba(14,95,163,0.35)]
                  text-[#0e5fa3] dark:text-[#4fa8e0] font-bold"
       style={{
-        fontFamily: "'Share Tech Mono', monospace",
         fontSize: "9px",
       }}
     >

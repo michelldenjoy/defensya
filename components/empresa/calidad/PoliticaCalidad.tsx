@@ -2,9 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-/* ─────────────────────────────────────────────────────────────────
-   DATOS
-───────────────────────────────────────────────────────────────── */
+
 const declaracion = [
   {
     id: "01",
@@ -61,11 +59,7 @@ const valores = [
   },
 ];
 
-/* ─────────────────────────────────────────────────────────────────
-   SUB-COMPONENTES COMPARTIDOS
-───────────────────────────────────────────────────────────────── */
 
-/** Eyebrow con diamante — coherente con el resto de Defensya */
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8">
@@ -205,8 +199,7 @@ function ObjetivosValoresTabs() {
                   className="block font-bold uppercase leading-none mb-2
                                text-white tracking-wide"
                   style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
+                    
                     fontSize: "1.1rem",
                   }}
                 >
@@ -224,9 +217,7 @@ function ObjetivosValoresTabs() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   MAIN PAGE
-───────────────────────────────────────────────────────────────── */
+
 export default function PoliticaCalidad() {
   const [openItem, setOpenItem] = useState<string | null>(null);
   const toggle = (id: string) =>
@@ -235,7 +226,7 @@ export default function PoliticaCalidad() {
   return (
     <main
       className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+     
     >
 
       {/* ══ HERO ═══════════════════════════════════════════════════ */}
@@ -247,17 +238,16 @@ export default function PoliticaCalidad() {
           <Eyebrow>Calidad · Defensya Systems · ISO 9001:2015</Eyebrow>
 
           {/* Heading + panel derecho */}
-          <div className="grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-start">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-start">
 
             {/* LEFT — heading */}
             <div>
               <h1
-                className="font-bold uppercase leading-[0.92] tracking-tight
+                className="font-bold uppercase leading-[0.92] tracking-[-0.045em]
                            text-gray-900 dark:text-white mb-6"
                 style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                  
+                  fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)",
                 }}
               >
                 Garantía en
@@ -268,7 +258,7 @@ export default function PoliticaCalidad() {
               </h1>
 
               <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400
-                            leading-relaxed max-w-lg">
+                            leading-relaxed max-w">
                 El cumplimiento de los estándares internacionales es la base de
                 nuestra ingeniería. Sostenemos un sistema de gestión orientado a
                 la optimización de procesos y la rigurosidad técnica, acreditado
@@ -296,8 +286,7 @@ export default function PoliticaCalidad() {
                   <p
                     className="font-bold text-defensya-blue dark:text-white"
                     style={{
-                      fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+
                       fontSize: "clamp(1.6rem, 3vw, 2rem)",
                     }}
                   >
@@ -320,8 +309,7 @@ export default function PoliticaCalidad() {
                     <p
                       className="font-bold text-gray-900 dark:text-white leading-none"
                       style={{
-                        fontFamily:
-                          "var(--font-display, 'Barlow Condensed', sans-serif)",
+
                         fontSize: "clamp(1.6rem, 3vw, 2rem)",
                       }}
                     >
@@ -347,27 +335,22 @@ export default function PoliticaCalidad() {
       </section>
 
       {/* ══ QUOTE ══════════════════════════════════════════════════ */}
-      <section className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16
+      <section className="px-5 sm:px-8 lg:px-16 py-6 sm:py-8
                           bg-defensya-navy border-b border-white/[0.07] dark:bg-black/40">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl ">
           <div className="flex gap-5 sm:gap-8 lg:gap-10 items-start">
             <span
               className="text-[5rem] sm:text-[7rem] lg:text-[9rem] leading-none font-bold
                          text-defensya-blue/20 select-none shrink-0 -mt-3 sm:-mt-5"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
+
             >
               "
             </span>
             <div>
               <p
-                className="font-bold uppercase text-white leading-snug"
+                className="font-bold uppercase text-white leading-tight"
                 style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  fontSize: "clamp(1.2rem, 3.5vw, 2.2rem)",
+                  fontSize: "clamp(0.9rem, 2.3vw, 1.8rem)",
                 }}
               >
                 El compromiso con la calidad en todas las actividades es un
@@ -379,7 +362,7 @@ export default function PoliticaCalidad() {
                   className="text-gray-500"
                   style={{
                     fontFamily: "'Share Tech Mono', monospace",
-                    fontSize: "9px",
+                    fontSize: "clamp(0.5rem, 1.5vw, 0.8rem)",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
                   }}
@@ -400,13 +383,11 @@ export default function PoliticaCalidad() {
 
             {/* Sidebar */}
             <div className="lg:pt-1">
-              <Eyebrow>DFS-QMS · Rev A</Eyebrow>
+              
               <h2
                 className="font-bold uppercase leading-tight
                            text-gray-900 dark:text-white"
                 style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
                   fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 }}
               >
@@ -459,8 +440,7 @@ export default function PoliticaCalidad() {
                             : "text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300"
                         }`}
                         style={{
-                          fontFamily:
-                            "var(--font-display, 'Barlow Condensed', sans-serif)",
+
                           fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
                         }}
                       >
@@ -513,12 +493,11 @@ export default function PoliticaCalidad() {
 
             {/* Sidebar */}
             <div>
-              <Eyebrow>Gestión · Calidad</Eyebrow>
+           
               <h2
                 className="font-bold uppercase leading-tight text-white"
                 style={{
-                  fontFamily:
-                    "var(--font-display, 'Barlow Condensed', sans-serif)",
+
                   fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 }}
               >
@@ -565,7 +544,7 @@ export default function PoliticaCalidad() {
                          font-mono font-black select-none
                          text-black/[0.04] dark:text-white/[0.03] hidden sm:block"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                
                 fontSize: "5rem", lineHeight: 1,
               }}
             >

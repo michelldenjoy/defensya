@@ -74,7 +74,7 @@ function SectionHeader({
           onDark ? "text-white" : "text-gray-900 dark:text-white"
         }`}
         style={{
-          fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+          
           fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)",
         }}
       >
@@ -292,7 +292,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
                       transition-colors duration-300
                       ${hovered ? "text-white" : "text-gray-300"}`}
           style={{
-            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            
             fontSize: "1.05rem",
           }}
         >
@@ -370,7 +370,7 @@ export default function Careers() {
   return (
     <main
       className="w-full"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      
     >
       {/* ══════════════════════════════════════════════════════════
           §1 HERO — LIGHT
@@ -388,8 +388,8 @@ export default function Careers() {
             <h1
               className="font-bold uppercase leading-[0.88] tracking-tight text-gray-900 dark:text-white"
               style={{
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
-                fontSize: "clamp(3rem, 7vw, 5rem)",
+                  
+                fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)",
               }}
             >
               <span className="text-defensya-blue dark:text-blue-300">Impulsa</span>
@@ -478,8 +478,7 @@ export default function Careers() {
                 </span>
 
                 <h3
-                  className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300"
-                  style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                  className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300"                  
                 >
                   {b.title}
                 </h3>
@@ -599,7 +598,7 @@ export default function Careers() {
                     </span>
                     <h3
                       className="text-3xl font-bold uppercase leading-tight mb-4 text-gray-900 dark:text-white"
-                      style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
+                      
                     >
                       Candidatura Recibida
                     </h3>

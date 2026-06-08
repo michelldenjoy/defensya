@@ -54,7 +54,7 @@ export default function Certificaciones() {
     <section
       className="px-6 lg:px-16 py-20 bg-white dark:bg-black/40 
                  border-t border-gray-200 dark:border-white/[0.07]"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Share Tech Mono', monospace" }}
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -68,12 +68,9 @@ export default function Certificaciones() {
             <h2
               className="text-[clamp(2rem,4vw,6.5rem)] font-bold uppercase
                          leading-none tracking-tight text-gray-900 dark:text-white"
-              style={{
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
-              }}
+
             >
-              Certificación Oficial
+              Certificado <span className="text-defensya-blue">Oficial</span> 
             </h2>
           </div>
           <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1">
@@ -116,10 +113,6 @@ export default function Certificaciones() {
                 <h3
                   className="text-3xl lg:text-4xl font-bold uppercase leading-none
                              tracking-tight text-gray-900 dark:text-white"
-                  style={{
-                    fontFamily:
-                      "var(--font-display, 'Barlow Condensed', sans-serif)",
-                  }}
                 >
                   ISO 9001
                   <br />
@@ -154,13 +147,13 @@ export default function Certificaciones() {
                              border-b border-gray-200 dark:border-white/6"
                 >
                   <span
-                    className="text-[12px] font-mono tracking-widest
+                    className="text-[13px]  tracking-widest
                                    text-gray-400 dark:text-gray-500 uppercase"
                   >
                     {label}
                   </span>
                   <span
-                    className="text-xs font-medium text-gray-900 dark:text-white
+                    className="text-sm font-medium text-gray-900 dark:text-white
                                    text-right max-w-[55%]"
                   >
                     {value}
@@ -198,7 +191,7 @@ export default function Certificaciones() {
               </blockquote>
             </div>
 
-            <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
+            <p className="text-[14px] font-mono tracking-[0.3em] text-gray-300 dark:text-gray-500 uppercase mb-3">
               Pilares del sistema
             </p>
 
@@ -230,7 +223,7 @@ export default function Certificaciones() {
                   className="flex gap-5 py-4 border-b border-white/6
                              group hover:bg-white/3 transition-colors -mx-2 px-2"
                 >
-                  <span className="font-mono text-[12px] text-defensya-blue tracking-widest shrink-0 pt-0.5 w-6">
+                  <span className="font-mono text-[12px] text-defensya-steel tracking-widest shrink-0 pt-0.5 w-6">
                     {num}
                   </span>
                   <div>

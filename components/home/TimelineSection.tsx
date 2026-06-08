@@ -115,7 +115,7 @@ function MilestoneRow({
         className="block mb-3 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "9px",
+          fontSize: "14px",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
         }}
@@ -125,7 +125,7 @@ function MilestoneRow({
       <h3
         className="text-[#0b1f38] dark:text-[#ccdcee] font-bold uppercase leading-[.95] tracking-[-0.01em] mb-4"
         style={{
-          fontFamily: "'Barlow Condensed', sans-serif",
+          
           fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
         }}
       >
@@ -142,7 +142,6 @@ function MilestoneRow({
         <div
           className="font-bold leading-none tracking-[-0.02em] text-[#0b1f38] dark:text-[#ccdcee]"
           style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
             fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
           }}
         >
@@ -172,10 +171,9 @@ function MilestoneRow({
       aria-hidden
     >
       <span
-        className="absolute font-black leading-none tracking-[-0.05em] text-[rgba(14,95,163,0.04)] dark:text-[rgba(14,95,163,0.07)] select-none pointer-events-none"
+        className="absolute font-black leading-none tracking-[-0.05em] text-defensya-blue/15 dark:text-[rgba(14,95,163,0.07)] select-none pointer-events-none"
         style={{
-          fontFamily: "'Barlow Condensed', sans-serif",
-          fontSize: "7rem",
+          fontSize: "8rem",
         }}
       >
         {hito.year}
@@ -231,7 +229,7 @@ export default function TimelineSection() {
   return (
     <section
       className="relative bg-white dark:bg-[#07101d] border-t border-[rgba(14,95,163,0.18)]"
-      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+      
     >
       {/* ── Marco  ── */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.1)] pointer-events-none" />
@@ -253,7 +251,7 @@ export default function TimelineSection() {
           <span
             className="text-defensya-blue"
             style={{
-              fontFamily: "'Share Tech Mono', monospace",
+              
               fontSize: "11px",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
@@ -275,10 +273,10 @@ export default function TimelineSection() {
           {/* LEFT — */}
           <div className="flex flex-col justify-between pr-0 md:pr-12 pb-10 md:pb-0">
             <h2
-              className="font-bold uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
+              className=" uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
               style={{ fontSize: "clamp(3rem, 5.5vw, 4.4rem)" }}
             >
-              <span className="text-defensya-blue">19 años</span>
+              <span className="text-defensya-blue font-bold ">19 años</span>
               <br />
               <em
                 className="font-light text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.3)]"
@@ -296,7 +294,6 @@ export default function TimelineSection() {
             <span
               className="text-[rgba(11,31,56,0.22)] dark:text-[rgba(200,220,238,0.18)] mt-8 block"
               style={{
-                fontFamily: "'Share Tech Mono', monospace",
                 fontSize: "10px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -334,8 +331,8 @@ export default function TimelineSection() {
               className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
                          pb- mb-4 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
               style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "11px",
+              
+                fontSize: "14px",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
