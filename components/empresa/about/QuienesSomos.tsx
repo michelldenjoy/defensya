@@ -245,13 +245,12 @@ const QuienesSomos = () => {
         {/* Ghost grid */}
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
-        <div className="w-full mx-auto relative">
+        <div className="max-w relative">
           {/* Section header */}
-          <div className="flex items-center sm:items-center justify-between mb-10 sm:mb-14 border-b border-[rgba(14,165,233,0.15)] pb-5 sm:pb-6 gap-4 flex-wrap">
-            <div className="flex mt-6 sm:mt-8 flex-col gap-2.5">
-              <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
-             
-              </p>
+          <div className="my-8 text-center pb-8 px-4">
+            <div>
+              <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3"></p>
+               
               <h2
                 className="leading-[0.9] tracking-[-0.02em]"
                 style={{

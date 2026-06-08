@@ -13,7 +13,6 @@ interface Division {
   desc: string;
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const divisions: Division[] = [
   {
@@ -35,14 +34,14 @@ const divisions: Division[] = [
     tag: "Electr",
     title: "Electrónica",
     image: "/images/electronica.webp",
-    desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas en entornos de alta exigencia.",
+    desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas.",
   },
   {
     num: "04",
     tag: "img. y vid",
     title: "Imagen y Vídeo",
     image: "/images/imagevideo.png",
-    desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real con latencia mínima.",
+    desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real.",
   },
 ];
 
@@ -265,7 +264,7 @@ export default function Divisiones() {
 
       <div className="max-w relative">
         {/* ── Header ── */}
-        <div className="my-8 pb-8 px-4">
+        <div className="my-8 text-center pb-8 px-4">
           <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
           Aeronáutica · Defensa · Electrónica · IMG & VID
           </p>
