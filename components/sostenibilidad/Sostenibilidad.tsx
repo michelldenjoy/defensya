@@ -53,81 +53,29 @@ const areas = [
     num: "01",
     label: "Gestión de residuos",
     desc: "Reducción y tratamiento controlado de residuos industriales en todos los procesos de fabricación.",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.4}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polyline points="3 6 5 6 21 6" />
-        <path d="M19 6l-1 14H6L5 6" />
-        <path d="M10 11v6M14 11v6M9 6V4h6v2" />
-      </svg>
-    ),
+    image: "/images/residuos.jpg",
+    
   },
   {
     num: "02",
     label: "Eficiencia energética",
     desc: "Optimización del consumo energético en instalaciones y equipos de producción.",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.4}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
+    image: "/images/energia.jpg",
+    
   },
   {
     num: "03",
     label: "Cadena de suministro",
     desc: "Selección y colaboración con proveedores que cumplan los requisitos ambientales establecidos.",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.4}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="2" />
-        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-      </svg>
-    ),
+    image: "/images/colabambiental.jpg",
+    
   },
   {
     num: "04",
     label: "Formación ambiental",
     desc: "Capacitación continua del equipo en buenas prácticas medioambientales y normativa vigente.",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.4}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-      </svg>
-    ),
+    image: "/images/formacion.jpg",
+    
   },
 ];
 
@@ -151,13 +99,9 @@ export default function Sostenibilidad() {
     setOpenItem((prev) => (prev === id ? null : id));
 
   return (
-    <main
-      className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-      
-    >
+    <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
       <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
-
           <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
             <div>
               <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
@@ -170,7 +114,6 @@ export default function Sostenibilidad() {
             </div>
 
             <div className="flex flex-col gap-6 lg:pt-8">
-
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
                 En Defensya, la calidad de nuestros servicios y la protección
                 del entorno son pilares inseparables. Operamos bajo un Sistema
@@ -189,10 +132,7 @@ export default function Sostenibilidad() {
           <div className="grid items-center lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div>
               <SectionTag light>Objetivos</SectionTag>
-              <h2
-                className="text-3xl lg:text-5xl  font-bold uppercase leading-tight text-white"
-
-              >
+              <h2 className="text-3xl lg:text-5xl  font-bold uppercase leading-tight text-white">
                 Sostenibilidad
                 <br />
                 Operativa
@@ -226,7 +166,6 @@ export default function Sostenibilidad() {
                             ? "text-white"
                             : "text-gray-400 group-hover:text-gray-200"
                         }`}
-
                       >
                         {item.titulo}
                       </h3>
@@ -272,109 +211,66 @@ export default function Sostenibilidad() {
           <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
             <div>
               <SectionTag>Acción</SectionTag>
-              <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-
-              >
+              <h2 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white">
                 Áreas de Actuación
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
-              {areas.map(({ num, label, desc, icon }) => (
+            <div className="grid sm:grid-cols-2 gap-2 bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
+              {areas.map(({ num, label, desc, image }) => (
                 <div
                   key={num}
-                  className="group bg-white dark:bg-defensya-navy p-6 lg:p-8 hover:bg-gray-50 dark:hover:bg-white/3 transition-colors duration-200"
+                  className="group relative overflow-hidden bg-black/65 dark:bg-defensya-navy transition-colors duration-200"
                 >
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="text-defensya-blue opacity-60 group-hover:opacity-100 transition-opacity duration-200">
-                      {icon}
-                    </div>
-                    <span className="font-mono text-[11px] text-gray-300 dark:text-gray-600 tracking-widest">
-                      {num}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-5">
-                    <div className="h-px w-5 bg-defensya-blue" />
-                    <div className="h-px flex-1 bg-gray-100 dark:bg-white/6" />
-                  </div>
-                  <h3
-                    className="text-3xl font-bold uppercase leading-none text-gray-900 dark:text-white mb-3"
+                  {/* Imagen de fondo siempre visible */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-55 group-hover:opacity-80 transition-opacity duration-500"
+                    style={{ backgroundImage: `url(${image})` }}
+                  />
+                  {/* Overlay para legibilidad */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-defensya-navy/70 via-defensya-navy/30 to-transparent" />
 
-                  >
-                    {label}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {desc}
-                  </p>
+                  {/* Contenido */}
+                  <div className="relative z-10 p-6 lg:p-8">
+                    <div className="flex items-center justify-between mb-5">
+
+                      <span className="font-mono text-[11px] text-gray-300 dark:text-gray-600 tracking-widest">
+                        {num}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-5">
+                      <div className="h-px w-5 bg-defensya-blue" />
+                      <div className="h-px flex-1 bg-gray-100 dark:bg-white/6" />
+                    </div>
+                    <h3 className="text-3xl font-bold uppercase leading-none text-white mb-3">
+                      {label}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed hover:text-gray-200">
+                      {desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-
-            
           </div>
         </div>
-
-        
       </section>
-
-      {/* ══ DECLARACIÓN FINAL ══════ */}
-      {/* <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
-            <div>
-              <SectionTag>Declaración</SectionTag>
-              <h2
-                className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white"
-
-              >
-                Posición oficial
-              </h2>
-            </div>
-
-            <div className="border border-gray-200 dark:border-white/[0.07] p-8 lg:p-10 flex gap-6 items-start">
-              <div className="w-0.75 self-stretch bg-defensya-blue shrink-0 rounded-full" />
-              <div>
-                <p className="text-[11px] font-mono tracking-[0.3em] text-defensya-blue uppercase mb-4">
-                  Declaración final
-                </p>
-                <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed italic">
-                  "Defensya Ingeniería Internacional establece, implanta y
-                  mejora un Sistema de Gestión de la Calidad y Medio Ambiente,
-                  asegurando, controlando y optimizando la calidad de sus
-                  servicios con el objetivo de satisfacer las necesidades de los
-                  clientes."
-                </p>
-                <div className="flex items-center gap-3 mt-6">
-                  <div className="h-px w-6 bg-gray-300 dark:bg-white/20" />
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase">
-                    Defensya Ingeniería Internacional
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* ══ CTA — POLÍTICA DE CALIDAD ═════ */}
       <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
           <div className="flex gap-6 lg:gap-10 items-start">
-            <span
-              className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6"
-
-            >
+            <span className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6">
               "
             </span>
             <div>
-              <p
-                className="text-xl lg:text-3xl font-bold uppercase text-white leading-snug lg:max-w-9xl"
-
-              >
-                Todas nuestras actividades se desarrollan desde la protección y conservación del medio ambiente como garantía
-                de progreso y continuidad.
+              <p className="text-xl xl:text-3xl font-bold uppercase text-white leading-snug lg:max-w-9xl">
+                Todas nuestras actividades se desarrollan desde la protección y
+                conservación del medio ambiente como garantía de progreso y
+                continuidad.
+                
               </p>
+
               <div className="flex items-center gap-3 mt-6">
                 <div className="h-px w-8 bg-defensya-blue" />
                 <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
