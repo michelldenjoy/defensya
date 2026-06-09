@@ -15,7 +15,7 @@ export default function page() {
       />
       <PoliticaCalidad />
       <Certificaciones />
-      <Sostenibilidad />  
+     
     </div>
   );
 }

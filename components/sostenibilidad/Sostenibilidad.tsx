@@ -86,9 +86,32 @@ function SectionTag({
   light?: boolean;
 }) {
   return (
-    <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
+    <p className="text-[14px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
       {children}
     </p>
+  );
+}
+
+function Eyebrow({ children, light }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <div className="flex items-center gap-3 mb-6">
+      <span
+        
+        style={{ transform: "rotate(45deg)" }}
+      />
+      <span
+        className={light ? "text-defensya-blue" : "text-defensya-blue"}
+        style={{
+          fontFamily: "'Share Tech Mono', monospace",
+          fontSize: "12px",
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+        }}
+      >
+        {children}
+      </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+    </div>
   );
 }
 
@@ -100,27 +123,34 @@ export default function Sostenibilidad() {
 
   return (
     <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
-      <section className="px-6 lg:px-16 pt-20 pb-24 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
-            <div>
-              <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase ">
-                Trabajamos <br /> por un Futuro
-                <span className="dark:text-blue-300 text-defensya-blue">
-                  {" "}
-                  Sostenible
-                </span>
-              </h1>
-            </div>
+      <section className="relative overflow-hidden border-b border-gray-200 dark:border-white/[0.07]">
+        {/* Imagen de fondo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/sostenibilidad-hero.jpg')" }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/80 dark:bg-defensya-navy/85" />
 
-            <div className="flex flex-col gap-6 lg:pt-8">
-              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
-                En Defensya, la calidad de nuestros servicios y la protección
-                del entorno son pilares inseparables. Operamos bajo un Sistema
-                de Gestión de Calidad y Medio Ambiente diseñado para optimizar
-                cada proceso, garantizando la satisfacción del cliente y la
-                preservación de los recursos naturales.
-              </p>
+        <div className="relative z-10 px-6 lg:px-16 pt-20 pb-24">
+          <div className="max-w-7xl mx-auto">
+            <Eyebrow>Medio Ambiente · Defensya Systems · ISO 14001</Eyebrow>
+            <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
+              <div>
+                <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
+                  Trabajamos <br /> por un Futuro
+                  <span className="text-defensya-blue"> Sostenible</span>
+                </h1>
+              </div>
+              <div className="flex flex-col gap-6 lg:pt-8">
+                <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed">
+                  En Defensya, la calidad de nuestros servicios y la protección
+                  del entorno son pilares inseparables. Operamos bajo un Sistema
+                  de Gestión de Calidad y Medio Ambiente diseñado para optimizar
+                  cada proceso, garantizando la satisfacción del cliente y la
+                  preservación de los recursos naturales.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -214,7 +244,11 @@ export default function Sostenibilidad() {
               <h2 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white">
                 Áreas de Actuación
               </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1 lg:max-w-lg">
+                Cuatro ejes de acción medioambiental que guían las decisiones de cada área de la compañía.
+              </p>
             </div>
+            
 
             <div className="grid sm:grid-cols-2 gap-2 bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
               {areas.map(({ num, label, desc, image }) => (
@@ -257,28 +291,57 @@ export default function Sostenibilidad() {
       </section>
 
       {/* ══ CTA — POLÍTICA DE CALIDAD ═════ */}
-      <section className="px-6 lg:px-16 py-14 bg-defensya-navy border-b border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-6 lg:gap-10 items-start">
-            <span className="text-[6rem] lg:text-[9rem] leading-none font-bold text-defensya-blue/20 select-none shrink-0 -mt-4 lg:-mt-6">
-              "
-            </span>
-            <div>
-              <p className="text-xl xl:text-3xl font-bold uppercase text-white leading-snug lg:max-w-9xl">
-                Todas nuestras actividades se desarrollan desde la protección y
-                conservación del medio ambiente como garantía de progreso y
-                continuidad.
-                
-              </p>
+      <section className="border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="grid lg:grid-cols-2">
 
-              <div className="flex items-center gap-3 mt-6">
-                <div className="h-px w-8 bg-defensya-blue" />
-                <span className="font-mono text-[11px] tracking-[0.3em] text-gray-500 uppercase">
-                  Dirección General — Política Medioambiental
-                </span>
-              </div>
+          {/* Izquierda — quote */}
+          <div className="px-6 lg:px-16 py-14 bg-defensya-navy flex flex-col justify-center">
+            <p
+              className="text-defensya-blue mb-6"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "9px",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+              }}
+            >
+              Dirección General — Política Medioambiental
+            </p>
+            <blockquote
+              className="font-bold uppercase text-white leading-snug"
+              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}
+            >
+              Todas nuestras actividades se desarrollan desde la protección y
+              conservación del medio ambiente como garantía de progreso y
+              continuidad.
+            </blockquote>
+            <div className="flex items-center gap-3 mt-8">
+              <div className="h-px w-8 bg-defensya-blue shrink-0" />
+              <span
+                className="text-gray-500"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "9px",
+                  letterSpacing: "0.25em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Defensya Systems S.L. · Compromiso Ambiental Activo
+              </span>
             </div>
           </div>
+
+          {/* Derecha — imagen */}
+          <div
+            className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/forest1.jpg')" }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: "rgba(11, 31, 56, 0.3)" }}
+            />
+          </div>
+
         </div>
       </section>
     </main>

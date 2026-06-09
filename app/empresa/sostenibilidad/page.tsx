@@ -10,7 +10,8 @@ export default function page() {
         label="Sostenibilidad"
         title="Compromiso Ambiental"
         subtitle=""
-        image="/images/sostenibilidad.png"
+        image="/images/sostenible.jpg"
+        imagePosition="center 35%"
       />
 
       <Sostenibilidad />

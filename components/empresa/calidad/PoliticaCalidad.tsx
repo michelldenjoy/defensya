@@ -7,7 +7,7 @@ const declaracion = [
     id: "01",
     titulo: "Excelencia como objetivo innegociable",
     texto:
-      "La Dirección de DEFENSYA INGENIERIA INTERNACIONAL busca obtener, como objetivo ineludible, la excelencia en todas sus actividades y, en consecuencia, la consolidación como empresa del sector ingeniería de telecomunicación, electrónica e informática y afines, a través de la satisfacción diaria de sus clientes, para lo cual, y consciente de la importancia de la calidad de los servicios creados por nuestra compañía, decidió implantar un Sistema de Gestión de la Calidad basado en las normas ISO 9001:2015.",
+      "La Dirección de  DEFENSYA INGENIERIA INTERNACIONAL busca obtener, como objetivo ineludible, la excelencia en todas sus actividades y, en consecuencia, la consolidación como empresa del sector ingeniería de telecomunicación, electrónica e informática y afines, a través de la satisfacción diaria de sus clientes, para lo cual, y consciente de la importancia de la calidad de los servicios creados por nuestra compañía, decidió implantar un Sistema de Gestión de la Calidad basado en las normas ISO 9001:2015.",
   },
   {
     id: "02",
@@ -135,25 +135,21 @@ const valores = [
   },
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDark?: boolean }) {
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8">
       <span
-        className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
-        style={{ transform: "rotate(45deg)" }}
-      />
-      <span
-        className="text-defensya-blue"
+        className={onDark ? "text-slate-400" : "text-defensya-blue"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "9px",
+          fontSize: "12px",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
         }}
       >
         {children}
       </span>
-      <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+      <div className={`flex-1 h-px bg-gradient-to-r ${onDark ? "from-slate-400/30" : "from-defensya-blue/40"} to-transparent`} />
     </div>
   );
 }
@@ -283,12 +279,12 @@ export default function PoliticaCalidad() {
                 <br />
                 <span className="text-defensya-blue">Entornos Críticos</span>
               </h1>
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              {/* <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
                 El cumplimiento de los estándares internacionales es la base de
                 nuestra ingeniería. Sostenemos un sistema de gestión orientado a
                 la optimización de procesos y la rigurosidad técnica, acreditado
                 por las principales entidades de certificación del sector.
-              </p>
+              </p> */}
             </div>
 
             <div className="flex flex-col gap-4">
@@ -358,10 +354,10 @@ export default function PoliticaCalidad() {
           {/* Izquierda — quote */}
           <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16 bg-defensya-navy flex flex-col justify-center">
             <p
-              className="text-defensya-blue mb-6"
+              className="text-slate-400 mb-6"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "9px",
+                fontSize: "12px",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
               }}
@@ -504,7 +500,7 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
             <div>
-              <Eyebrow>Gestión · Defensya</Eyebrow>
+              <Eyebrow onDark>Gestión · Defensya</Eyebrow>
               <h2
                 className="font-bold uppercase leading-tight text-white"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
