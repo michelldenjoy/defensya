@@ -135,7 +135,13 @@ const valores = [
   },
 ];
 
-function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDark?: boolean }) {
+function Eyebrow({
+  children,
+  onDark = false,
+}: {
+  children: React.ReactNode;
+  onDark?: boolean;
+}) {
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8">
       <span
@@ -149,7 +155,11 @@ function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDa
       >
         {children}
       </span>
-      <div className={`flex-1 h-px bg-gradient-to-r ${onDark ? "from-slate-400/30" : "from-defensya-blue/40"} to-transparent`} />
+      <div
+        className={`flex-1 h-px bg-gradient-to-r ${
+          onDark ? "from-slate-400/30" : "from-defensya-blue/40"
+        } to-transparent`}
+      />
     </div>
   );
 }
@@ -279,12 +289,12 @@ export default function PoliticaCalidad() {
                 <br />
                 <span className="text-defensya-blue">Entornos Críticos</span>
               </h1>
-              {/* <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
                 El cumplimiento de los estándares internacionales es la base de
                 nuestra ingeniería. Sostenemos un sistema de gestión orientado a
                 la optimización de procesos y la rigurosidad técnica, acreditado
                 por las principales entidades de certificación del sector.
-              </p> */}
+              </p>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -349,59 +359,23 @@ export default function PoliticaCalidad() {
       </section>
 
       {/* ══ QUOTE + IMAGEN ═════════════════════════════════════════ */}
-      <section className="border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="grid lg:grid-cols-2">
-          {/* Izquierda — quote */}
-          <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16 bg-defensya-navy flex flex-col justify-center">
-            <p
-              className="text-slate-400 mb-6"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "12px",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-              }}
-            >
-              Dirección General — Política de Calidad
-            </p>
-            <blockquote
-              className="font-bold uppercase text-white leading-snug"
-              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}
-            >
-              El compromiso con la calidad en todas las actividades es un
-              objetivo ineludible para Defensya Ingeniería Internacional.
-            </blockquote>
-            <div className="flex items-center gap-3 mt-8">
-              <div className="h-px w-8 bg-defensya-blue shrink-0" />
-              <span
-                className="text-gray-500"
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "9px",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                }}
+      <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 bg-defensya-navy border-b border-white/[0.07]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
+            <div>
+              <Eyebrow onDark>Gestión · Defensya</Eyebrow>
+              <h2
+                className="font-bold uppercase leading-tight text-white"
+                style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
               >
-                ISO 9001:2015 · Defensya Systems S.L.
-              </span>
+                Objetivos
+                <br />y Valores
+              </h2>
             </div>
-          </div>
-
-          {/* Derecha — imagen */}
-          <div
-            className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/refueling13.webp')",
-            }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{ backgroundColor: "rgba(11, 31, 56, 0.35)" }}
-            />
+            <ObjetivosValoresTabs />
           </div>
         </div>
       </section>
-
       {/* ══ DECLARACIÓN ════════════════════════════════════════════ */}
       <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 border-b border-gray-200 dark:border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
@@ -496,20 +470,57 @@ export default function PoliticaCalidad() {
       </section>
 
       {/* ══ OBJETIVOS Y VALORES ════════════════════════════════════ */}
-      <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 bg-defensya-navy border-b border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
-            <div>
-              <Eyebrow onDark>Gestión · Defensya</Eyebrow>
-              <h2
-                className="font-bold uppercase leading-tight text-white"
-                style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
+
+
+      <section className="border-b border-gray-200 dark:border-white/[0.07]">
+        <div className="grid lg:grid-cols-2">
+          {/* Izquierda — quote */}
+          <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16 bg-defensya-navy flex flex-col justify-center">
+            <p
+              className="text-slate-400 mb-6"
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "12px",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+              }}
+            >
+              Dirección General — Política de Calidad
+            </p>
+            <blockquote
+              className="font-bold uppercase text-white leading-snug"
+              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}
+            >
+              El compromiso con la calidad en todas las actividades es un
+              objetivo ineludible para Defensya Ingeniería Internacional.
+            </blockquote>
+            <div className="flex items-center gap-3 mt-8">
+              <div className="h-px w-8 bg-defensya-blue shrink-0" />
+              <span
+                className="text-gray-500"
+                style={{
+                  fontFamily: "'Share Tech Mono', monospace",
+                  fontSize: "9px",
+                  letterSpacing: "0.25em",
+                  textTransform: "uppercase",
+                }}
               >
-                Objetivos
-                <br />y Valores
-              </h2>
+                ISO 9001:2015 · Defensya Systems S.L.
+              </span>
             </div>
-            <ObjetivosValoresTabs />
+          </div>
+
+          {/* Derecha — imagen */}
+          <div
+            className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/images/refueling13.webp')",
+            }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: "rgba(11, 31, 56, 0.35)" }}
+            />
           </div>
         </div>
       </section>

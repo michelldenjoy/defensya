@@ -277,21 +277,25 @@ export default function HeroSection() {
 
         {/* ── BOTTOM info bar ── */}
         <div
-          className="absolute bottom-0 left-0 right-0 z-20 px-5 py-4
-                     flex items-end justify-between"
+          className="absolute bottom-0 left-0 right-0 z-20 px-5 py-4 flex items-end justify-between"
           style={{
-            background:
-              "linear-gradient(to top, rgba(6,13,24,0.92) 0%, transparent 100%)",
+            background: "linear-gradient(to top, rgba(6,13,24,0.92) 0%, transparent 100%)",
           }}
         >
+          {/* Referencia técnica izquierda */}
           <div className="flex flex-col gap-1">
-            <span className="font-mono text-[9px] tracking-[0.3em] text-defensya-steel uppercase">
-              {/* Sistema de Reabastecimiento */}
+
+            <span
+              className="font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase"
+            >
+              Ingeniería Aeroespacial
             </span>
           </div>
+
+          {/* Watermark derecha */}
           <span
             className="font-mono font-black text-white/[0.05] select-none leading-none
-             text-[clamp(1.5rem,6vw,3.5rem)] whitespace-nowrap"
+                       text-[clamp(1.5rem,6vw,3.5rem)] whitespace-nowrap"
           >
             DEFENSYA
           </span>

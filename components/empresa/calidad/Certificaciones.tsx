@@ -2,46 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ClipButton } from "@/components/home/HeroSection";
 
-function ArrowUpRight({ size = 12 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-      className="shrink-0"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7 17L17 7M7 7h10v10"
-      />
-    </svg>
-  );
-}
-
-function DownloadIcon({ size = 12 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-      className="shrink-0"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 10v6m0 0l-3-3m3 3l3-3M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1"
-      />
-    </svg>
-  );
-}
-
 export default function Certificaciones() {
   return (
     <>
@@ -217,17 +177,7 @@ export default function Certificaciones() {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/60 via-defensya-blue/20 to-transparent" />
 
         <div className="relative z-10 h-full px-5 sm:px-8 lg:px-16 py-12 sm:py-16 max-w-7xl mx-auto flex flex-col justify-between">
-          <p
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "14px",
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "white",
-            }}
-          >
-            Nuestro Compromiso
-          </p>
+
 
           <div>
             <span
@@ -236,7 +186,7 @@ export default function Certificaciones() {
             >
               DSY
             </span>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed font-light max-w-5xl">
+            <p className="text-md sm:text-base lg:text-xl text-gray-300 leading-relaxed font-light max-w-5xl">
               No solo fabricamos tecnología;{" "}
               <span className="text-white font-medium">
                 entregamos la fiabilidad operativa necesaria para que
