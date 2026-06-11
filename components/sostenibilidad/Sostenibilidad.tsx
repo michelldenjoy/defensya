@@ -134,7 +134,7 @@ export default function Sostenibilidad() {
 
         <div className="relative z-10 px-6 lg:px-16 pt-20 pb-24">
           <div className="max-w-7xl mx-auto">
-            <Eyebrow>Medio Ambiente · Defensya Systems · ISO 14001</Eyebrow>
+            <Eyebrow>Medio Ambiente · Defensya Systems </Eyebrow>
             <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
               <div>
                 <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">

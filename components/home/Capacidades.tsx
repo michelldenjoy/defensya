@@ -43,6 +43,7 @@ export default function Capacidades() {
       className="px-6 lg:px-16 py-28 bg-white dark:bg-defensya-navy
                         border-b border-gray-100 dark:border-white/[0.07]"
     >
+      
       <div className="max-w-7xl mx-auto">
         {/* ── Header ── */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end mb-20">

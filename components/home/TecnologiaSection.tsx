@@ -142,15 +142,12 @@ export default function TecnologiasSection() {
         <div className="mb-10 sm:mb-14">
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-6">
-            <span
-              className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
-              style={{ transform: "rotate(45deg)" }}
-            />
+
             <span
               className="text-defensya-blue"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "9px",
+                fontSize: "12px",
                 letterSpacing: "0.3em",
                 textTransform: "uppercase",
               }}
