@@ -188,19 +188,19 @@ export default function HeroSection() {
         >
           {/* ── Headline aspect-[16/9] ── */}
           <h1
-            className="font-bold leading-[0.88] tracking-[-0.045em]  uppercase text-black md:mb-0 mb-8"
+            className="font-bold leading-[1.01] tracking-[-0.045em]  uppercase text-black md:mb-0 mb-4"
             style={{
-              fontSize: "clamp(3.3rem, 7.6vw, 5.6rem)",
+              fontSize: "clamp(2.0rem, 5.9vw, 4.6rem)",
             }}
           >
             <span className="text-defensya-blue dark:text-white">
-              Ingeniería
+              Diseñamos soluciones
             </span>
             <br />
-            <span className="dark:text-blue-300">para el futuro</span>
+            <span className="dark:text-blue-300"> que elevan cada</span>
             <br />
             <span className="text-defensya-blue dark:text-white">
-              Aeroespacial
+              proyecto al vuelo
             </span>
           </h1>
 

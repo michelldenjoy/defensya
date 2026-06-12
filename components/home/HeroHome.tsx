@@ -9,7 +9,7 @@ export default function HeroHome() {
     <section
       className="relative w-full h-[92vh] min-h-150 max-h-250
                  flex flex-col justify-end overflow-hidden bg-defensya-navy"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+     
     >
       <video
         ref={videoRef}
@@ -38,25 +38,21 @@ export default function HeroHome() {
       />
 
       {/* ── CONTENT ── */}
-      {/* <div
+      <div
         className="relative z-10 max-w-7xl mx-auto w-full
                         pb-10"
       >
         <h1
-          className="text-[clamp(3rem,8vw,7rem)] font-bold uppercase
+          className="text-[clamp(3rem,8vw,6rem)]   uppercase
                     leading-[0.92] tracking-tight text-white mb-8 max-w-4xl"
           style={{
-            fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+            
           }}
         >
-          Hacemos
-          <br />
-          volar
-          <br />
-          ideas
+         Ingeniería para <br />  el futuro Aeroespacial
         </h1>
 
-        <span
+        {/* <span
           className="font-black text-white/[0.15] select-none tracking-wide leading-none"
           style={{
             fontSize: "6.5rem",
@@ -64,14 +60,14 @@ export default function HeroHome() {
           }}
         >
           DEFENSYA
-        </span>
+        </span> */}
         <div
           className="flex flex-col sm:flex-row sm:items-end
                         justify-between gap-8 lg:gap-16"
         >
           <p className="text-xl text-gray-300 leading-relaxed max-w-md"></p>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 }

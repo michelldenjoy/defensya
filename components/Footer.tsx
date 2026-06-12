@@ -44,7 +44,7 @@ const Footer = () => {
               >
                 <Linkedin
                   size={16}
-                  className="text-slate-400 group-hover:text-defensya-sky"
+                  className="text-slate-400 group-hover:text-white"
                 />
               </a>
               <a
@@ -59,7 +59,7 @@ const Footer = () => {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="text-slate-400 group-hover:text-defensya-sky transition-colors"
+                  className="text-slate-400 group-hover:text-white transition-colors"
                 >
                   <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.639 7.584H.474l8.6-9.83L0 1.153h7.594l5.243 6.932L18.901 1.153Zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403Z" />
                 </svg>
