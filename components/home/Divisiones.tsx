@@ -260,11 +260,8 @@ export default function Divisiones() {
 
         {/* ── Eyebrow + Header (alineado a la izquierda, consistente con el resto del sitio) ── */}
         <div className="flex items-center gap-3 mb-7 sm:mb-8">
-          <span
-            className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
-            style={{ transform: "rotate(45deg)" }}
-          />
-          <span className="text-defensya-blue text-[9px] tracking-[0.3em] uppercase"
+
+          <span className="text-defensya-steel text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}>
             Defensya · Áreas de Actividad
           </span>
@@ -282,8 +279,7 @@ export default function Divisiones() {
             Sectores que <span className="text-white/40 font-light">manejamos</span>
           </h2>
 
-          <p className="text-white/45 font-light leading-relaxed max-w-md"
-             style={{ fontSize: "0.85rem" }}>
+          <p className="text-white/45 border-l-2 border-defensya-blue/50 pl-4 lg:pl-5 lg:self-end font-light leading-relaxed max-w-md text-sm sm:text-base md:text-lg">
             Cuatro áreas tecnológicas integradas bajo un mismo estándar de
             ingeniería: defensa, aeronáutica, electrónica e imagen y vídeo.
           </p>

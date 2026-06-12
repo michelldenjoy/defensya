@@ -197,14 +197,14 @@ export default function CapabilityCards() {
             CAP
           </span>
 
-          {/* Eyebrow */}
+          {/* Eyebrow  */}
           <div className="flex items-center gap-3 mb-6">
 
             <span
               className="text-defensya-blue"
               style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "12px",
+                fontSize: "14px",
                 letterSpacing: "0.3em",
                 textTransform: "uppercase",
               }}

@@ -103,7 +103,7 @@ function Eyebrow({ children, light }: { children: React.ReactNode; light?: boole
         className={light ? "text-defensya-blue" : "text-defensya-blue"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "12px",
+          fontSize: "14px",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
         }}

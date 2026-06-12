@@ -65,7 +65,7 @@ function SectionHeader({
     <div className="mb-14">
       <div className="flex items-center gap-3 mb-5">
         <span className="w-6 h-px bg-slate-400" />
-        <span className="font-mono text-[11px] tracking-[0.35em] text-slate-400 uppercase">
+        <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
           {eyebrow}
         </span>
       </div>
@@ -626,7 +626,7 @@ export default function Careers() {
                     <Corners size={18} />
 
                     <div className="flex items-center justify-between mb-8 pb-5 border-b border-gray-100 dark:border-white/[0.07]">
-                      <span className="font-mono text-[10px] tracking-[0.3em] text-gray-900 dark:text-white uppercase">
+                      <span className="font-mono text-[12px] tracking-[0.3em] text-gray-900 dark:text-white uppercase">
                         Formulario de candidatura
                       </span>
                       <span className="font-mono text-[10px] text-gray-400 dark:text-gray-600">REF-HR/01</span>

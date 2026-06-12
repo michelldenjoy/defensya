@@ -36,7 +36,7 @@ const METRICS = [
 ───────────────────────────────────────────────────────────────── */
 export default function TecnologiaSection() {
   return (
-    <section className="relative w-full bg-[#060d18] px-4 sm:px-6 lg:px-16 pt-2 sm:pt-4 pb-16 sm:pb-20 overflow-hidden">
+    <section className="relative w-full bg-[#060d18] px-4 sm:px-6 lg:px-16 pt-2 sm:pt-4 pb-6 sm:pb-10 overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
@@ -47,7 +47,7 @@ export default function TecnologiaSection() {
         >
 
           <span
-            className="text-defensya-blue text-[12px] tracking-[0.3em] uppercase"
+            className="text-defensya-steel text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             Innovación · Sector Aeronáutico
@@ -81,10 +81,10 @@ export default function TecnologiaSection() {
               {["DFS-AAR", "Haptix® V4.0", "I+D+i"].map((tag) => (
                 <span
                   key={tag}
-                  className="border border-defensya-blue/35 text-defensya-blue px-2.5 py-[3px]"
+                  className="border border-defensya-blue/35 text-defensya-steel px-2.5 py-[3px]"
                   style={{
                     fontFamily: "'Share Tech Mono', monospace",
-                    fontSize: "8px",
+                    fontSize: "12px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                   }}
@@ -104,7 +104,7 @@ export default function TecnologiaSection() {
               Reabastecimiento
               <br />
               air to air <br />{" "}
-              <span className="text-defensya-blue">de alta precisión</span>
+              <span className="text-blue-300/80">de alta precisión</span>
             </h2>
 
             {/* Descripción */}
@@ -123,13 +123,13 @@ export default function TecnologiaSection() {
               {FEATURES.map(({ num, bold, text }) => (
                 <div
                   key={num}
-                  className="flex items-start gap-3 py-2.5 border-b border-white/[0.05] last:border-b-0"
+                  className="flex items-center gap-3 py-2.5 border-b border-white/[0.05] last:border-b-0"
                 >
                   <span
-                    className="text-defensya-blue shrink-0 mt-[2px]"
+                    className="text-defensya-steel shrink-0 mt-[2px]"
                     style={{
                       fontFamily: "'Share Tech Mono', monospace",
-                      fontSize: "9px",
+                      fontSize: "10px",
                     }}
                   >
                     {num}
@@ -271,10 +271,10 @@ export default function TecnologiaSection() {
                   className="bg-[#060d18]/80 backdrop-blur-sm px-5 py-4"
                 >
                   <div
-                    className="text-white/22 mb-1"
+                    className="text-white/38 mb-1"
                     style={{
                       fontFamily: "'Share Tech Mono', monospace",
-                      fontSize: "8px",
+                      fontSize: "9px",
                       letterSpacing: "0.22em",
                       textTransform: "uppercase",
                     }}
@@ -282,11 +282,10 @@ export default function TecnologiaSection() {
                     {label}
                   </div>
                   <div
-                    className="font-bold text-defensya-blue leading-none"
+                    className="font-bold text-blue-300/80 leading-none"
                     style={{
                       fontSize: value.length > 3 ? "1.1rem" : "1.6rem",
-                      fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                      
                     }}
                   >
                     {value}
@@ -298,7 +297,7 @@ export default function TecnologiaSection() {
         </div>
 
         {/* ── Bottom meta — cierre conjunto de ambas secciones ── */}
-        <div className="mt-12 sm:mt-14 flex items-center gap-4">
+        {/* <div className="mt-12 sm:mt-14 flex items-center gap-4">
           <div className="h-px flex-1 bg-white/5" />
           <span
             className="text-gray-600 uppercase"
@@ -311,7 +310,7 @@ export default function TecnologiaSection() {
             Defensya · Ingeniería de Defensa
           </span>
           <div className="h-px w-12 bg-defensya-blue/40" />
-        </div>
+        </div> */}
       </div>
     </section>
   );

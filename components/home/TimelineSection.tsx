@@ -252,7 +252,7 @@ export default function TimelineSection() {
             className="text-defensya-blue"
             style={{
               
-              fontSize: "11px",
+              fontSize: "14px",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
             }}

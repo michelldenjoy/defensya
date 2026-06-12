@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 function Rule() {
-  return <hr className="border-t border-gray-200 dark:border-white/8" />;
+  return <hr className="border-t border-gray-800 dark:border-white/8" />;
 }
 
 const items = [
@@ -81,13 +81,15 @@ export default function Hometwo() {
       <TecnologiasSection />
 
       <Rule />
+
+       {/* ───────── QUOTE STRIP ───────── */}
       <section className="">
-        <div className="grid lg:grid-cols-2">
+        <div className="grid sm:grid-cols-2">
           {/* Izquierda — gap quote */}
           <div className="px-6 lg:px-18  py-14 bg-defensya-navy  flex flex-col justify-center">
             <blockquote
-              className="font-bold uppercase text-white leading-snug"
-              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.4rem)" }}
+              className="font-bold uppercase text-white leading-snug pb-4"
+              style={{ fontSize: "clamp(0.8rem, 1.9vw, 1.4rem)" }}
             >
               La confianza se construye con calidad. Por eso, cada solución que
               desarrollamos refleja nuestro compromiso con la excelencia, la

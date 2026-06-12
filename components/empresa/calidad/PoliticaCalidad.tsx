@@ -148,7 +148,7 @@ function Eyebrow({
         className={onDark ? "text-slate-400" : "text-defensya-blue"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "12px",
+          fontSize: "14px",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
         }}
