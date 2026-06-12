@@ -7,6 +7,7 @@ import HeroSection from "./HeroSection";
 import TecnologiasSection from "./TecnologiaSection";
 import CapabilityCards from "./CapabilityCards";
 import Image from "next/image";
+import Link from "next/link";
 
 function Rule() {
   return <hr className="border-t border-gray-200 dark:border-white/8" />;
@@ -16,7 +17,7 @@ const items = [
   {
     label: "Reconocimiento",
     value: "Airbus Top Award Supplier",
-    icon: "/icons/award.png", 
+    icon: "/icons/award.png",
   },
   {
     label: "Estándar",
@@ -37,26 +38,25 @@ const items = [
 
 export default function Hometwo() {
   return (
-    <main
-      className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white"
-     
-    >
+    <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
       <HeroSection />
 
       {/* ───────── TRUST STRIP ───────── */}
       <section className="py-6 mt-8 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
-      
         <div className="max-w-7xl mx-auto px-4 ">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (
-              <div key={item.label} className="flex items-center gap-3 justify-center">
+              <div
+                key={item.label}
+                className="flex items-center gap-3 justify-center"
+              >
                 {/* Icono */}
                 <Image
                   src={item.icon}
                   alt={item.label}
                   width={30}
                   height={30}
-                  className="shrink-0 opacity-90 brightness-0 invert" 
+                  className="shrink-0 opacity-90 brightness-0 invert"
                 />
 
                 {/* Texto */}
@@ -74,14 +74,66 @@ export default function Hometwo() {
         </div>
       </section>
 
-      <CapabilityCards />
-      <Rule />
-
+      <CapabilityCards />      
+      
       <Divisiones />
+
       <TecnologiasSection />
 
+      <Rule />
+      <section className="">
+        <div className="grid lg:grid-cols-2">
+          {/* Izquierda — gap quote */}
+          <div className="px-6 lg:px-18  py-14 bg-defensya-navy  flex flex-col justify-center">
+            <blockquote
+              className="font-bold uppercase text-white leading-snug"
+              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.4rem)" }}
+            >
+              La confianza se construye con calidad. Por eso, cada solución que
+              desarrollamos refleja nuestro compromiso con la excelencia, la
+              innovación y la fiabilidad en los entornos más exigentes.
+            </blockquote>
+            <div className="flex justify-end">
+              <Link
+                href="/empresa/calidad-certificacion"
+                className="group inline-flex items-center gap-3
+                       font-mono text-[11px] tracking-[0.3em] uppercase
+                       text-slate-200 hover:text-blue-400  transition-colors duration-200"
+              >
+                Visita Nuestra Politica de Calidad
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className="group-hover:translate-x-1 transition-transform duration-200"
+                >
+                  <path
+                    d="M2 7h10M8 3l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
 
-      <div className="relative overflow-hidden h-[420px] w-full">
+          {/* Derecha — imagen */}
+          <div
+            className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/forest2.jpg')" }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: "rgba(11, 31, 56, 0.3)" }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* <div className="relative overflow-hidden  h-[420px] w-full">
         <video
           autoPlay
           muted
@@ -93,22 +145,21 @@ export default function Hometwo() {
         </video>
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: "rgba(11, 31, 56, 0.82)" }}
+          style={{ backgroundColor: "rgba(11, 31, 56, 0.62)" }}
         />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/60 via-defensya-blue/20 to-transparent" />
 
         <div className="relative z-10 h-full px-5 sm:px-8 lg:px-16 py-12 sm:py-16 max-w-7xl mx-auto flex flex-col justify-between">
-
-
           <div>
             <span
               className="pointer-events-none select-none font-mono font-black hidden sm:block leading-none mb-2"
               style={{ fontSize: "5rem", color: "rgba(255,255,255,0.04)" }}
             >
-              
               DSY
             </span>
-            <span className="text-white text-2xl uppercase font-bold">Nuestro Compromiso </span> 
+            <span className="text-white text-2xl uppercase font-bold">
+              Nuestro Compromiso{" "}
+            </span>
             <p className="text-md sm:text-base lg:text-xl text-gray-300 leading-relaxed font-light max-w-5xl">
               No solo fabricamos tecnología;{" "}
               <span className="text-white font-medium">
@@ -142,9 +193,7 @@ export default function Hometwo() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
-      </div>
-
-      <Rule />
+      </div> */}
 
       <Rule />
     </main>

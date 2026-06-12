@@ -160,7 +160,7 @@ export default function Certificaciones() {
       </section>
 
       {/* ══ COMPROMISO — pantalla completa ═══════════════════════ */}
-      <div className="relative overflow-hidden h-[420px] w-full">
+      {/* <div className="relative overflow-hidden h-[420px] w-full">
         <video
           autoPlay
           muted
@@ -219,7 +219,7 @@ export default function Certificaciones() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
-      </div>
+      </div> */}
     </>
   );
 }

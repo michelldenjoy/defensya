@@ -250,7 +250,7 @@ export default function CapabilityCards() {
         </div>
 
         {/* CTA gap */}
-        <div className="flex justify-end">
+        {/* <div className="flex justify-end">
           <Link
             href="/productos"
             className="group inline-flex items-center gap-3
@@ -265,7 +265,7 @@ export default function CapabilityCards() {
               <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

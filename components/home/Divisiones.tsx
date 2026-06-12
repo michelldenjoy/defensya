@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useState, useRef, useCallback } from "react";
 
-
-
 interface Division {
   num: string;
   tag: string;
@@ -12,7 +10,6 @@ interface Division {
   image: string;
   desc: string;
 }
-
 
 const divisions: Division[] = [
   {
@@ -73,7 +70,6 @@ function Corners({ active }: { active: boolean }) {
     </>
   );
 }
-
 
 function DivisionCard({ item }: { item: Division }) {
   const isTouch = useIsTouchDevice();
@@ -212,7 +208,6 @@ function DivisionCard({ item }: { item: Division }) {
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
             ${a ? "translate-y-0 scale-110" : "translate-y-3 group-hover:translate-y-0 group-hover:scale-110"}`}
           style={{
-            
             fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
             fontWeight: 700,
             letterSpacing: "-0.01em",
@@ -258,27 +253,40 @@ function DivisionCard({ item }: { item: Division }) {
 
 export default function Divisiones() {
   return (
-    <section className="relative py-16 px-4 sm:px-6 bg-[#060d18] overflow-hidden dark:bg-black/40">
+    <section className="relative pt-16 sm:pt-20 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-16 bg-[#060d18] overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
-      <div className="max-w relative">
-        {/* ── Header ── */}
-        <div className="my-8 text-center pb-8 px-4">
-          <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3">
-          Defensa · Aeronáutica  · Electrónica · IMG & VID
-          </p>
+      <div className="max-w-7xl mx-auto relative">
+
+        {/* ── Eyebrow + Header (alineado a la izquierda, consistente con el resto del sitio) ── */}
+        <div className="flex items-center gap-3 mb-7 sm:mb-8">
+          <span
+            className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
+            style={{ transform: "rotate(45deg)" }}
+          />
+          <span className="text-defensya-blue text-[9px] tracking-[0.3em] uppercase"
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+            Defensya · Áreas de Actividad
+          </span>
+          <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+        </div>
+
+        <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
           <h2
-            className="leading-[0.9] tracking-[-0.02em]"
+            className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
             style={{
-              fontSize: "clamp(2rem, 5vw, 4rem)",
-              textTransform: "uppercase",
+              
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
             }}
           >
-            <span className="font-bold text-gray-100">Sectores </span>
-            <em className="text-white/50  " style={{ fontWeight: 200 }}>
-              que Manejamos
-            </em>
+            Sectores que <span className="text-white/40 font-light">manejamos</span>
           </h2>
+
+          <p className="text-white/45 font-light leading-relaxed max-w-md"
+             style={{ fontSize: "0.85rem" }}>
+            Cuatro áreas tecnológicas integradas bajo un mismo estándar de
+            ingeniería: defensa, aeronáutica, electrónica e imagen y vídeo.
+          </p>
         </div>
 
         {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}
@@ -286,15 +294,6 @@ export default function Divisiones() {
           {divisions.map((item) => (
             <DivisionCard key={item.num} item={item} />
           ))}
-        </div>
-
-        {/* ── Bottom meta ── */}
-        <div className="mt-14 flex items-center gap-4">
-          <div className="h-px flex-1 bg-white/5" />
-          <span className="font-mono text-[10px] tracking-[0.3em] text-gray-600 uppercase">
-            Defensya · Ingeniería de Defensa
-          </span>
-          <div className="h-px w-12 bg-blue-300/50" />
         </div>
       </div>
     </section>
