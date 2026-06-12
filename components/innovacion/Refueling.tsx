@@ -28,15 +28,12 @@ const HAPTIX_IMAGES = [
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8">
-      <span
-        className="w-[6px] h-[6px] bg-defensya-blue shrink-0"
-        style={{ transform: "rotate(45deg)" }}
-      />
+
       <span
         className="text-defensya-blue"
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "9px",
+          fontSize: "12px",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
         }}
@@ -202,7 +199,7 @@ export default function Refueling() {
   return (
     <main
       className="w-full text-gray-900 dark:text-white"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Share Tech Mono', monospace" }}
     >
       {/* ══ §1 INTRO ════════════════════════════════════════════════ */}
       <section
@@ -216,7 +213,7 @@ export default function Refueling() {
                         from-transparent via-defensya-blue/20 to-transparent"
         />
 
-        <div className="max-w-7xl mx-auto relative">
+        <div className="max-w-7xl  mx-auto relative">
           <Eyebrow>Innovación · Reabastecimiento Air-to-Air</Eyebrow>
 
           {/* Heading + bajada */}
@@ -226,7 +223,7 @@ export default function Refueling() {
                          text-gray-900 dark:text-white"
               style={{
                 fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+                  "'Share Tech Mono', monospace",
                 fontSize: "clamp(2.8rem, 5vw, 5rem)",
               }}
             >
@@ -238,7 +235,7 @@ export default function Refueling() {
             </h1>
 
             <p
-              className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed
+              className="text-sm  sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed
                           border-l-2 border-defensya-blue/30 pl-4 sm:pl-5 lg:self-end"
             >
               En Defensya, la innovación es el motor que impulsa nuestro
@@ -257,27 +254,27 @@ export default function Refueling() {
           Contexto operativo — sobre fondo claro neutro
       ════════════════════════════════════════════════════════════ */}
       <section
-        className="relative px-5 sm:px-8 lg:px-16 py-14 sm:py-24
+        className="relative  px-5 sm:px-8 lg:px-16  py-14 sm:py-24
                           overflow-hidden bg-slate-50 dark:bg-defensya-navy
                           border-b border-gray-100 dark:border-white/[0.07]"
       >
         <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-25 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto relative">
+        <div className="max-w-7xl  mx-auto relative">
           <h2
-            className="font-bold uppercase leading-[0.9] tracking-tight
+            className="font-bold uppercase  leading-[0.9] tracking-tight
                        text-gray-900 dark:text-white mb-10 sm:mb-14"
             style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+              fontFamily: "'Share Tech Mono', monospace",
               fontSize: "clamp(2rem, 4vw, 3.4rem)",
             }}
           >
             El reto y nuestra visión
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+          <div className="grid lg:grid-cols-2  gap-6 lg:gap-10 items-stretch">
             {/* Cards desafío + visión */}
-            <div className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex  flex-col gap-4 sm:gap-6">
               {[
                 {
                   num: "01",
@@ -292,7 +289,7 @@ export default function Refueling() {
               ].map(({ num, title, body }) => (
                 <div
                   key={num}
-                  className="relative overflow-hidden p-6 sm:p-8 group flex-1
+                  className="relative overflow-hidden p-6  sm:p-8 group flex-1
                              bg-white dark:bg-white/[0.02]
                              border border-gray-100 dark:border-white/[0.06]
                              transition-colors duration-300"
@@ -311,8 +308,8 @@ export default function Refueling() {
                   />
 
                   <span
-                    className="inline-flex mb-4 sm:mb-5 text-defensya-blue
-                               border border-defensya-blue/30 px-2 py-[3px]"
+                    className="inline-flex  mb-4 sm:mb-5 text-defensya-blue
+                               border border-defensya-blue/30  px-2 py-[3px]"
                     style={{
                       fontFamily: "'Share Tech Mono', monospace",
                       fontSize: "10px",
@@ -324,12 +321,12 @@ export default function Refueling() {
                   </span>
 
                   <h3
-                    className="font-bold uppercase leading-none mb-3
+                    className="font-bold  uppercase leading-none mb-3
                                text-gray-900 dark:text-white
                                group-hover:text-defensya-blue transition-colors duration-300"
                     style={{
                       fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        "Share Tech Mono",
                       fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
                     }}
                   >
@@ -339,9 +336,16 @@ export default function Refueling() {
                   <div
                     className="h-px w-8 bg-defensya-blue/40 group-hover:w-full
                                   transition-all duration-500 mb-4"
+                                  
                   />
 
-                  <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light">
+                  <p className="text-sm sm:text-base  text-gray-500 dark:text-gray-400 leading-relaxed font-light"
+                                      style={{
+                      fontFamily:
+                        "Share Tech Mono",
+
+                    }}
+                  >
                     {body}
                   </p>
                 </div>

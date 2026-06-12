@@ -7,22 +7,70 @@ import { useEffect, useRef, useState } from "react";
    DATA
 ───────────────────────────────────────────────────────────────── */
 const PATENTS_DATA = [
-  { title: "Refueling Boom with Backup Raising Cable", url: "https://www.patentsencyclopedia.com/app/20090127394", id: "US2009/0127394" },
-  { title: "System for Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20090302160", id: "US2009/0302160" },
-  { title: "Indication System and Method for Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20100108816", id: "US2010/0108816" },
-  { title: "Illuminating System for In-Flight Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20100237249", id: "US2010/0237249" },
-  { title: "Method and System for Enhanced Vision in Aerial Refueling Operations", url: "https://www.patentsencyclopedia.com/app/20110147528", id: "US2011/0147528" },
-  { title: "Method and System for Enhanced Vision in Aerial Refuelling Operations", url: "https://www.patentsencyclopedia.com/app/20110147529", id: "US2011/0147529" },
-  { title: "System for Providing Night Vision at Low Visibility Conditions", url: "https://www.patentsencyclopedia.com/app/20110261188", id: "US2011/0261188" },
-  { title: "Monitoring System for Remotely Supervising and Controlling Critical Operations and Method for Detecting Image Freezing", url: "https://www.patentsencyclopedia.com/app/20140104421", id: "US2014/0104421" },
-  { title: "System for Night Vision from Distant Observation Places", url: "https://www.patentsencyclopedia.com/app/20110253894", id: "US2011/0253894" },
-  { title: "System for Night Vision of Selected Objects", url: "https://www.patentsencyclopedia.com/app/20110266457", id: "US2011/0266457" },
+  {
+    title: "Refueling Boom with Backup Raising Cable",
+    url: "https://www.patentsencyclopedia.com/app/20090127394",
+    id: "US2009/0127394",
+  },
+  {
+    title: "System for Refuelling Operations",
+    url: "https://www.patentsencyclopedia.com/app/20090302160",
+    id: "US2009/0302160",
+  },
+  {
+    title: "Indication System and Method for Refuelling Operations",
+    url: "https://www.patentsencyclopedia.com/app/20100108816",
+    id: "US2010/0108816",
+  },
+  {
+    title: "Illuminating System for In-Flight Refuelling Operations",
+    url: "https://www.patentsencyclopedia.com/app/20100237249",
+    id: "US2010/0237249",
+  },
+  {
+    title:
+      "Method and System for Enhanced Vision in Aerial Refueling Operations",
+    url: "https://www.patentsencyclopedia.com/app/20110147528",
+    id: "US2011/0147528",
+  },
+  {
+    title:
+      "Method and System for Enhanced Vision in Aerial Refuelling Operations",
+    url: "https://www.patentsencyclopedia.com/app/20110147529",
+    id: "US2011/0147529",
+  },
+  {
+    title: "System for Providing Night Vision at Low Visibility Conditions",
+    url: "https://www.patentsencyclopedia.com/app/20110261188",
+    id: "US2011/0261188",
+  },
+  {
+    title:
+      "Monitoring System for Remotely Supervising and Controlling Critical Operations and Method for Detecting Image Freezing",
+    url: "https://www.patentsencyclopedia.com/app/20140104421",
+    id: "US2014/0104421",
+  },
+  {
+    title: "System for Night Vision from Distant Observation Places",
+    url: "https://www.patentsencyclopedia.com/app/20110253894",
+    id: "US2011/0253894",
+  },
+  {
+    title: "System for Night Vision of Selected Objects",
+    url: "https://www.patentsencyclopedia.com/app/20110266457",
+    id: "US2011/0266457",
+  },
 ];
 
 const STATS = [
   { value: 20, suffix: "+", label: "Patentes registradas", mono: true },
   { value: 25, suffix: "+", label: "Años de I+D activo", mono: true },
-  { value: null, display: "EADS", label: "Airbus — licenciatario principal", mono: false },
+  {
+    value: null,
+    display: "EADS",
+    label: "Airbus — licenciatario principal",
+    mono: false,
+  },
 ];
 
 /* ─────────────────────────────────────────────────────────────────
@@ -35,8 +83,13 @@ function useVisible(threshold = 0.15) {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold }
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -52,8 +105,10 @@ function useCounter(target: number, active: boolean, duration = 1200) {
     const step = Math.ceil(target / (duration / 16));
     const timer = setInterval(() => {
       start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(start);
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else setCount(start);
     }, 16);
     return () => clearInterval(timer);
   }, [active, target, duration]);
@@ -112,7 +167,8 @@ function StatCard({
               className="text-defensya-blue font-bold"
               style={{
                 fontSize: "clamp(1rem,2vw,1.5rem)",
-                fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                fontFamily:
+                  "var(--font-display, 'Barlow Condensed', sans-serif)",
               }}
             >
               {stat.suffix}
@@ -212,8 +268,19 @@ function PatentRow({
           -translate-x-1 group-hover:translate-x-0
           transition-all duration-200"
       >
-        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
+        <svg
+          width="12"
+          height="12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M7 17L17 7M7 7h10v10"
+          />
         </svg>
       </span>
     </Link>
@@ -233,28 +300,25 @@ export default function PatentsList() {
       id="patents"
       className="py-28 px-6 lg:px-16 bg-white dark:bg-defensya-navy
         border-t border-gray-200 dark:border-white/[0.07] overflow-hidden"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
     >
       <div className="max-w-7xl mx-auto">
-
         {/* ── Header ─────────────────────────────────────────────── */}
-        <div className="grid lg:grid-cols-[1fr_42%] gap-12 lg:gap-20 items-end
-          border-b border-gray-200 dark:border-white/[0.07] pb-16 mb-16">
-
+        <div
+          className="grid lg:grid-cols-[1fr_42%] gap-12 lg:gap-20 items-end
+          border-b border-gray-200 dark:border-white/[0.07] pb-16 mb-16"
+        >
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="w-6 h-px bg-slate-400" />
-              <span className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase "> 
+              <span className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase ">
                 I + D + i
               </span>
             </div>
             <h2
               className="text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.92]
                 tracking-tight text-gray-900 dark:text-white uppercase"
-              style={{ fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)" }}
             >
-              Nuestras 
-
+              Nuestras
               <br />
               <span className="text-defensya-blue">Patentes</span>
             </h2>
@@ -262,19 +326,21 @@ export default function PatentsList() {
 
           <div>
             <p className="text-base text-gray-500 dark:text-gray-400 leading-[1.85] mb-5">
-              En Defensya demostramos un especial interés por la investigación innovadora
-              y por el desarrollo de los frutos de esta actividad, convirtiéndolos en
-              productos de alto contenido tecnológico.
+              En Defensya demostramos un especial interés por la investigación
+              innovadora y por el desarrollo de los frutos de esta actividad,
+              convirtiéndolos en productos de alto contenido tecnológico.
             </p>
             <p className="text-base text-gray-500 dark:text-gray-400 leading-[1.85]">
-              A lo largo de más de veinticinco años de actividad hemos registrado{" "}
+              A lo largo de más de veinticinco años de actividad hemos
+              registrado{" "}
               <span className="text-gray-900 dark:text-white font-semibold">
                 más de veinte patentes
               </span>
               , algunas de las cuales ya han sido cedidas a clientes como{" "}
               <span className="text-gray-900 dark:text-white font-semibold">
                 EADS (Airbus)
-              </span>.
+              </span>
+              .
             </p>
           </div>
         </div>
@@ -295,7 +361,7 @@ export default function PatentsList() {
             Referencia
           </span>
           <span className="flex-1 text-[10px] font-mono tracking-[0.18em] text-slate-500 dark:text-white/20 uppercase">
-           Nombre
+            Nombre
           </span>
           <span className="hidden md:block text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-white/20 uppercase">
             Estado
@@ -315,55 +381,76 @@ export default function PatentsList() {
         </div>
 
         {/* ── Quote ──────────────────────────────────────────────── */}
-        <div
-          ref={quoteRef}
-          className="relative grid lg:grid-cols-[auto_1fr] gap-8 items-start
-            border border-gray-200 dark:border-white/[0.08] p-8 lg:p-12
-            overflow-hidden group"
-          style={{
-            opacity: quoteVisible ? 1 : 0,
-            transform: quoteVisible ? "translateY(0)" : "translateY(1.5rem)",
-            transition: "opacity 0.7s ease, transform 0.7s ease",
-          }}
-        >
-          {/* Hover fill */}
-          <div
-            className="absolute inset-0 bg-defensya-blue/[0.025] dark:bg-defensya-blue/[0.04]
-              origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
-          />
-          {/* Top accent sweep */}
-          <div
-            className="absolute top-0 left-0 right-0 h-px bg-defensya-blue
-              origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
-          />
+        <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto">
+            <div
+              ref={quoteRef}
+              className="relative grid sm:grid-cols-[2px_1fr] gap-6 sm:gap-8 p-6 sm:p-10 lg:p-12
+                       bg-[#060d18] text-white overflow-hidden group"
+              style={{
+                clipPath:
+                  "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
+                opacity: quoteVisible ? 1 : 0,
+                transform: quoteVisible
+                  ? "translateY(0)"
+                  : "translateY(1.5rem)",
+                transition: "opacity 0.7s ease, transform 0.7s ease",
+              }}
+            >
+              {/* Bisel */}
+              <div
+                className="absolute top-0 right-0 bg-defensya-blue/60"
+                style={{
+                  width: 24,
+                  height: 24,
+                  clipPath: "polygon(100% 0,0 0,100% 100%)",
+                }}
+              />
 
-          {/* Left accent column */}
-          <div className="hidden lg:flex flex-col items-center gap-2 relative">
-            <div className="w-px h-full min-h-[5rem] bg-defensya-blue/40" />
-          </div>
+              {/* Barra lateral */}
+              <div className="hidden sm:block bg-defensya-blue/40" />
 
-          <div className="relative">
-            <p className="text-[11px] font-mono tracking-[0.28em] text-defensya-blue uppercase mb-5">
-              Última invención
-            </p>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300
-              leading-[1.9] italic max-w-2xl">
-              "Nuestra última invención posibilita la{" "}
-              <span className="not-italic font-semibold text-gray-900 dark:text-white">
-                Automatización
-              </span>{" "}
-              luego de una Semiautomatización supervisada de tareas de Repostaje
-              aéreo con Boom."
-            </p>
-            <div className="mt-6 flex items-center gap-3">
-              <span className="w-6 h-px bg-defensya-blue/40" />
-              <span className="text-[10px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500 uppercase">
-                Defensya Engineering 
-              </span>
+              <div className="relative">
+                <p
+                  className="text-defensya-blue mb-4 sm:mb-5"
+                  style={{
+                    fontFamily: "'Share Tech Mono', monospace",
+                    fontSize: "9px",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Última invención
+                </p>
+                <p
+                  className="font-light italic leading-[1.75] text-white/75 max-w-2xl"
+                  style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
+                >
+                  &ldquo;Nuestra última invención posibilita la{" "}
+                  <strong className="not-italic font-bold text-white">
+                    Automatización
+                  </strong>{" "}
+                  luego de una Semiautomatización supervisada de tareas de
+                  Repostaje aéreo con Boom.&rdquo;
+                </p>
+                <div className="mt-6 flex items-center gap-3">
+                  <span className="w-6 h-px bg-defensya-blue/40" />
+                  <span
+                    className="text-white/30"
+                    style={{
+                      fontFamily: "'Share Tech Mono', monospace",
+                      fontSize: "10px",
+                      letterSpacing: "0.2em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Defensya Engineering
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -246,7 +246,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Civil",
     descripcion:
       "Sistema de detección de movimientos estructurales causados por actividad sísmica.",
-    imagen: "/images/aeronautic.jpg",
+    imagen: "/images/seismic.jpg",
     detalles: [
       "Monitorización de integridad estructural en tiempo real",
       "Configuración base extensible según especificaciones",

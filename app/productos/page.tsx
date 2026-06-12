@@ -589,7 +589,7 @@ function ProductModal({
                   </div>
 
                   {/* FLECHAS FIJAS EN FOOTER DE IMG */}
-                  {images.length > 1 && (
+                  {/* {images.length > 1 && (
                     <div className="flex gap-1.5 shrink-0">
                       {[{ fn: prevSlide, d: "M8 2L4 6L8 10" }, { fn: nextSlide, d: "M4 2L8 6L4 10" }].map((btn, i) => (
                         <button key={i} onClick={btn.fn}
@@ -602,7 +602,7 @@ function ProductModal({
                         </button>
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
 
