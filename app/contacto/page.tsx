@@ -57,7 +57,7 @@ export default function ContactView() {
   const [status, setStatus] = useState<Status>("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -76,7 +76,7 @@ export default function ContactView() {
           subject: formData.subject,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       if (result.status === 200) {
@@ -145,16 +145,16 @@ export default function ContactView() {
                 <span className="text-defensya-blue">defensya</span>
               </h1>
               <div className="bg-black/5 backdrop-blur-xs max-w-sm border border-white/10 rounded-xl p-8 lg:p-8">
-              <p className="text-sm text-white/50 leading-relaxed">
-                <strong className="text-white">
-                  Hablemos de soluciones técnicas.{" "}
-                </strong>
-                <br />
-                Si buscas asesoría en ingeniería, auditorías especializadas o
-                alianzas estratégicas en I+D, nuestro equipo está listo para
-                colaborar. Garantizamos absoluta confidencialidad en el
-                tratamiento de su información.
-              </p>
+                <p className="text-sm text-white/50 leading-relaxed">
+                  <strong className="text-white">
+                    Hablemos de soluciones técnicas.{" "}
+                  </strong>
+                  <br />
+                  Si buscas asesoría en ingeniería, auditorías especializadas o
+                  alianzas estratégicas en I+D, nuestro equipo está listo para
+                  colaborar. Garantizamos absoluta confidencialidad en el
+                  tratamiento de su información.
+                </p>
               </div>
             </div>
 
@@ -328,11 +328,44 @@ export default function ContactView() {
                         <button
                           type="submit"
                           disabled={status === "sending"}
-                          className="px-8 py-3.5 bg-defensya-blue text-white text-xs tracking-widest uppercase font-medium hover:bg-defensya-blue/80 transition-colors disabled:opacity-40"
+                          className="group relative inline-flex items-center gap-3 px-6 py-3.5
+             bg-defensya-navy-light dark:bg-defensya-blue text-white 
+             text-[11px] lg:text-[12px] tracking-[0.25em] uppercase 
+             hover:bg-defensya-blue transition-colors duration-200
+             disabled:opacity-40 disabled:cursor-not-allowed"
+                          style={{
+                            clipPath:
+                              "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
+                            fontFamily: "'Share Tech Mono', monospace",
+                          }}
                         >
                           {status === "sending"
                             ? "Procesando..."
                             : "Enviar consulta"}
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            className="translate-x-0 group-hover:translate-x-1 transition-transform duration-200"
+                          >
+                            <path
+                              d="M2 6h8M7 3l3 3-3 3"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span
+                            className="pointer-events-none absolute bottom-0 right-0 bg-white/25"
+                            style={{
+                              width: "14px",
+                              height: "1px",
+                              transformOrigin: "bottom right",
+                              transform: "rotate(-45deg) translateX(4px)",
+                            }}
+                          />
                         </button>
                       </div>
                     </div>

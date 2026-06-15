@@ -42,7 +42,7 @@ export default function Hometwo() {
     <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
 
       {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-6 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
+      <section className="py-6 md:py-12 bg-defensya-navy border-y border-slate-800 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (

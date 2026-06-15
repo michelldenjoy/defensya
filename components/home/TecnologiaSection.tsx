@@ -151,7 +151,7 @@ export default function TecnologiaSection() {
             <Link
               href="/innovacion"
               className="group relative inline-flex items-center gap-2.5 w-fit px-6 py-3.5
-                         bg-defensya-blue text-white hover:bg-defensya-blue/80
+                         bg-defensya-navy-light text-white hover:bg-defensya-blue/80
                          transition-colors duration-200"
               style={{
                 clipPath:

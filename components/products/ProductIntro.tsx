@@ -16,7 +16,7 @@ export default function ProductIntro() {
       ] as const).map((cls, i) => (
         <span
           key={i}
-          className={`absolute w-[13px] h-[13px] pointer-events-none border-[rgba(14,95,163,0.4)] ${cls}`}
+          className={`absolute w-[13px] h-[13px] pointer-events-none border-defensya-blue ${cls}`}
         />
       ))}
 
@@ -25,7 +25,7 @@ export default function ProductIntro() {
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-8 sm:mb-10">
 
-          <span className="text-defensya-blue text-[12px] tracking-[0.3em] uppercase">
+          <span className="text-defensya-steel text-[12px] tracking-[0.3em] uppercase">
             Catálogo · Defensya Systems · Ingeniería de precisión
           </span>
           <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
@@ -43,12 +43,12 @@ export default function ProductIntro() {
             <br />
             <em className="not-italic font-light text-white/45">futuro se construye {" "}</em>
           <br />
-              con{" "}
-            <span className="text-defensya-blue">precisión.</span>
+              con precisión{" "}
+          
           </h1>
 
           <div className="flex flex-col gap-4">
-            <div className="w-6 h-px bg-defensya-blue" />
+            <div className="w-6 h-px bg-defensya-steel" />
             <p
               className="leading-[1.85] text-white/42 font-light"
               style={{ fontSize: "1.10rem" }}
@@ -69,7 +69,7 @@ export default function ProductIntro() {
 
         {/* Bottom strip */}
         <div className="flex items-center justify-between mt-10 sm:mt-14 pt-5
-                        border-t border-[rgba(14,95,163,0.12)] flex-wrap gap-4">
+                        border-t border-[rgba(14,95,163,0.32)] flex-wrap gap-4">
           <div className="flex gap-6 sm:gap-8 flex-wrap">
             {[
               { label: "Categorías",     val: "06" },
@@ -80,7 +80,7 @@ export default function ProductIntro() {
                 <span className="text-white/20 text-[8px] tracking-[0.22em] uppercase">
                   {label}
                 </span>
-                <span className="font-bold text-defensya-blue text-[12px] tracking-[0.06em]">
+                <span className="font-bold text-defensya-steel/60 text-[12px] tracking-[0.06em]">
                   {val}
                 </span>
               </div>

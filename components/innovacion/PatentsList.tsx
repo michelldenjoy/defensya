@@ -156,7 +156,7 @@ function StatCard({
             className="font-bold leading-none text-gray-900 dark:text-white"
             style={{
               fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+              
               letterSpacing: "-0.02em",
             }}
           >
@@ -167,8 +167,7 @@ function StatCard({
               className="text-defensya-blue font-bold"
               style={{
                 fontSize: "clamp(1rem,2vw,1.5rem)",
-                fontFamily:
-                  "var(--font-display, 'Barlow Condensed', sans-serif)",
+              
               }}
             >
               {stat.suffix}
@@ -414,7 +413,7 @@ export default function PatentsList() {
                 <p
                   className="text-defensya-blue mb-4 sm:mb-5"
                   style={{
-                    fontFamily: "'Share Tech Mono', monospace",
+                    
                     fontSize: "9px",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
