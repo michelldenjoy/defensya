@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 const objetivos = [
@@ -138,8 +137,8 @@ export default function Sostenibilidad() {
             <div className="grid lg:grid-cols-[1fr_38%] gap-16 items-center">
               <div>
                 <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-display font-bold leading-[0.95] tracking-tight uppercase">
-                  Trabajamos <br /> por un Futuro
-                  <span className="text-defensya-blue"> Sostenible</span>
+                  Trabajamos por un  <br /> 
+                  <span className="text-defensya-blue">Futuro Sostenible</span>
                 </h1>
               </div>
               <div className="flex flex-col gap-6 lg:pt-8">
@@ -249,7 +248,6 @@ export default function Sostenibilidad() {
               </p>
             </div>
             
-
             <div className="grid sm:grid-cols-2 gap-2 bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
               {areas.map(({ num, label, desc, image }) => (
                 <div
@@ -296,17 +294,7 @@ export default function Sostenibilidad() {
 
           {/* Izquierda — quote */}
           <div className="px-6 lg:px-16 py-14 bg-defensya-navy flex flex-col justify-center">
-            <p
-              className="text-defensya-blue mb-6"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "9px",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-              }}
-            >
-              Dirección General — Política Medioambiental
-            </p>
+
             <blockquote
               className="font-bold uppercase text-white leading-snug"
               style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}

@@ -220,8 +220,8 @@ export default function CapabilityCards() {
               className="font-bold uppercase leading-[0.9] tracking-tighter text-gray-900 dark:text-white"
               style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
             >
-              Soluciones de{" "}
-              <span className="text-defensya-blue">alta fiabilidad</span>
+              Soluciones de alta {" "}
+              <span className="text-defensya-blue">fiabilidad</span>
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed

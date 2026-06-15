@@ -8,6 +8,7 @@ import TecnologiasSection from "./TecnologiaSection";
 import CapabilityCards from "./CapabilityCards";
 import Image from "next/image";
 import Link from "next/link";
+import ClosingCTA from "./ClosingCTA";
 
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
@@ -39,11 +40,10 @@ const items = [
 export default function Hometwo() {
   return (
     <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
-      <HeroSection />
 
       {/* ───────── TRUST STRIP ───────── */}
-      <section className="py-6 mt-8 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-4 ">
+      <section className="py-6 md:py-12 bg-defensya-navy dark:bg-black/40 border-y border-gray-200 dark:border-white/5">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (
               <div
@@ -82,10 +82,15 @@ export default function Hometwo() {
 
       <Rule />
 
-       {/* ───────── QUOTE STRIP ───────── */}
-      <section className="">
+
+<ClosingCTA />
+
+
+
+    
+      {/* <section className="">
         <div className="grid sm:grid-cols-2">
-          {/* Izquierda — gap quote */}
+         
           <div className="px-6 lg:px-18  py-14 bg-defensya-navy  flex flex-col justify-center">
             <blockquote
               className="font-bold uppercase text-white leading-snug pb-4"
@@ -122,7 +127,7 @@ export default function Hometwo() {
             </div>
           </div>
 
-          {/* Derecha — imagen */}
+    
           <div
             className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/forest2.jpg')" }}
@@ -133,7 +138,7 @@ export default function Hometwo() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <div className="relative overflow-hidden  h-[420px] w-full">
         <video

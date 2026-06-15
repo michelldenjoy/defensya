@@ -23,7 +23,7 @@ const divisions: Division[] = [
     num: "02",
     tag: "Aeron",
     title: "Aeronáutica",
-    image: "/images/aeronautica.jpg",
+    image: "/images/aeronautic.jpg",
     desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada.",
   },
   {
@@ -190,7 +190,7 @@ function DivisionCard({ item }: { item: Division }) {
             isActive ? "opacity-0" : "opacity-70"
           }`}
         >
-          <span className="text-[9px] font-mono tracking-[0.2em] text-blue-300/70 border border-blue-300/20 px-2 py-1 uppercase">
+          <span className="text-[11px] font-mono tracking-[0.2em] text-blue-300/70 border border-blue-300/20 px-2 py-1 uppercase">
             TAP
           </span>
         </div>

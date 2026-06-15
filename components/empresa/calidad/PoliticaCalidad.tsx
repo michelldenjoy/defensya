@@ -363,7 +363,7 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
             <div>
-              <Eyebrow onDark>Gestión · Defensya</Eyebrow>
+              
               <h2
                 className="font-bold uppercase leading-tight text-white"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
@@ -381,17 +381,13 @@ export default function PoliticaCalidad() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
             <div className="lg:pt-1">
-              <Eyebrow>Sistema de Gestión · ISO 9001:2015</Eyebrow>
+              
               <h2
                 className="font-bold uppercase leading-tight text-gray-900 dark:text-white"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
               >
                 Declaración
               </h2>
-              <p className="hidden lg:block text-sm text-gray-400 dark:text-gray-500 leading-relaxed mt-3">
-                Texto oficial del sistema de gestión de calidad de Defensya
-                Ingeniería Internacional.
-              </p>
             </div>
 
             <div className="border-t border-gray-200 dark:border-white/[0.07]">
