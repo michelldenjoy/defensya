@@ -62,7 +62,6 @@ const PATENTS_DATA = [
   },
 ];
 
-
 /* ─────────────────────────────────────────────────────────────────
    HOOKS
 ───────────────────────────────────────────────────────────────── */
@@ -85,91 +84,6 @@ function useVisible(threshold = 0.15) {
     return () => obs.disconnect();
   }, [threshold]);
   return { ref, visible };
-}
-
-function useCounter(target: number, active: boolean, duration = 1200) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let start = 0;
-    const step = Math.ceil(target / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else setCount(start);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [active, target, duration]);
-  return count;
-}
-
-/* ─────────────────────────────────────────────────────────────────
-   STAT CARD
-───────────────────────────────────────────────────────────────── */
-function StatCard({
-  stat,
-  active,
-  index,
-}: {
-  stat: (typeof STATS)[0];
-  active: boolean;
-  index: number;
-}) {
-  const count = useCounter(stat.value ?? 0, active && stat.value !== null);
-
-  return (
-    <div
-      className="relative border border-gray-200 dark:border-white/[0.08] p-6 lg:p-8
-        overflow-hidden group"
-      style={{
-        opacity: active ? 1 : 0,
-        transform: active ? "translateY(0)" : "translateY(1.5rem)",
-        transition: `opacity 0.6s ease ${index * 120}ms, transform 0.6s ease ${index * 120}ms`,
-      }}
-    >
-      {/* Hover fill */}
-      <div
-        className="absolute inset-0 bg-defensya-blue/[0.03] dark:bg-defensya-blue/[0.06]
-          origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-      />
-      {/* Top accent */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px bg-defensya-blue
-          origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-      />
-
-      <div className="relative">
-        <div className="flex items-baseline gap-1 mb-2">
-          <span
-            className="font-bold leading-none text-gray-900 dark:text-white"
-            style={{
-              fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-              
-              letterSpacing: "-0.02em",
-            }}
-          >
-            {stat.value !== null ? count : stat.display}
-          </span>
-          {stat.suffix && (
-            <span
-              className="text-defensya-blue font-bold"
-              style={{
-                fontSize: "clamp(1rem,2vw,1.5rem)",
-              
-              }}
-            >
-              {stat.suffix}
-            </span>
-          )}
-        </div>
-        <p className="text-[10px] font-mono tracking-[0.22em] text-gray-400 dark:text-gray-500 uppercase">
-          {stat.label}
-        </p>
-      </div>
-    </div>
-  );
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -216,7 +130,7 @@ function PatentRow({
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      {/* Patent ID — hidden on mobile, visible on sm+ */}
+      {/* Patent ID  */}
       <span
         className="relative hidden sm:block shrink-0 text-[11px] font-mono
           tracking-[0.18em] text-gray-300 dark:text-white/20 uppercase
@@ -280,7 +194,6 @@ function PatentRow({
    MAIN EXPORT
 ───────────────────────────────────────────────────────────────── */
 export default function PatentsList() {
-  const { ref: statsRef, visible: statsVisible } = useVisible(0.2);
   const { ref: listRef, visible: listVisible } = useVisible(0.05);
   const { ref: quoteRef, visible: quoteVisible } = useVisible(0.3);
 
@@ -333,8 +246,6 @@ export default function PatentsList() {
             </p>
           </div>
         </div>
-
-
 
         {/* ── List header ────────────────────────────────────────── */}
         <div className="flex items-center gap-4 mb-1 pb-3 border-b border-gray-200 dark:border-white/[0.07]">
@@ -398,7 +309,6 @@ export default function PatentsList() {
                 <p
                   className="text-defensya-blue mb-4 sm:mb-5"
                   style={{
-                    
                     fontSize: "9px",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
