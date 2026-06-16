@@ -126,7 +126,7 @@ export default function ClosingCTA() {
                 text-defensya-steel
               "
             >
-              Capacidades demostradas
+             
             </span>
 
             <div className="mt-10 grid grid-cols-2 gap-8">
@@ -257,7 +257,7 @@ export default function ClosingCTA() {
                     text-slate-400
                   "
                 >
-                  Ingeniería aeronáutica avanzada
+                  DEFENSYA Ingeniería 
                 </span>
               </div>
             </div>

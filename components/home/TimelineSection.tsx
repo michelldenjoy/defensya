@@ -451,7 +451,7 @@ function ClipToggleButton({
       onClick={onToggle}
       className="group/btn relative inline-flex items-center gap-3 px-6 py-3.5
                  bg-defensya-navy-light dark:bg-defensya-blue
-                 text-white text-[11px] tracking-[0.25em] uppercase font-bold
+                 text-white text-[11px] tracking-[0.25em] uppercase 
                  hover:bg-defensya-blue dark:hover:bg-defensya-blue/80
                  transition-colors duration-200 focus-visible:outline-none"
       style={{ clipPath: clip }}

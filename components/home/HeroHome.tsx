@@ -123,7 +123,7 @@ export default function HeroHome() {
           <ClipButton href="/productos" variant="primary">
             Proyectos
           </ClipButton>
-          <ClipButton href="/quienes-somos" variant="outline">
+          <ClipButton href="/empresa/quienes-somos" variant="outline">
             Nosotros
           </ClipButton>
         </div>

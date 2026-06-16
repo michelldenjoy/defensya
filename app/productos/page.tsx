@@ -66,13 +66,13 @@ export default function ProductosPage() {
 
       <div className="flex flex-col lg:flex-row relative z-10">
 
-        {/* ── SIDEBAR — navy oscuro ── */}
+        {/* ── ASIDE ── */}
         <aside
           className="w-full lg:w-64 shrink-0 px-6 py-8 lg:px-8 lg:py-10
                      bg-[#060d18] border-r border-[rgba(14,165,233,0.1)]
                      lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col"
         >
-          {/* Título catálogo vista*/}
+
           <div className="mb-8">
             <span
               className="block text-defensya-blue mb-1"
@@ -133,10 +133,10 @@ export default function ProductosPage() {
             })}
           </nav>
 
-          {/* Pie del sidebar */}
+          {/* Pie del aside */}
           <div className="hidden lg:block pt-6 border-t border-[rgba(14,165,233,0.1)]">
             <span
-              className="text-white/15"
+              className="text-white/35"
               style={{
                 fontSize: "8px",
                 letterSpacing: "0.18em",
@@ -144,15 +144,14 @@ export default function ProductosPage() {
                 lineHeight: 2,
               }}
             >
-              DFS-CAT · Rev A<br />
-              Defensya Systems S.L.
+              
+              Defensya Ingeniería 
             </span>
           </div>
         </aside>
 
         {/* ── GRID CATÁLOGO ── */}
         <main className="flex-1 p-5 sm:p-8 lg:p-10">
-          {/* Header del grid */}
           <header className="flex items-end justify-between mb-8 pb-5
                              border-b border-[rgba(14,95,163,0.12)]">
             <div>
@@ -164,7 +163,7 @@ export default function ProductosPage() {
                   textTransform: "uppercase",
                 }}
               >
-                {pad(filteredItems.length)} assets encontrados
+                {pad(filteredItems.length)} assets
               </span>
               <h2
                 className="font-bold uppercase italic leading-none text-[#0b1f38] dark:text-white"
@@ -232,7 +231,6 @@ function ProductCard({
   const image    = Array.isArray(producto.imagen) ? producto.imagen[0] : producto.imagen;
   const assetId  = `AST-${pad3(index + 1)}`;
   const [hovered, setHovered] = useState(false);
-  // señal fija por índice para evitar re-render hidratación
   const signalActive = (index % 4) + 1;
 
   return (
@@ -246,23 +244,35 @@ function ProductCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="group relative cursor-pointer bg-white dark:bg-[#0d1c2e]
-                 overflow-hidden border border-[rgba(14,95,163,0.12)]
-                 hover:border-defensya-blue/50 transition-colors duration-300"
+                 overflow-hidden border border-[rgba(14,95,163,0.14)] dark:border-white/[0.08]
+                 hover:border-defensya-blue/50 hover:-translate-y-0.5"
       style={{
         clipPath: hovered
-          ? "polygon(0 0,100% 0,100% 0,100% 100%,0 100%)"
-          : "polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)",
-        transition: "clip-path 0.4s cubic-bezier(0.4,0,0.2,1), border-color 0.3s",
+          ? "polygon(0 0, 100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%)"
+          : "polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px))",
+        transition: "clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, transform 0.4s",
+        willChange: "clip-path",
       }}
     >
-      {/* Bisel de esquina */}
+      {/* Bisel de esquina superior derecha */}
       <div
-        className="absolute top-0 right-0 z-10 bg-defensya-blue
-                   transition-opacity duration-300"
+        className="absolute top-0 right-0 z-10 bg-defensya-blue"
         style={{
-          width: 16, height: 16,
+          width: 18, height: 18,
           clipPath: "polygon(100% 0,0 0,100% 100%)",
-          opacity: hovered ? 1 : 0.5,
+          opacity: hovered ? 0 : 0.55,
+          transition: "opacity 0.7s ease",
+        }}
+      />
+
+      {/* Bisel de esquina inferior izquierda */}
+      <div
+        className="absolute bottom-0 left-0 z-10 bg-defensya-blue"
+        style={{
+          width: 18, height: 18,
+          clipPath: "polygon(0 100%,0 0,100% 100%)",
+          opacity: hovered ? 0.85 : 0,
+          transition: "opacity 0.7s ease 0.1s",
         }}
       />
 
@@ -271,12 +281,13 @@ function ProductCard({
                       group-hover:bg-defensya-blue/70 transition-colors duration-400" />
 
       {/* Top strip */}
-      <div className="flex items-center justify-between px-4 py-2
-                      border-b border-[rgba(14,95,163,0.07)]
+      <div className="flex items-center justify-between px-3.5 py-[9px]
+                      border-b border-[rgba(14,165,233,0.08)]
                       bg-[#060d18]">
         <span
-          className="text-[rgba(14,165,233,0.4)]"
+          className="text-[rgba(14,165,233,0.45)]"
           style={{
+            fontFamily: "'Share Tech Mono', monospace",
             fontSize: "8px",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
@@ -284,7 +295,6 @@ function ProductCard({
         >
           {assetId}
         </span>
-        {/* Barras de señal */}
         <div className="flex items-end gap-[2px]">
           {SIGNAL_HEIGHTS.map((h, i) => (
             <div
@@ -293,8 +303,8 @@ function ProductCard({
               style={{
                 height: `${h}px`,
                 background: i < signalActive
-                  ? (hovered ? "#0ea5e9" : "rgba(14,165,233,0.5)")
-                  : "rgba(14,165,233,0.1)",
+                  ? (hovered ? "#0ea5e9" : "rgba(14,165,233,0.55)")
+                  : "rgba(14,165,233,0.12)",
               }}
             />
           ))}
@@ -302,39 +312,38 @@ function ProductCard({
       </div>
 
       {/* Imagen */}
-      <div className="relative h-44 overflow-hidden bg-[#e8edf3] dark:bg-[#060d18]">
+      <div className="relative h-[168px] overflow-hidden bg-[#dde3ec] dark:bg-[#060d18]">
         <Image
           src={image}
           alt={producto.nombre}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105"
+          className="object-cover"
           style={{ transition: "transform 0.7s" }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(6,13,24,0.65) 0%, transparent 55%)" }}
+          style={{ background: "linear-gradient(to top, rgba(6,13,24,0.7) 0%, transparent 55%)" }}
         />
 
-        {/* Corners HUD */}
         {(["top-3 left-3 border-t border-l","top-3 right-3 border-t border-r",
            "bottom-3 left-3 border-b border-l","bottom-3 right-3 border-b border-r"] as const
         ).map((cls, i) => (
           <div
             key={i}
-            className={`absolute ${cls} border-defensya-blue/30
-                        group-hover:border-defensya-blue/70 transition-colors duration-300`}
+            className={`absolute ${cls} border-defensya-blue/35
+                        group-hover:border-defensya-blue/75 transition-colors duration-300`}
             style={{ width: 10, height: 10, transitionDelay: `${i * 30}ms` }}
           />
         ))}
 
-        {/* Categoría */}
-        <div className="absolute top-3 left-4">
+        <div className="absolute top-[14px] left-4 z-[1]">
           <span
-            className="text-slate-500"
+            className="text-white/55"
             style={{
-              fontSize: "10px",
-              letterSpacing: "0.28em",
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "9px",
+              letterSpacing: "0.26em",
               textTransform: "uppercase",
             }}
           >
@@ -342,11 +351,10 @@ function ProductCard({
           </span>
         </div>
 
-        {/* Nombre */}
-        <div className="absolute bottom-3 left-4 right-4">
+        <div className="absolute bottom-3 left-4 right-4 z-[1]">
           <h3
             className="font-bold uppercase leading-none text-white"
-            style={{ fontSize: "clamp(1.1rem, 2vw, 1.3rem)", letterSpacing: "-0.01em" }}
+            style={{ fontSize: "clamp(1.15rem, 2vw, 1.3rem)", letterSpacing: "-0.01em" }}
           >
             {producto.nombre}
           </h3>
@@ -354,38 +362,60 @@ function ProductCard({
       </div>
 
       {/* Cuerpo */}
-      <div className="px-4 pt-3 pb-4">
+      <div className="px-4 pt-4 pb-3.5">
         <p
-          className="text-[rgba(11,31,56,0.7)] tracking-tight dark:text-white/80 leading-[1.55]
-                     line-clamp-2 mb-4"
-          style={{ fontSize: "0.98rem" }}
+          className="text-[rgba(11,31,56,0.55)] dark:text-white/45 leading-[1.55]
+                     line-clamp-2 mb-3.5 font-normal"
+          style={{ fontSize: "0.82rem" }}
         >
           {producto.descripcion}
         </p>
 
-        <div className="flex items-center justify-between
-                        border-t border-[rgba(14,95,163,0.18)] pt-3">
-          <div className="flex items-center gap-1.5 font-bold text-defensya-blue/80
-                          group-hover:text-defensya-blue transition-colors dark:text-white/80 group-hover:dark:text-white duration-300">
+        <div className="flex items-center justify-between pt-3
+                        border-t border-[rgba(14,95,163,0.1)] dark:border-white/[0.06]">
+
+          <div className="flex items-center gap-1.5">
             <span
+              className="w-[5px] h-[5px] bg-defensya-blue shrink-0"
+              style={{ transform: "rotate(45deg)" }}
+            />
+            <span
+              className="text-[rgba(11,31,56,0.6)] dark:text-white/25"
               style={{
-                fontSize: "12px",
-                letterSpacing: "0.22em",
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "11px",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                
               }}
             >
-              Ver ficha
+              Defensya
             </span>
+          </div>
+
+          <div
+            className="relative inline-flex items-center gap-1.5 px-3 py-[7px]
+                       bg-[#0d2545] dark:bg-defensya-blue text-white
+                       group-hover:bg-defensya-blue transition-colors duration-250"
+            style={{
+              clipPath: "polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))",
+              fontFamily: "'Barlow Condensed', sans-serif",
+              fontSize: "10px",
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+            }}
+          >
+            Ver ficha
             <ArrowUpRight
-              size={10}
+              size={11}
               className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5
                          transition-transform duration-300"
             />
+            <span
+              className="pointer-events-none absolute bottom-0 right-0 bg-white/25"
+              style={{ width: "8px", height: "1px", transformOrigin: "bottom right", transform: "rotate(-45deg) translateX(2px)" }}
+            />
           </div>
-          <div className="h-px flex-1 mx-3 bg-gradient-to-r from-defensya-blue
-                          via-defensya-blue/50 to-defensya-blue/0
-                          opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
         </div>
       </div>
     </motion.article>
@@ -393,7 +423,7 @@ function ProductCard({
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   PRODUCT MODAL — split blanco / navy
+   PRODUCT MODAL — scroll funcional + 100% responsive
 ───────────────────────────────────────────────────────────────── */
 function ProductModal({
   producto,
@@ -430,7 +460,9 @@ function ProductModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8">
+        // Contenedor raíz: acota la altura disponible (100dvh) y centra el modal,
+        // dejando un margen seguro arriba/abajo para que el modal nunca exceda el viewport.
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 lg:p-8">
 
           {/* Backdrop */}
           <motion.div
@@ -441,43 +473,44 @@ function ProductModal({
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           />
 
-          {/* ── Flechas de navegación entre proyectos — fuera del modal para no quedar ocultas ── */}
+          {/* ── Flechas de navegación entre proyectos ── */}
           <button
             onClick={onPrev}
-            className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-[110]
-                       w-11 h-11 flex items-center justify-center
+            className="hidden sm:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-[110]
+                       w-11 h-11 items-center justify-center
                        bg-[#060d18]/90 border border-[rgba(14,165,233,0.25)]
-                       text-white/50 hover:text-defensya-blue hover:border-defensya-blue
+                       text-white/50 hover:text-white hover:border-defensya-blue
                        transition-all duration-200 backdrop-blur-sm"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={onNext}
-            className="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-[110]
-                       w-11 h-11 flex items-center justify-center
+            className="hidden sm:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-[110]
+                       w-11 h-11 items-center justify-center
                        bg-[#060d18]/90 border border-[rgba(14,165,233,0.25)]
-                       text-white/50 hover:text-defensya-blue hover:border-defensya-blue
+                       text-white/50 hover:text-white hover:border-defensya-blue
                        transition-all duration-200 backdrop-blur-sm"
           >
             <ChevronRight size={20} />
           </button>
 
-          {/* Contador de posición bajo el modal */}
-          <div className="absolute bottom-1 lg:bottom-2 left-1/2 -translate-x-1/2 z-[110]
-                          flex items-center gap-3">
+          {/* Contador de posición bajo el modal — oculto en mobile para no chocar con el modal a pantalla casi completa */}
+          <div className="hidden sm:flex absolute bottom-1 lg:bottom-2 left-1/2 -translate-x-1/2 z-[110]
+                          items-center gap-3">
             <span className="text-white/35 text-[9px] tracking-[0.22em] uppercase">
               {pad(currentIndex + 1)} / {pad(total)}
             </span>
           </div>
 
-          {/* Modal */}
+          {/* Modal — altura máxima acotada al viewport, el resto se reparte entre las columnas internas */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 14 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 14 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-5xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-5xl overflow-hidden shadow-2xl
+                       max-h-[92dvh] sm:max-h-[88dvh] flex flex-col"
             style={{
               clipPath: "polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)",
               border: "0.5px solid rgba(14,95,163,0.25)",
@@ -490,18 +523,44 @@ function ProductModal({
             />
 
             {/* Línea superior */}
-            <div className="h-px bg-gradient-to-r from-transparent via-defensya-blue/50 to-transparent" />
+            <div className="h-px shrink-0 bg-gradient-to-r from-transparent via-defensya-blue/50 to-transparent" />
 
-            {/* ── GRID: LEFT blanco / RIGHT navy — desde arriba ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[520px]">
+            {/* Mobile: botones de navegación entre proyectos integrados en la barra superior del modal */}
+            <div className="flex sm:hidden items-center justify-between px-3 py-2 shrink-0
+                            border-b border-[rgba(14,165,233,0.1)] bg-[#060d18]">
+              <button
+                onClick={onPrev}
+                className="w-9 h-9 flex items-center justify-center border border-white/10
+                           text-white/50 hover:text-white hover:border-defensya-blue
+                           transition-all duration-200"
+                aria-label="Proyecto anterior"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <span className="text-white/35 text-[9px] tracking-[0.22em] uppercase">
+                {pad(currentIndex + 1)} / {pad(total)}
+              </span>
+              <button
+                onClick={onNext}
+                className="w-9 h-9 flex items-center justify-center border border-white/10
+                           text-white/50 hover:text-white hover:border-defensya-blue
+                           transition-all duration-200"
+                aria-label="Proyecto siguiente"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
 
-              {/* ═══ LEFT — BLANCO completo: imagen ═══ */}
+            {/* ── GRID: ocupa el resto del modal y permite que cada columna gestione su propio overflow ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 flex-1 min-h-0 overflow-y-auto md:overflow-hidden">
+
+              {/* ═══ LEFT — BLANCO: IMAGEN ═══ */}
               <div
                 className="bg-white flex flex-col
-                           border-r border-[rgba(14,95,163,0.1)]"
+                           border-r border-[rgba(14,95,163,0.1)]
+                           md:h-full md:min-h-0"
               >
-                {/* Sub-header blanco con eyebrow */}
-                <div className="flex items-center justify-between px-5 py-3
+                <div className="flex items-center justify-between px-5 py-3 shrink-0
                                 border-b border-[rgba(14,95,163,0.08)]">
                   <span
                     className="text-defensya-blue/80 text-[9px] font-bold tracking-[0.25em] uppercase"
@@ -513,8 +572,9 @@ function ProductModal({
                   </span>
                 </div>
 
-                {/* Imagen — ocupa todo el espacio disponible */}
-                <div className="relative flex-1 group overflow-hidden bg-slate-50 min-h-[300px]">
+                {/* IMAGEN — altura fija en mobile para no competir por el espacio con el scroll de texto */}
+                <div className="relative group overflow-hidden bg-slate-50
+                                h-[260px] sm:h-[300px] md:h-auto md:flex-1 md:min-h-0 shrink-0">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentSlide}
@@ -535,13 +595,11 @@ function ProductModal({
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Corners HUD */}
                   <span className="pointer-events-none absolute z-10 top-[10px] left-[10px] w-[14px] h-[14px]"
                     style={{ borderTop: "1.5px solid #0e5fa3", borderLeft: "1.5px solid #0e5fa3" }} />
                   <span className="pointer-events-none absolute z-10 bottom-[10px] right-[10px] w-[14px] h-[14px]"
                     style={{ borderBottom: "1.5px solid rgba(14,95,163,0.4)", borderRight: "1.5px solid rgba(14,95,163,0.4)" }} />
 
-                  {/* View tag */}
                   <div className="absolute top-[10px] left-[10px] z-20">
                     <span className="bg-white/90 text-defensya-blue border border-defensya-blue/30
                                      px-2 py-[2px] text-[8px] tracking-[0.18em] uppercase">
@@ -549,7 +607,6 @@ function ProductModal({
                     </span>
                   </div>
 
-                  {/* Barra progreso */}
                   <div className="absolute bottom-0 inset-x-0 h-[2px] bg-slate-200 z-20">
                     <motion.div
                       className="h-full bg-defensya-blue"
@@ -558,10 +615,9 @@ function ProductModal({
                     />
                   </div>
 
-                  {/* Flechas imagen — hover */}
                   {images.length > 1 && (
                     <div className="absolute inset-x-3 top-1/2 -translate-y-1/2 z-30 flex justify-between
-                                    opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    opacity-0 group-hover:opacity-100 sm:transition-opacity duration-200">
                       {[{ fn: prevSlide, d: "M8 2L4 6L8 10" }, { fn: nextSlide, d: "M4 2L8 6L4 10" }].map((btn, i) => (
                         <button key={i} onClick={btn.fn}
                           className="w-9 h-9 flex items-center justify-center border border-black/10
@@ -576,75 +632,59 @@ function ProductModal({
                   )}
                 </div>
 
-                {/* Thumbs + nav en  el pie de la columna blanca */}
-                <div className="px-5 py-3 border-t border-[rgba(14,95,163,0.08)] flex items-center gap-3">
-                  <div className="flex gap-1.5 flex-1">
+                {/* Thumbs de imagen — siempre visibles, tap-friendly en mobile */}
+                {images.length > 1 && (
+                  <div className="flex gap-1.5 px-5 py-3 shrink-0 border-t border-[rgba(14,95,163,0.08)]">
                     {images.map((_, i) => (
                       <button key={i} onClick={() => setCurrentSlide(i)}
                         className={`flex-1 h-[3px] transition-all duration-300 ${
                           i === currentSlide ? "bg-defensya-blue" : "bg-slate-200 hover:bg-slate-300"
                         }`}
+                        aria-label={`Ver imagen ${i + 1}`}
                       />
                     ))}
                   </div>
-
-                  {/* FLECHAS FIJAS EN FOOTER DE IMG */}
-                  {/* {images.length > 1 && (
-                    <div className="flex gap-1.5 shrink-0">
-                      {[{ fn: prevSlide, d: "M8 2L4 6L8 10" }, { fn: nextSlide, d: "M4 2L8 6L4 10" }].map((btn, i) => (
-                        <button key={i} onClick={btn.fn}
-                          className="w-7 h-7 flex items-center justify-center border border-black/10
-                                     text-slate-400 hover:border-defensya-blue hover:text-defensya-blue
-                                     transition-all duration-200">
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                            <path d={btn.d} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                          </svg>
-                        </button>
-                      ))}
-                    </div>
-                  )} */}
-                </div>
+                )}
               </div>
 
-              {/* ═══ RIGHT — NAVY completo: topbar + header + detalles ═══ */}
-              <div className="bg-[#060d18] flex flex-col">
+              {/* ═══ RIGHT — NAVY: ESTE ES EL PANEL QUE NECESITA SCROLL PROPIO ═══ */}
+              <div className="bg-[#060d18] flex flex-col md:h-full md:min-h-0">
 
-                {/* Top bar — navy */}
-                <div className="flex items-center justify-between px-5 py-3
+                <div className="flex items-center justify-between px-5 py-3 shrink-0
                                 border-b border-[rgba(14,165,233,0.1)]">
                   <div className="flex items-center gap-4 flex-wrap">
-
-                    <span className="text-defensya-steel border border-defensya-blue/85 px-2 py-[2px]
+                    <span className="text-gray-300 border border-defensya-blue/85 px-2 py-[2px]
                                      text-[9px] tracking-[0.18em] uppercase">
                       {assetRef} / {producto.categoria}
                     </span>
                   </div>
+                  {/* Cerrar — oculto en mobile porque ya hay un patrón de cierre por backdrop/gesto; visible en sm+ */}
                   <button
                     onClick={onClose}
-                    className="w-7 h-7 flex items-center justify-center border border-white/10
-                               text-white/30 hover:border-defensya-blue/85 hover:text-defensya-steel
+                    className="hidden sm:flex w-7 h-7 items-center justify-center border border-white/10
+                               text-white/30 hover:border-defensya-blue/85 hover:text-white
                                transition-all duration-200"
                   >
                     <X size={14} />
                   </button>
                 </div>
 
-                {/* Header — nombre + badges AST */}
-                <div className="flex items-end justify-between px-5 py-5
-                                border-b border-[rgba(14,165,233,0.1)]">
-                  <div>
+                {/* Header — nombre + badges */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3
+                                px-5 py-5 shrink-0 border-b border-[rgba(14,165,233,0.1)]">
+                  <div className="min-w-0">
                     <span className="block text-defensya-steel mb-2 text-[10px] tracking-[0.3em] uppercase">
                       {producto.categoria} · Defensya Systems
                     </span>
                     <h2
-                      className="font-bold uppercase leading-[.88] text-white"
-                      style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", letterSpacing: "-0.02em" }}
+                      className="font-bold uppercase leading-[.95] sm:leading-[.88] text-white break-words"
+                      style={{ fontSize: "clamp(1.4rem, 5vw, 2.4rem)", letterSpacing: "-0.02em" }}
                     >
                       {producto.nombre}
                     </h2>
                   </div>
-                  <div className="hidden sm:flex flex-col items-end gap-1.5 shrink-0 pl-4">
-                    <span className="text-defensya-steel border border-defensya-blue/85 px-2 py-[3px]
+                  <div className="flex sm:flex-col items-start sm:items-end gap-1.5 shrink-0">
+                    <span className="text-gray-300 border border-defensya-blue/85 px-2 py-[3px]
                                      text-[8px] tracking-[0.16em] uppercase">
                       NATO STANAG
                     </span>
@@ -655,8 +695,10 @@ function ProductModal({
                   </div>
                 </div>
 
-                {/* Descripción + parámetros */}
-                <div className="flex-1 overflow-y-auto px-5 py-5">
+                {/* Descripción + parámetros — ESTE bloque hace el scroll vertical real */}
+                <div className="flex-1 min-h-0 overflow-y-auto px-5 py-5
+                                overscroll-contain"
+                     style={{ WebkitOverflowScrolling: "touch" }}>
                   <SectionLabel label="Descripción técnica" />
                   <p className="font-light leading-[1.75] text-white/85
                                 border-l-2 border-defensya-blue/20 pl-3 mb-5 text-[0.92rem]">
@@ -670,7 +712,7 @@ function ProductModal({
                         className="group/row flex items-start gap-3 py-[7px]
                                    border-b border-white/[0.05] last:border-b-0
                                    hover:bg-white/[0.02] transition-colors duration-200 px-1">
-                        <span className="shrink-0 text-defensya-blue mt-[1px] text-[0.92rem] tracking-[0.1em]">
+                        <span className="shrink-0 text-defensya-steel mt-[1px] text-[0.92rem] tracking-[0.1em]">
                           {pad(idx + 1)}
                         </span>
                         <span className="w-px self-stretch bg-defensya-blue/18
@@ -686,29 +728,19 @@ function ProductModal({
                   </div>
                 </div>
 
-                {/* Footer — navy */}
-                <div className="flex items-center justify-between px-5 py-4
-                                border-t border-[rgba(14,165,233,0.1)] flex-wrap gap-3">
-
-                  {/* ClipButton corporativo */}
-                  {/* <button
-                    className="group/btn relative inline-flex items-center gap-2.5 px-5 py-2.5
-                               bg-[#0d2545] text-white text-[11px] tracking-[0.22em]
-                               uppercase font-bold hover:bg-defensya-blue
-                               transition-colors duration-200 shrink-0"
-                    style={{
-                      clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
-                    }}
+                {/* Footer — cierre visible siempre en mobile como acción explícita */}
+                <div className="flex sm:hidden items-center justify-center px-5 py-3 shrink-0
+                                border-t border-[rgba(14,165,233,0.1)]">
+                  <button
+                    onClick={onClose}
+                    className="w-full flex items-center justify-center gap-2 py-2.5
+                               border border-white/10 text-white/50
+                               hover:border-defensya-blue hover:text-white
+                               transition-all duration-200 text-[10px] tracking-[0.22em] uppercase"
                   >
-                    Solicitar información
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                      className="translate-x-0 group-hover/btn:translate-x-1 transition-transform duration-200">
-                      <path d="M1.5 5h7M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.3"
-                        strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <span className="pointer-events-none absolute bottom-0 right-0 bg-white/20"
-                      style={{ width: "11px", height: "1px", transformOrigin: "bottom right", transform: "rotate(-45deg) translateX(3px)" }} />
-                  </button> */}
+                    <X size={13} />
+                    Cerrar ficha
+                  </button>
                 </div>
               </div>
             </div>
@@ -720,12 +752,11 @@ function ProductModal({
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   SECTION LABEL — separador técnico para el panel navy
+   SECTION LABEL
 ───────────────────────────────────────────────────────────────── */
 function SectionLabel({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-3 mb-3">
-      <div className="w-4 h-px bg-defensya-blue/50" />
       <span className="text-defensya-steel text-[9px] tracking-[0.28em] uppercase">
         {label}
       </span>

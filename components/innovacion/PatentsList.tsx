@@ -62,16 +62,6 @@ const PATENTS_DATA = [
   },
 ];
 
-const STATS = [
-  { value: 20, suffix: "+", label: "Patentes registradas", mono: true },
-  { value: 25, suffix: "+", label: "Años de I+D activo", mono: true },
-  {
-    value: null,
-    display: "EADS",
-    label: "Airbus — licenciatario principal",
-    mono: false,
-  },
-];
 
 /* ─────────────────────────────────────────────────────────────────
    HOOKS
@@ -344,12 +334,7 @@ export default function PatentsList() {
           </div>
         </div>
 
-        {/* ── Stats ──────────────────────────────────────────────── */}
-        <div ref={statsRef} className="grid grid-cols-3 gap-3 sm:gap-5 mb-16">
-          {STATS.map((stat, i) => (
-            <StatCard key={i} stat={stat} active={statsVisible} index={i} />
-          ))}
-        </div>
+
 
         {/* ── List header ────────────────────────────────────────── */}
         <div className="flex items-center gap-4 mb-1 pb-3 border-b border-gray-200 dark:border-white/[0.07]">
