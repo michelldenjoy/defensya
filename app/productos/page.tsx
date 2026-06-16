@@ -295,7 +295,7 @@ function ProductCard({
         >
           {assetId}
         </span>
-        <div className="flex items-end gap-[2px]">
+        {/* <div className="flex items-end gap-[2px]">
           {SIGNAL_HEIGHTS.map((h, i) => (
             <div
               key={i}
@@ -308,7 +308,7 @@ function ProductCard({
               }}
             />
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Imagen */}

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -23,6 +22,8 @@ const stats = [
     label: "Sistemas de repostaje",
   },
 ];
+
+type BtnVariant = "primary" | "secondary";
 
 export function ClipButton({
   href,
@@ -109,7 +110,7 @@ export default function ClosingCTA() {
   return (
     <section className="relative overflow-hidden border-t border-white/5">
       <div className="grid lg:grid-cols-2 min-h-[620px]">
-        {/* LEFT */}
+        {/* LEFT BtnVariant*/}
         <div className="bg-defensya-navy px-6 md:px-10 lg:px-16 py-14 lg:py-20 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
