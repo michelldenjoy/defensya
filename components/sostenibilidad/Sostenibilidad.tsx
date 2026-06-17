@@ -78,12 +78,7 @@ const areas = [
   },
 ];
 
-function SectionTag({
-  children = false,
-}: {
-  children: React.ReactNode;
-  light?: boolean;
-}) {
+function SectionTag({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[14px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
       {children}
@@ -91,7 +86,7 @@ function SectionTag({
   );
 }
 
-function Eyebrow({ children, light }: { children: React.ReactNode; light?: boolean }) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6">
       <span
@@ -99,7 +94,7 @@ function Eyebrow({ children, light }: { children: React.ReactNode; light?: boole
         style={{ transform: "rotate(45deg)" }}
       />
       <span
-        className={light ? "text-defensya-blue" : "text-defensya-blue"}
+        className="text-defensya-blue"
         style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: "14px",
@@ -155,12 +150,15 @@ export default function Sostenibilidad() {
         </div>
       </section>
 
-      {/* ══ OBJETIVOS ════ */}
+
       <section className="px-6 lg:px-16 py-20 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
+        
+
+          {/* Objetivos */}
           <div className="grid items-center lg:grid-cols-[220px_1fr] gap-10 lg:gap-20">
             <div>
-              <SectionTag light>Objetivos</SectionTag>
+              <SectionTag>Objetivos</SectionTag>
               <h2 className="text-3xl lg:text-5xl  font-bold uppercase leading-tight text-white">
                 Sostenibilidad
                 <br />
@@ -231,28 +229,27 @@ export default function Sostenibilidad() {
               })}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ══ ÁREAS DE ACTUACIÓN ════ */}
-      <section className="px-6 lg:px-16 py-20 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
+          {/* divisor entre subsecciones */}
+          <div className="h-px bg-white/[0.07] my-16 lg:my-20" />
+
+          {/* Áreas de actuación */}
           <div className="grid lg:grid-cols-[220px_1fr] items-center  gap-10 lg:gap-20">
             <div>
               <SectionTag>Acción</SectionTag>
-              <h2 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-gray-900 dark:text-white">
+              <h2 className="text-3xl lg:text-5xl font-bold uppercase leading-tight text-white">
                 Áreas de Actuación
               </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1 lg:max-w-lg">
+              <p className="text-sm text-gray-400 leading-relaxed lg:pb-1 lg:max-w-lg">
                 Cuatro ejes de acción medioambiental que guían las decisiones de cada área de la compañía.
               </p>
             </div>
-            
-            <div className="grid sm:grid-cols-2 gap-2 bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
+
+            <div className="grid sm:grid-cols-2 gap-2 bg-white/[0.07] border border-white/[0.07]">
               {areas.map(({ num, label, desc, image }) => (
                 <div
                   key={num}
-                  className="group relative overflow-hidden bg-black/65 dark:bg-defensya-navy transition-colors duration-200"
+                  className="group relative overflow-hidden bg-defensya-navy transition-colors duration-200"
                 >
                   {/* Imagen de fondo siempre visible */}
                   <div
@@ -266,13 +263,13 @@ export default function Sostenibilidad() {
                   <div className="relative z-10 p-6 lg:p-8">
                     <div className="flex items-center justify-between mb-5">
 
-                      <span className="font-mono text-[11px] text-gray-300 dark:text-gray-600 tracking-widest">
+                      <span className="font-mono text-[11px] text-gray-600 tracking-widest">
                         {num}
                       </span>
                     </div>
                     <div className="flex items-center gap-2 mb-5">
                       <div className="h-px w-5 bg-defensya-blue" />
-                      <div className="h-px flex-1 bg-gray-100 dark:bg-white/6" />
+                      <div className="h-px flex-1 bg-white/6" />
                     </div>
                     <h3 className="text-3xl font-bold uppercase leading-none text-white mb-3">
                       {label}
