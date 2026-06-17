@@ -8,7 +8,7 @@ export default function page() {
     <div>
       <HeroSection
         label="Innovación"
-        title="Innovamos el Reabastecimiento Aéreo"
+        title=""
         subtitle=""
         image="/images/refueling1.jpeg"
       />

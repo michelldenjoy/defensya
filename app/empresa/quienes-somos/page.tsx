@@ -8,7 +8,7 @@ export default function page() {
     <div>
       <HeroAbout
         
-        title="Sobre Defensya"
+        title=""
         subtitle=""
         image="/logodefensyanew.png"
       />

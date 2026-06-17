@@ -67,29 +67,8 @@ export default function ProductIntro() {
           </div>
         </div>
 
-        {/* Bottom strip */}
-        <div className="flex items-center justify-between mt-10 sm:mt-14 pt-5
-                        border-t border-[rgba(14,95,163,0.32)] flex-wrap gap-4">
-          <div className="flex gap-6 sm:gap-8 flex-wrap">
-            {[
-              { label: "Categorías",     val: "06" },
-              { label: "Sistemas activos", val: "20+" },
-              { label: "Certificación",  val: "ISO 9001" },
-            ].map(({ label, val }) => (
-              <div key={label} className="flex flex-col gap-[3px]">
-                <span className="text-white/20 text-[8px] tracking-[0.22em] uppercase">
-                  {label}
-                </span>
-                <span className="font-bold text-defensya-steel/60 text-[12px] tracking-[0.06em]">
-                  {val}
-                </span>
-              </div>
-            ))}
-          </div>
-          <span className="text-white/12 text-[8px] tracking-[0.18em] uppercase">
-            DFS-CAT-001 · Rev A · Defensya Systems S.L.
-          </span>
-        </div>
+
+
 
       </div>
     </section>

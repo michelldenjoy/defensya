@@ -9,7 +9,7 @@ export default function page() {
     <div>
       <HeroSection
         label="Calidad y Certificación"
-        title="Política de Calidad"
+        title=""
         subtitle=""
         video="/certification.mp4"
       />

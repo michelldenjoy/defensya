@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ClipButton } from "@/components/home/HeroSection";
+import Sostenibilidad from "./Sostenibilidad";
 
 export default function Certificaciones() {
   return (
@@ -10,7 +11,7 @@ export default function Certificaciones() {
         style={{ fontFamily: "'Share Tech Mono', monospace" }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_40%] gap-12 items-center border-b border-gray-200 dark:border-white/[0.07] pb-14 mb-14">
+          <div className="grid lg:grid-cols-[1fr_40%] gap-12 items-center border-b border-gray-200 dark:border-white/[0.07] pb-4 mb-8">
             <div>
               <h2 className="text-[clamp(2rem,4vw,6.5rem)] font-bold uppercase leading-none tracking-tight text-gray-900 dark:text-white">
                 Certificado <span className="text-defensya-blue">Oficial</span>
@@ -25,8 +26,8 @@ export default function Certificaciones() {
 
           <div className="grid lg:grid-cols-[1fr_1fr] border border-gray-200 dark:border-white/[0.07]">
             {/* LEFT */}
-            <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-white/[0.07] p-8 lg:p-12">
-              <div className="flex items-start gap-6 mb-10">
+            <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-white/[0.07] p-6 lg:p-12">
+              <div className="flex items-start gap-6 ">
                 <div className="relative w-20 h-20 shrink-0 border border-gray-200 dark:border-white/1 p-3">
                   <Image
                     src="/images/ISO9001.png"
@@ -37,11 +38,11 @@ export default function Certificaciones() {
                 </div>
                 <div className="pt-1">
                   <p className="text-[12px] font-semibold tracking-widest text-defensya-blue uppercase mb-1">
-                    Sistema de Gestión de la Calidad
+                    Sistema de Gestión de Calidad
                   </p>
                   <h3 className="text-3xl lg:text-4xl font-bold uppercase leading-none tracking-tight text-gray-900 dark:text-white">
                     ISO 9001
-                    <br />
+                    
                     <span className="text-defensya-blue">:2015</span>
                   </h3>
                 </div>
@@ -99,9 +100,7 @@ export default function Certificaciones() {
             {/* RIGHT */}
             <div className="flex flex-col bg-defensya-navy p-8 lg:p-12">
               <div className="mb-6 pb-6">
-                <p className="text-[12px] font-mono tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase mb-3">
-                  Compromiso
-                </p>
+
                 <blockquote className="text-base lg:text-lg text-white leading-relaxed italic">
                   "Trabajamos bajo los más estrictos estándares de la industria
                   aeroespacial y de defensa para asegurar la integridad de cada
@@ -220,6 +219,8 @@ export default function Certificaciones() {
 
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
       </div> */}
+
+      <Sostenibilidad />
     </>
   );
 }

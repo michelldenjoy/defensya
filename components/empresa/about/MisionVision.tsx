@@ -156,7 +156,7 @@ const MisionVision = () => {
           </span>
 
           {/* Title block — esquina inferior derecha */}
-          <div className="border-l border-t border-[rgba(14,95,163,0.35)] px-4 pt-2 pb-[7px] shrink-0">
+          {/* <div className="border-l border-t border-[rgba(14,95,163,0.35)] px-4 pt-2 pb-[7px] shrink-0">
             <span
               className="block text-[#0e5fa3] dark:text-[#4fa8e0] mb-[5px]"
               style={{
@@ -191,7 +191,7 @@ const MisionVision = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

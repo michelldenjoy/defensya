@@ -20,7 +20,7 @@ export default function HeroSection({
   video
 }: HeroProps) {
   return (
-    <section className="relative w-full border-b border-white/8 bg-[#080a0e] overflow-hidden">
+    <section className="relative w-full border-b border-white/8 bg-[#080a0e] overflow-hidden h-[60vh] min-h-[460px] max-h-[680px]">
 
       {/* VIDEO */}
       {video && (
@@ -48,7 +48,7 @@ export default function HeroSection({
 
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#4FAAFF]/40 to-transparent" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
+      <div className="relative z-20 h-full max-w-7xl mx-auto px-6 flex items-center">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.1] uppercase">
             {title}

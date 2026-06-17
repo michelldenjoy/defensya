@@ -61,10 +61,10 @@ export default function Hometwo() {
 
                 {/* Texto */}
                 <div className="flex flex-col justify-center">
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-bold text-defensya-steel">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest  text-defensya-steel">
                     {item.label}
                   </p>
-                  <p className="text-xs sm:text-sm text-white font-bold uppercase leading-tight">
+                  <p className="text-xs sm:text-sm text-white  uppercase leading-tight">
                     {item.value}
                   </p>
                 </div>

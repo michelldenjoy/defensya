@@ -295,22 +295,6 @@ export default function TecnologiaSection() {
             </div>
           </div>
         </div>
-
-        {/* ── Bottom meta — cierre conjunto de ambas secciones ── */}
-        {/* <div className="mt-12 sm:mt-14 flex items-center gap-4">
-          <div className="h-px flex-1 bg-white/5" />
-          <span
-            className="text-gray-600 uppercase"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "10px",
-              letterSpacing: "0.3em",
-            }}
-          >
-            Defensya · Ingeniería de Defensa
-          </span>
-          <div className="h-px w-12 bg-defensya-blue/40" />
-        </div> */}
       </div>
     </section>
   );

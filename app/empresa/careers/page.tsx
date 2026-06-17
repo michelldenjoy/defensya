@@ -7,7 +7,7 @@ export default function page() {
     <div>
       <HeroSection
         label="Career"
-        title="Únete a Defensya"
+        title=""
         subtitle=""
         image="/images/career.webp"
       />

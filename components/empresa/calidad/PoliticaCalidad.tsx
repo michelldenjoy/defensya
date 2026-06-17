@@ -164,6 +164,24 @@ function Eyebrow({
   );
 }
 
+/* Pequeño código de referencia monoespaciado, mismo lenguaje visual
+   que el resto del sitio (DFS-ID-001, etc.) — marca cada subsección
+   dentro del bloque "Sistema de Gestión" sin competir con el Eyebrow. */
+function RefCode({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      className="mt-3 text-gray-600"
+      style={{
+        fontFamily: "'Share Tech Mono', monospace",
+        fontSize: "10px",
+        letterSpacing: "0.15em",
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
 type Tab = "objetivos" | "valores";
 
 function ObjetivosValoresTabs() {
@@ -277,7 +295,7 @@ export default function PoliticaCalidad() {
       <section className="relative px-5 sm:px-8 lg:px-16 pt-16 sm:pt-20 pb-16 sm:pb-24 border-b border-gray-200 dark:border-white/[0.07] overflow-hidden">
         <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-20 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative">
-          <Eyebrow>Calidad · Defensya Systems · ISO 9001:2015</Eyebrow>
+          <Eyebrow>Calidad · ISO 9001:2015</Eyebrow>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-start">
             <div>
@@ -322,7 +340,7 @@ export default function PoliticaCalidad() {
                 </div>
               </div>
 
-              {/* Stats — ahora 3 datos concretos */}
+              {/* Stats — 3 datos concretos */}
               <div className="grid grid-cols-3 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
                 {[
                   { val: "+20", label: "Años de experiencia" },
@@ -358,46 +376,31 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ QUOTE + IMAGEN ═════════════════════════════════════════ */}
+      {/* ══ SISTEMA DE GESTIÓN — Declaración + Objetivos y Valores ═══
+          Una sola sección oscura, unida por un Eyebrow compartido.
+          Las dos subsecciones se separan internamente con una línea
+          fina en vez de un cambio de fondo/borde de página completo. */}
       <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
+          
+
+          {/* Declaración */}
           <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
-            <div>
-              
+            <div className="lg:pt-1">
               <h2
                 className="font-bold uppercase leading-tight text-white"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
               >
-                Objetivos
-                <br />y Valores
-              </h2>
-            </div>
-            <ObjetivosValoresTabs />
-          </div>
-        </div>
-      </section>
-      {/* ══ DECLARACIÓN ════════════════════════════════════════════ */}
-      <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
-            <div className="lg:pt-1">
-              
-              <h2
-                className="font-bold uppercase leading-tight text-gray-900 dark:text-white"
-                style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
-              >
                 Declaración
               </h2>
+              
             </div>
 
-            <div className="border-t border-gray-200 dark:border-white/[0.07]">
+            <div className="border-t border-white/[0.07]">
               {declaracion.map((item) => {
                 const isOpen = openItem === item.id;
                 return (
-                  <div
-                    key={item.id}
-                    className="border-b border-gray-200 dark:border-white/[0.07]"
-                  >
+                  <div key={item.id} className="border-b border-white/[0.07]">
                     <button
                       onClick={() => toggle(item.id)}
                       className="w-full flex items-center gap-4 sm:gap-5 py-5 text-left group"
@@ -414,16 +417,14 @@ export default function PoliticaCalidad() {
                       </span>
                       <span
                         className={`shrink-0 w-px self-stretch rounded-full transition-colors duration-200 ${
-                          isOpen
-                            ? "bg-defensya-blue"
-                            : "bg-gray-200 dark:bg-white/[0.07]"
+                          isOpen ? "bg-defensya-blue" : "bg-white/[0.07]"
                         }`}
                       />
                       <h3
                         className={`flex-1 font-bold uppercase transition-colors duration-200 leading-snug ${
                           isOpen
-                            ? "text-gray-900 dark:text-white"
-                            : "text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300"
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-gray-300"
                         }`}
                         style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)" }}
                       >
@@ -453,7 +454,7 @@ export default function PoliticaCalidad() {
                           : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light pl-12">
+                      <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light pl-12">
                         {item.texto}
                       </p>
                     </div>
@@ -462,64 +463,53 @@ export default function PoliticaCalidad() {
               })}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ══ OBJETIVOS Y VALORES ════════════════════════════════════ */}
+          {/* divisor entre subsecciones */}
+          <div className="h-px bg-white/[0.07] my-14 sm:my-20" />
 
-
-      <section className="border-b border-gray-200 dark:border-white/[0.07]">
-        <div className="grid lg:grid-cols-2">
-          {/* Izquierda — quote */}
-          <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16 bg-defensya-navy flex flex-col justify-center">
-            <p
-              className="text-slate-400 mb-6"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "12px",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-              }}
-            >
-              Dirección General — Política de Calidad
-            </p>
-            <blockquote
-              className="font-bold uppercase text-white leading-snug"
-              style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}
-            >
-              El compromiso con la calidad en todas las actividades es un
-              objetivo ineludible para Defensya Ingeniería Internacional.
-            </blockquote>
-            <div className="flex items-center gap-3 mt-8">
-              <div className="h-px w-8 bg-defensya-blue shrink-0" />
-              <span
-                className="text-gray-500"
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "9px",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                }}
+          {/* Objetivos y Valores */}
+          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-20">
+            <div>
+              <h2
+                className="font-bold uppercase leading-tight text-white"
+                style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
               >
-                ISO 9001:2015 · Defensya Systems S.L.
-              </span>
+                Objetivos
+                <br />y Valores
+              </h2>
+              
             </div>
-          </div>
-
-          {/* Derecha — imagen */}
-          <div
-            className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/refueling13.webp')",
-            }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{ backgroundColor: "rgba(11, 31, 56, 0.35)" }}
-            />
+            <ObjetivosValoresTabs />
           </div>
         </div>
       </section>
+
+      {/* ══ CIERRE — Compromiso de Dirección ════════════════════ */}
+      {/* <section className="grid lg:grid-cols-2">
+        <div className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 bg-defensya-navy flex flex-col justify-center">
+          <Eyebrow onDark>Dirección General · Política de Calidad</Eyebrow>
+
+          <blockquote
+            className="font-bold uppercase text-white leading-snug"
+            style={{ fontSize: "clamp(1.1rem, 2.3vw, 1.7rem)" }}
+          >
+            El compromiso con la calidad en todas las actividades es un
+            objetivo ineludible para Defensya Ingeniería Internacional.
+          </blockquote>
+        </div>
+
+        <div
+          className="relative min-h-[280px] lg:min-h-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/refueling13.webp')",
+          }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(11, 31, 56, 0.35)" }}
+          />
+        </div>
+      </section> */}
     </main>
   );
 }

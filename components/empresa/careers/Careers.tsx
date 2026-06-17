@@ -85,6 +85,41 @@ function SectionHeader({
   );
 }
 
+function SectionEyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3 mb-14">
+      <span className="w-6 h-px bg-slate-400" />
+      <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
+        {children}
+      </span>
+    </div>
+  );
+}
+
+/* Título de subsección dentro de un bloque con eyebrow compartido,
+   con código de referencia mono debajo — mismo lenguaje visual que
+   las páginas DFS-ID-XXX del resto del sitio. */
+function SubsectionTitle({
+  title,
+  accent,
+}: {
+  title: string;
+  accent?: string;
+}) {
+  return (
+    <div className="mb-10">
+      <h2
+        className="font-bold uppercase leading-[0.9] tracking-tight text-white"
+        style={{ fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)" }}
+      >
+        {title}
+        {accent && <> <span>{accent}</span></>}
+      </h2>
+
+    </div>
+  );
+}
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const benefits = [
@@ -186,7 +221,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-// ─── Profile Card (CapabilityCard style, always dark) ─────────────────────────
+// ─── Profile Card perfil (CapabilityCard style, always dark) ─────────────────────────
 
 function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
   const [hovered, setHovered] = useState(false);
@@ -217,12 +252,12 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
         {/* TL bracket */}
         <span
           className="absolute top-0 left-0 w-4 h-4"
-          style={{ borderTop: "1.5px solid #0ea5e9", borderLeft: "1.5px solid #0ea5e9" }}
+          style={{ borderTop: "1.5px solid #0c415a", borderLeft: "1.5px solid #0c415a" }}
         />
         {/* BR bracket */}
         <span
           className="absolute bottom-0 right-0 w-4 h-4"
-          style={{ borderBottom: "1.5px solid #0ea5e9", borderRight: "1.5px solid #0ea5e9" }}
+          style={{ borderBottom: "1.5px solid #131c20", borderRight: "1.5px solid #0c415a" }}
         />
 
         <p className="text-sm text-gray-100 leading-relaxed">{profile.desc}</p>
@@ -275,7 +310,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
         </span>
 
         {/* Label pill */}
-        <span
+        {/* <span
           className={`inline-flex mb-5 font-mono text-[9px] tracking-[0.3em]
                       border px-2 py-[3px] uppercase transition-colors duration-300
                       ${hovered
@@ -284,7 +319,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
                       }`}
         >
           PERFIL_{profile.num}
-        </span>
+        </span> */}
 
         {/* Title */}
         <h3
@@ -436,7 +471,10 @@ export default function Careers() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          §2 LO QUE OFRECEMOS — SIEMPRE OSCURO (bg-defensya-navy)
+          §2 TALENTO — "Lo que ofrecemos" + "Perfiles que buscamos"
+          Una sola sección oscura (bg-defensya-navy), unidas por un
+          eyebrow compartido y separadas internamente por una línea
+          fina — mismo patrón que Declaración + Objetivos en Calidad.
       ══════════════════════════════════════════════════════════ */}
       <section
         className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy border-b border-white/[0.07]"
@@ -444,91 +482,81 @@ export default function Careers() {
         <div className="tech-grid absolute inset-0 opacity-30 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
-          <SectionHeader eyebrow="Por qué Defensya" title="Lo que " accent="ofrecemos" onDark />
+          <SectionEyebrow>Por qué Defensya</SectionEyebrow>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {benefits.map((b, i) => (
-              <div
-                key={b.num}
-                className="relative overflow-hidden p-8 group
-                           bg-white/[0.02] border border-white/[0.07]
-                           hover:border-defensya-blue/40 hover:bg-defensya-blue/[0.05]
-                           transition-all duration-300"
-                style={{
-                  clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
-                }}
-              >
-                {/* Top accent */}
-                <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+          {/* Lo que ofrecemos */}
+          <div>
+            <SubsectionTitle title="Lo que " accent="ofrecemos"  />
 
-                <Corners size={14} color="#0ea5e9" thickness="1.5px" offset={10} />
-
-                {/* Ghost number */}
-                <span
-                  className="absolute top-2 right-4 font-mono font-black select-none
-                             text-white/[0.04] group-hover:text-blue-300/20 transition-colors duration-500"
-                  style={{ fontSize: "5rem", lineHeight: 1 }}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {benefits.map((b) => (
+                <div
+                  key={b.num}
+                  className="relative overflow-hidden p-8 group
+                             bg-white/[0.02] border border-white/[0.07]
+                             hover:border-defensya-blue/40 hover:bg-defensya-blue/[0.05]
+                             transition-all duration-300"
+                  style={{
+                    clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
+                  }}
                 >
-                  {b.num}
-                </span>
+                  {/* Top accent */}
+                  <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
 
-                {/* Tag */}
-                <span className="inline-flex mb-6 font-mono text-[10px] tracking-[0.3em] text-defensya-blue border border-defensya-blue/30 px-2 py-[3px] uppercase">
-                  {b.num}
-                </span>
+                  <Corners size={14} color="#0c415a" thickness="1.5px" offset={10} />
 
-                <h3
-                  className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300"                  
-                >
-                  {b.title}
-                </h3>
+                  {/* Ghost number */}
 
-                <div className="h-px bg-white/[0.06] overflow-hidden mb-4">
-                  <div className="h-full w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500" />
+
+                  {/* Tag */}
+  
+
+                  <h3
+                    className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300"
+                  >
+                    {b.title}
+                  </h3>
+
+                  <div className="h-px bg-white/[0.06] overflow-hidden mb-4">
+                    <div className="h-full w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500" />
+                  </div>
+
+                  <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                    {b.desc}
+                  </p>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                  {b.desc}
-                </p>
-              </div>
-            ))}
+          {/* divisor entre subsecciones */}
+          <div className="h-px bg-white/[0.07] my-20" />
+
+          {/* Perfiles que buscamos */}
+          <div id="perfiles">
+            <SubsectionTitle title="Perfiles que" accent="buscamos"  />
+
+            {/* Cards grid — 2 cols mobile / 3 cols md / 4 cols lg */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10">
+              {profiles.map((p) => (
+                <ProfileCard key={p.num} profile={p} />
+              ))}
+            </div>
+
+            {/* Bottom meta */}
+            <div className="flex items-center gap-4 mt-6">
+              <div className="h-px flex-1 bg-white/[0.05]" />
+              <span className="font-mono text-[9px] tracking-[0.35em] text-gray-600 uppercase">
+                Defensya · Talent Acquisition
+              </span>
+              <div className="h-px w-12 bg-defensya-blue/30" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          §3 PERFILES — OSCURO (bg-[#060d18]) + cards estilo CapabilityCards
-      ══════════════════════════════════════════════════════════ */}
-      <section
-        id="perfiles"
-        className="relative px-6 lg:px-16 py-28 overflow-hidden border-b border-white/[0.07]"
-        style={{ background: "#060d18" }}
-      >
-        <div className="tech-grid absolute inset-0 opacity-40 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative">
-          <SectionHeader eyebrow="Perfiles" title="Perfiles que" accent="buscamos" onDark />
-
-          {/* Cards grid — 2 cols mobile / 3 cols md / 4 cols lg */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10">
-            {profiles.map((p) => (
-              <ProfileCard key={p.num} profile={p} />
-            ))}
-          </div>
-
-          {/* Bottom meta */}
-          <div className="flex items-center gap-4 mt-6">
-            <div className="h-px flex-1 bg-white/[0.05]" />
-            <span className="font-mono text-[9px] tracking-[0.35em] text-gray-600 uppercase">
-              Defensya · Talent Acquisition
-            </span>
-            <div className="h-px w-12 bg-defensya-blue/30" />
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          §4 FORMULARIO — LIGHT
+          §3 FORMULARIO — LIGHT
       ══════════════════════════════════════════════════════════ */}
       <section
         id="candidatura"

@@ -40,16 +40,16 @@ function ClipButton({ href, children, onClick }: { href: string; children: React
     <Link
       href={href}
       onClick={onClick}
-      className="group relative inline-flex items-center gap-2.5 px-5 py-2.5
+      className="group relative inline-flex items-center gap-2 xl:gap-2.5 px-4 xl:px-5 py-2 xl:py-2.5
                  bg-defensya-navy-light dark:bg-defensya-blue text-white
                  hover:bg-defensya-blue transition-colors duration-200
-                 outline-none focus-visible:ring-1 focus-visible:ring-defensya-blue/50"
+                 outline-none focus-visible:ring-1 focus-visible:ring-defensya-blue/50 shrink-0"
       style={{
         clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
         fontFamily: "'Barlow Condensed', sans-serif",
-        fontSize: "13px",
+        fontSize: "12px",
         fontWeight: 700,
-        letterSpacing: "0.2em",
+        letterSpacing: "0.15em",
         textTransform: "uppercase",
       }}
     >
@@ -113,13 +113,13 @@ function EmpresaDropdown({
         : "text-white/90 dark:text-white/90 hover:text-white");
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative shrink-0">
       <button
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-haspopup="true"
-        className={`group flex items-center gap-2 py-2 text-[13px] tracking-[0.2em] uppercase
-                    font-semibold transition-colors duration-300 outline-none
+        className={`group flex items-center gap-1.5 xl:gap-2 py-2 text-[12px] xl:text-[13px] tracking-[0.15em] xl:tracking-[0.2em] uppercase
+                    font-semibold transition-colors duration-300 outline-none whitespace-nowrap
                     focus-visible:ring-2 focus-visible:ring-defensya-blue/50
                     ${textColor}`}
       >
@@ -379,7 +379,7 @@ export default function Navbar() {
                     }`}
       >
         <div
-          className={`max-w-7xl mx-auto flex justify-between items-center px-6 lg:px-16
+          className={`max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-6 xl:px-10 2xl:px-16
                       transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}
         >
           {/* ── Logo ── */}
@@ -399,8 +399,8 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* ── Desktop links (hidden on mobile) ── */}
-          <div className="hidden md:flex items-center gap-10">
+          {/* ── Desktop links (hidden hasta lg para evitar amontonamiento en tablets) ── */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-7 2xl:gap-10">
             <EmpresaDropdown scrolled={scrolled} isActive={empresaActive} />
 
             {NAV_LINKS.map(({ label, href }) => {
@@ -418,8 +418,8 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className={`group relative py-2 text-[13px] tracking-[0.2em] uppercase font-semibold
-                           transition-colors duration-300
+                  className={`group relative py-2 text-[12px] xl:text-[13px] tracking-[0.15em] xl:tracking-[0.2em] uppercase font-semibold
+                           transition-colors duration-300 whitespace-nowrap shrink-0
                            outline-none focus-visible:ring-2 focus-visible:ring-defensya-blue/50
                            ${textColor}`}
                 >
@@ -436,21 +436,21 @@ export default function Navbar() {
             })}
 
             {/* Contacto */}
-            <div className="ml-3">
+            <div className="ml-1 xl:ml-3 shrink-0">
               <ClipButton href="/contacto">Contacto</ClipButton>
             </div>
 
             {/* Theme toggle */}
             <div
-              className={`pl-6 border-l transition-colors duration-300
+              className={`pl-3 xl:pl-6 border-l transition-colors duration-300 shrink-0
                           ${scrolled ? "border-slate-200/70 dark:border-white/[0.08]" : "border-white/20"}`}
             >
               <ThemeToggle />
             </div>
           </div>
 
-          {/* ── Mobile controls ── */}
-          <div className="flex md:hidden items-center gap-3">
+          {/* ── Mobile / Tablet controls ── */}
+          <div className="flex lg:hidden items-center gap-3 shrink-0">
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((prev) => !prev)}

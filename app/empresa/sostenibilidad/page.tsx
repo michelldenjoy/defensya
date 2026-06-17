@@ -8,10 +8,10 @@ export default function page() {
     <div>
       <HeroSection
         label="Sostenibilidad"
-        title="Compromiso Ambiental"
+        title=""
         subtitle=""
         image="/images/sostenible.jpg"
-        imagePosition="center 35%"
+        imagePosition="center 50%"
       />
 
       <Sostenibilidad />

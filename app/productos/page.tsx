@@ -57,8 +57,8 @@ export default function ProductosPage() {
     >
       <HeroSection
         label="Operational Assets"
-        title="Ingeniería para el Límite"
-        subtitle="Diseñamos y fabricamos sistemas críticos que combinan ingeniería electrónica, óptica y mecánica para aplicaciones aeroespaciales y de defensa."
+        title=""
+        subtitle=""
         video="/products.mp4"
       />
 
@@ -600,12 +600,7 @@ function ProductModal({
                   <span className="pointer-events-none absolute z-10 bottom-[10px] right-[10px] w-[14px] h-[14px]"
                     style={{ borderBottom: "1.5px solid rgba(14,95,163,0.4)", borderRight: "1.5px solid rgba(14,95,163,0.4)" }} />
 
-                  <div className="absolute top-[10px] left-[10px] z-20">
-                    <span className="bg-white/90 text-defensya-blue border border-defensya-blue/30
-                                     px-2 py-[2px] text-[8px] tracking-[0.18em] uppercase">
-                      Vista {pad(currentSlide + 1)}
-                    </span>
-                  </div>
+
 
                   <div className="absolute bottom-0 inset-x-0 h-[2px] bg-slate-200 z-20">
                     <motion.div
@@ -647,7 +642,7 @@ function ProductModal({
                 )}
               </div>
 
-              {/* ═══ RIGHT — NAVY: ESTE ES EL PANEL QUE NECESITA SCROLL PROPIO ═══ */}
+              {/* ═══ RIGHT — NAVY ═══ */}
               <div className="bg-[#060d18] flex flex-col md:h-full md:min-h-0">
 
                 <div className="flex items-center justify-between px-5 py-3 shrink-0
@@ -670,12 +665,9 @@ function ProductModal({
                 </div>
 
                 {/* Header — nombre + badges */}
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3
+                <div className="flex flex-col sm:flex-row sm:items-end gap-3
                                 px-5 py-5 shrink-0 border-b border-[rgba(14,165,233,0.1)]">
                   <div className="min-w-0">
-                    <span className="block text-defensya-steel mb-2 text-[10px] tracking-[0.3em] uppercase">
-                      {producto.categoria} · Defensya Systems
-                    </span>
                     <h2
                       className="font-bold uppercase leading-[.95] sm:leading-[.88] text-white break-words"
                       style={{ fontSize: "clamp(1.4rem, 5vw, 2.4rem)", letterSpacing: "-0.02em" }}
@@ -683,16 +675,7 @@ function ProductModal({
                       {producto.nombre}
                     </h2>
                   </div>
-                  <div className="flex sm:flex-col items-start sm:items-end gap-1.5 shrink-0">
-                    <span className="text-gray-300 border border-defensya-blue/85 px-2 py-[3px]
-                                     text-[8px] tracking-[0.16em] uppercase">
-                      NATO STANAG
-                    </span>
-                    <span className="border px-2 py-[3px] text-[8px] tracking-[0.16em] uppercase"
-                      style={{ color: "rgba(34,197,94,0.9)", borderColor: "rgba(34,197,94,0.35)" }}>
-                      Certificado
-                    </span>
-                  </div>
+
                 </div>
 
                 {/* Descripción + parámetros — ESTE bloque hace el scroll vertical real */}
