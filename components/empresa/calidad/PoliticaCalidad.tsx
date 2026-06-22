@@ -164,9 +164,7 @@ function Eyebrow({
   );
 }
 
-/* Pequeño código de referencia monoespaciado, mismo lenguaje visual
-   que el resto del sitio (DFS-ID-001, etc.) — marca cada subsección
-   dentro del bloque "Sistema de Gestión" sin competir con el Eyebrow. */
+
 function RefCode({ children }: { children: React.ReactNode }) {
   return (
     <p
@@ -340,7 +338,7 @@ export default function PoliticaCalidad() {
                 </div>
               </div>
 
-              {/* Stats — 3 datos concretos */}
+              {/* Stats  */}
               <div className="grid grid-cols-3 gap-px bg-gray-200 dark:bg-white/[0.07] border border-gray-200 dark:border-white/[0.07]">
                 {[
                   { val: "+20", label: "Años de experiencia" },
@@ -376,10 +374,6 @@ export default function PoliticaCalidad() {
         </div>
       </section>
 
-      {/* ══ SISTEMA DE GESTIÓN — Declaración + Objetivos y Valores ═══
-          Una sola sección oscura, unida por un Eyebrow compartido.
-          Las dos subsecciones se separan internamente con una línea
-          fina en vez de un cambio de fondo/borde de página completo. */}
       <section className="px-5 sm:px-8 lg:px-16 py-14 sm:py-20 bg-defensya-navy border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto">
           

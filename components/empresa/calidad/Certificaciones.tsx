@@ -14,7 +14,7 @@ export default function Certificaciones() {
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 items-center border-b border-gray-200 dark:border-white/[0.07] pb-4 mb-8">
             <div>
               <h2 className="text-[clamp(2rem,4vw,6.5rem)] font-bold uppercase leading-none tracking-tight text-gray-900 dark:text-white">
-                Certificado <span className="text-defensya-blue">Oficial</span>
+                Certificado 
               </h2>
             </div>
             <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed lg:pb-1">
@@ -220,7 +220,7 @@ export default function Certificaciones() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
       </div> */}
 
-      <Sostenibilidad />
+    
     </>
   );
 }

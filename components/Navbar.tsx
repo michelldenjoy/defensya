@@ -24,8 +24,8 @@ interface DropdownItem {
 
 const EMPRESA_ITEMS: DropdownItem[] = [
   { name: "Quiénes somos", href: "/empresa/quienes-somos" },
-  { name: "Calidad y Certificaciones", href: "/empresa/calidad-certificacion" },
-  { name: "Compromiso Sostenible", href: "/empresa/sostenibilidad" },
+  { name: "Compromiso", href: "/empresa/calidad-certificacion" },
+  // { name: "Compromiso Sostenible", href: "/empresa/sostenibilidad" },
   { name: "Careers", href: "/empresa/careers" },
 ];
 

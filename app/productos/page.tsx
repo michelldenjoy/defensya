@@ -337,9 +337,9 @@ function ProductCard({
           />
         ))}
 
-        <div className="absolute top-[14px] left-4 z-[1]">
+        <div className="absolute bg-defensya-navy/60 px-2 top-[14px] left-4 z-[1]">
           <span
-            className="text-white/55"
+            className="text-white"
             style={{
               fontFamily: "'Share Tech Mono', monospace",
               fontSize: "9px",
@@ -347,7 +347,7 @@ function ProductCard({
               textTransform: "uppercase",
             }}
           >
-            /{producto.categoria}
+            {producto.categoria}
           </span>
         </div>
 
@@ -366,7 +366,7 @@ function ProductCard({
         <p
           className="text-[rgba(11,31,56,0.55)] dark:text-white/45 leading-[1.55]
                      line-clamp-2 mb-3.5 font-normal"
-          style={{ fontSize: "0.82rem" }}
+          style={{ fontSize: "1.09rem" }}
         >
           {producto.descripcion}
         </p>
@@ -375,10 +375,7 @@ function ProductCard({
                         border-t border-[rgba(14,95,163,0.1)] dark:border-white/[0.06]">
 
           <div className="flex items-center gap-1.5">
-            <span
-              className="w-[5px] h-[5px] bg-defensya-blue shrink-0"
-              style={{ transform: "rotate(45deg)" }}
-            />
+
             <span
               className="text-[rgba(11,31,56,0.6)] dark:text-white/25"
               style={{
@@ -460,8 +457,7 @@ function ProductModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        // Contenedor raíz: acota la altura disponible (100dvh) y centra el modal,
-        // dejando un margen seguro arriba/abajo para que el modal nunca exceda el viewport.
+   
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 lg:p-8">
 
           {/* Backdrop */}
@@ -495,7 +491,7 @@ function ProductModal({
             <ChevronRight size={20} />
           </button>
 
-          {/* Contador de posición bajo el modal — oculto en mobile para no chocar con el modal a pantalla casi completa */}
+          {/* Contador de posición bajo el modal — oculto en mobile  */}
           <div className="hidden sm:flex absolute bottom-1 lg:bottom-2 left-1/2 -translate-x-1/2 z-[110]
                           items-center gap-3">
             <span className="text-white/35 text-[9px] tracking-[0.22em] uppercase">
@@ -503,7 +499,7 @@ function ProductModal({
             </span>
           </div>
 
-          {/* Modal — altura máxima acotada al viewport, el resto se reparte entre las columnas internas */}
+          {/* Modal —  */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 14 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -525,7 +521,7 @@ function ProductModal({
             {/* Línea superior */}
             <div className="h-px shrink-0 bg-gradient-to-r from-transparent via-defensya-blue/50 to-transparent" />
 
-            {/* Mobile: botones de navegación entre proyectos integrados en la barra superior del modal */}
+            {/* Mobile: */}
             <div className="flex sm:hidden items-center justify-between px-3 py-2 shrink-0
                             border-b border-[rgba(14,165,233,0.1)] bg-[#060d18]">
               <button
@@ -551,7 +547,7 @@ function ProductModal({
               </button>
             </div>
 
-            {/* ── GRID: ocupa el resto del modal y permite que cada columna gestione su propio overflow ── */}
+            {/* ── GRID: ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 flex-1 min-h-0 overflow-y-auto md:overflow-hidden">
 
               {/* ═══ LEFT — BLANCO: IMAGEN ═══ */}
@@ -572,7 +568,7 @@ function ProductModal({
                   </span>
                 </div>
 
-                {/* IMAGEN — altura fija en mobile para no competir por el espacio con el scroll de texto */}
+                {/* IMAGEN — */}
                 <div className="relative group overflow-hidden bg-slate-50
                                 h-[260px] sm:h-[300px] md:h-auto md:flex-1 md:min-h-0 shrink-0">
                   <AnimatePresence mode="wait">
