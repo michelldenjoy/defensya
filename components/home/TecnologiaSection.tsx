@@ -3,9 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-/* ─────────────────────────────────────────────────────────────────
-   DATOS
-───────────────────────────────────────────────────────────────── */
+
 const FEATURES = [
   {
     num: "01",
@@ -24,28 +22,18 @@ const FEATURES = [
   },
 ];
 
-const METRICS = [
-  { label: "Patentes", value: "20+" },
-  { label: "Años I+D", value: "25+" },
-  { label: "Hardware", value: "V4.0" },
-  { label: "Licenciatario", value: "EADS" },
-];
 
-/* ─────────────────────────────────────────────────────────────────
-   COMPONENTE
-───────────────────────────────────────────────────────────────── */
 export default function TecnologiaSection() {
   return (
     <section className="relative w-full bg-[#060d18] px-4 sm:px-6 lg:px-16 pt-2 sm:pt-4 pb-6 sm:pb-10 overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
-        {/* ── Conector narrativo: separador + eyebrow "caso destacado" ── */}
+        
         <div
           className="flex items-center gap-4 mb-7 sm:mb-8 pt-12 sm:pt-16
                         border-t border-white/[0.06]"
         >
-
           <span
             className="text-defensya-steel text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}
@@ -76,7 +64,7 @@ export default function TecnologiaSection() {
 
           {/* ── LEFT — texto ── */}
           <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
-            {/* Tags */}
+            
             <div className="flex gap-2 flex-wrap mb-5">
               {["DFS-AAR", "Haptix® V4.0", "I+D+i"].map((tag) => (
                 <span
@@ -94,7 +82,7 @@ export default function TecnologiaSection() {
               ))}
             </div>
 
-            {/* Título */}
+            
             <h2
               className="font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white mb-4"
               style={{
@@ -107,7 +95,7 @@ export default function TecnologiaSection() {
               <span className="text-blue-300/80">de alta precisión</span>
             </h2>
 
-            {/* Descripción */}
+           
             <p
               className="text-white/45 font-light leading-[1.85] max-w-xl mb-7"
               style={{ fontSize: "0.88rem" }}
@@ -118,7 +106,7 @@ export default function TecnologiaSection() {
               en cada misión.
             </p>
 
-            {/* Features */}
+           
             <div className="flex flex-col mb-7">
               {FEATURES.map(({ num, bold, text }) => (
                 <div
@@ -191,12 +179,12 @@ export default function TecnologiaSection() {
             </Link>
           </div>
 
-          {/* ── RIGHT — imagen + métricas ── */}
+          {/* ── RIGHT — imagen ── */}
           <div
             className="relative min-h-[320px] lg:min-h-full overflow-hidden
                           border-t lg:border-t-0 lg:border-l border-[rgba(14,165,233,0.1)]"
           >
-            {/* Imagen de fondo */}
+           
             <Image
               src="/products/haptix2.webp"
               alt="Haptix® — Reabastecimiento aéreo de precisión"
@@ -205,23 +193,16 @@ export default function TecnologiaSection() {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
 
-            {/* Overlays para integrar con el navy */}
+            {/* Overlay */}
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(6,13,24,0.95) 0%, rgba(6,13,24,0.35) 45%, rgba(6,13,24,0.15) 100%)",
-              }}
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(6,13,24,0.5) 0%, transparent 50%)",
+                  "linear-gradient(to right, rgba(6,13,24,0.4) 0%, transparent 30%)",
               }}
             />
 
-            {/* Grid técnico superpuesto */}
+            
             <div
               className="absolute inset-0 opacity-30 pointer-events-none"
               style={{
@@ -253,46 +234,12 @@ export default function TecnologiaSection() {
               }}
             />
             <span
-              className="pointer-events-none absolute z-10 bottom-[100px] sm:bottom-[120px] left-5 w-[14px] h-[14px]"
+              className="pointer-events-none absolute z-10 bottom-5 left-5 w-[14px] h-[14px]"
               style={{
-                borderTop: "1.5px solid rgba(14,165,233,0.25)",
+                borderBottom: "1.5px solid rgba(14,165,233,0.25)",
                 borderLeft: "1.5px solid rgba(14,165,233,0.25)",
               }}
             />
-
-            {/* Métricas */}
-            <div
-              className="absolute bottom-0 inset-x-0 grid grid-cols-2 gap-px z-10"
-              style={{ background: "rgba(14,165,233,0.08)" }}
-            >
-              {METRICS.map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="bg-[#060d18]/80 backdrop-blur-sm px-5 py-4"
-                >
-                  <div
-                    className="text-white/38 mb-1"
-                    style={{
-                      fontFamily: "'Share Tech Mono', monospace",
-                      fontSize: "9px",
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {label}
-                  </div>
-                  <div
-                    className="font-bold text-blue-300/80 leading-none"
-                    style={{
-                      fontSize: value.length > 3 ? "1.1rem" : "1.6rem",
-                      
-                    }}
-                  >
-                    {value}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
