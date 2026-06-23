@@ -75,9 +75,9 @@ export default function ProductosPage() {
 
           <div className="mb-8">
             <span
-              className="block text-defensya-blue mb-1"
+              className="block text-slate-400 mb-1"
               style={{
-                fontSize: "9px",
+                fontSize: "12px",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
               }}
@@ -281,34 +281,21 @@ function ProductCard({
                       group-hover:bg-defensya-blue/70 transition-colors duration-400" />
 
       {/* Top strip */}
-      <div className="flex items-center justify-between px-3.5 py-[9px]
+      <div className="flex items-center px-3.5 py-[9px]
                       border-b border-[rgba(14,165,233,0.08)]
-                      bg-[#060d18]">
+                      bg-defensya-navy">
         <span
-          className="text-[rgba(14,165,233,0.45)]"
+          className="text-[rgba(0, 0, 0, 0.45)]"
           style={{
             fontFamily: "'Share Tech Mono', monospace",
-            fontSize: "8px",
+            fontSize: "9px",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
           }}
         >
           {assetId}
         </span>
-        {/* <div className="flex items-end gap-[2px]">
-          {SIGNAL_HEIGHTS.map((h, i) => (
-            <div
-              key={i}
-              className="w-[3px] transition-colors duration-300"
-              style={{
-                height: `${h}px`,
-                background: i < signalActive
-                  ? (hovered ? "#0ea5e9" : "rgba(14,165,233,0.55)")
-                  : "rgba(14,165,233,0.12)",
-              }}
-            />
-          ))}
-        </div> */}
+        
       </div>
 
       {/* Imagen */}

@@ -7,7 +7,7 @@ import { ClipButton } from "@/components/home/HeroSection";
 
 type Status = "" | "sending" | "success" | "error";
 
-// ─── Corners ──────────────────────────────────────────────────────────────────
+
 
 function Corners({
   size = 16,
@@ -48,7 +48,7 @@ function Corners({
   );
 }
 
-// ─── Section Header ───────────────────────────────────────────────────────────
+
 
 function SectionHeader({
   eyebrow,
@@ -64,8 +64,8 @@ function SectionHeader({
   return (
     <div className="mb-14">
       <div className="flex items-center gap-3 mb-5">
-        <span className="w-6 h-px bg-slate-400" />
-        <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
+        <span className="w-6 h-px bg-defensya-blue/40" />
+        <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
           {eyebrow}
         </span>
       </div>
@@ -89,16 +89,14 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-14">
       <span className="w-6 h-px bg-slate-400" />
-      <span className="font-mono text-[12px] tracking-[0.35em] text-slate-400 uppercase">
+      <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
         {children}
       </span>
     </div>
   );
 }
 
-/* Título de subsección dentro de un bloque con eyebrow compartido,
-   con código de referencia mono debajo — mismo lenguaje visual que
-   las páginas DFS-ID-XXX del resto del sitio. */
+
 function SubsectionTitle({
   title,
   accent,
@@ -471,10 +469,7 @@ export default function Careers() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          §2 TALENTO — "Lo que ofrecemos" + "Perfiles que buscamos"
-          Una sola sección oscura (bg-defensya-navy), unidas por un
-          eyebrow compartido y separadas internamente por una línea
-          fina — mismo patrón que Declaración + Objetivos en Calidad.
+          §2  "Lo que ofrecemos" 
       ══════════════════════════════════════════════════════════ */}
       <section
         className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy border-b border-white/[0.07]"
@@ -505,10 +500,10 @@ export default function Careers() {
 
                   <Corners size={14} color="#0c415a" thickness="1.5px" offset={10} />
 
-                  {/* Ghost number */}
+               
 
 
-                  {/* Tag */}
+             
   
 
                   <h3
@@ -536,14 +531,14 @@ export default function Careers() {
           <div id="perfiles">
             <SubsectionTitle title="Perfiles que" accent="buscamos"  />
 
-            {/* Cards grid — 2 cols mobile / 3 cols md / 4 cols lg */}
+         
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10">
               {profiles.map((p) => (
                 <ProfileCard key={p.num} profile={p} />
               ))}
             </div>
 
-            {/* Bottom meta */}
+           
             <div className="flex items-center gap-4 mt-6">
               <div className="h-px flex-1 bg-white/[0.05]" />
               <span className="font-mono text-[9px] tracking-[0.35em] text-gray-600 uppercase">
@@ -556,7 +551,7 @@ export default function Careers() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          §3 FORMULARIO — LIGHT
+          §3 FORMULARIO 
       ══════════════════════════════════════════════════════════ */}
       <section
         id="candidatura"

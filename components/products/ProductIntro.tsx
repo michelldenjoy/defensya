@@ -25,7 +25,7 @@ export default function ProductIntro() {
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-8 sm:mb-10">
 
-          <span className="text-defensya-steel text-[12px] tracking-[0.3em] uppercase">
+          <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
             Catálogo · Defensya Systems · Ingeniería de precisión
           </span>
           <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />

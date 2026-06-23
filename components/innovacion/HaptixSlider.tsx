@@ -293,10 +293,10 @@ export default function HaptixSlider() {
                 </span>
                 <div>
                   <h4
-                    className="font-bold uppercase leading-none text-white mb-2
+                    className="uppercase leading-none text-white mb-2
                                group-hover:text-defensya-blue transition-colors duration-300"
                     style={{
-                      fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+                     
                       fontSize: "1.5rem",
                     }}
                   >

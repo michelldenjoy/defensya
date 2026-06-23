@@ -212,7 +212,7 @@ export default function PatentsList() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="w-6 h-px bg-slate-400" />
-              <span className="text-[12px] font-mono tracking-[0.30em] text-slate-400 uppercase ">
+              <span className="text-[12px] lg:text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase ">
                 I + D + i
               </span>
             </div>
