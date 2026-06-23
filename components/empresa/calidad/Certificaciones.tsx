@@ -8,7 +8,7 @@ export default function Certificaciones() {
     <>
       <section
         className="px-6 lg:px-16 py-20 bg-white dark:bg-black/40 border-t border-gray-200 dark:border-white/[0.07]"
-        style={{ fontFamily: "'Share Tech Mono', monospace" }}
+        
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_40%] gap-12 items-center border-b border-gray-200 dark:border-white/[0.07] pb-4 mb-8">
@@ -108,7 +108,7 @@ export default function Certificaciones() {
                 </blockquote>
               </div>
 
-              <p className="text-[14px] font-mono tracking-[0.3em] text-gray-300 dark:text-gray-500 uppercase mb-3">
+              <p className="text-[14px] font-mono tracking-[0.3em] text-gray-300 uppercase mb-3">
                 Pilares del sistema
               </p>
 
@@ -116,23 +116,23 @@ export default function Certificaciones() {
                 {[
                   {
                     num: "01",
-                    label: "Trazabilidad total",
-                    desc: "Registro y control de cada proceso productivo, desde el diseño hasta la entrega al cliente.",
+                    label: "Aseguramiento de la Calidad",
+                    desc: "Estandarizamos cada proceso de ingeniería para garantizar resultados consistentes, predecibles y de máxima precisión.",
                   },
                   {
                     num: "02",
-                    label: "Auditorías periódicas",
-                    desc: "Revisiones internas y externas programadas que verifican el cumplimiento del sistema.",
+                    label: "Gestión y Mitigación de Riesgos",
+                    desc: "Evaluamos y controlamos minuciosamente cada variable del proyecto, un factor crítico en el desarrollo y diseño de sistemas aeroespaciales.",
                   },
                   {
                     num: "03",
-                    label: "Control de no conformidades",
-                    desc: "Detección, análisis y corrección sistemática de desviaciones en productos y procesos.",
+                    label: "Cultura de Mejora Continua",
+                    desc: "Optimizamos de forma constante nuestras metodologías internas y herramientas de software para ofrecer soluciones a la vanguardia tecnológica",
                   },
                   {
                     num: "04",
-                    label: "Validación de proveedores",
-                    desc: "Evaluación y seguimiento continuo de la cadena de suministro bajo criterios de calidad certificados.",
+                    label: "Cumplimiento Normativo Estricto",
+                    desc: "Aseguramos la alineación con las regulaciones internacionales vigentes y los requisitos técnicos específicos de nuestros clientes y socios industriales",
                   },
                 ].map(({ num, label, desc }) => (
                   <div
@@ -159,7 +159,7 @@ export default function Certificaciones() {
       </section>
 
       {/* ══ COMPROMISO — pantalla completa ═══════════════════════ */}
-      {/* <div className="relative overflow-hidden h-[420px] w-full">
+      <div className="relative overflow-hidden h-[420px] w-full">
         <video
           autoPlay
           muted
@@ -218,7 +218,7 @@ export default function Certificaciones() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
-      </div> */}
+      </div>
 
     
     </>

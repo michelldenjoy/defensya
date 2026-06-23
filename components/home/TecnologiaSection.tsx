@@ -35,7 +35,7 @@ export default function TecnologiaSection() {
                         border-t border-white/[0.06]"
         >
           <span
-            className="text-defensya-steel text-[14px] tracking-[0.3em] uppercase"
+            className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             Innovación · Sector Aeronáutico

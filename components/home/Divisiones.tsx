@@ -261,7 +261,7 @@ export default function Divisiones() {
         {/* ── Eyebrow + Header (alineado a la izquierda, consistente con el resto del sitio) ── */}
         <div className="flex items-center gap-3 mb-7 sm:mb-8">
 
-          <span className="text-defensya-steel text-[14px] tracking-[0.3em] uppercase"
+          <span className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}>
             Defensya · Áreas de Actividad
           </span>

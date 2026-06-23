@@ -249,17 +249,12 @@ export default function TimelineSection() {
             style={{ transform: "rotate(45deg)" }}
           /> */}
           <span
-            className="text-defensya-blue"
-            style={{
-              
-              fontSize: "14px",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-            }}
+            className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase "
+
           >
             Trayectoria · Defensya Systems 
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-[rgba(14,95,163,0.4)] to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
 
           {/* Gema final */}
           {/* <span
@@ -329,7 +324,7 @@ export default function TimelineSection() {
             {/* View tag */}
             <div
               className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
-                         pb- mb-4 text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.35)]"
+                         pb- mb-4 text-slate-800 dark:text-[rgba(200,220,238,0.35)]"
               style={{
               
                 fontSize: "14px",
@@ -338,16 +333,7 @@ export default function TimelineSection() {
               }}
             >
               <span>Nuestra Trayectoria</span>
-              {/* <div
-                className="flex items-center justify-center w-[17px] h-[17px]
-                           border border-[rgba(14,95,163,0.35)] text-[#0e5fa3] font-bold"
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "9px",
-                }}
-              >
-                T
-              </div> */}
+  
             </div>
 
             {/* Cuerpo de texto */}

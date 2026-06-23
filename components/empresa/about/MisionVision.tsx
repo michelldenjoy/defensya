@@ -40,18 +40,13 @@ const MisionVision = () => {
           <div className="pr-0 md:pr-10 lg:pr-16 mt-10">
             {/* <ViewTag label="Vista 1 — Misión" number={1} /> */}
             <span
-              className="text-gray-400"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "14px",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-              }}
+              className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
+
             >
               Lo que hacemos
             </span>
             <span
-              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[1.3] mb-5"
+              className="block text-defensya-blue dark:text-defensya-steel leading-[1.3] mb-5"
               style={{
                 fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,
@@ -93,18 +88,13 @@ const MisionVision = () => {
           <div className="pl-0 md:pl-10 lg:pl-16 mt-10 ">
             {/* <ViewTag label="Vista 2 — Visión" number={2} /> */}
             <span
-              className="text-gray-400"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "14px",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-              }}
+              className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
+
             >
               Hacia dónde vamos
             </span>
             <span
-              className="block text-defensya-blue dark:text-[#4fa8e0] leading-[1.3] mb-5"
+              className="block text-defensya-blue dark:text-defensya-steel leading-[1.3] mb-5"
               style={{
                 fontSize: "clamp(3rem, 5vw, 3.2rem)",
                 fontWeight: 700,

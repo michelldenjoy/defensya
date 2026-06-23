@@ -126,20 +126,12 @@ function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDa
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8 min-w-0">
       <span
-        className={`shrink-0 ${onDark ? "text-slate-400" : "text-defensya-blue"}`}
-        style={{
-          fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "12px",
-          letterSpacing: "0.25em",
-          textTransform: "uppercase",
-        }}
+        className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
       >
         {children}
       </span>
       <div
-        className={`flex-1 h-px bg-gradient-to-r ${
-          onDark ? "from-slate-400/30" : "from-defensya-blue/40"
-        } to-transparent min-w-0`}
+        className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent"
       />
     </div>
   );

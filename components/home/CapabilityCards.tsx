@@ -201,17 +201,12 @@ export default function CapabilityCards() {
           <div className="flex items-center gap-3 mb-6">
 
             <span
-              className="text-defensya-blue"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "14px",
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-              }}
+              className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
+       
             >
               Capacidades · Defensya Systems
             </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
           </div>
 
           {/* Título + descriptor */}
