@@ -204,9 +204,9 @@ export default function CapabilityCards() {
               className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
        
             >
-             Dfsya · Capacidades  
+          · Capacidades  
             </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/30 to-transparent" />
           </div>
 
           {/* Título + descriptor */}
@@ -219,8 +219,8 @@ export default function CapabilityCards() {
               <span className="text-defensya-blue">fiabilidad</span>
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 leading-relaxed
-                         lg:max-w-md border-l-2 border-defensya-blue/50 pl-4 lg:pl-5 lg:self-end">
+            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed
+                         lg:max-w-md border-l-2 border-defensya-steel/40 pl-4 lg:pl-5 lg:self-end">
               Transformamos desafíos complejos en soluciones tecnológicas
               fiables. Un centro de innovación dedicado a fortalecer la
               infraestructura técnica de la industria aeroespacial y de defensa.
