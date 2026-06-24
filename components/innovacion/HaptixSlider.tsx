@@ -71,10 +71,10 @@ function SecRule({ label, dark = true }: { label: string; dark?: boolean }) {
     <div className="flex items-center gap-3 mb-5">
       <div className="w-5 h-px bg-defensya-blue/50" />
       <span
-        className={dark ? "text-white/60" : "text-black/30"}
+        className={dark ? "text-white" : "text-black/30"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "12px",
+          fontSize: "14px",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
         }}
@@ -97,15 +97,15 @@ export default function HaptixSlider() {
   return (
     <section className="relative overflow-hidden border-b border-white/[0.07]">
 
-      {/* ── SPLIT completo: blanco izquierda / navy derecha ── */}
+     
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
-        {/* ════ LEFT — fondo BLANCO, título + slider ════ */}
+        {/* ════ LEFT — fondo BLANCO ════ */}
         <div className="bg-white px-6 sm:px-10 lg:px-14 pt-12 sm:pt-16 pb-10 sm:pb-14 flex flex-col justify-center">
 
           <SecRule label="Vista del dispositivo" dark={false} />
 
-          {/* Imagen slider */}
+       
           <div className="relative group mb-4">
             {/* Outer glow ring */}
             <div
@@ -259,7 +259,7 @@ export default function HaptixSlider() {
           </div>
         </div>
 
-        {/* ════ RIGHT — fondo NAVY, descripción + features + specs ════ */}
+        {/* ════ RIGHT — fondo NAVY ════ */}
         <div className="bg-defensya-navy px-6 sm:px-10 lg:px-14 pt-12 sm:pt-16 pb-10 sm:pb-14 flex flex-col justify-center
                         border-t lg:border-t-0 lg:border-l border-white/[0.07]">
 
@@ -282,9 +282,9 @@ export default function HaptixSlider() {
                                  scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
 
                 <span
-                  className="shrink-0 text-defensya-blue mt-[2px]"
+                  className="shrink-0 text-defensya-steel mt-[2px]"
                   style={{
-                    fontFamily: "'Share Tech Mono', monospace",
+                    
                     fontSize: "10px",
                     letterSpacing: "0.2em",
                   }}
@@ -293,8 +293,8 @@ export default function HaptixSlider() {
                 </span>
                 <div>
                   <h4
-                    className="uppercase leading-none text-white mb-2
-                               group-hover:text-defensya-blue transition-colors duration-300"
+                    className="uppercase font-bold leading-none text-gray-300 mb-2
+                                transition-colors duration-300"
                     style={{
                      
                       fontSize: "1.5rem",
@@ -343,7 +343,7 @@ export default function HaptixSlider() {
                       {k}
                     </span>
                     <span
-                      className="font-bold text-defensya-blue"
+                      className="font-bold text-defensya-steel"
                       style={{
                         fontFamily: "'Share Tech Mono', monospace",
                         fontSize: "11px",

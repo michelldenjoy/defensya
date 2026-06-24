@@ -15,11 +15,7 @@ const FEATURES = [
     bold: "A3R® / A4R®",
     text: " — niveles crecientes de automatización del repostaje aire-aire.",
   },
-  {
-    num: "03",
-    bold: "+20 patentes",
-    text: " registradas, varias cedidas a Airbus (EADS).",
-  },
+
 ];
 
 
@@ -62,7 +58,7 @@ export default function TecnologiaSection() {
             }}
           />
 
-          {/* ── LEFT — texto ── */}
+          {/* ── LEFT — texto items ── */}
           <div className="p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
             
             <div className="flex gap-2 flex-wrap mb-5">
@@ -92,7 +88,7 @@ export default function TecnologiaSection() {
               Reabastecimiento
               <br />
               air to air <br />{" "}
-              <span className="text-blue-300/80">de alta precisión</span>
+              <span className="not-italic font-light text-white/45">de alta precisión</span>
             </h2>
 
            
@@ -111,7 +107,7 @@ export default function TecnologiaSection() {
               {FEATURES.map(({ num, bold, text }) => (
                 <div
                   key={num}
-                  className="flex items-center gap-3 py-2.5 border-b border-white/[0.05] last:border-b-0"
+                  className="flex items-start gap-3 py-2.5 border-b border-white/[0.05] last:border-b-0"
                 >
                   <span
                     className="text-defensya-steel shrink-0 mt-[2px]"

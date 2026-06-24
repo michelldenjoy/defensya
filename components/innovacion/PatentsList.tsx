@@ -303,13 +303,13 @@ export default function PatentsList() {
               />
 
               {/* Barra lateral */}
-              <div className="hidden sm:block bg-defensya-blue/40" />
+              <div className="hidden sm:block bg-defensya-steel/40" />
 
               <div className="relative">
                 <p
-                  className="text-defensya-blue mb-4 sm:mb-5"
+                  className="text-defensya-steel/80 mb-4 sm:mb-5"
                   style={{
-                    fontSize: "9px",
+                    fontSize: "12px",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
                   }}
@@ -317,8 +317,8 @@ export default function PatentsList() {
                   Última invención
                 </p>
                 <p
-                  className="font-light italic leading-[1.75] text-white/75 max-w-2xl"
-                  style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
+                  className="font-light italic leading-[1.75] text-white/75 max-w-4xl"
+                  style={{ fontSize: "clamp(0.8rem, 1.8vw, 1.3rem)" }}
                 >
                   &ldquo;Nuestra última invención posibilita la{" "}
                   <strong className="not-italic font-bold text-white">

@@ -21,7 +21,9 @@ const Footer = () => {
           {/* COLUMNA 1:  BRAND & MISSION */}
           <div className="lg:col-span-2 space-y-8">
             <div className="flex flex-col gap-2">
-              <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
+              <h2 className="font-black text-white tracking-tighter uppercase"
+               style={{fontSize: "clamp(2.3rem, 4vw, 3rem)" }}>
+                
                 DEFENSYA
               </h2>
               <span className="text-[10px] font-mono text-blue-300 tracking-[0.3em] uppercase opacity-70">
@@ -29,7 +31,7 @@ const Footer = () => {
               </span>
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-200 text-sm leading-relaxed max-w-sm">
               Ingeniería de vanguardia especializada en sistemas de visión
               artificial, automatización y control háptico para entornos de
               misión crítica.
@@ -72,7 +74,7 @@ const Footer = () => {
             <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-blue-200 pl-3">
               Compañía
             </h3>
-            <ul className="space-y-4 text-slate-400 text-sm">
+            <ul className="space-y-4 text-slate-200 text-sm">
               <li>
                 <Link
                   href="/empresa/quienes-somos"
@@ -122,7 +124,7 @@ const Footer = () => {
                 (sector) => (
                   <li
                     key={sector}
-                    className="flex items-center gap-3 font-mono text-[10px] text-slate-500 uppercase tracking-widest"
+                    className="flex items-center gap-3 font-mono text-[10px] text-slate-200 uppercase tracking-widest"
                   >
                     <span className="w-1 h-1 bg-blue-300/70 shadow-[0_0_8px_rgba(0,149,218,0.6)]" />{" "}
                     {sector}
@@ -138,14 +140,14 @@ const Footer = () => {
               HQ_Madrid
             </h3>
             <div className="space-y-4">
-              <p className="text-slate-400 text-sm leading-snug">
+              <p className="text-slate-200 text-sm leading-snug">
                 Sectores Ingeniería I+D+i
                 <br />
                 Centro de Operaciones Tácticas
               </p>
               <a
                 href="mailto:info@defensya.com"
-                className="block text-gray-100 font-mono text-sm hover:text-white transition-colors hover:underline underline-offset-9 decoration-defensya-sky/30"
+                className="block text-slate-400 font-mono text-sm hover:text-white transition-colors hover:underline underline-offset-9 decoration-defensya-sky/30"
               >
                 info@defensya.com
               </a>
@@ -154,9 +156,9 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col gap-1">
-            <p className="text-blue-300 text-[10px] tracking-[0.2em] uppercase font-mono">
+            <p className="text-slate-500 text-[10px] tracking-[0.2em] uppercase font-mono">
               © {new Date().getFullYear()} DEFENSYA INGENIERIA INTERNACIONAL.
             </p>
           </div>

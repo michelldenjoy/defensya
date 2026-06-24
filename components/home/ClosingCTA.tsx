@@ -39,8 +39,8 @@ export function ClipButton({
         target={target}
         rel={rel}
         className="group relative inline-flex items-center gap-3 px-6 py-3.5
-                   bg-defensya-blue text-white text-[11px] lg:text-[13px] tracking-[0.25em] uppercase
-                   hover:bg-sky-400 transition-colors duration-200"
+                   bg-defensya-navy-light text-white text-[11px] lg:text-[13px] tracking-[0.25em] uppercase
+                   hover:bg-defensya-blue transition-colors duration-200"
         style={{ clipPath: clip, fontFamily: "'Share Tech Mono', monospace" }}
       >
         {children}
@@ -280,7 +280,7 @@ export default function ClosingCTA() {
               >
                 La confianza no se declara.
                 <br />
-                <span className="text-defensya-blue">Se demuestra.</span>
+                <span className="text-defensya-steel">Se demuestra.</span>
               </h2>
 
               <p

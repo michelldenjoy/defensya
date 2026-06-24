@@ -137,10 +137,10 @@ export default function HaptixIntro() {
             <div className="flex items-center gap-3 mb-5">
               <div className="w-5 h-px bg-defensya-blue/50" />
               <span
-                className="text-white/60"
+                className="text-white"
                 style={{
                   fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
                 }}
@@ -155,12 +155,12 @@ export default function HaptixIntro() {
               {ventajas.map((item, i) => (
                 <div
                   key={i}
-                  className="group flex items-start gap-4 py-4
+                  className="group flex items-center gap-4 py-4
                              border-b border-white/[0.06] last:border-b-0
                              hover:bg-white/[0.02] transition-colors duration-200 px-1"
                 >
                   <span
-                    className="shrink-0 text-defensya-blue mt-[2px]"
+                    className="shrink-0 text-defensya-steel mt-[2px]"
                     style={{
                       fontFamily: "'Share Tech Mono', monospace",
                       fontSize: "10px",

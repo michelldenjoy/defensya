@@ -16,8 +16,10 @@ const HAPTIX_IMAGES = [
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6 sm:mb-8">
-      <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">{children}</span>
-      <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
+      <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
+        {children}
+      </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
     </div>
   );
 }
@@ -27,9 +29,39 @@ function Corners({ size = 16, dim = false }: { size?: number; dim?: boolean }) {
   const muted = dim ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
   return (
     <>
-      <span className="pointer-events-none absolute z-20" style={{ top: 10, left: 10, width: size, height: size, borderTop: `1.5px solid ${accent}`, borderLeft: `1.5px solid ${accent}` }} />
-      <span className="pointer-events-none absolute z-20" style={{ bottom: 10, left: 10, width: size, height: size, borderBottom: `1px solid ${muted}`, borderLeft: `1px solid ${muted}` }} />
-      <span className="pointer-events-none absolute z-20" style={{ bottom: 10, right: 10, width: size, height: size, borderBottom: `1.5px solid rgba(14,165,233,0.45)`, borderRight: `1.5px solid rgba(14,165,233,0.45)` }} />
+      <span
+        className="pointer-events-none absolute z-20"
+        style={{
+          top: 10,
+          left: 10,
+          width: size,
+          height: size,
+          borderTop: `1.5px solid ${accent}`,
+          borderLeft: `1.5px solid ${accent}`,
+        }}
+      />
+      <span
+        className="pointer-events-none absolute z-20"
+        style={{
+          bottom: 10,
+          left: 10,
+          width: size,
+          height: size,
+          borderBottom: `1px solid ${muted}`,
+          borderLeft: `1px solid ${muted}`,
+        }}
+      />
+      <span
+        className="pointer-events-none absolute z-20"
+        style={{
+          bottom: 10,
+          right: 10,
+          width: size,
+          height: size,
+          borderBottom: `1.5px solid rgba(14,165,233,0.45)`,
+          borderRight: `1.5px solid rgba(14,165,233,0.45)`,
+        }}
+      />
     </>
   );
 }
@@ -38,14 +70,12 @@ export default function Refueling() {
   const [current, setCurrent] = useState(0);
 
   return (
-    <main className="w-full text-gray-900 dark:text-white" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+    <main
+      className="w-full text-gray-900 dark:text-white"
+      style={{ fontFamily: "'Share Tech Mono', monospace" }}
+    >
+      {/* ══ §1 INTRO ════ */}
 
-      {/* ══ §1 INTRO ══════════════════════════════════════════════════ */}
-      {/*
-        La sección tiene pb grande para dejar espacio a la cuña diagonal.
-        El <div> al final es la cuña: tiene el color del §2, está rotado
-        con skewY y sale por debajo del §1 cubriendo la transición.
-      */}
       <section
         className="relative px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24"
         style={{
@@ -66,22 +96,31 @@ export default function Refueling() {
           <div className="grid lg:grid-cols-[1fr_40%] gap-8 lg:gap-16 items-center mb-12 sm:mb-16">
             <h1
               className="font-bold uppercase leading-[0.88] tracking-[-0.025em] text-white dark:text-white"
-              style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "clamp(2.8rem, 5vw, 5rem)" }}
+              style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: "clamp(2.8rem, 5vw, 5rem)",
+              }}
             >
               Ingeniería para
-              <br />entornos de
-              <br /><span className="not-italic font-light text-white/45">alta seguridad</span>
+              <br />
+              entornos de
+              <br />
+              <span className="not-italic font-light text-white/45">
+                alta seguridad
+              </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-blue/30 pl-4 sm:pl-5 lg:self-end">
+            <p className="text-sm sm:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end">
               En Defensya, la innovación es el motor que impulsa nuestro
-              compromiso en la industria aeroespacial. Desarrollamos soluciones
-              avanzadas que transforman la defensa y la seguridad, desde
-              sistemas de reabastecimiento en vuelo hasta patentes innovadoras.
+              compromiso en la industria aeroespacial.{" "}
+              <strong className="text-white/80 font-normal">
+                Desarrollamos soluciones avanzadas
+              </strong>{" "}
+               que transforman la defensa y la
+              seguridad, desde sistemas de reabastecimiento en vuelo hasta
+              patentes innovadoras.
             </p>
           </div>
-
-          <div className="hidden sm:block h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
         </div>
 
         {/* CUÑA DIAGONAL  */}
@@ -113,7 +152,10 @@ export default function Refueling() {
         <div className="max-w-7xl mx-auto relative">
           <h2
             className="font-bold uppercase  leading-[0.9] tracking-tight text-gray-900 dark:text-white mb-10 sm:mb-14"
-            style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "clamp(2rem, 4vw, 3.4rem)" }}
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: "clamp(2rem, 4vw, 3.4rem)",
+            }}
           >
             El reto y nuestra visión
           </h2>
@@ -124,7 +166,7 @@ export default function Refueling() {
                 {
                   num: "01",
                   title: "El desafío",
-                  body: "Tradicionalmente, el reabastecimiento aire-aire ha sido una operación manual que requiere una elevada precisión por parte del operador. Aunque esta capacidad actúa como un importante multiplicador de fuerza en las operaciones aéreas, su rendimiento sigue condicionado por los límites del factor humano.",
+                  body: "Históricamente, el reabastecimiento aire-aire ha sido una operación manual que requiere una elevada precisión por parte del operador. Aunque esta capacidad actúa como un importante multiplicador de fuerza en las operaciones aéreas, su rendimiento sigue condicionado por los límites del factor humano.",
                 },
                 {
                   num: "02",
@@ -138,21 +180,28 @@ export default function Refueling() {
                              bg-white dark:bg-white/[0.02]
                              border border-gray-100 dark:border-white/[0.06]
                              transition-colors duration-300"
-                  style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}
+                  style={{
+                    clipPath:
+                      "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)",
+                  }}
                 >
                   <Corners size={14} />
                   <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  <span className="inline-flex mb-4 sm:mb-5 text-defensya-blue border border-defensya-blue/30 px-2 py-[3px]" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase" }}>
-                    {num}
-                  </span>
+
                   <h3
                     className="font-bold uppercase leading-none mb-3 text-gray-900 dark:text-white group-hover:text-defensya-blue transition-colors duration-300"
-                    style={{ fontFamily: "Share Tech Mono", fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)" }}
+                    style={{
+                      fontFamily: "Share Tech Mono",
+                      fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
+                    }}
                   >
                     {title}
                   </h3>
                   <div className="h-px w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500 mb-4" />
-                  <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light" style={{ fontFamily: "Share Tech Mono" }}>
+                  <p
+                    className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light"
+                    style={{ fontFamily: "Share Tech Mono" }}
+                  >
                     {body}
                   </p>
                 </div>
@@ -161,13 +210,31 @@ export default function Refueling() {
 
             <div
               className="relative min-h-[300px] sm:min-h-[420px] lg:min-h-full overflow-hidden border border-gray-100 dark:border-white/[0.06]"
-              style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}
+              style={{
+                clipPath:
+                  "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
+              }}
             >
-              <Image src="/images/refueling2.jpeg" alt="Air-to-Air Refueling" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" priority />
+              <Image
+                src="/images/refueling2.jpeg"
+                alt="Air-to-Air Refueling"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
               <Corners size={16} dim />
               <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-10">
-                <span className="text-white/80" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase" }}>
+                <span
+                  className="text-white/80"
+                  style={{
+                    fontFamily: "'Share Tech Mono', monospace",
+                    fontSize: "10px",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Aerial Refueling Systems
                 </span>
               </div>

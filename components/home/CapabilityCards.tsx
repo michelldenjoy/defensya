@@ -204,7 +204,7 @@ export default function CapabilityCards() {
               className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
        
             >
-              Capacidades · Defensya Systems
+             Dfsya · Capacidades  
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
           </div>
@@ -233,15 +233,6 @@ export default function CapabilityCards() {
           {capabilities.map((cap) => (
             <CapabilityCard key={cap.id} cap={cap} />
           ))}
-        </div>
-
-        {/* Divider + CTA */}
-        <div className="flex items-center gap-4 mt-8 mb-6">
-          <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.06]" />
-          <span className="font-mono text-[9px] tracking-[0.35em] text-gray-400 dark:text-gray-500 uppercase">
-            Commitment
-          </span>
-          <div className="h-px w-12 bg-defensya-blue/30" />
         </div>
 
         {/* CTA gap */}

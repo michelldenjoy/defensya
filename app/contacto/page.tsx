@@ -108,22 +108,7 @@ export default function ContactView() {
                       bg-[radial-gradient(ellipse_at_top_right,#1E40AF14,transparent_70%)]"
       />
 
-      {/* <div
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-16 pb-10
-                      border-b border-white/[0.07]"
-      >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="w-6 h-px bg-defensya-sky" />
-            <span className="text-[12px] font-semibold tracking-[0.3em] text-defensya-sky uppercase">
-              Canal de contacto
-            </span>
-          </div>
-          <div className="flex items-center gap-2"></div>
-        </div>
-      </div> */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 ">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-18 ">
         <div className="grid lg:grid-cols-[1fr_58%] min-h-[80vh]">
           {/* ── LEFT ─────── */}
           <div
