@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useRef, useCallback } from "react";
-import { motion, useInView } from "framer-motion";
 
 interface Division {
   num: string;
@@ -43,57 +42,7 @@ const divisions: Division[] = [
   },
 ];
 
-// ─── Variants ────────────────────────────────────────────────────────────────
 
-const headerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
-  },
-};
-
-const eyebrowVariants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const lineVariants = {
-  hidden: { scaleX: 0, originX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
-  },
-};
-
-const titleVariants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 36, clipPath: "inset(0 0 100% 0)" },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    clipPath: "inset(0 0 0% 0)",
-    transition: {
-      duration: 0.72,
-      ease: [0.22, 1, 0.36, 1],
-      delay: i * 0.1,
-    },
-  }),
-};
-
-// ─── Touch hook ──────────────────────────────────────────────────────────────
 
 function useIsTouchDevice() {
   const [isTouch] = useState(() => {
@@ -103,7 +52,7 @@ function useIsTouchDevice() {
   return isTouch;
 }
 
-// ─── Corners ─────────────────────────────────────────────────────────────────
+// ─── Corner 
 
 function Corners({ active }: { active: boolean }) {
   return (
@@ -122,9 +71,7 @@ function Corners({ active }: { active: boolean }) {
   );
 }
 
-// ─── Card ─────────────────────────────────────────────────────────────────────
-
-function DivisionCard({ item, index }: { item: Division; index: number }) {
+function DivisionCard({ item }: { item: Division }) {
   const isTouch = useIsTouchDevice();
   const [isActive, setIsActive] = useState(false);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
@@ -156,9 +103,7 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
   const a = isTouch && isActive;
 
   return (
-    <motion.div
-      custom={index}
-      variants={cardVariants}
+    <div
       className="experience-card group relative overflow-hidden bg-black cursor-pointer select-none w-full"
       style={{
         height: "clamp(340px, 38vw, 460px)",
@@ -167,11 +112,8 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
       }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      // Subtle lift on hover (desktop only — touch handled separately)
-      whileHover={!isTouch ? { y: -4 } : undefined}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Background image */}
+     
       <div
         className={`absolute inset-0 transition-transform duration-700 ${
           a ? "scale-105" : "group-hover:scale-105"
@@ -198,7 +140,7 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
         }}
       />
 
-      {/* Base gradient */}
+     
       <div
         className="absolute inset-0 transition-all duration-700"
         style={{
@@ -207,27 +149,12 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
         }}
       />
 
-      {/* Blue tint on hover */}
+    
       <div
         className={`absolute inset-0 transition-opacity duration-500 ${
           a ? "opacity-100" : "opacity-0 group-hover:opacity-100"
         }`}
         style={{ background: "rgba(14,165,233,0.08)" }}
-      />
-
-      {/* Scan-line sweep on hover — thin horizontal light that travels top→bottom */}
-      <motion.div
-        className="pointer-events-none absolute inset-x-0 h-px bg-blue-300/30"
-        initial={{ top: "0%", opacity: 0 }}
-        whileHover={
-          !isTouch
-            ? {
-                top: ["0%", "100%"],
-                opacity: [0, 0.6, 0],
-                transition: { duration: 1.1, ease: "linear", repeat: Infinity, repeatDelay: 1.4 },
-              }
-            : undefined
-        }
       />
 
       {/* Corners */}
@@ -248,7 +175,7 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
         {item.num}
       </span>
 
-      {/* Tag badge */}
+    
       <div className="absolute top-5 left-5 z-10">
         <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-blue-300/50 border border-blue-300/50 px-2 py-[3px] uppercase">
           <span className="w-1 h-1 rounded-full bg-blue-300/50" />
@@ -275,6 +202,7 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
           transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
           ${a ? "justify-center" : "justify-end group-hover:justify-center"}`}
       >
+        {/* Title */}
         <h3
           className={`text-white text-center
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -317,75 +245,46 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
           {item.desc}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
+// ─── Main component items
 
 export default function Divisiones() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px 0px" });
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative pt-16 sm:pt-20 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-16 bg-[#060d18] overflow-hidden"
-    >
+    <section className="relative pt-16 sm:pt-20 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-16 bg-[#060d18] overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
 
-        {/* ── Header ── */}
-        <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {/* Eyebrow */}
-          <motion.div
-            variants={eyebrowVariants}
-            className="flex items-center gap-3 mb-7 sm:mb-8"
-          >
-            <span
-              className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
-            >
-              Dfsya · Áreas de Actividad
-            </span>
-            <motion.div
-              variants={lineVariants}
-              className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent"
-            />
-          </motion.div>
+        <div className="flex items-center gap-3 mb-7 sm:mb-8">
 
-          {/* Title */}
-          <motion.div
-            variants={titleVariants}
-            className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-end mb-10 sm:mb-12"
-          >
-            <h2
-              className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
-            >
-              Sectores que{" "}
-              <span className="text-white/40 font-light">manejamos</span>
-            </h2>
-          </motion.div>
-        </motion.div>
+          <span className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+            · Áreas de Actividad
+          </span>
+          <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
+        </div>
 
-        {/* ── Cards grid ── */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2"
-          variants={headerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {divisions.map((item, i) => (
-            <DivisionCard key={item.num} item={item} index={i} />
+        <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
+          <h2
+            className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
+            style={{
+              
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
+            }}
+          >
+            Sectores que <span className="text-white/40 font-light">manejamos</span>
+          </h2>
+        </div>
+
+        {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          {divisions.map((item) => (
+            <DivisionCard key={item.num} item={item} />
           ))}
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );
