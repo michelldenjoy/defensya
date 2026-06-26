@@ -10,7 +10,7 @@ const MisionVision = () => {
       ))}
 
       {/* ── Contenido ── */}
-      <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-12 pb-14">
+      <div className="relative max-w-7xl mx-auto px-10  pt-12 pb-14">
         {/* ── Columnas Misión / Visión ── */}
         <div className="grid md:grid-cols-2 relative mb-10">
           {/* Eje divisor */}
@@ -38,49 +38,34 @@ const MisionVision = () => {
 
           {/* MISIÓN */}
           <div className="pr-0 md:pr-10 lg:pr-16 mt-10">
-            {/* <ViewTag label="Vista 1 — Misión" number={1} /> */}
             <span
               className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
 
             >
-              Lo que hacemos
+              Misión
             </span>
             <span
-              className="block text-defensya-blue dark:text-defensya-steel leading-[1.3] mb-5"
+              className="block text-defensya-blue dark:text-defensya-steel leading-[1.1] mb-5"
               style={{
-                fontSize: "clamp(3rem, 5vw, 3.2rem)",
+                fontSize: "clamp(1.6rem, 2.8vw, 2.3rem)",
                 fontWeight: 700,
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.04em",
                 textTransform: "uppercase",
                 fontFamily: "'Share Tech Mono', monospace",
               }}
             >
-              Misión
+              excelencia técnica en cada proyecto
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
               className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.35]"
               style={{
-                fontSize: "1.25rem",
+                fontSize: "1.20rem",
                 fontWeight: 400,
                 letterSpacing: "0.01em",
-                fontFamily: "'Share Tech Mono', monospace",
               }}
             >
-              Diseñar y desarrollar{" "}
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                soluciones tecnológicas avanzadas
-              </strong>{" "}
-              en visión, imagen, audio, datos e iluminación especializada
-              proporcionando productos innovadores y de{" "}
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                alto rendimiento
-              </strong>{" "}
-              para sectores estratégicos donde la{" "}
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                precisión y la seguridad
-              </strong>{" "}
-              son fundamentales.
+          Somos una empresa de base tecnológica que rinde culto a la innovación y al arte de inventar. La I+D no es un departamento — es la razón de ser de la compañía. Cada beneficio generado se reinvierte en seguir inventando.
             </p>
           </div>
 
@@ -91,42 +76,31 @@ const MisionVision = () => {
               className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
 
             >
-              Hacia dónde vamos
+              Visión
             </span>
             <span
-              className="block text-defensya-blue dark:text-defensya-steel leading-[1.3] mb-5"
+              className="block text-defensya-blue dark:text-defensya-steel leading-[1.1] mb-5"
               style={{
-                fontSize: "clamp(3rem, 5vw, 3.2rem)",
+                fontSize: "clamp(1.6rem, 2.8vw, 2.3rem)",
                 fontWeight: 700,
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.04em",
                 textTransform: "uppercase",
-                fontFamily: "'Share Tech Mono', monospace",
+              
               }}
             >
-              Visión
+               referente global en sistemas de visión
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
               className="text-[rgba(11,31,56,0.4)] dark:text-[rgba(200,220,238,0.38)] leading-[1.35]"
               style={{
-                fontSize: "1.25rem",
+                fontSize: "1.20rem",
                 fontWeight: 400,
                 letterSpacing: "0.01em",
                 fontFamily: "'Share Tech Mono', monospace",
               }}
             >
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                Liderar la innovación
-              </strong>{" "}
-              en tecnologías de visión y control convirtiéndonos en{" "}
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                referente de confianza
-              </strong>{" "}
-              para defensa, aeronáutica e industria gracias a nuestra{" "}
-              <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
-                excelencia técnica
-              </strong>{" "}
-              y compromiso inquebrantable con la calidad.
+              La consolidación como empresa líder del sector de ingeniería de telecomunicación, electrónica e informática. Expandir la presencia en Norteamérica y Latinoamérica. Contribuir con tecnología de visión al siguiente escalón de automatización: el A4R y las operaciones con drones
             </p>
           </div>
         </div>

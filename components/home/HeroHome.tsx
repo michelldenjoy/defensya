@@ -112,7 +112,7 @@ export default function HeroHome() {
       {/* ── CONTENT ── */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pb-14 lg:pb-20">
         {/* Headline */}
-        <h1 className="text-[clamp(2.5rem,6.5vw,5rem)] uppercase leading-[0.88] tracking-tight text-white mb-10 max-w-3xl">
+        <h1 className="text-[clamp(2.5rem,6.5vw,6rem)] font-semibold uppercase leading-[0.88] tracking-tight text-white mb-10 max-w-3xl">
           Ingeniería
           <br />
           <span className="text-white/40">& Defensa</span>

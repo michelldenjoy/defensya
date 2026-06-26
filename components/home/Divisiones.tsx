@@ -24,7 +24,7 @@ const divisions: Division[] = [
     tag: "Aeron",
     title: "Aeronáutica",
     image: "/images/aeronautic.jpg",
-    desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, ópticos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada.",
+    desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, optoelectrónicos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada.",
   },
   {
     num: "03",
@@ -42,8 +42,6 @@ const divisions: Division[] = [
   },
 ];
 
-
-
 function useIsTouchDevice() {
   const [isTouch] = useState(() => {
     if (typeof window === "undefined") return false;
@@ -52,7 +50,6 @@ function useIsTouchDevice() {
   return isTouch;
 }
 
-// ─── Corner 
 
 function Corners({ active }: { active: boolean }) {
   return (
@@ -106,14 +103,15 @@ function DivisionCard({ item }: { item: Division }) {
     <div
       className="experience-card group relative overflow-hidden bg-black cursor-pointer select-none w-full"
       style={{
-        height: "clamp(340px, 38vw, 460px)",
+
+        minHeight: "clamp(320px, 55vw, 460px)",
         clipPath:
           "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
       }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-     
+      {/* Imagen de fondo */}
       <div
         className={`absolute inset-0 transition-transform duration-700 ${
           a ? "scale-105" : "group-hover:scale-105"
@@ -140,7 +138,7 @@ function DivisionCard({ item }: { item: Division }) {
         }}
       />
 
-     
+      {/* Gradient overlay */}
       <div
         className="absolute inset-0 transition-all duration-700"
         style={{
@@ -149,7 +147,7 @@ function DivisionCard({ item }: { item: Division }) {
         }}
       />
 
-    
+      {/* Blue tint on hover/tap */}
       <div
         className={`absolute inset-0 transition-opacity duration-500 ${
           a ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -175,7 +173,7 @@ function DivisionCard({ item }: { item: Division }) {
         {item.num}
       </span>
 
-    
+      {/* Tag badge */}
       <div className="absolute top-5 left-5 z-10">
         <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-blue-300/50 border border-blue-300/50 px-2 py-[3px] uppercase">
           <span className="w-1 h-1 rounded-full bg-blue-300/50" />
@@ -198,28 +196,33 @@ function DivisionCard({ item }: { item: Division }) {
 
       {/* Content */}
       <div
-        className={`absolute inset-0 p-6 flex flex-col z-10
+        className={`absolute inset-0 flex flex-col z-10
           transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+          px-5 py-5 sm:p-6
           ${a ? "justify-center" : "justify-end group-hover:justify-center"}`}
       >
-        {/* Title */}
+        {/* Título */}
         <h3
           className={`text-white text-center
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
             ${a ? "translate-y-0 scale-110" : "translate-y-3 group-hover:translate-y-0 group-hover:scale-110"}`}
           style={{
-            fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
+            fontSize: "clamp(1.45rem, 3.5vw, 2.6rem)",
             fontWeight: 700,
             letterSpacing: "-0.01em",
-            lineHeight: 1.05,
+            lineHeight: 1.1,
             textTransform: "uppercase",
+            // Evitar overflow en titulos largos en columnas estrechas
+            wordBreak: "break-word",
+            hyphens: "auto",
           }}
+          lang="es"
         >
           {item.title}
         </h3>
 
         {/* Expanding divider */}
-        <div className="my-4 sm:my-5 h-px relative overflow-hidden">
+        <div className="my-3 sm:my-4 h-px relative overflow-hidden">
           <div className="h-full w-full bg-white/10" />
           <div
             className={`absolute left-0 top-0 h-full bg-blue-300/50 ${
@@ -231,7 +234,10 @@ function DivisionCard({ item }: { item: Division }) {
           />
         </div>
 
-        {/* Description */}
+        {/* Descripción
+            - Se añade overflow-y-auto con max-h para que en cards muy estrechos
+              el texto no se salga del contenedor sino que se scrollee si hace falta.
+            - El font-size baja a 0.85rem mínimo para acomodar textos largos. */}
         <p
           className={`leading-snug text-center
             transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-75
@@ -240,7 +246,9 @@ function DivisionCard({ item }: { item: Division }) {
                 ? "opacity-100 translate-y-0 text-white/90"
                 : "opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white/90"
             }`}
-          style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.2rem)" }}
+          style={{
+            fontSize: "clamp(0.85rem, 1.6vw, 1.15rem)",
+          }}
         >
           {item.desc}
         </p>
@@ -249,37 +257,38 @@ function DivisionCard({ item }: { item: Division }) {
   );
 }
 
-// ─── Main component items
+// ─── Main component ────────────────────────────────────────────────────────
 
 export default function Divisiones() {
   return (
-    <section className="relative pt-16 sm:pt-20 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-16 bg-[#060d18] overflow-hidden">
+    <section className="relative pt-16 sm:pt-20 pb-14 sm:pb-26 px-4 sm:px-6 lg:px-16 bg-defensya-navy overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
 
         <div className="flex items-center gap-3 mb-7 sm:mb-8">
-
-          <span className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-            · Áreas de Actividad
+          <span
+            className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          >
+            Áreas de Actividad
           </span>
           <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
         </div>
 
         <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
           <h2
-            className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-white"
+            className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white"
             style={{
-              
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
             }}
           >
-            Sectores que <span className="text-white/40 font-light">manejamos</span>
+            Cuatro divisiones. <br />{" "}
+            <span className="text-white/40 font-light">Un estándar de calidad.</span>
           </h2>
         </div>
 
-        {/* ── Grid — 1 col mobile / 2 col tablet / 4 col desktop ── */}
+        {/* Grid: 1 col mobile / 2 col tablet / 4 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {divisions.map((item) => (
             <DivisionCard key={item.num} item={item} />

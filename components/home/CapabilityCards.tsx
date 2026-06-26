@@ -8,7 +8,7 @@ const capabilities = [
     label: "01",
     title: "Ingeniería de Sistemas de Misión",
     description:
-      "Diseñamos arquitecturas críticas para plataformas aéreas, espaciales y autónomas, integrando subsistemas electrónicos, software y comunicaciones de alta confiabilidad.",
+      "Diseñamos arquitecturas críticas para plataformas, integrando subsistemas electrónicos, software y comunicaciones de alta confiabilidad.",
   },
   {
     id: 2,
@@ -204,7 +204,7 @@ export default function CapabilityCards() {
               className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
        
             >
-          · Capacidades  
+          Capacidades  
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/30 to-transparent" />
           </div>

@@ -36,7 +36,7 @@ export default function TecnologiaSection() {
           >
             Innovación · Sector Aeronáutico
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/40 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
         </div>
 
         {/* Card */}

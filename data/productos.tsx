@@ -123,7 +123,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Datos",
     descripcion:
       "Sistema de control y localización de recursos críticos con información actualizada en tiempo real.",
-    imagen: "/products/rfid.jpg",
+    imagen: "/products/rfid.png",
     detalles: [
       "Localización precisa de material sensible",
       "Sincronización total con base de datos central",

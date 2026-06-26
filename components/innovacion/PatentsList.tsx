@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import CTACalidad from "../empresa/calidad/CTACalidad";
 
 /* ─────────────────────────────────────────────────────────────────
    DATA
@@ -346,6 +347,8 @@ export default function PatentsList() {
           </div>
         </div>
       </div>
+      
     </section>
+    
   );
 }

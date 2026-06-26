@@ -237,7 +237,7 @@ export default function HaptixSlider() {
             ))}
           </div>
 
-          {/* Nav buttons */}
+          {/* Nav buttons bottom */}
           <div className="flex gap-2">
             {[
               { fn: prev, d: "M9 3L4 8L9 13" },

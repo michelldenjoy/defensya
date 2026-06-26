@@ -151,7 +151,7 @@ function HUDBracket({
       className={`absolute ${className}`}
       fill="none"
     >
-      <path d={paths[corner]} stroke="#0ea5e9" strokeWidth={stroke} />
+      <path d={paths[corner]} stroke="#fefeff" strokeWidth={stroke} />
     </svg>
   );
 }
@@ -202,7 +202,7 @@ export default function ClosingCTA() {
       <div className="grid lg:grid-cols-2 min-h-[620px]">
 
         {/* ── LEFT PANEL ── */}
-        <div className="relative bg-defensya-navy px-6 md:px-10 lg:px-16 py-14 lg:py-20 flex flex-col justify-center overflow-hidden">
+        <div className="relative bg-[#060d18] px-6 md:px-10 lg:px-16 py-14 lg:py-20 flex flex-col justify-center overflow-hidden">
 
           {/* Subtle grid overlay */}
           <div
@@ -257,7 +257,7 @@ export default function ClosingCTA() {
 
                   {/* Hover underline */}
                   <motion.div
-                    className="mt-3 h-px bg-defensya-blue/40 origin-left"
+                    className="mt-3 h-px bg-defensya-blue/30 origin-left"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -322,8 +322,8 @@ export default function ClosingCTA() {
           />
 
           {/* Overlays */}
-          <div className="absolute inset-0 bg-defensya-navy/50" />
-          <div className="absolute inset-0 bg-gradient-to-r from-defensya-navy via-defensya-navy/20 to-transparent" />
+          <div className="absolute inset-0 bg-defensya-navy/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060d18] via-defensya-navy/20 to-transparent" />
 
 
 

@@ -610,7 +610,7 @@ function ProductModal({
                   )}
                 </div>
 
-                {/* Thumbs de imagen — siempre visibles, tap-friendly en mobile */}
+                {/* Thumbs de imagen  */}
                 {images.length > 1 && (
                   <div className="flex gap-1.5 px-5 py-3 shrink-0 border-t border-[rgba(14,95,163,0.08)]">
                     {images.map((_, i) => (
@@ -636,7 +636,7 @@ function ProductModal({
                       {assetRef} / {producto.categoria}
                     </span>
                   </div>
-                  {/* Cerrar — oculto en mobile porque ya hay un patrón de cierre por backdrop/gesto; visible en sm+ */}
+                  {/* Cerrar  */}
                   <button
                     onClick={onClose}
                     className="hidden sm:flex w-7 h-7 items-center justify-center border border-white/10
@@ -661,24 +661,24 @@ function ProductModal({
 
                 </div>
 
-                {/* Descripción + parámetros — ESTE bloque hace el scroll vertical real */}
+                {/* Descripción + parámetros — */}
                 <div className="flex-1 min-h-0 overflow-y-auto px-5 py-5
                                 overscroll-contain"
                      style={{ WebkitOverflowScrolling: "touch" }}>
-                  <SectionLabel label="Descripción técnica" />
+                 
                   <p className="font-light leading-[1.75] text-white/85
                                 border-l-2 border-defensya-blue/20 pl-3 mb-5 text-[0.92rem]">
                     {producto.descripcion}
                   </p>
 
-                  <SectionLabel label="Parámetros del sistema" />
+                  <SectionLabel label="Parámetros" />
                   <div>
                     {producto.detalles.map((detalle, idx) => (
                       <div key={idx}
-                        className="group/row flex items-start gap-3 py-[7px]
+                        className="group/row flex items-center gap-3 py-[7px]
                                    border-b border-white/[0.05] last:border-b-0
                                    hover:bg-white/[0.02] transition-colors duration-200 px-1">
-                        <span className="shrink-0 text-defensya-steel mt-[1px] text-[0.92rem] tracking-[0.1em]">
+                        <span className="shrink-0 text-defensya-steel mt-[1px] text-[0.6rem] tracking-[0.1em]">
                           {pad(idx + 1)}
                         </span>
                         <span className="w-px self-stretch bg-defensya-blue/18
@@ -694,7 +694,7 @@ function ProductModal({
                   </div>
                 </div>
 
-                {/* Footer — cierre visible siempre en mobile como acción explícita */}
+                {/* Footer  */}
                 <div className="flex sm:hidden items-center justify-center px-5 py-3 shrink-0
                                 border-t border-[rgba(14,165,233,0.1)]">
                   <button

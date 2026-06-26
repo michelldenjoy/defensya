@@ -9,6 +9,7 @@ import CapabilityCards from "./CapabilityCards";
 import Image from "next/image";
 import Link from "next/link";
 import ClosingCTA from "./ClosingCTA";
+import TecnologiaIntro from "./TecnologiaIntro";
 
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
@@ -74,11 +75,13 @@ export default function Hometwo() {
         </div>
       </section>
 
-      <CapabilityCards />      
+      <TecnologiaIntro />
+
+      {/* <CapabilityCards />       */}
       
       <Divisiones />
 
-      <TecnologiasSection />
+      {/* <TecnologiasSection /> */}
 
       <Rule />
 
