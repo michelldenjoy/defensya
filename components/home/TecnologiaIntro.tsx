@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+
 
 const E = [0.22, 1, 0.36, 1] as const;
 
@@ -62,9 +62,7 @@ export default function TecnologiaIntro() {
   return (
     <div className="w-full">
       {/* ══════════════════════════════════════════════════════════════════════
-          BLOQUE 1 — HEADLINE ASIMÉTRICO
-          Fondo blanco. Texto grande a la izquierda, claim flotante a la derecha.
-      ══════════════════════════════════════════════════════════════════════ */}
+          BLOQUE 1 — ═ */}
       <section className="w-full bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-0 lg:pt-32">
           {/* Asymmetric headline grid */}
@@ -104,8 +102,7 @@ export default function TecnologiaIntro() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          BLOQUE 2 — CASO A330 MRTT (fondo navy, texto claro)
-          Layout asimétrico: etiqueta fija izquierda, contenido derecha en scroll.
+          BLOQUE 2 —
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-defensya-navy overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28">
@@ -239,7 +236,7 @@ export default function TecnologiaIntro() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          BLOQUE 3 — STATS con parallax (fondo muy oscuro) 100% · Beneficios reinvertidos en I+D cada año
+          BLOQUE 3 — stats
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-[#04090f] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-36">
