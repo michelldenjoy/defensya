@@ -101,7 +101,7 @@ export default function MRTTCaseSection() {
                 {"href" in s && s.href && (
                   <Link
                     href={s.href}
-                    className="group inline-flex items-center gap-2 mt-5 font-mono text-[12px] tracking-[0.15em] uppercase text-defensya-blue hover:text-white transition-colors duration-300"
+                    className="group inline-flex items-center gap-2 mt-5 font-mono text-[12px] tracking-[0.15em] uppercase text-blue-700 hover:text-white transition-colors duration-300"
                   >
                     Explorar
                     <svg
