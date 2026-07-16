@@ -2,8 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import ThreePlane from "../ui/ThreePlane";
+
 
 const stats = [
   { value: 25, suffix: "+", label: "Años de experiencia" },
@@ -95,14 +103,8 @@ export function ClipButton({
   );
 }
 
-/* Animated counter for numeric stats */
-function AnimatedCounter({
-  value,
-  suffix,
-}: {
-  value: number;
-  suffix: string;
-}) {
+
+function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const motionVal = useMotionValue(0);
@@ -156,8 +158,6 @@ function HUDBracket({
   );
 }
 
-
-
 /* Telemetry ticker */
 const telemetryLines = [
   "SYS·STATUS ····· NOMINAL",
@@ -172,7 +172,10 @@ function TelemetryTicker() {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % telemetryLines.length), 2200);
+    const t = setInterval(
+      () => setIdx((i) => (i + 1) % telemetryLines.length),
+      2200,
+    );
     return () => clearInterval(t);
   }, []);
 
@@ -195,16 +198,13 @@ function TelemetryTicker() {
   );
 }
 
-
 export default function ClosingCTA() {
   return (
     <section className="relative overflow-hidden border-t border-white/5">
       <div className="grid lg:grid-cols-2 min-h-[620px]">
-
         {/* ── LEFT PANEL ── */}
         <div className="relative bg-[#060d18] px-6 md:px-10 lg:px-16 py-14 lg:py-20 flex flex-col justify-center overflow-hidden">
-
-          {/* Subtle grid overlay */}
+          
           <div
             className="absolute inset-0 pointer-events-none opacity-[0.035]"
             style={{
@@ -221,8 +221,6 @@ export default function ClosingCTA() {
             transition={{ duration: 0.6 }}
             className="relative z-10"
           >
-
-
             {/* Stats grid */}
             <div className="grid grid-cols-2 gap-6 mb-12">
               {stats.map((item, i) => (
@@ -235,15 +233,21 @@ export default function ClosingCTA() {
                   className="relative group"
                 >
                   {/* HUD frame corners */}
-                  <HUDBracket corner="tl" className="top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <HUDBracket corner="br" className="bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <HUDBracket
+                    corner="tl"
+                    className="top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  <HUDBracket
+                    corner="br"
+                    className="bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
 
-                  <div
-                    className="text-white font-black leading-none text-3xl lg:text-5xl transition-colors duration-300 group-hover:text-defensya-blue"
-                   
-                  >
+                  <div className="text-white font-black leading-none text-3xl lg:text-5xl transition-colors duration-300 group-hover:text-defensya-blue">
                     {typeof item.value === "number" ? (
-                      <AnimatedCounter value={item.value} suffix={item.suffix} />
+                      <AnimatedCounter
+                        value={item.value}
+                        suffix={item.suffix}
+                      />
                     ) : (
                       <span>{item.value}</span>
                     )}
@@ -274,13 +278,10 @@ export default function ClosingCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.25 }}
             >
-              <h2
-                className="text-white font-black uppercase leading-tight text-2xl md:text-3xl lg:text-4xl"
-                
-              >
+              <h2 className="text-white font-black uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
                 La confianza no se declara.
                 <br />
-                <span className="text-defensya-steel">Se demuestra.</span>
+                <span className="text-defensya-blue">Se demuestra.</span>
               </h2>
 
               <p
@@ -310,22 +311,11 @@ export default function ClosingCTA() {
 
         {/* ── RIGHT PANEL ── */}
         <div className="relative min-h-[420px] lg:min-h-full overflow-hidden">
-          <Image
-            src="/images/forest2.jpg"
-            alt="Tecnología aeronáutica avanzada"
-            fill
-            priority
-            className="object-cover scale-105"
-            style={{
-              filter: "brightness(0.55) saturate(0.7)",
-            }}
-          />
+          <ThreePlane />
 
           {/* Overlays */}
-          <div className="absolute inset-0 bg-defensya-navy/5" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060d18] via-defensya-navy/20 to-transparent" />
-
-
+          <div className="absolute inset-0 bg-defensya-navy/5 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060d18] via-defensya-navy/10 to-transparent pointer-events-none" />
 
           {/* Grid crosshair lines */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
@@ -334,9 +324,9 @@ export default function ClosingCTA() {
           </div>
 
           {/* Content */}
-          <div className="absolute inset-0 flex items-end z-10">
+          <div className="absolute inset-0 flex items-end z-10 pointer-events-none">
             <div className="p-8 md:p-12 lg:p-16 max-w-xl">
-              {/* HUD corner brackets on content box */}
+              {/* HUD corner brackets */}
               <div className="relative inline-block mb-4">
                 <HUDBracket corner="tl" className="top-0 left-0" />
                 <HUDBracket corner="br" className="bottom-0 right-0" />
@@ -354,7 +344,6 @@ export default function ClosingCTA() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="text-white font-black uppercase leading-tight text-2xl md:text-4xl"
-                
               >
                 Tecnología desarrollada para entornos operacionales críticos
               </motion.h3>

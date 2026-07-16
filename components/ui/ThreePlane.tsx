@@ -6,10 +6,42 @@ const MODEL_PATH = "/models/fighter-jet.glb";
 const MODEL_SCALE = 0.2;
 const MODEL_OFFSET = [-4, 0, 0] as const;
 
+// Escalado responsive  3D model 
+const RESPONSIVE_SCALE_STEPS: { maxWidth: number; scale: number }[] = [
+  { maxWidth: 480, scale: 0.62 }, 
+  { maxWidth: 640, scale: 0.72 }, 
+  { maxWidth: 768, scale: 0.82 }, 
+  { maxWidth: 1024, scale: 0.92 }, 
+  { maxWidth: 1440, scale: 1 }, 
+ 
+];
+
+// Escalado responsive 
+function getResponsiveScale(containerWidth: number, containerHeight: number) {
+  const aspect = containerWidth / containerHeight;
+
+  // Base según ancho real del contenedor
+  let scale: number;
+  if (containerWidth <= 480) scale = 0.62;
+  else if (containerWidth <= 640) scale = 0.72;
+  else if (containerWidth <= 768) scale = 0.82;
+  else if (containerWidth <= 1024) scale = 0.92;
+  else scale = 1;
+
+
+  if (aspect < 1.1) {
+    scale *= 0.78;
+  } else if (aspect < 1.4) {
+    scale *= 0.9;
+  }
+
+  return scale;
+}
+
 export default function ThreePlane() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [status, setStatus] = useState<"loading" | "model" | "fallback">(
-    "loading"
+    "loading",
   );
 
   useEffect(() => {
@@ -24,23 +56,18 @@ export default function ThreePlane() {
       const THREE = await import("three");
 
       const { GLTFLoader } = await import("three/addons/loaders/GLTFLoader.js");
-      const { DRACOLoader } = await import(
-        "three/addons/loaders/DRACOLoader.js"
-      );
+      const { DRACOLoader } =
+        await import("three/addons/loaders/DRACOLoader.js");
       const { RGBELoader } = await import("three/addons/loaders/RGBELoader.js");
 
-      const { EffectComposer } = await import(
-        "three/addons/postprocessing/EffectComposer.js"
-      );
-      const { RenderPass } = await import(
-        "three/addons/postprocessing/RenderPass.js"
-      );
-      const { UnrealBloomPass } = await import(
-        "three/addons/postprocessing/UnrealBloomPass.js"
-      );
-      const { OutputPass } = await import(
-        "three/addons/postprocessing/OutputPass.js"
-      );
+      const { EffectComposer } =
+        await import("three/addons/postprocessing/EffectComposer.js");
+      const { RenderPass } =
+        await import("three/addons/postprocessing/RenderPass.js");
+      const { UnrealBloomPass } =
+        await import("three/addons/postprocessing/UnrealBloomPass.js");
+      const { OutputPass } =
+        await import("three/addons/postprocessing/OutputPass.js");
 
       if (!mounted) return;
 
@@ -86,7 +113,7 @@ export default function ThreePlane() {
         new THREE.Vector2(W(), H()),
         0.75,
         0.5,
-        0.82
+        0.82,
       );
 
       composer.addPass(bloom);
@@ -130,13 +157,18 @@ export default function ThreePlane() {
       const pl = new THREE.Group();
       scene.add(pl);
 
+      const applyResponsiveScale = () => {
+        const scale = getResponsiveScale(W(), H());
+        pl.scale.setScalar(scale);
+      };
+
       // Load Model
       let loaded = false;
 
       try {
         const draco = new DRACOLoader();
         draco.setDecoderPath(
-          "https://www.gstatic.com/draco/versioned/decoders/1.5.6/"
+          "https://www.gstatic.com/draco/versioned/decoders/1.5.6/",
         );
 
         const loader = new GLTFLoader();
@@ -169,6 +201,7 @@ export default function ThreePlane() {
       if (!loaded) {
         buildFallbackJet(pl, THREE);
       }
+      applyResponsiveScale();
 
       // Grid
       const grid = new THREE.GridHelper(80, 40, 0x0c1a2e, 0x0a1525);
@@ -184,6 +217,7 @@ export default function ThreePlane() {
 
         cam.aspect = W() / H();
         cam.updateProjectionMatrix();
+        applyResponsiveScale();
       };
 
       window.addEventListener("resize", onResize);
@@ -319,11 +353,6 @@ export default function ThreePlane() {
         </div>
       )}
 
-      {status !== "loading" && (
-        <div className="absolute bottom-4 right-4 px-2 py-1 rounded text-[10px] border border-blue-900 text-blue-600 bg-[#05080e]/80 uppercase tracking-widest">
-          {status === "model" ? "3D MODEL LOADED" : "GEOMETRIC PREVIEW"}
-        </div>
-      )}
 
       <div className="absolute top-4 left-4 text-[10px] text-blue-900 uppercase tracking-[0.3em]">
         Defensya · Aerospace Division
@@ -338,7 +367,7 @@ export default function ThreePlane() {
 
 function buildFallbackJet(
   pl: import("three").Group,
-  THREE: typeof import("three")
+  THREE: typeof import("three"),
 ) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0x152238,
@@ -375,7 +404,7 @@ function buildFallbackJet(
       color: 0x4a9eff,
       transparent: true,
       opacity: 0.8,
-    })
+    }),
   );
 
   glow.rotation.y = Math.PI / 2;

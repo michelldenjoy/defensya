@@ -1,43 +1,44 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useState, useRef, useCallback } from "react";
 
 interface Division {
-  num: string;
-  tag: string;
+  code: string;
   title: string;
   image: string;
+  role: string;
   desc: string;
 }
 
 const divisions: Division[] = [
   {
-    num: "01",
-    tag: "Def",
+    code: "DFS-DEF",
     title: "Defensa",
     image: "/images/defensa2.jpg",
+    role: "Proyectos complejos del sector defensa",
     desc: "Contamos con un equipo de ingenieros altamente cualificados y con instalaciones preparadas para afrontar proyectos complejos dentro del sector de defensa.",
   },
   {
-    num: "02",
-    tag: "Aeron",
+    code: "DFS-AER",
     title: "Aeronáutica",
     image: "/images/aeronautic.jpg",
+    role: "Sistemas electrónicos y optoelectrónicos",
     desc: "Diseñamos, desarrollamos y fabricamos sistemas electrónicos, optoelectrónicos y mecánicos destinados al sector aeronáutico, integrando tecnología avanzada.",
   },
   {
-    num: "03",
-    tag: "Electr",
+    code: "DFS-ELE",
     title: "Electrónica",
     image: "/images/electronica.webp",
+    role: "Hardware crítico y sistemas embebidos",
     desc: "Expertos en diseño de sistemas embebidos, ingeniería de hardware y desarrollo de software crítico. Creamos soluciones robustas para el tratamiento de señal y control de sistemas.",
   },
   {
-    num: "04",
-    tag: "img. y vid",
+    code: "DFS-IMG",
     title: "Imagen y Vídeo",
     image: "/images/imagevideo.png",
+    role: "Captación y visualización en tiempo real",
     desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real.",
   },
 ];
@@ -50,25 +51,10 @@ function useIsTouchDevice() {
   return isTouch;
 }
 
+const CLIP =
+  "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))";
 
-function Corners({ active }: { active: boolean }) {
-  return (
-    <>
-      <span
-        className={`pointer-events-none absolute top-0 left-0 w-4 h-4 border-t border-l transition-colors duration-300 ${
-          active ? "border-white" : "border-blue-300/50 group-hover:border-white"
-        }`}
-      />
-      <span
-        className={`pointer-events-none absolute bottom-0 right-0 w-4 h-4 border-b border-r transition-colors duration-300 ${
-          active ? "border-white" : "border-blue-300/50 group-hover:border-white"
-        }`}
-      />
-    </>
-  );
-}
-
-function DivisionCard({ item }: { item: Division }) {
+function DivisionCard({ item, index }: { item: Division; index: number }) {
   const isTouch = useIsTouchDevice();
   const [isActive, setIsActive] = useState(false);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
@@ -76,10 +62,7 @@ function DivisionCard({ item }: { item: Division }) {
   const handleTouchStart = useCallback(
     (e: React.TouchEvent) => {
       if (!isTouch) return;
-      touchStartRef.current = {
-        x: e.touches[0].clientX,
-        y: e.touches[0].clientY,
-      };
+      touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     },
     [isTouch]
   );
@@ -89,9 +72,7 @@ function DivisionCard({ item }: { item: Division }) {
       if (!isTouch || !touchStartRef.current) return;
       const dx = Math.abs(e.changedTouches[0].clientX - touchStartRef.current.x);
       const dy = Math.abs(e.changedTouches[0].clientY - touchStartRef.current.y);
-      if (dx < 10 && dy < 10) {
-        setIsActive((prev) => !prev);
-      }
+      if (dx < 10 && dy < 10) setIsActive((p) => !p);
       touchStartRef.current = null;
     },
     [isTouch]
@@ -100,198 +81,145 @@ function DivisionCard({ item }: { item: Division }) {
   const a = isTouch && isActive;
 
   return (
-    <div
-      className="experience-card group relative overflow-hidden bg-black cursor-pointer select-none w-full"
-      style={{
-
-        minHeight: "clamp(320px, 55vw, 460px)",
-        clipPath:
-          "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
-      }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+      className="group relative"
     >
-      {/* Imagen de fondo */}
-      <div
-        className={`absolute inset-0 transition-transform duration-700 ${
-          a ? "scale-105" : "group-hover:scale-105"
-        }`}
-      >
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+    
+      <div className="hidden sm:flex justify-center mb-3">
+        <span
+          className={`w-2 h-2 rotate-45 transition-colors duration-500 ${
+            a ? "bg-defensya-blue" : "bg-white/20 group-hover:bg-defensya-blue"
+          }`}
         />
       </div>
 
-      {/* Texture overlay */}
       <div
-        className={`absolute inset-0 transition-all duration-700 ${
-          a ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-        }`}
-        style={{
-          backgroundImage: "url('/textura5.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-
-      {/* Gradient overlay */}
-      <div
-        className="absolute inset-0 transition-all duration-700"
-        style={{
-          background:
-            "linear-gradient(175deg, rgba(6,13,24,0.6) 60%, rgba(6,13,24,0.92) 100%)",
-        }}
-      />
-
-      {/* Blue tint on hover/tap */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-500 ${
-          a ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-        }`}
-        style={{ background: "rgba(14,165,233,0.08)" }}
-      />
-
-      {/* Corners */}
-      <div className="relative w-full h-full">
-        <Corners active={a} />
-      </div>
-
-      {/* Ghost number */}
-      <span
-        className={`pointer-events-none absolute top-2 right-4 font-mono font-black select-none
-                   transition-colors duration-500 ${
-                     a
-                       ? "text-blue-300/30"
-                       : "text-white/[0.04] group-hover:text-blue-300/30"
-                   }`}
-        style={{ fontSize: "clamp(4rem, 6vw, 6rem)", lineHeight: 1 }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="relative overflow-hidden bg-black cursor-pointer select-none w-full"
+        style={{ minHeight: "clamp(340px, 50vw, 420px)", clipPath: CLIP }}
       >
-        {item.num}
-      </span>
-
-      {/* Tag badge */}
-      <div className="absolute top-5 left-5 z-10">
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.3em] text-blue-300/50 border border-blue-300/50 px-2 py-[3px] uppercase">
-          <span className="w-1 h-1 rounded-full bg-blue-300/50" />
-          {item.tag}
-        </span>
-      </div>
-
-      {/* Tap indicator */}
-      {isTouch && (
+        {/* Image — */}
         <div
-          className={`absolute bottom-4 right-4 z-10 transition-opacity duration-300 ${
-            isActive ? "opacity-0" : "opacity-70"
+          className={`absolute inset-0 transition-all duration-700 ${
+            a ? "grayscale-0 scale-[1.03]" : "grayscale group-hover:grayscale-0 group-hover:scale-[1.03]"
           }`}
         >
-          <span className="text-[11px] font-mono tracking-[0.2em] text-blue-300/70 border border-blue-300/20 px-2 py-1 uppercase">
-            TAP
-          </span>
-        </div>
-      )}
-
-      {/* Content */}
-      <div
-        className={`absolute inset-0 flex flex-col z-10
-          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-          px-5 py-5 sm:p-6
-          ${a ? "justify-center" : "justify-end group-hover:justify-center"}`}
-      >
-        {/* Título */}
-        <h3
-          className={`text-white text-center
-            transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-            ${a ? "translate-y-0 scale-110" : "translate-y-3 group-hover:translate-y-0 group-hover:scale-110"}`}
-          style={{
-            fontSize: "clamp(1.45rem, 3.5vw, 2.6rem)",
-            fontWeight: 700,
-            letterSpacing: "-0.01em",
-            lineHeight: 1.1,
-            textTransform: "uppercase",
-            // Evitar overflow en titulos largos en columnas estrechas
-            wordBreak: "break-word",
-            hyphens: "auto",
-          }}
-          lang="es"
-        >
-          {item.title}
-        </h3>
-
-        {/* Expanding divider */}
-        <div className="my-3 sm:my-4 h-px relative overflow-hidden">
-          <div className="h-full w-full bg-white/10" />
-          <div
-            className={`absolute left-0 top-0 h-full bg-blue-300/50 ${
-              a ? "w-full" : "w-8 group-hover:w-full"
-            }`}
-            style={{
-              transition: "width 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s",
-            }}
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         </div>
 
-        {/* Descripción
-            - Se añade overflow-y-auto con max-h para que en cards muy estrechos
-              el texto no se salga del contenedor sino que se scrollee si hace falta.
-            - El font-size baja a 0.85rem mínimo para acomodar textos largos. */}
-        <p
-          className={`leading-snug text-center
-            transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-75
-            ${
-              a
-                ? "opacity-100 translate-y-0 text-white/90"
-                : "opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:text-white/90"
-            }`}
+        {/* Base gradient  */}
+        <div
+          className="absolute inset-0"
           style={{
-            fontSize: "clamp(0.85rem, 1.6vw, 1.15rem)",
+            background:
+              "linear-gradient(180deg, rgba(6,13,24,0.15) 0%, rgba(6,13,24,0.55) 55%, rgba(6,13,24,0.95) 100%)",
           }}
-        >
-          {item.desc}
-        </p>
+        />
+
+        {/* Blue scan tint on interaction */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-500 mix-blend-overlay ${
+            a ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          }`}
+          style={{ background: "rgba(59,130,246,0.18)" }}
+        />
+
+        {/* Content  */}
+        <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col">
+          <span className="font-mono text-[11px] tracking-[0.25em] text-defensya-blue/80 uppercase mb-2">
+            {item.code}
+          </span>
+
+          <h3 className="text-white font-bold uppercase leading-[1.05] tracking-tight text-[1.6rem] lg:text-[1.9rem] mb-2">
+            {item.title}
+          </h3>
+
+          <p className="text-[13px] text-neutral-400 leading-snug mb-3">
+            {item.role}
+          </p>
+
+          {/* Expandable description */}
+          <div
+            className={`grid transition-all duration-500 ease-out ${
+              a ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            } sm:group-hover:grid-rows-[1fr] sm:group-hover:opacity-100`}
+          >
+            <div className="overflow-hidden">
+              <div className="pt-3 border-t border-white/10">
+                <p className="text-[13px] text-neutral-300 leading-[1.7]">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        {isTouch && (
+          <div
+            className={`absolute top-5 right-5 transition-opacity duration-300 ${
+              a ? "opacity-0" : "opacity-60"
+            }`}
+          >
+            <span className="text-[10px] font-mono tracking-[0.2em] text-defensya-blue border border-defensya-blue/30 px-2 py-1 uppercase">
+              Tocar
+            </span>
+          </div>
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-// ─── Main component ────────────────────────────────────────────────────────
-
 export default function Divisiones() {
   return (
-    <section className="relative pt-16 sm:pt-20 pb-14 sm:pb-26 px-4 sm:px-6 lg:px-16 bg-defensya-navy overflow-hidden">
+    <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-black overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
-
-        <div className="flex items-center gap-3 mb-7 sm:mb-8">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="w-2 h-2 rotate-45 bg-defensya-blue" />
           <span
             className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
-            Áreas de Actividad
+            Áreas de actividad
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-end mb-10 sm:mb-12">
-          <h2
-            className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white"
-            style={{
-              fontSize: "clamp(2.2rem, 5vw, 4rem)",
-            }}
-          >
-            Cuatro divisiones. <br />{" "}
-            <span className="text-white/40 font-light">Un estándar de calidad.</span>
-          </h2>
+        <h2
+          className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white mb-16 sm:mb-20"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
+        >
+          Cuatro sectores. <br />
+          <span className="text-white/40 font-light">Un mismo estándar.</span>
+        </h2>
+
+     
+        <div className="hidden sm:block relative h-px mb-0">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent origin-left"
+          />
         </div>
 
-        {/* Grid: 1 col mobile / 2 col tablet / 4 col desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-          {divisions.map((item) => (
-            <DivisionCard key={item.num} item={item} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+          {divisions.map((item, i) => (
+            <DivisionCard key={item.code} item={item} index={i} />
           ))}
         </div>
       </div>

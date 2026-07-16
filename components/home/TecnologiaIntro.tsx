@@ -3,8 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
-
-
 const E = [0.22, 1, 0.36, 1] as const;
 
 function Reveal({
@@ -56,18 +54,13 @@ function ParallaxNumber({ value, label }: { value: string; label: string }) {
   );
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function TecnologiaIntro() {
   return (
     <div className="w-full">
-      {/* ══════════════════════════════════════════════════════════════════════
-          BLOQUE 1 — ═ */}
+      {/* ═ BLOQUE 1 — ═ */}
       <section className="w-full bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-0 lg:pt-32">
-          {/* Asymmetric headline grid */}
           <div className="grid lg:grid-cols-[1fr_380px]  gap-12 lg:gap-20 items-center pb-20 lg:pb-28">
-            {/* BIG headline */}
             <Reveal delay={0.05}>
               <h2
                 className="text-[clamp(2.3rem,5vw,4.6rem)] font-medium leading-[1.02]
@@ -86,7 +79,7 @@ export default function TecnologiaIntro() {
               </h2>
             </Reveal>
 
-            {/* Right column — body + vertical rule */}
+            {/* Right column  */}
             <Reveal delay={0.15} className="lg:pb-3">
               <div className="border-l-2 border-neutral-900 pl-6 flex flex-col gap-6 ">
                 <p className="text-[14px] lg:text-[17px] text-neutral-600 leading-[1.8]">
@@ -190,7 +183,6 @@ export default function TecnologiaIntro() {
                     03 · El resultado
                   </p>
                   {/* Status */}
-                 
                 </div>
 
                 <div>
@@ -242,7 +234,10 @@ export default function TecnologiaIntro() {
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-36">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0 lg:divide-x lg:divide-white/10">
             <ParallaxNumber value="+20" label="Proyectos Operativos" />
-            <ParallaxNumber value="100% " label="Beneficios reinvertidos en I+D" />
+            <ParallaxNumber
+              value="100% "
+              label="Beneficios reinvertidos en I+D"
+            />
             <ParallaxNumber value="GEN·3" label="Sistema en desarrollo" />
             <ParallaxNumber value="EN 9100" label="Certificación aeronáutica" />
           </div>

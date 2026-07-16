@@ -10,6 +10,9 @@ import Image from "next/image";
 import Link from "next/link";
 import ClosingCTA from "./ClosingCTA";
 import TecnologiaIntro from "./TecnologiaIntro";
+import Intro from "./Intro";
+import Mrtt from "./Mrtt";
+
 
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
@@ -44,7 +47,9 @@ export default function Hometwo() {
 
       {/* ───────── TRUST STRIP ───────── */}
       <section className="py-6 md:py-12 bg-defensya-navy border-y border-slate-800 dark:border-white/5">
+      
         <div className="max-w-7xl mx-auto px-4">
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (
               <div
@@ -62,7 +67,7 @@ export default function Hometwo() {
 
                 {/* Texto */}
                 <div className="flex flex-col justify-center">
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest  text-defensya-steel">
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest  text-slate-500">
                     {item.label}
                   </p>
                   <p className="text-xs sm:text-sm text-white  uppercase leading-tight">
@@ -75,11 +80,15 @@ export default function Hometwo() {
         </div>
       </section>
 
-      <TecnologiaIntro />
+      <Intro />
+      <Mrtt />
+
+     
 
       {/* <CapabilityCards />       */}
       
       <Divisiones />
+      
 
       {/* <TecnologiasSection /> */}
 

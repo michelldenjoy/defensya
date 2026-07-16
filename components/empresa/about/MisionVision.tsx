@@ -1,10 +1,10 @@
 const MisionVision = () => {
   return (
     <section className="relative overflow-hidden bg-[#f6f8fb] dark:bg-[#07101d]">
-      {/* ── Marco perimetral ── */}
+      
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.35)] pointer-events-none" />
 
-      {/* ── Esquinas técnicas ── */}
+      {/* ── Esquinas ── */}
       {(["tl", "tr", "bl", "br"] as const).map((pos) => (
         <CornerMark key={pos} position={pos} />
       ))}
@@ -13,7 +13,7 @@ const MisionVision = () => {
       <div className="relative max-w-7xl mx-auto px-10  pt-12 pb-14">
         {/* ── Columnas Misión / Visión ── */}
         <div className="grid md:grid-cols-2 relative mb-10">
-          {/* Eje divisor */}
+          
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 pointer-events-none">
             <div
               className="absolute inset-y-0 left-0"
@@ -42,7 +42,7 @@ const MisionVision = () => {
               className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
 
             >
-              Misión
+              nuestra
             </span>
             <span
               className="block text-defensya-blue dark:text-defensya-steel leading-[1.1] mb-5"
@@ -54,7 +54,7 @@ const MisionVision = () => {
                 fontFamily: "'Share Tech Mono', monospace",
               }}
             >
-              excelencia técnica en cada proyecto
+              Misión
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
@@ -71,12 +71,12 @@ const MisionVision = () => {
 
           {/* VISIÓN */}
           <div className="pl-0 md:pl-10 lg:pl-16 mt-10 ">
-            {/* <ViewTag label="Vista 2 — Visión" number={2} /> */}
+            
             <span
               className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase"
 
             >
-              Visión
+              nuestra
             </span>
             <span
               className="block text-defensya-blue dark:text-defensya-steel leading-[1.1] mb-5"
@@ -88,7 +88,7 @@ const MisionVision = () => {
               
               }}
             >
-               referente global en sistemas de visión
+               Visión
             </span>
             <div className="w-7 h-px bg-[#0e5fa3] dark:bg-[#4fa8e0] mb-5" />
             <p
