@@ -8,18 +8,21 @@ const stages = [
     kicker: "El reto",
     title: "Diseñar un sistema de visión integral desde cero",
     body: "El A330 MRTT requería gestionar múltiples canales de imagen de forma síncrona, con iluminación activa, compresión en tiempo real y transmisión segura al interior del avión.",
+    frontier: false,
   },
   {
     n: "02",
     kicker: "La solución",
     title: "Sistema GEN·3 — plataforma única integrada",
     body: "Defensya diseñó y fabricó monitores de vídeo, gestión de imagen/audio/datos, iluminación LED y láser de alta potencia, y cámaras de nueva generación en una solución de instalación directa.",
+    frontier: false,
   },
   {
     n: "03",
     kicker: "El resultado",
     title: "Tecnología operativa en múltiples Fuerzas Aéreas",
     body: "El sistema vuela hoy en flotas del A330 MRTT de varias naciones. La 3ª generación, en desarrollo activo, incorpora visión estereoscópica 3D y preparación para automatización A3R®.",
+    frontier: false,
   },
   {
     n: "04",
