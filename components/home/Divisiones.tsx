@@ -137,9 +137,7 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
 
         {/* Content  */}
         <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col">
-          <span className="font-mono text-[11px] tracking-[0.25em] text-defensya-blue/80 uppercase mb-2">
-            {item.code}
-          </span>
+       
 
           <h3 className="text-white font-bold uppercase leading-[1.05] tracking-tight text-[1.6rem] lg:text-[1.9rem] mb-2">
             {item.title}

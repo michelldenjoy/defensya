@@ -13,7 +13,6 @@ import TecnologiaIntro from "./TecnologiaIntro";
 import Intro from "./Intro";
 import Mrtt from "./Mrtt";
 
-
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
 }
@@ -32,7 +31,7 @@ const items = [
   {
     label: "Soberanía",
     value: "Tecnología 100% Europea",
-    icon: "/icons/european.png",
+    icon: "/icons/ue.png",
   },
   {
     label: "Alcance",
@@ -44,12 +43,9 @@ const items = [
 export default function Hometwo() {
   return (
     <main className="w-full bg-white dark:bg-defensya-navy text-gray-900 dark:text-white">
-
       {/* ───────── TRUST STRIP ───────── */}
       <section className="py-6 md:py-12 bg-defensya-navy border-y border-slate-800 dark:border-white/5">
-      
         <div className="max-w-7xl mx-auto px-4">
-          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 md:gap-6 items-center">
             {items.map((item) => (
               <div
@@ -82,24 +78,16 @@ export default function Hometwo() {
 
       <Intro />
       <Mrtt />
-
-     
-
       {/* <CapabilityCards />       */}
-      
+
       <Divisiones />
-      
 
       {/* <TecnologiasSection /> */}
 
       <Rule />
 
+      <ClosingCTA />
 
-<ClosingCTA />
-
-
-
-    
       {/* <section className="">
         <div className="grid sm:grid-cols-2">
          
@@ -151,68 +139,6 @@ export default function Hometwo() {
           </div>
         </div>
       </section> */}
-
-      {/* <div className="relative overflow-hidden  h-[420px] w-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/turbine.mp4" type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(11, 31, 56, 0.62)" }}
-        />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/60 via-defensya-blue/20 to-transparent" />
-
-        <div className="relative z-10 h-full px-5 sm:px-8 lg:px-16 py-12 sm:py-16 max-w-7xl mx-auto flex flex-col justify-between">
-          <div>
-            <span
-              className="pointer-events-none select-none font-mono font-black hidden sm:block leading-none mb-2"
-              style={{ fontSize: "5rem", color: "rgba(255,255,255,0.04)" }}
-            >
-              DSY
-            </span>
-            <span className="text-white text-2xl uppercase font-bold">
-              Nuestro Compromiso{" "}
-            </span>
-            <p className="text-md sm:text-base lg:text-xl text-gray-300 leading-relaxed font-light max-w-5xl">
-              No solo fabricamos tecnología;{" "}
-              <span className="text-white font-medium">
-                entregamos la fiabilidad operativa necesaria para que
-                organizaciones globales operen en entornos críticos.
-              </span>{" "}
-              En{" "}
-              <span className="text-defensya-steel font-semibold">
-                Defensya
-              </span>
-              , la excelencia técnica se rige por estándares de calidad
-              internacionales, garantizando la seguridad en el futuro de la
-              exploración y la defensa global.
-            </p>
-            <div className="flex items-center gap-4 mt-6">
-              <div className="h-px w-10 bg-defensya-blue/50" />
-              <span
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "9px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  color: "rgb(107 114 128)",
-                }}
-              >
-                Defensya · Ingeniería Internacional
-              </span>
-              <div className="h-px flex-1 bg-white/[0.06]" />
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
-      </div> */}
 
       <Rule />
     </main>

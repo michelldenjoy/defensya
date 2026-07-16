@@ -79,7 +79,7 @@ export default function Refueling() {
       <section
         className="relative px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24"
         style={{
-          backgroundColor: "var(--bg-intro, #060d18)",
+          backgroundColor: "var(--bg-intro, #0a1128)",
           paddingBottom: "8rem",
           zIndex: 2,
           position: "relative",

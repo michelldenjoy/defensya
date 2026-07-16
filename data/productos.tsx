@@ -17,7 +17,7 @@ export const PRODUCTOS: Producto[] = [
     categoria: "Vision",
     descripcion:
       "Sistema integrado en el BEVS para la optimización de la visión estereoscópica en operaciones de reabastecimiento en vuelo.",
-    imagen:[ "/products/mirror2.jpeg", "/products/mirror.jpeg"],
+    imagen: ["/products/mirror2.jpeg", "/products/mirror.jpeg"],
     detalles: [
       "Elimina problemas de 'ghosting' y distorsiones visuales",
       "Permite al operador (ARO) una percepción de profundidad real",
@@ -309,7 +309,6 @@ export const PRODUCTOS: Producto[] = [
       "/products/tactical.png",
       "/products/tactical2.png",
       "/products/tactical3.jpg",
-   
     ],
     detalles: [
       "Procesador Intel Core i7 10th Gen y hasta 16GB DDR4",
