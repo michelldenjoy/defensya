@@ -26,7 +26,6 @@ const experienceItems = [
     tag: "AI / DATA",
     desc: "Expertos en redes neuronales, sistemas de aprendizaje, Inteligencia Artificial, seguridad y análisis de datos avanzado.",
     image: "/images/ai.jpg",
-    
   },
 ];
 
@@ -58,17 +57,17 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         y: e.touches[0].clientY,
       };
     },
-    [isTouch]
+    [isTouch],
   );
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       if (!isTouch || !touchStartRef.current) return;
       const dx = Math.abs(
-        e.changedTouches[0].clientX - touchStartRef.current.x
+        e.changedTouches[0].clientX - touchStartRef.current.x,
       );
       const dy = Math.abs(
-        e.changedTouches[0].clientY - touchStartRef.current.y
+        e.changedTouches[0].clientY - touchStartRef.current.y,
       );
       // Solo toggle si no hubo scroll (desplazamiento < 10px)
       if (dx < 10 && dy < 10) {
@@ -76,7 +75,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
       }
       touchStartRef.current = null;
     },
-    [isTouch]
+    [isTouch],
   );
 
   // En desktop se usa group-hover via CSS; en touch usamos clase condicional
@@ -112,7 +111,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
           backgroundImage: "url('/textura5.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          
         }}
       />
 
@@ -122,14 +120,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
         style={{
           background:
             "linear-gradient(175deg, rgba(6,13,24,0.6) 60%, rgba(6,13,24,0.92) 100%)",
-            
         }}
       />
 
       {/* Hover tint */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 touch-active-opacity transition-opacity duration-500"
-        style={{ background: "rgba(14,165,233,0.08)", }}
+        style={{ background: "rgba(14,165,233,0.08)" }}
       />
 
       {/* Corner brackets */}
@@ -141,7 +138,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
       {/* Ghost number */}
       <span
         className="absolute top-4 right-5 font-mono font-black text-white/5 group-hover:text-[#0ea5e9]/10 touch-active-num transition-colors duration-500"
-        style={{ fontSize: "clamp(4rem, 12vw, 7rem)", lineHeight: 1,   }}
+        style={{ fontSize: "clamp(4rem, 12vw, 7rem)", lineHeight: 1 }}
       >
         {item.num}
       </span>
@@ -184,7 +181,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ item, index }) => {
             ${isTouch && isActive ? "!translate-y-0 !scale-110" : ""}
           `}
           style={{
-
             fontSize: "clamp(1.6rem, 4.5vw, 2.6rem)",
             fontWeight: 700,
             letterSpacing: "-0.01em",
@@ -244,28 +240,19 @@ const QuienesSomos = () => {
       <MisionVision />
 
       {/* ─────────── EXPERIENCIA ─────────── */}
-      <section className="relative pt-20 pb-16 sm:pb-22 px-4 sm:px-8 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
-        {/* Ghost grid */}
+      <section className="relative sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
-
-        <div className="max-w relative">
-          {/* Section header */}
-          <div className="my-8 text-center pb-8 px-4">
+        <div className="max-w-7xl mx-auto relative">
+          <div className="flex items-center gap-3 mb-8">
             <div>
               <p className="text-[14px] font-mono tracking-[0.30em] text-slate-400 uppercase mb-3"></p>
-               
+
               <h2
-                className="leading-[0.9] tracking-[-0.02em]"
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 4rem)",
-                  textTransform: "uppercase",
-                  fontFamily: "'Share Tech Mono', monospace",
-                }}
+                className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white mb-16 sm:mb-20"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
               >
-                <span className="font-bold text-gray-100">Nuestra </span>
-                <em className="text-white/50" style={{ fontWeight: 200 }}>
-                  Experiencia
-                </em>
+                Nuestra <br />
+                <span className="text-white/40 font-light">Experiencia.</span>
               </h2>
             </div>
 
@@ -284,15 +271,15 @@ const QuienesSomos = () => {
           </div>
 
           {/* Cards grid — 1 col mobile, 2 col tablet, 3 col desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
-                          style={{
-
-                            fontFamily: "'Share Tech Mono', monospace",
-                          }}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
+            style={{
+              fontFamily: "'Share Tech Mono', monospace",
+            }}
+          >
             {experienceItems.map((item, i) => (
               <ExperienceCard key={item.num} item={item} index={i} />
             ))}
-            
           </div>
         </div>
       </section>

@@ -3,20 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const MODEL_PATH = "/models/mrtt.glb";
-// El MRTT es un avión de fuselaje ancho: necesita más escala base que el caza
-// para leerse con el mismo peso visual en pantalla.
-const MODEL_SCALE = 0.34;
-const MODEL_OFFSET = [-4, 0, 0] as const;
-// Eleva el avión dentro del canvas para que quede "flotando" con más aire
-// por encima del texto que se superpone en la parte inferior del panel
-// (ver ClosingCTA). Sube este valor para subir más el avión, bájalo para
-// acercarlo al centro.
-const MODEL_VERTICAL_OFFSET = 3.4;
 
-// Escalado responsive  3D model 
-// Se añaden tramos para pantallas grandes (>1024px) porque antes el escalado
-// se quedaba fijo en 1 a partir de ese punto, y el modelo no crecía más
-// aunque el contenedor fuera mucho más ancho (monitores grandes, 2K/4K).
+const MODEL_SCALE = 0.36;
+const MODEL_OFFSET = [-4, 0, 0] as const;
+// Eleva el avión
+const MODEL_VERTICAL_OFFSET = 3.0;
+
+
 const RESPONSIVE_SCALE_STEPS: { maxWidth: number; scale: number }[] = [
   { maxWidth: 480, scale: 0.68 }, 
   { maxWidth: 640, scale: 0.8 }, 
@@ -31,7 +24,7 @@ const RESPONSIVE_SCALE_STEPS: { maxWidth: number; scale: number }[] = [
 function getResponsiveScale(containerWidth: number, containerHeight: number) {
   const aspect = containerWidth / containerHeight;
 
-  // Base según ancho real del contenedor
+  // Base según ancho del contenedor
   let scale: number;
   if (containerWidth <= 480) scale = 0.95;
   else if (containerWidth <= 640) scale = 0.8;
@@ -173,9 +166,7 @@ export default function ThreePlane() {
       const applyResponsiveScale = () => {
         const scale = getResponsiveScale(W(), H());
         pl.scale.setScalar(scale);
-        // La elevación escala junto al tamaño del avión: así en móvil (donde
-        // el modelo es más pequeño) sube proporcionalmente menos, y en
-        // pantallas grandes mantiene el mismo "aire" relativo sobre el texto.
+
         pl.position.y = MODEL_VERTICAL_OFFSET * scale;
       };
 
@@ -241,10 +232,7 @@ export default function ThreePlane() {
 
       cleanups.push(() => window.removeEventListener("resize", onResize));
 
-      // ==================================================
-      // 360º MOUSE CONTROL
-      // ==================================================
-
+      // ======================== 360º MOUSE CONTROL //
       let targetY = 0;
       let targetX = 0;
 
@@ -277,7 +265,7 @@ export default function ThreePlane() {
         // vertical
         targetX += dy * 0.01;
 
-        // limitar vertical para no voltear raro
+        // limitar vertical 
         targetX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, targetX));
       };
 
@@ -378,9 +366,8 @@ export default function ThreePlane() {
   );
 }
 
-// ======================================================
-// FALLBACK TANKER (A330 MRTT / KC-45 style)
-// ======================================================
+// ========== FALLBACK TANKER (A330 MRTT / KC-45 style)
+
 
 function buildFallbackTanker(
   pl: import("three").Group,
@@ -392,7 +379,7 @@ function buildFallbackTanker(
     roughness: 0.35,
   });
 
-  // Fuselaje: más ancho y largo que el caza, propio de un avión de fuselaje ancho
+
   const body = new THREE.Mesh(
     new THREE.CylinderGeometry(1.6, 1.9, 22, 16),
     mat,
@@ -406,19 +393,19 @@ function buildFallbackTanker(
   nose.position.x = 13;
   pl.add(nose);
 
-  // Cola cónica trasera
+  // Cola trasera
   const tailCone = new THREE.Mesh(new THREE.ConeGeometry(1.9, 5, 16), mat);
   tailCone.rotation.z = Math.PI / 2;
   tailCone.position.x = -13.5;
   pl.add(tailCone);
 
-  // Alas amplias tipo avión comercial/cisterna
+  // Alas 
   const wingGeo = new THREE.BoxGeometry(7, 0.25, 30);
   const wings = new THREE.Mesh(wingGeo, mat);
   wings.position.set(-1, -0.5, 0);
   pl.add(wings);
 
-  // Motores bajo las alas (dos, como el A330)
+  // Motores bajo las alas 
   const engineGeo = new THREE.CylinderGeometry(1, 1, 5, 12);
 
   const engineL = new THREE.Mesh(engineGeo, mat);
@@ -441,7 +428,7 @@ function buildFallbackTanker(
   fin.position.set(-12, 3.5, 0);
   pl.add(fin);
 
-  // Pértiga de repostaje (boom) característica del KC-45 / MRTT
+  // Pértiga de repostaje 
   const boom = new THREE.Mesh(
     new THREE.CylinderGeometry(0.15, 0.15, 6, 8),
     mat,
@@ -450,7 +437,7 @@ function buildFallbackTanker(
   boom.position.set(-13, -2.5, 0);
   pl.add(boom);
 
-  // Luz de posición trasera (referencia visual, igual que el glow del caza)
+  // Luz de posición trasera 
   const glow = new THREE.Mesh(
     new THREE.CircleGeometry(0.8, 32),
     new THREE.MeshBasicMaterial({

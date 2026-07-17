@@ -62,20 +62,27 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
   const handleTouchStart = useCallback(
     (e: React.TouchEvent) => {
       if (!isTouch) return;
-      touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
     },
-    [isTouch]
+    [isTouch],
   );
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       if (!isTouch || !touchStartRef.current) return;
-      const dx = Math.abs(e.changedTouches[0].clientX - touchStartRef.current.x);
-      const dy = Math.abs(e.changedTouches[0].clientY - touchStartRef.current.y);
+      const dx = Math.abs(
+        e.changedTouches[0].clientX - touchStartRef.current.x,
+      );
+      const dy = Math.abs(
+        e.changedTouches[0].clientY - touchStartRef.current.y,
+      );
       if (dx < 10 && dy < 10) setIsActive((p) => !p);
       touchStartRef.current = null;
     },
-    [isTouch]
+    [isTouch],
   );
 
   const a = isTouch && isActive;
@@ -88,7 +95,6 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
       className="group relative"
     >
-    
       <div className="hidden sm:flex justify-center mb-3">
         <span
           className={`w-2 h-2 rotate-45 transition-colors duration-500 ${
@@ -106,7 +112,9 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
         {/* Image — */}
         <div
           className={`absolute inset-0 transition-all duration-700 ${
-            a ? "grayscale-0 scale-[1.03]" : "grayscale group-hover:grayscale-0 group-hover:scale-[1.03]"
+            a
+              ? "grayscale-0 scale-[1.03]"
+              : "grayscale group-hover:grayscale-0 group-hover:scale-[1.03]"
           }`}
         >
           <Image
@@ -137,8 +145,6 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
 
         {/* Content  */}
         <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col">
-       
-
           <h3 className="text-white font-bold uppercase leading-[1.05] tracking-tight text-[1.6rem] lg:text-[1.9rem] mb-2">
             {item.title}
           </h3>
@@ -163,7 +169,6 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
           </div>
         </div>
 
-      
         {isTouch && (
           <div
             className={`absolute top-5 right-5 transition-opacity duration-300 ${
@@ -184,7 +189,6 @@ export default function Divisiones() {
   return (
     <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-black overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative">
         <div className="flex items-center gap-3 mb-8">
           <span className="w-2 h-2 rotate-45 bg-defensya-blue" />
@@ -204,7 +208,6 @@ export default function Divisiones() {
           <span className="text-white/40 font-light">Un mismo estándar.</span>
         </h2>
 
-     
         <div className="hidden sm:block relative h-px mb-0">
           <motion.div
             initial={{ scaleX: 0 }}
