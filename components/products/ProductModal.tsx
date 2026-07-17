@@ -102,7 +102,7 @@ export default function ProductModal({
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Brackets de Enfoque */}
+                {/* Brackets */}
                 <div className="absolute inset-8 border border-white/10 pointer-events-none">
                   <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-defensya-blue/40" />
                   <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-defensya-blue/40" />

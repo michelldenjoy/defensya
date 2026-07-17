@@ -2,7 +2,7 @@
 
 export default function ProductIntro() {
   return (
-    <section className="relative w-full bg-[#060d18] border-b border-[rgba(14,165,233,0.12)] px-5 sm:px-8 lg:px-16 py-14 sm:py-20 overflow-hidden">
+    <section className="relative w-full bg-defensya-navy border-b border-[rgba(14,165,233,0.12)] px-5 sm:px-8 lg:px-16 py-14 sm:py-20 overflow-hidden">
       {/* Marco perimetral */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.12)] pointer-events-none" />
 

@@ -123,7 +123,7 @@ export default function HaptixIntro() {
               El sistema tradicional de reabastecimiento aéreo exige el uso de
               ambas manos mediante dos joysticks separados, limitando al
               operador y aumentando la fatiga y el error humano en misiones
-              prolongadas. Haptix resuelve esto permitiendo controlar el boom
+              prolongadas. Haptix resuelve esto permitiendo controlar el Boom
               con una sola mano, con retroalimentación háptica intuitiva que
               reduce el tiempo de contacto, minimiza incidentes y libera la
               segunda mano para la gestión de otros sistemas críticos,
@@ -140,7 +140,7 @@ export default function HaptixIntro() {
                 className="text-white"
                 style={{
                   fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
                 }}

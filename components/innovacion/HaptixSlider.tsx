@@ -74,7 +74,7 @@ function SecRule({ label, dark = true }: { label: string; dark?: boolean }) {
         className={dark ? "text-white" : "text-black/30"}
         style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: "14px",
+          fontSize: "12px",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
         }}

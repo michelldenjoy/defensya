@@ -10,7 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import ThreePlane from "../ui/ThreePlane";
+import Threemrtt from "../ui/Threemrtt";
 
 
 const stats = [
@@ -311,7 +311,7 @@ export default function ClosingCTA() {
 
         {/* ── RIGHT PANEL ── */}
         <div className="relative min-h-[420px] lg:min-h-full overflow-hidden">
-          <ThreePlane />
+          <Threemrtt />
 
           {/* Overlays */}
           <div className="absolute inset-0 bg-defensya-navy/5 pointer-events-none" />
@@ -343,7 +343,7 @@ export default function ClosingCTA() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-white font-black uppercase leading-tight text-2xl md:text-4xl"
+                className="text-white font-black uppercase leading-tight text-2xl md:text-4xl "
               >
                 Tecnología desarrollada para entornos operacionales críticos
               </motion.h3>

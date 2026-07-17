@@ -69,7 +69,7 @@ export default function ProductosPage() {
         {/* ── ASIDE ── */}
         <aside
           className="w-full lg:w-64 shrink-0 px-6 py-8 lg:px-8 lg:py-10
-                     bg-[#060d18] border-r border-[rgba(14,165,233,0.1)]
+                     bg-defensya-navy border-r border-[rgba(14,165,233,0.1)]
                      lg:sticky lg:top-0 lg:h-screen lg:flex lg:flex-col"
         >
 
@@ -626,7 +626,7 @@ function ProductModal({
               </div>
 
               {/* ═══ RIGHT — NAVY ═══ */}
-              <div className="bg-[#060d18] flex flex-col md:h-full md:min-h-0">
+              <div className="bg-defensya-navy flex flex-col md:h-full md:min-h-0">
 
                 <div className="flex items-center justify-between px-5 py-3 shrink-0
                                 border-b border-[rgba(14,165,233,0.1)]">
