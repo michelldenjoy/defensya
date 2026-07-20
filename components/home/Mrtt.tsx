@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const stages = [
@@ -35,6 +36,52 @@ const stages = [
   },
 ] as const;
 
+function MRTTImagePanel() {
+  return (
+    <div className="relative mb-20 lg:mb-28">
+      {/* corner  */}
+      <span className="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-defensya-blue/60 pointer-events-none z-10" />
+      <span className="absolute -top-3 -right-3 w-8 h-8 border-t border-r border-defensya-blue/60 pointer-events-none z-10" />
+      <span className="absolute -bottom-3 -left-3 w-8 h-8 border-b border-l border-defensya-blue/60 pointer-events-none z-10" />
+      <span className="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-defensya-blue/60 pointer-events-none z-10" />
+
+      <div
+        className="relative overflow-hidden border border-white/10 bg-black/40"
+        style={{
+          clipPath:
+            "polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px))",
+        }}
+      >
+        <div className="relative aspect-[16/9] lg:aspect-[21/9]">
+          <Image
+            src="/a330.avif"
+            alt="Airbus A330 MRTT en operación de reabastecimiento aéreo"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={false}
+          />
+          
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/40 via-transparent to-transparent" />
+        </div>
+
+        
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-[#060d18]/80 px-5 py-4 backdrop-blur-sm">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rotate-45 bg-defensya-blue" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-300">
+              A330 MRTT
+            </span>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function MRTTCaseSection() {
   return (
     <section className="w-full bg-[#060d18] overflow-hidden relative">
@@ -44,7 +91,7 @@ export default function MRTTCaseSection() {
           <div className="flex items-center gap-3 mb-8">
             <span className="w-2 h-2 rotate-45 bg-defensya-blue" />
             <span className="font-mono text-[11px] tracking-[0.3em] text-neutral-500 uppercase">
-              Caso de referencia · DFS-MRTT-VIS·003
+              Caso de referencia · DFS-MRTT
             </span>
           </div>
 
@@ -54,9 +101,12 @@ export default function MRTTCaseSection() {
           </h2>
         </div>
 
+        
+        <MRTTImagePanel />
+
         {/* Timeline */}
         <div className="relative pl-8 lg:pl-12">
-          {/* Vertical trace line */}
+        
           <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
 
           {stages.map((s, i) => (
@@ -71,13 +121,13 @@ export default function MRTTCaseSection() {
                           ${i !== stages.length - 1 ? "border-b border-white/[0.06]" : ""}
                           ${s.frontier ? "border-t border-defensya-blue/30 mt-4 pt-14" : ""}`}
             >
-              {/* Node on the trace line */}
+              {/* Node */}
               <span
                 className={`absolute -left-8 lg:-left-12 top-12 w-[9px] h-[9px] -translate-x-1/2 rotate-45
                             ${s.frontier ? "bg-defensya-blue" : "bg-white/40"}`}
               />
 
-              {/* Number + kicker */}
+             
               <div className="flex lg:flex-col gap-3 lg:gap-2 items-baseline lg:items-start">
                 <span
                   className={`font-mono text-[13px] tracking-wider
@@ -90,7 +140,7 @@ export default function MRTTCaseSection() {
                 </span>
               </div>
 
-              {/* HREF explorar */}
+             
               <div className="max-w-2xl">
                 <h3 className="text-[19px] lg:text-[22px] font-medium text-white leading-snug tracking-tight mb-3">
                   {s.title}

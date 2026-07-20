@@ -1,15 +1,9 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+
 import Divisiones from "./Divisiones";
-import HeroSection from "./HeroSection";
-import TecnologiasSection from "./TecnologiaSection";
-import CapabilityCards from "./CapabilityCards";
 import Image from "next/image";
-import Link from "next/link";
 import ClosingCTA from "./ClosingCTA";
-import TecnologiaIntro from "./TecnologiaIntro";
 import Intro from "./Intro";
 import Mrtt from "./Mrtt";
 
@@ -52,7 +46,7 @@ export default function Hometwo() {
                 key={item.label}
                 className="flex items-center gap-3 justify-center"
               >
-                {/* Icono */}
+                
                 <Image
                   src={item.icon}
                   alt={item.label}
@@ -61,7 +55,6 @@ export default function Hometwo() {
                   className="shrink-0 opacity-90 brightness-0 invert"
                 />
 
-                {/* Texto */}
                 <div className="flex flex-col justify-center">
                   <p className="text-[9px] sm:text-[10px] uppercase tracking-widest  text-slate-500">
                     {item.label}
