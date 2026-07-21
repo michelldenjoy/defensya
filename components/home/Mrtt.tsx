@@ -50,6 +50,7 @@ function MRTTImagePanel() {
         style={{
           clipPath:
             "polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px))",
+            
         }}
       >
         <div className="relative aspect-[16/9] lg:aspect-[21/9]">

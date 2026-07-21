@@ -9,22 +9,19 @@ const MODEL_OFFSET = [-4, 0, 0] as const;
 // Eleva el avión
 const MODEL_VERTICAL_OFFSET = 3.0;
 
-
 const RESPONSIVE_SCALE_STEPS: { maxWidth: number; scale: number }[] = [
-  { maxWidth: 480, scale: 0.68 }, 
-  { maxWidth: 640, scale: 0.8 }, 
-  { maxWidth: 768, scale: 0.92 }, 
-  { maxWidth: 1024, scale: 1.05 }, 
-  { maxWidth: 1440, scale: 1.2 }, 
-  { maxWidth: 1920, scale: 1.32 }, 
- 
+  { maxWidth: 480, scale: 0.68 },
+  { maxWidth: 640, scale: 0.8 },
+  { maxWidth: 768, scale: 0.92 },
+  { maxWidth: 1024, scale: 1.05 },
+  { maxWidth: 1440, scale: 1.2 },
+  { maxWidth: 1920, scale: 1.32 },
 ];
 
-// Escalado responsive 
+// Escalado responsive
 function getResponsiveScale(containerWidth: number, containerHeight: number) {
   const aspect = containerWidth / containerHeight;
 
-  // Base según ancho del contenedor
   let scale: number;
   if (containerWidth <= 480) scale = 0.95;
   else if (containerWidth <= 640) scale = 0.8;
@@ -33,7 +30,6 @@ function getResponsiveScale(containerWidth: number, containerHeight: number) {
   else if (containerWidth <= 1440) scale = 1.2;
   else if (containerWidth <= 1920) scale = 1.42;
   else scale = 1.42;
-
 
   if (aspect < 1.1) {
     scale *= 0.78;
@@ -49,6 +45,7 @@ export default function ThreePlane() {
   const [status, setStatus] = useState<"loading" | "model" | "fallback">(
     "loading",
   );
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -108,8 +105,8 @@ export default function ThreePlane() {
 
       // Camera
       const cam = new THREE.PerspectiveCamera(42, W() / H(), 0.1, 500);
-      cam.position.set(0, 5, 36);
-      cam.lookAt(0, 0, 0);
+      cam.position.set(9, 15, 30);
+      cam.lookAt(-3, 0, 0);
 
       // Composer
       const composer = new EffectComposer(renderer);
@@ -244,6 +241,7 @@ export default function ThreePlane() {
         isDragging = true;
         lastX = e.clientX;
         lastY = e.clientY;
+        setHasInteracted(true);
       };
 
       const onUp = () => {
@@ -265,7 +263,7 @@ export default function ThreePlane() {
         // vertical
         targetX += dy * 0.01;
 
-        // limitar vertical 
+        // limitar vertical
         targetX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, targetX));
       };
 
@@ -287,6 +285,7 @@ export default function ThreePlane() {
         const t = e.touches[0];
         touchLastX = t.clientX;
         touchLastY = t.clientY;
+        setHasInteracted(true);
       };
 
       const onTouchMove = (e: TouchEvent) => {
@@ -358,16 +357,44 @@ export default function ThreePlane() {
         </div>
       )}
 
-
       <div className="absolute top-4 left-4 text-[10px] text-blue-900 uppercase tracking-[0.3em]">
         Defensya · Aerospace Division
       </div>
+      {status === "model" && !hasInteracted && (
+        <div className="absolute top-4 right-4 flex items-center border px-2 py-1 gap-2 text-blue-400 pointer-events-none animate-pulse">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            className="text-blue-400"
+          >
+            <path
+              d="M21 12a9 9 0 1 1-3-6.7"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M21 3v6h-6"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span
+            className="text-[10px]  uppercase tracking-[0.2em] text-blue-400 "
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          >
+            Rotate
+          </span>
+        </div>
+      )}
     </div>
   );
 }
 
 // ========== FALLBACK TANKER (A330 MRTT / KC-45 style)
-
 
 function buildFallbackTanker(
   pl: import("three").Group,
@@ -378,7 +405,6 @@ function buildFallbackTanker(
     metalness: 0.9,
     roughness: 0.35,
   });
-
 
   const body = new THREE.Mesh(
     new THREE.CylinderGeometry(1.6, 1.9, 22, 16),
@@ -399,13 +425,13 @@ function buildFallbackTanker(
   tailCone.position.x = -13.5;
   pl.add(tailCone);
 
-  // Alas 
+  // Alas
   const wingGeo = new THREE.BoxGeometry(7, 0.25, 30);
   const wings = new THREE.Mesh(wingGeo, mat);
   wings.position.set(-1, -0.5, 0);
   pl.add(wings);
 
-  // Motores bajo las alas 
+  // Motores bajo las alas
   const engineGeo = new THREE.CylinderGeometry(1, 1, 5, 12);
 
   const engineL = new THREE.Mesh(engineGeo, mat);
@@ -428,7 +454,7 @@ function buildFallbackTanker(
   fin.position.set(-12, 3.5, 0);
   pl.add(fin);
 
-  // Pértiga de repostaje 
+  // Pértiga de repostaje
   const boom = new THREE.Mesh(
     new THREE.CylinderGeometry(0.15, 0.15, 6, 8),
     mat,
@@ -437,17 +463,5 @@ function buildFallbackTanker(
   boom.position.set(-13, -2.5, 0);
   pl.add(boom);
 
-  // Luz de posición trasera 
-  const glow = new THREE.Mesh(
-    new THREE.CircleGeometry(0.8, 32),
-    new THREE.MeshBasicMaterial({
-      color: 0x4a9eff,
-      transparent: true,
-      opacity: 0.8,
-    }),
-  );
 
-  glow.rotation.y = Math.PI / 2;
-  glow.position.x = -14;
-  pl.add(glow);
 }

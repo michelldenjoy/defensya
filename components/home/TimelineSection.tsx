@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-
 const HITOS = [
   {
     year: "2006",
@@ -82,14 +81,13 @@ function useVisible(threshold = 0.15) {
           obs.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
   return { ref, visible };
 }
-
 
 function MilestoneRow({
   hito,
@@ -125,7 +123,6 @@ function MilestoneRow({
       <h3
         className="text-[#0b1f38] dark:text-[#ccdcee] font-bold uppercase leading-[.95] tracking-[-0.01em] mb-4"
         style={{
-          
           fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
         }}
       >
@@ -227,10 +224,7 @@ export default function TimelineSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section
-      className="relative bg-white dark:bg-[#07101d] border-t border-[rgba(14,95,163,0.18)]"
-      
-    >
+    <section className="relative bg-white dark:bg-[#07101d] border-t border-[rgba(14,95,163,0.18)]">
       {/* ── Marco  ── */}
       <div className="absolute inset-[14px] border border-[rgba(14,95,163,0.1)] pointer-events-none" />
       {/* Esquinas */}
@@ -242,17 +236,13 @@ export default function TimelineSection() {
       <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-14 pb-16">
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-10">
-
           {/* Gema inicial */}
           {/* <span
             className="w-[6px] h-[6px] bg-[#0e5fa3] shrink-0"
             style={{ transform: "rotate(45deg)" }}
           /> */}
-          <span
-            className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase "
-
-          >
-            Trayectoria · Defensya Systems 
+          <span className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase ">
+            Trayectoria · Defensya Systems
           </span>
           <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
 
@@ -268,17 +258,17 @@ export default function TimelineSection() {
           {/* LEFT — */}
           <div className="flex flex-col justify-between pr-0 md:pr-12 pb-10 md:pb-0">
             <h2
-              className=" uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
-              style={{ fontSize: "clamp(3rem, 5.5vw, 4.4rem)" }}
+              className="uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
+              style={{
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontSize: "clamp(3rem, 5.5vw, 4.4rem)",
+              }}
             >
-              <span className="text-defensya-blue font-bold ">19 años</span>
+              <span className="text-defensya-blue font-bold">19 años</span>
               <br />
-              <em
-                className="font-light text-[rgba(11,31,56,0.35)] dark:text-[rgba(200,220,238,0.3)]"
-                style={{ fontStyle: "italic" }}
-              >
+              <span className="font-light text-[rgba(11,31,56,0.45)] dark:text-[rgba(200,220,238,0.4)]">
                 construyendo
-              </em>
+              </span>
               <br />
               el futuro
               <br />
@@ -326,14 +316,12 @@ export default function TimelineSection() {
               className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
                          pb- mb-4 text-slate-800 dark:text-[rgba(200,220,238,0.35)]"
               style={{
-              
                 fontSize: "14px",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
             >
               <span>Nuestra Trayectoria</span>
-  
             </div>
 
             {/* Cuerpo de texto */}
@@ -348,7 +336,6 @@ export default function TimelineSection() {
               autónoma de hoy, cada hito ha sido una respuesta directa a un
               desafío real de la aeronáutica y la defensa.
               <br />
-              
               <strong className="text-[#0b1f38] dark:text-[#ccdcee] font-semibold">
                 Descubre la historia de ingeniería que nos define.
               </strong>
@@ -398,7 +385,6 @@ export default function TimelineSection() {
               isOpen={isOpen}
             />
           ))}
-
 
           <div
             className="flex items-center justify-between py-5 border-t border-[rgba(14,95,163,0.1)]"
