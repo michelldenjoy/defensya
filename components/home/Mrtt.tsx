@@ -96,7 +96,12 @@ export default function MRTTCaseSection() {
             </span>
           </div>
 
-          <h2 className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white">
+          <h2 className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white"
+                style={{
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: "0.005em",
+                }}>
             Operamos en el{" "}
             <span className="text-defensya-blue">A330 MRTT.</span>
           </h2>

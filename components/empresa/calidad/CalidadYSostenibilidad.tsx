@@ -175,7 +175,9 @@ function ObjetivosValoresTabs() {
         ))}
       </div>
 
-      {/* Objetivos */}
+      {/* Objetivos       style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                fontFamily: "'Barlow Condensed', sans-serif"
+               }} */}
       {tab === "objetivos" && (
         <div className="border-t border-white/[0.06]">
           {objetivosCalidad.map((item, i) => (
@@ -186,7 +188,7 @@ function ObjetivosValoresTabs() {
               <span
                 className="shrink-0 pt-0.5 w-6 text-defensya-blue"
                 style={{
-                  fontFamily: "'Share Tech Mono', monospace",
+                  fontFamily: "'Share Tech Mono', monospace", 
                   fontSize: "11px",
                   letterSpacing: "0.1em",
                 }}
@@ -473,7 +475,10 @@ export default function CalidadYSostenibilidad() {
             <div>
               <h1
                 className="font-bold uppercase leading-[0.92] tracking-[-0.045em] text-gray-900 dark:text-white mb-6"
-                style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)" }}
+                style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
+                  fontFamily: "'Barlow Condensed', sans-serif", 
+                  letterSpacing: "0.005em"
+                 }}
               >
                 Compromiso en
                 <br />

@@ -357,9 +357,6 @@ export default function ThreePlane() {
         </div>
       )}
 
-      <div className="absolute top-4 left-4 text-[10px] text-blue-900 uppercase tracking-[0.3em]">
-        Defensya · Aerospace Division
-      </div>
       {status === "model" && !hasInteracted && (
         <div className="absolute top-4 right-4 flex items-center border px-2 py-1 gap-2 text-blue-400 pointer-events-none animate-pulse">
           <svg

@@ -22,7 +22,7 @@ export default function ProductIntro() {
       ))}
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Eyebrow */}
+        {/* Eyebrow  */}
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
           <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
             Defensya · Proyectos
@@ -34,7 +34,10 @@ export default function ProductIntro() {
         <div className="grid lg:grid-cols-[1fr_38%] gap-8 lg:gap-16 items-center">
           <h1
             className="font-bold uppercase leading-[0.92] tracking-[-0.025em] text-white"
-            style={{ fontSize: "clamp(2.4rem, 4.8vw, 4.5rem)" }}
+            style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
+                  fontFamily: "'Barlow Condensed', sans-serif", 
+                  letterSpacing: "0.005em"
+                 }}
           >
             La seguridad del <br /> futuro se construye
             <br />

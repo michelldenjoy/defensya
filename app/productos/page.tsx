@@ -85,7 +85,7 @@ export default function ProductosPage() {
               Defensya
             </span>
             <p
-              className="font-bold uppercase italic text-white leading-none"
+              className="font-bold uppercase text-white leading-none"
               style={{ fontSize: "1.6rem", letterSpacing: "-0.01em" }}
             >
               Catálogo
@@ -166,7 +166,7 @@ export default function ProductosPage() {
                 {pad(filteredItems.length)} assets
               </span>
               <h2
-                className="font-bold uppercase italic leading-none text-[#0b1f38] dark:text-white"
+                className="font-bold uppercase leading-none text-[#0b1f38] dark:text-white"
                 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "-0.02em" }}
               >
                 {filtro === "Todos" ? "Inventario Global" : filtro}
@@ -254,7 +254,7 @@ function ProductCard({
         willChange: "clip-path",
       }}
     >
-      {/* Bisel de esquina superior derecha */}
+      {/* Bisel de esquina superior inventario derecha */}
       <div
         className="absolute top-0 right-0 z-10 bg-defensya-blue"
         style={{
@@ -718,7 +718,7 @@ function ProductModal({
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   SECTION LABEL
+   SECTION LABEL La Seguridad del Futuro
 ───────────────────────────────────────────────────────────────── */
 function SectionLabel({ label }: { label: string }) {
   return (

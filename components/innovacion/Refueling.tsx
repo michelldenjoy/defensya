@@ -96,10 +96,10 @@ export default function Refueling() {
           <div className="grid lg:grid-cols-[1fr_40%] gap-8 lg:gap-16 items-center mb-12 sm:mb-16">
             <h1
               className="font-bold uppercase leading-[0.88] tracking-[-0.025em] text-white dark:text-white"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "clamp(2.8rem, 5vw, 5rem)",
-              }}
+              style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
+                  fontFamily: "'Barlow Condensed', sans-serif", 
+                  letterSpacing: "0.005em"
+                 }}
             >
               Ingeniería para
               <br />

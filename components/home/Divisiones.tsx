@@ -202,7 +202,9 @@ export default function Divisiones() {
 
         <h2
           className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white mb-16 sm:mb-20"
-          style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
+           style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                fontFamily: "'Barlow Condensed', sans-serif"
+               }}
         >
           Cuatro sectores. <br />
           <span className="text-white/40 font-light">Un mismo estándar.</span>

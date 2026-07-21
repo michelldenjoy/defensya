@@ -420,16 +420,16 @@ export default function Careers() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <h1
               className="font-bold uppercase leading-[0.88] tracking-tight text-gray-900 dark:text-white"
-              style={{
-                  
-                fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)",
-              }}
+                              style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
+                  fontFamily: "'Barlow Condensed', sans-serif", 
+                  letterSpacing: "0.005em"
+                 }}
             >
-              <span className="text-defensya-blue dark:text-blue-300">Impulsa</span>
+              <span className="">Impulsa tu</span>
               <br />
-              tu ingenio
+               ingenio en{" "}
               <br />
-              en{" "}
+              
               <span className="text-defensya-blue dark:text-blue-300">Defensya</span>
             </h1>
 

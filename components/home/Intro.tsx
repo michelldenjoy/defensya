@@ -52,8 +52,13 @@ export default function Intro() {
                 whileInView={{ opacity: 1, filter: "blur(0px)" }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-                className="text-[clamp(2.2rem,4.6vw,4.2rem)] font-medium leading-[1.05]
-                           tracking-tight text-white text-center px-4"
+                className="text-[clamp(2.5rem,5.4vw,4.6rem)] uppercase leading-[1.05]
+             text-white text-center px-4"
+                style={{
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: "0.005em",
+                }}
               >
                 Diseñamos la visión de los aviones{" "}
                 <span className="text-defensya-blue">más avanzados</span> del
@@ -70,8 +75,7 @@ export default function Intro() {
             </div>
           </div>
 
-        
-          {/* Right */}
+          {/* Right  */}
           <div
             className="border border-white/20 bg-white/[0.02]"
             style={{
