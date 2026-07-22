@@ -83,8 +83,9 @@ const MisionVision = () => {
               style={{
                 fontSize: "clamp(1.6rem, 2.8vw, 2.3rem)",
                 fontWeight: 700,
-                letterSpacing: "-0.04em",
+                letterSpacing: "0.05em",
                 textTransform: "uppercase",
+                fontFamily: "Merriweather", 
               
               }}
             >
@@ -100,7 +101,7 @@ const MisionVision = () => {
                 fontFamily: "'Share Tech Mono', monospace",
               }}
             >
-              La consolidación como empresa líder del sector de ingeniería de telecomunicación, electrónica e informática. Expandir la presencia en Norteamérica y Latinoamérica. Contribuir con tecnología de visión al siguiente escalón de automatización: el A4R y las operaciones con drones
+              Ser un referente internacional en el desarrollo de tecnologías de visión y control para los sectores aeroespacial y de defensa, liderando la innovación en sistemas críticos que garantizan la seguridad y precisión de las misiones más exigentes.
             </p>
           </div>
         </div>
