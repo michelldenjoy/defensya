@@ -1,20 +1,15 @@
-// LogoParticles3D.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-interface LogoPlate3D {
+interface LogoParticles3DProps {
   imageSrc?: string;
   onFormed?: () => void;
 }
 
-// Color exacto medido del PNG: rgb(63, 64, 155)
 const BRAND_HEX = 0x3f409b;
 
-// Flag en memoria (vive mientras el módulo JS esté cargado en el navegador).
-// Se resetea automáticamente al recargar la página (F5), pero persiste
-// entre remounts del componente dentro de esa misma carga de página.
 let hasFormedThisPageLoad = false;
 
 function hasAlreadyFormed(): boolean {
@@ -31,8 +26,12 @@ function createDotTexture(): THREE.Texture {
   canvas.width = canvas.height = size;
   const ctx = canvas.getContext("2d")!;
   const gradient = ctx.createRadialGradient(
-    size / 2, size / 2, 0,
-    size / 2, size / 2, size / 2
+    size / 2,
+    size / 2,
+    0,
+    size / 2,
+    size / 2,
+    size / 2,
   );
   gradient.addColorStop(0, "rgba(255,255,255,1)");
   gradient.addColorStop(0.4, "rgba(255,255,255,0.9)");
@@ -56,7 +55,7 @@ export default function LogoPlate3D({
 
     const isMobile = mount.clientWidth < 640;
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     // Si ya se formó una vez en esta sesión, tratamos el caso igual
@@ -75,7 +74,9 @@ export default function LogoPlate3D({
 
       // ── 1. Samplear el PNG en un canvas offscreen ──
       const canvasW = isMobile ? 380 : 640;
-      const canvasH = Math.round(canvasW * (img.naturalHeight / img.naturalWidth));
+      const canvasH = Math.round(
+        canvasW * (img.naturalHeight / img.naturalWidth),
+      );
 
       const sampleCanvas = document.createElement("canvas");
       sampleCanvas.width = canvasW;
@@ -103,7 +104,7 @@ export default function LogoPlate3D({
           colors.push(
             imageData[idx] / 255,
             imageData[idx + 1] / 255,
-            imageData[idx + 2] / 255
+            imageData[idx + 2] / 255,
           );
         }
       }
@@ -141,11 +142,14 @@ export default function LogoPlate3D({
         40,
         mount.clientWidth / mount.clientHeight,
         0.1,
-        100
+        100,
       );
       camera.position.z = 7;
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+      });
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       mount.appendChild(renderer.domElement);
@@ -153,11 +157,14 @@ export default function LogoPlate3D({
       const geometry = new THREE.BufferGeometry();
       const positionAttr = new THREE.BufferAttribute(
         skipAnimation ? new Float32Array(targets) : starts.slice(),
-        3
+        3,
       );
       positionAttr.setUsage(THREE.DynamicDrawUsage);
       geometry.setAttribute("position", positionAttr);
-      geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+      geometry.setAttribute(
+        "color",
+        new THREE.Float32BufferAttribute(colors, 3),
+      );
 
       const dotTexture = createDotTexture();
       const material = new THREE.PointsMaterial({
@@ -180,7 +187,8 @@ export default function LogoPlate3D({
         ? 0
         : Math.max(...Array.from(delays)) + 1.4 * SPEED_FACTOR;
 
-      let targetTiltX = 0, targetTiltY = 0;
+      let targetTiltX = 0,
+        targetTiltY = 0;
       const handlePointerMove = (e: PointerEvent) => {
         const rect = mount.getBoundingClientRect();
         const nx = (e.clientX - rect.left) / rect.width - 0.5;
@@ -189,7 +197,9 @@ export default function LogoPlate3D({
         targetTiltX = -ny * 0.08;
       };
       mount.addEventListener("pointermove", handlePointerMove);
-      cleanupFns.push(() => mount.removeEventListener("pointermove", handlePointerMove));
+      cleanupFns.push(() =>
+        mount.removeEventListener("pointermove", handlePointerMove),
+      );
 
       const posArray = positionAttr.array as Float32Array;
 
@@ -201,14 +211,16 @@ export default function LogoPlate3D({
           for (let i = 0; i < count; i++) {
             const t = Math.min(
               Math.max((elapsed - delays[i]) / durations[i], 0),
-              1
+              1,
             );
             const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
 
             const idx = i * 3;
             posArray[idx] = starts[idx] + (targets[idx] - starts[idx]) * eased;
-            posArray[idx + 1] = starts[idx + 1] + (targets[idx + 1] - starts[idx + 1]) * eased;
-            posArray[idx + 2] = starts[idx + 2] + (targets[idx + 2] - starts[idx + 2]) * eased;
+            posArray[idx + 1] =
+              starts[idx + 1] + (targets[idx + 1] - starts[idx + 1]) * eased;
+            posArray[idx + 2] =
+              starts[idx + 2] + (targets[idx + 2] - starts[idx + 2]) * eased;
 
             if (t >= 1) {
               // Jitter de reposo, sutil
