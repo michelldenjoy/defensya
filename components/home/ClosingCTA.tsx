@@ -14,7 +14,7 @@ import Threemrtt from "../ui/Threemrtt";
 
 
 const stats = [
-  { value: 25, suffix: "+", label: "Años de experiencia" },
+  { value: 20, suffix: "+", label: "Años de experiencia" },
   { value: 20, suffix: "+", label: "Patentes registradas" },
   { value: "AIRBUS", suffix: "", label: "Licenciatario tecnológico" },
   { value: "A3R/A4R", suffix: "", label: "Sistemas de repostaje" },
@@ -281,7 +281,7 @@ export default function ClosingCTA() {
               <h2 className="text-white font-black uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
                 La confianza no se declara.
                 <br />
-                <span className="text-defensya-blue">Se demuestra.</span>
+                <span className="text-defensya-sky">Se demuestra.</span>
               </h2>
 
               <p

@@ -87,7 +87,7 @@ function SectionHeader({
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 mb-14">
+    <div className="flex items-center gap-3 mb-4">
       <span className="w-6 h-px bg-slate-400" />
       <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
         {children}
@@ -140,42 +140,34 @@ const benefits = [
 
 const profiles = [
   {
-    num: "01",
     area: "Técnico Mecanizado",
     desc: "Operación de centros de torneado y fresado multieje para componentes de alta precisión y tolerancias críticas.",
   },
   {
-    num: "02",
     area: "Programador CAM - CATIA",
     desc: "Generación de estrategias de mecanizado avanzado y simulación de procesos para utillajes complejos de aeronáutica.",
   },
   {
-    num: "03",
     area: "Ingeniería Mecánica",
     desc: "Desarrollo de sistemas estructurales, análisis de fatiga y simulación térmica para entornos de misión crítica.",
   },
   {
-    num: "04",
     area: "Ingeniería de Diseño",
     desc: "Modelado conceptual y detallado de hardware táctico, optimizando peso, ergonomía y robustez mecánica.",
   },
   {
-    num: "05",
     area: "Ingeniería Electrónica",
     desc: "Diseño de hardware, sensórica avanzada, adquisición de señal y arquitectura de sistemas de potencia.",
   },
   {
-    num: "06",
     area: "Técnico de Calidad",
     desc: "Aseguramiento de estándares MIL-SPEC mediante inspección metrológica y control de procesos productivos.",
   },
   {
-    num: "07",
     area: "Técnico de Mantenimiento",
     desc: "Gestión preventiva y correctiva de sistemas industriales y equipos de diagnóstico de alta disponibilidad.",
   },
   {
-    num: "08",
     area: "Técnico de Electrónica",
     desc: "Integración, soldadura de precisión y testeo de tarjetas PCBA y mazos de cables bajo normativa IPC.",
   },
@@ -297,15 +289,6 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
             background: "linear-gradient(180deg, transparent 40%, rgba(14,165,233,0.05) 100%)",
           }}
         />
-
-        {/* Ghost number */}
-        <span
-          className="pointer-events-none absolute top-1 right-3 font-mono font-black select-none
-                     text-white/[0.04] group-hover:text-blue-300/20 transition-colors duration-500"
-          style={{ fontSize: "3.5rem", lineHeight: 1 }}
-        >
-          {profile.num}
-        </span>
 
         {/* Label pill */}
         {/* <span
@@ -532,9 +515,9 @@ export default function Careers() {
             <SubsectionTitle title="Perfiles que" accent="buscamos"  />
 
          
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 ">
               {profiles.map((p) => (
-                <ProfileCard key={p.num} profile={p} />
+                <ProfileCard key={p.area} profile={p} />
               ))}
             </div>
 

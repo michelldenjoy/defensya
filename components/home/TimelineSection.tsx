@@ -9,7 +9,7 @@ const HITOS = [
     title: "El Origen de una Visión",
     description:
       "Nace Defensya Ingeniería de Sistemas en Madrid. Establecimos nuestro propósito: resolver los desafíos de visualización y monitorización más críticos donde las soluciones convencionales no alcanzan los estándares de misión.",
-    metric: "19",
+    metric: "20",
     metricSuffix: " años",
     metricLabel: "De innovación continua",
     extra:

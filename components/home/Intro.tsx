@@ -17,12 +17,7 @@ export default function Intro() {
         <div className="grid lg:grid-cols-[1.3fr_1fr] gap-16 lg:gap-20 items-center">
           {/* Left */}
           <div className="relative">
-            <div className="flex items-center gap-3 mb-10">
-              <span className="w-2 h-2 rotate-45 bg-defensya-blue" />
-              <span className="font-mono text-[11px] tracking-[0.3em] text-neutral-500 uppercase">
-                DFS-VIS-001 / Sistema de visión
-              </span>
-            </div>
+
 
             {/* Viewfinder */}
             <div className="relative py-10 px-2 lg:px-6">
@@ -61,7 +56,7 @@ export default function Intro() {
                 }}
               >
                 Diseñamos la visión de los aviones{" "}
-                <span className="text-defensya-blue">más avanzados</span> del
+                <span className="text-defensya-sky">más avanzados</span> del
                 mundo.
               </motion.h2>
 

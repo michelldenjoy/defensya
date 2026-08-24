@@ -72,7 +72,7 @@ const Footer = () => {
           {/* COLUMNA 2: COMPAÑIA */}
           <div>
             <h3 className="text-white font-bold mb-8 uppercase text-[11px] tracking-[0.2em] border-l-2 border-blue-200 pl-3">
-              Compañía
+              Empresa
             </h3>
             <ul className="space-y-4 text-slate-200 text-sm">
               <li>

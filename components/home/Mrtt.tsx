@@ -50,7 +50,6 @@ function MRTTImagePanel() {
         style={{
           clipPath:
             "polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px))",
-            
         }}
       >
         <div className="relative aspect-[16/9] lg:aspect-[21/9]">
@@ -62,13 +61,11 @@ function MRTTImagePanel() {
             className="object-cover"
             priority={false}
           />
-          
-          
+
           <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/40 via-transparent to-transparent" />
         </div>
 
-        
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-[#060d18]/80 px-5 py-4 backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rotate-45 bg-defensya-blue" />
@@ -76,7 +73,6 @@ function MRTTImagePanel() {
               A330 MRTT
             </span>
           </div>
-  
         </div>
       </div>
     </div>
@@ -88,31 +84,28 @@ export default function MRTTCaseSection() {
     <section className="w-full bg-[#060d18] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 py-28 lg:py-36">
         {/* Header */}
-        <div className="mb-20 lg:mb-28">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-2 h-2 rotate-45 bg-defensya-blue" />
-            <span className="font-mono text-[11px] tracking-[0.3em] text-neutral-500 uppercase">
-              Caso de referencia · DFS-MRTT
+        <div className="mb-20 lg:mb-8">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-6 h-px bg-slate-400" />
+            <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
+              Caso de referencia
             </span>
           </div>
 
-          <h2 className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 600,
-                  letterSpacing: "0.005em",
-                }}>
-            Operamos en el{" "}
-            <span className="text-defensya-blue">A330 MRTT.</span>
+          <h2
+            className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white"
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            Operamos en el <span className="text-defensya-sky">A330 MRTT</span>
           </h2>
         </div>
 
-        
         <MRTTImagePanel />
 
         {/* Timeline */}
         <div className="relative pl-8 lg:pl-12">
-        
           <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
 
           {stages.map((s, i) => (
@@ -133,7 +126,6 @@ export default function MRTTCaseSection() {
                             ${s.frontier ? "bg-defensya-blue" : "bg-white/40"}`}
               />
 
-             
               <div className="flex lg:flex-col gap-3 lg:gap-2 items-baseline lg:items-start">
                 <span
                   className={`font-mono text-[13px] tracking-wider
@@ -146,7 +138,6 @@ export default function MRTTCaseSection() {
                 </span>
               </div>
 
-             
               <div className="max-w-2xl">
                 <h3 className="text-[19px] lg:text-[22px] font-medium text-white leading-snug tracking-tight mb-3">
                   {s.title}
