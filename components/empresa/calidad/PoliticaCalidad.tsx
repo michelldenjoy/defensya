@@ -165,21 +165,6 @@ function Eyebrow({
 }
 
 
-function RefCode({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      className="mt-3 text-gray-600"
-      style={{
-        fontFamily: "'Share Tech Mono', monospace",
-        fontSize: "10px",
-        letterSpacing: "0.15em",
-      }}
-    >
-      {children}
-    </p>
-  );
-}
-
 type Tab = "objetivos" | "valores";
 
 function ObjetivosValoresTabs() {

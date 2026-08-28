@@ -65,7 +65,7 @@ const MisionVision = () => {
                 letterSpacing: "0.01em",
               }}
             >
-          Somos una empresa de base tecnológica que rinde culto a la innovación y al arte de inventar. La I+D no es un departamento — es la razón de ser de la compañía. Cada beneficio generado se reinvierte en seguir inventando.
+          Somos una empresa de base tecnológica que rinde culto a la innovación y al arte de inventar. La I+D no es un departamento, es la razón de ser de la compañía. Cada beneficio generado se reinvierte en seguir inventando.
             </p>
           </div>
 

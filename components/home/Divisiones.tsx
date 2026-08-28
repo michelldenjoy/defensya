@@ -200,11 +200,11 @@ export default function Divisiones() {
         <h2
           className="text-[clamp(2.4rem,5.5vw,4.5rem)] mb-8 font-medium leading-[1.02] tracking-tight text-white"
           style={{
-            fontWeight: 600,
+            fontWeight: 500,
           }}
         >
-          Cuatro sectores {""}
-          <span className="text-defensya-sky">Un mismo estándar</span>
+          Cuatro sectores {""} <br />
+          <span className="text-defensya-sky/90">Un mismo estándar</span>
         </h2>
 
         <div className="hidden sm:block relative h-px mb-0">

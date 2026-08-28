@@ -130,9 +130,7 @@ function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDa
       >
         {children}
       </span>
-      <div
-        className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent"
-      />
+
     </div>
   );
 }

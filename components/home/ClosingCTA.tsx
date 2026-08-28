@@ -278,10 +278,10 @@ export default function ClosingCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.25 }}
             >
-              <h2 className="text-white font-black uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
+              <h2 className="text-white  uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
                 La confianza no se declara.
                 <br />
-                <span className="text-defensya-sky">Se demuestra.</span>
+                <span className="text-defensya-sky/90 font-bold">Se demuestra.</span>
               </h2>
 
               <p

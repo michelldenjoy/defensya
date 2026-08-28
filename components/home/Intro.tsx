@@ -54,9 +54,8 @@ export default function Intro() {
                   letterSpacing: "0.005em",
                 }}
               >
-                Diseñamos los sistemas que hacen posibles los aviones{" "}
-                <span className="text-defensya-sky">más avanzados</span> del
-                mundo.
+                Diseñamos los sistemas que hacen posibles las misiones aéreas {" "}
+                <span className="text-defensya-sky/90">más exigentes</span>
               </motion.h2>
 
               <motion.p

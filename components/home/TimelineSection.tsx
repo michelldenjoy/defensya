@@ -235,16 +235,17 @@ export default function TimelineSection() {
       {/* ── Intro ── */}
       <div className="relative max-w-7xl mx-auto px-10 lg:px-16 pt-14 pb-16">
         {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-10">
+        <div className="flex items-center gap-3 mb-6">
           {/* Gema inicial */}
           {/* <span
             className="w-[6px] h-[6px] bg-[#0e5fa3] shrink-0"
             style={{ transform: "rotate(45deg)" }}
           /> */}
-          <span className="text-slate-400 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase ">
+          <span className="w-6 h-px bg-slate-400" />
+          <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase ">
             Trayectoria · Defensya Systems
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-defensya-blue/30 to-transparent" />
+         
 
           {/* Gema final */}
           {/* <span
@@ -314,14 +315,14 @@ export default function TimelineSection() {
             {/* View tag */}
             <div
               className="flex items-center justify-between border-b border-[rgba(14,95,163,0.12)]
-                         pb- mb-4 text-slate-800 dark:text-[rgba(200,220,238,0.35)]"
+                         pb- mb-4 text-black dark:text-slate-300"
               style={{
                 fontSize: "14px",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
               }}
             >
-              <span>Nuestra Trayectoria</span>
+              <span className="mb-2 ">Nuestra Trayectoria</span>
             </div>
 
             {/* Cuerpo de texto */}

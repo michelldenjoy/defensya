@@ -62,8 +62,8 @@ function MRTTImagePanel() {
             priority={false}
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-[#060d18]/80 px-5 py-4 backdrop-blur-sm">
@@ -95,10 +95,10 @@ export default function MRTTCaseSection() {
           <h2
             className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white"
             style={{
-              fontWeight: 600,
+              fontWeight: 500,
             }}
           >
-            Operamos en el <span className="text-defensya-sky">A330 MRTT</span>
+            Operamos en el  <span className="text-defensya-sky/90">A330 MRTT</span>
           </h2>
         </div>
 
@@ -118,18 +118,18 @@ export default function MRTTCaseSection() {
               className={`relative grid lg:grid-cols-[100px_1fr] gap-4 lg:gap-10 
                           py-10 lg:py-12
                           ${i !== stages.length - 1 ? "border-b border-white/[0.06]" : ""}
-                          ${s.frontier ? "border-t border-defensya-blue/30 mt-4 pt-14" : ""}`}
+                          ${s.frontier ? "border-t border-defensya-blue/40 mt-4 pt-14" : ""}`}
             >
               {/* Node */}
               <span
                 className={`absolute -left-8 lg:-left-12 top-12 w-[9px] h-[9px] -translate-x-1/2 rotate-45
-                            ${s.frontier ? "bg-defensya-blue" : "bg-white/40"}`}
+                            ${s.frontier ? "bg-defensya-sky/90" : "bg-white/40"}`}
               />
 
               <div className="flex lg:flex-col gap-3 lg:gap-2 items-baseline lg:items-start">
                 <span
                   className={`font-mono text-[13px] tracking-wider
-                              ${s.frontier ? "text-defensya-blue" : "text-neutral-500"}`}
+                              ${s.frontier ? "text-defensya-sky/90" : "text-neutral-500"}`}
                 >
                   {s.n}
                 </span>
@@ -148,7 +148,7 @@ export default function MRTTCaseSection() {
                 {"href" in s && s.href && (
                   <Link
                     href={s.href}
-                    className="group inline-flex items-center gap-2 mt-5 font-mono text-[12px] tracking-[0.15em] uppercase text-blue-700 hover:text-white transition-colors duration-300"
+                    className="group inline-flex items-center gap-2 mt-5 text-[12px] tracking-[0.15em] uppercase text-defensya-sky/90 hover:text-white transition-colors duration-300"
                   >
                     Explorar
                     <svg
