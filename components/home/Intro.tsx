@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 
 const disciplines = [
-  { label: "Cámaras", detail: "Captura de imagen" },
-  { label: "Iluminación", detail: "Sistemas de emisión" },
-  { label: "Gestión de imagen", detail: "Procesado en tiempo real" },
-  { label: "Encriptación", detail: "Seguridad de la señal" },
-  { label: "Displays", detail: "Visualización en cabina" },
+  { label: "Electrónica", detail: "Aviónica y sistemas embebidos" },
+  { label: "Mecánica", detail: "Estructuras y actuación" },
+  { label: "Óptica", detail: "Sistemas de visión e imagen" },
+  { label: "Integración", detail: "Plataformas de generación propia" },
+  { label: "Certificación", detail: "Ensayo y validación" },
 ] as const;
 
 export default function Intro() {
@@ -17,7 +17,6 @@ export default function Intro() {
         <div className="grid lg:grid-cols-[1.3fr_1fr] gap-16 lg:gap-20 items-center">
           {/* Left */}
           <div className="relative">
-
 
             {/* Viewfinder */}
             <div className="relative py-10 px-2 lg:px-6">
@@ -55,7 +54,7 @@ export default function Intro() {
                   letterSpacing: "0.005em",
                 }}
               >
-                Diseñamos la visión de los aviones{" "}
+                Diseñamos los sistemas que hacen posibles los aviones{" "}
                 <span className="text-defensya-sky">más avanzados</span> del
                 mundo.
               </motion.h2>
@@ -70,7 +69,7 @@ export default function Intro() {
             </div>
           </div>
 
-          {/* Right  */}
+          {/* Right */}
           <div
             className="border border-white/20 bg-white/[0.02]"
             style={{
@@ -80,13 +79,13 @@ export default function Intro() {
           >
             <div className="border-b border-white/15 px-6 py-4">
               <span className="font-mono text-[11px] tracking-[0.25em] text-neutral-400 uppercase">
-                Arquitectura del sistema
+                Arquitectura de sistemas
               </span>
             </div>
 
             <p className="px-6 pt-6 text-[14px] lg:text-[15px] text-neutral-400 leading-[1.8]">
-              Desarrollamos y fabricamos todos los componentes de un sistema de
-              visión en una plataforma integrada de generación propia.
+              Desarrollamos y fabricamos sistemas electrónicos, mecánicos y
+              ópticos, integrados en plataformas propias de principio a fin.
             </p>
 
             <ul className="px-8 pb-9 pt-4">

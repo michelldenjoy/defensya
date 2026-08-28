@@ -85,7 +85,7 @@ const MisionVision = () => {
                 fontWeight: 700,
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
-                fontFamily: "Merriweather", 
+                
               
               }}
             >

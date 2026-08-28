@@ -73,7 +73,12 @@ export default function LogoPlate3D({
       if (disposed) return;
 
       // ── 1. Samplear el PNG en un canvas offscreen ──
-      const canvasW = isMobile ? 380 : 640;
+      // Resolución de muestreo mucho más alta (escalada por DPR) para que
+      // los trazos finos del logo no se pierdan y no aparezcan "rayas"
+      // o líneas discontinuas al formarse la nube de puntos.
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const baseW = isMobile ? 480 : 800;
+      const canvasW = Math.round(baseW * dpr);
       const canvasH = Math.round(
         canvasW * (img.naturalHeight / img.naturalWidth),
       );
@@ -82,11 +87,20 @@ export default function LogoPlate3D({
       sampleCanvas.width = canvasW;
       sampleCanvas.height = canvasH;
       const ctx = sampleCanvas.getContext("2d")!;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
       ctx.drawImage(img, 0, 0, canvasW, canvasH);
       const imageData = ctx.getImageData(0, 0, canvasW, canvasH).data;
 
       const planeW = 6;
       const planeH = planeW * (canvasH / canvasW);
+
+      // Espaciado real entre partículas en unidades de mundo: sirve para
+      // calcular el tamaño de punto necesario para que se solapen sin huecos,
+      // sea cual sea la resolución de muestreo elegida arriba.
+      const spacingX = planeW / canvasW;
+      const spacingY = planeH / canvasH;
+      const spacing = (spacingX + spacingY) / 2;
 
       const targets: number[] = [];
       const colors: number[] = [];
@@ -95,10 +109,16 @@ export default function LogoPlate3D({
         for (let x = 0; x < canvasW; x++) {
           const idx = (y * canvasW + x) * 4;
           const a = imageData[idx + 3];
-          if (a < 40) continue; // píxel transparente, se descarta
+          if (a < 20) continue; // píxel transparente, se descarta
 
-          const wx = (x / canvasW - 0.5) * planeW;
-          const wy = -(y / canvasH - 0.5) * planeH;
+          // Jitter sub-píxel sutil: evita que la rejilla de muestreo quede
+          // perfectamente alineada, lo que bajo perspectiva/cámara puede
+          // generar un patrón de moiré ("rayas") en zonas de trazo fino.
+          const jitterX = (Math.random() - 0.5) * spacingX * 0.5;
+          const jitterY = (Math.random() - 0.5) * spacingY * 0.5;
+
+          const wx = (x / canvasW - 0.5) * planeW + jitterX;
+          const wy = -(y / canvasH - 0.5) * planeH + jitterY;
           targets.push(wx, wy, 0);
 
           colors.push(
@@ -144,7 +164,33 @@ export default function LogoPlate3D({
         0.1,
         100,
       );
-      camera.position.z = 7;
+
+      // ── Distancia de cámara responsive ──
+      // En pantallas anchas (desktop) el frustum horizontal a z = 7 es
+      // generoso y el plano de 6 unidades cabe sin problema — comportamiento
+      // original, sin cambios. En dispositivos medianos/pequeños el aspect
+      // ratio se vuelve más estrecho (más alto que ancho), lo que reduce el
+      // ancho visible del frustum a esa misma distancia y provoca que las
+      // letras del logo se salgan de los bordes del hero.
+      //
+      // Para evitarlo, calculamos la distancia mínima necesaria para que el
+      // plano completo (con un margen de aire) quepa dentro del frustum,
+      // tanto en ancho como en alto, y solo alejamos la cámara si esa
+      // distancia es mayor que la distancia base. Nunca la acercamos más de
+      // lo original, así en desktop el resultado visual es idéntico al actual.
+      const BASE_CAMERA_Z = 7;
+      const FIT_MARGIN = 1.15; // aire extra para que no quede pegado a los bordes
+
+      const getFitCameraZ = (aspect: number): number => {
+        const vFovRad = THREE.MathUtils.degToRad(camera.fov);
+        const halfVFovTan = Math.tan(vFovRad / 2);
+        const distForHeight = (planeH * FIT_MARGIN) / (2 * halfVFovTan);
+        const distForWidth =
+          (planeW * FIT_MARGIN) / (2 * halfVFovTan * aspect);
+        return Math.max(BASE_CAMERA_Z, distForHeight, distForWidth);
+      };
+
+      camera.position.z = getFitCameraZ(mount.clientWidth / mount.clientHeight);
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -167,8 +213,13 @@ export default function LogoPlate3D({
       );
 
       const dotTexture = createDotTexture();
+      // Tamaño de punto calculado a partir del espaciado real de la rejilla
+      // de muestreo, con un factor de solape (~1.6x) que garantiza que no
+      // queden huecos visibles entre partículas contiguas, sin pasarse de
+      // tamaño y perder nitidez.
+      const pointSize = spacing * 1.6;
       const material = new THREE.PointsMaterial({
-        size: isMobile ? 0.03 : 0.026,
+        size: pointSize,
         map: dotTexture,
         vertexColors: true,
         transparent: true,
@@ -213,7 +264,7 @@ export default function LogoPlate3D({
               Math.max((elapsed - delays[i]) / durations[i], 0),
               1,
             );
-            const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+            const eased = 1 - Math.pow(1 - t, 3); 
 
             const idx = i * 3;
             posArray[idx] = starts[idx] + (targets[idx] - starts[idx]) * eased;
@@ -223,7 +274,7 @@ export default function LogoPlate3D({
               starts[idx + 2] + (targets[idx + 2] - starts[idx + 2]) * eased;
 
             if (t >= 1) {
-              // Jitter de reposo, sutil
+              
               const phase = i * 0.618;
               posArray[idx + 2] = Math.sin(elapsed * 0.6 + phase) * 0.015;
             }
@@ -237,9 +288,6 @@ export default function LogoPlate3D({
           }
         } else if (!formedFired) {
           formedFired = true;
-          // No hace falta volver a marcar sessionStorage si ya estaba marcado,
-          // pero si veníamos de "prefersReducedMotion" sin haberse formado antes,
-          // lo dejamos igualmente registrado para consistencia.
           markAsFormed();
           onFormed?.();
         }
@@ -253,7 +301,9 @@ export default function LogoPlate3D({
 
       const handleResize = () => {
         if (!mount) return;
-        camera.aspect = mount.clientWidth / mount.clientHeight;
+        const aspect = mount.clientWidth / mount.clientHeight;
+        camera.aspect = aspect;
+        camera.position.z = getFitCameraZ(aspect);
         camera.updateProjectionMatrix();
         renderer.setSize(mount.clientWidth, mount.clientHeight);
       };

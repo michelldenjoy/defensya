@@ -190,21 +190,20 @@ export default function Divisiones() {
     <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-black overflow-hidden">
       <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative">
-    <div className="flex items-center gap-3 mb-4">
-      <span className="w-6 h-px bg-slate-400" />
-      <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-      Áreas de actividad
-      </span>
-    </div>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-6 h-px bg-slate-400" />
+          <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
+            Áreas de actividad
+          </span>
+        </div>
 
         <h2
           className="text-[clamp(2.4rem,5.5vw,4.5rem)] mb-8 font-medium leading-[1.02] tracking-tight text-white"
-                style={{
-                  fontWeight: 600,
-                  
-                }}>
-        
-          Cuatro sectores {""} 
+          style={{
+            fontWeight: 600,
+          }}
+        >
+          Cuatro sectores {""}
           <span className="text-defensya-sky">Un mismo estándar</span>
         </h2>
 

@@ -10,7 +10,7 @@ export default function AboutIdentity() {
   const [formed, setFormed] = useState(false);
 
   return (
-    <section className="relative w-full h-[70vh] lg:h-[85vh] bg-[#060d18] overflow-hidden flex items-center justify-center">
+    <section className="relative w-full h-[60vh] lg:h-[70vh] bg-[#060d18] overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0">
         <LogoParticles3D onFormed={() => setFormed(true)} />
       </div>
