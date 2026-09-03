@@ -382,7 +382,7 @@ function ProductCard({
                        group-hover:bg-defensya-blue transition-colors duration-250"
             style={{
               clipPath: "polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))",
-              fontFamily: "'Barlow Condensed', sans-serif",
+
               fontSize: "10px",
               fontWeight: 700,
               letterSpacing: "0.16em",

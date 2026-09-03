@@ -54,7 +54,8 @@ export default function Intro() {
                   letterSpacing: "0.005em",
                 }}
               >
-                Diseñamos los sistemas que hacen posibles las misiones aéreas {" "}
+                Diseñamos los sistemas que hacen posibles las misiones aéreas {" "}  <br />
+                
                 <span className="text-defensya-sky/90">más exigentes</span>
               </motion.h2>
 

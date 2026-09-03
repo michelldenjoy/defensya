@@ -473,8 +473,8 @@ export default function CalidadYSostenibilidad() {
             <div>
               <h1
                 className="font-bold uppercase leading-[0.92] tracking-[-0.045em] text-gray-900 dark:text-white mb-6"
-                style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
-                  fontFamily: "'Barlow Condensed', sans-serif", 
+                style={{ fontSize: "clamp(2.3rem, 4.6vw, 5.2rem)",
+                  
                   letterSpacing: "0.005em"
                  }}
               >
@@ -482,7 +482,7 @@ export default function CalidadYSostenibilidad() {
                 <br />
                 <span className="text-defensya-blue">Entornos Críticos</span>
               </h1>
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
                 El cumplimiento de los estándares internacionales es la base de nuestra ingeniería. Sostenemos un sistema de gestión
                 orientado a la rigurosidad técnica, la mejora continua y la protección del entorno, acreditado por las principales
                 entidades de certificación del sector.

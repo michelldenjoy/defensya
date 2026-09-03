@@ -401,20 +401,14 @@ export default function Careers() {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <h1
-              className="font-bold uppercase leading-[0.88] tracking-tight text-gray-900 dark:text-white"
-                              style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
-                  fontFamily: "'Barlow Condensed', sans-serif", 
-                  letterSpacing: "0.005em"
-                 }}
-            >
-              <span className="">Impulsa tu</span>
-              <br />
-               ingenio en{" "}
-              <br />
-              
-              <span className="text-defensya-blue dark:text-blue-300">Defensya</span>
-            </h1>
+              <h1
+                className="font-bold uppercase leading-[0.92] tracking-[-0.045em] text-gray-900 dark:text-white mb-6"
+                style={{ fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)" }}
+              >
+                El futuro también necesita {""}
+               
+                <span className="text-defensya-blue">tu Talento </span>
+              </h1>
 
             <div className="flex flex-col gap-8">
               <p className="text-md text-gray-500 dark:text-gray-300 leading-relaxed border-l-2 border-defensya-blue/30 pl-5">

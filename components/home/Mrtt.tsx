@@ -38,7 +38,7 @@ const stages = [
 
 function MRTTImagePanel() {
   return (
-    <div className="relative mb-20 lg:mb-28">
+    <div className="relative mb-20 lg:mb-18">
       {/* corner  */}
       <span className="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-defensya-blue/60 pointer-events-none z-10" />
       <span className="absolute -top-3 -right-3 w-8 h-8 border-t border-r border-defensya-blue/60 pointer-events-none z-10" />
@@ -66,7 +66,7 @@ function MRTTImagePanel() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-[#060d18]/80 px-5 py-4 backdrop-blur-sm">
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between border-t border-white/10 bg-[#060d18]/80 px-12 py-2 backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rotate-45 bg-defensya-blue" />
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-300">
@@ -84,21 +84,16 @@ export default function MRTTCaseSection() {
     <section className="w-full bg-[#060d18] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 py-28 lg:py-36">
         {/* Header */}
-        <div className="mb-20 lg:mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-6 h-px bg-slate-400" />
-            <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-              Caso de referencia
-            </span>
-          </div>
-
+        <div className="mb-4">
           <h2
-            className="text-[clamp(2.4rem,5.5vw,5rem)] font-medium leading-[1.02] tracking-tight text-white"
+            className="uppercase leading-[1.0] font-semibold pb-12 tracking-[-0.02em] text-white"
             style={{
-              fontWeight: 500,
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
+              
             }}
           >
-            Operamos en el  <span className="text-defensya-sky/90">A330 MRTT</span>
+            Operamos en el {" "}
+            <span className="text-white/40 font-semibold">A330 MRTT</span>
           </h2>
         </div>
 

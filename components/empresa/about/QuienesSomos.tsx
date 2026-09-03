@@ -77,7 +77,7 @@ const ExperienceRow: React.FC<ExperienceRowProps> = ({ item, index }) => {
     [isTouch],
   );
 
-  const imageFirst = index % 2 === 1; // alterna el lado de la imagen por fila
+  const imageFirst = index % 2 === 1; 
 
   return (
     <div
@@ -105,7 +105,7 @@ const ExperienceRow: React.FC<ExperienceRowProps> = ({ item, index }) => {
           className="text-white uppercase"
           style={{
             
-            fontWeight: 600,
+            fontWeight: 400,
             fontSize: "clamp(2rem, 4.2vw, 2.5rem)",
             letterSpacing: "-0.01em",
             lineHeight: 1.05,
@@ -167,11 +167,11 @@ const QuienesSomos = () => {
       <section className="relative pt-20 sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
         <div className="tech-grid absolute inset-0 opacity-60 pointer-events-none" />
         <div className="max-w-6xl mx-auto relative">
-          <div className="mb-4">
+          <div>
             <h2
               className="font-bold uppercase leading-[1.0] tracking-[-0.02em] text-white"
               style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)",
-                fontFamily: "'Barlow Condensed', sans-serif"
+                
                }}
             >
               Nuestra {" "}

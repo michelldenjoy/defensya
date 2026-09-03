@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ClipButton } from "@/components/home/HeroSection";
-import Sostenibilidad from "./Sostenibilidad";
 import CTACalidad from "./CTACalidad";
 
 export default function Certificaciones() {

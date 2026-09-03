@@ -96,8 +96,8 @@ export default function Refueling() {
           <div className="grid lg:grid-cols-[1fr_40%] gap-8 lg:gap-16 items-center mb-12 sm:mb-16">
             <h1
               className="font-bold uppercase leading-[0.88] tracking-[-0.025em] text-white dark:text-white"
-              style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
-                  fontFamily: "'Barlow Condensed', sans-serif", 
+              style={{ fontSize: "clamp(2.3rem, 4.7vw, 4.8rem)",
+                  
                   letterSpacing: "0.005em"
                  }}
             >
@@ -110,7 +110,7 @@ export default function Refueling() {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end">
+            <p className="text-sm md:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end">
               En Defensya, la innovación es el motor que impulsa nuestro
               compromiso en la industria aeroespacial.{" "}
               <strong className="text-white/80 font-normal">

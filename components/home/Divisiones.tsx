@@ -197,15 +197,18 @@ export default function Divisiones() {
           </span>
         </div>
 
-        <h2
-          className="text-[clamp(2.4rem,5.5vw,4.5rem)] mb-8 font-medium leading-[1.02] tracking-tight text-white"
-          style={{
-            fontWeight: 500,
-          }}
-        >
-          Cuatro sectores {""} <br />
-          <span className="text-defensya-sky/90">Un mismo estándar</span>
-        </h2>
+        <div className="mb-4">
+          <h2
+            className="uppercase leading-[1.0] font-semibold pb-12 tracking-[-0.02em] text-white"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 4rem)",
+              
+            }}
+          >
+           Cuatro sectores {" "}
+            <span className="text-white/40 font-semibold">Un mismo estándar</span>
+          </h2>
+        </div>
 
         <div className="hidden sm:block relative h-px mb-0">
           <motion.div

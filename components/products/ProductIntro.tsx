@@ -33,9 +33,9 @@ export default function ProductIntro() {
         {/* Heading + cuerpo items */}
         <div className="grid lg:grid-cols-[1fr_38%] gap-8 lg:gap-16 items-center">
           <h1
-            className="font-bold uppercase leading-[0.92] tracking-[-0.025em] text-white"
-            style={{ fontSize: "clamp(2.3rem, 5.0vw, 5.2rem)",
-                  fontFamily: "'Barlow Condensed', sans-serif", 
+            className="font-semibold uppercase leading-[0.92] tracking-[-0.025em] text-white"
+            style={{ fontSize: "clamp(2.3rem, 4.5vw, 4.7rem)",
+                  
                   letterSpacing: "0.005em"
                  }}
           >
@@ -50,7 +50,7 @@ export default function ProductIntro() {
 
           <div className="flex flex-col gap-4">
             <p
-              className="text-sm sm:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end"
+              className="text-sm md:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end"
               
             >
               En esta sección encontrarás{" "}

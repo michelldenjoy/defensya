@@ -241,10 +241,8 @@ export default function TimelineSection() {
             className="w-[6px] h-[6px] bg-[#0e5fa3] shrink-0"
             style={{ transform: "rotate(45deg)" }}
           /> */}
-          <span className="w-6 h-px bg-slate-400" />
-          <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase ">
-            Trayectoria · Defensya Systems
-          </span>
+         
+
          
 
           {/* Gema final */}
@@ -259,15 +257,15 @@ export default function TimelineSection() {
           {/* LEFT — */}
           <div className="flex flex-col justify-between pr-0 md:pr-12 pb-10 md:pb-0">
             <h2
-              className="uppercase tracking-[-0.02em] leading-[.88] text-[#0b1f38] dark:text-[#ccdcee]"
+              className="uppercase font-semibold tracking-[-0.03em] leading-[.85] text-[#0b1f38] dark:text-[#ccdcee]"
               style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
+                
                 fontSize: "clamp(3rem, 5.5vw, 4.4rem)",
               }}
             >
-              <span className="text-defensya-blue font-bold">19 años</span>
+              <span className="text-defensya-blue font-semibold">Una Trayectoria</span>
               <br />
-              <span className="font-light text-[rgba(11,31,56,0.45)] dark:text-[rgba(200,220,238,0.4)]">
+              <span className="text-[rgba(11,31,56,0.45)]  dark:text-[rgba(200,220,238,0.4)]">
                 construyendo
               </span>
               <br />
@@ -285,7 +283,7 @@ export default function TimelineSection() {
                 textTransform: "uppercase",
               }}
             >
-              DFS-HIST-001 · 5 hitos · since 2006
+              DEFENSYA · since 2006
             </span>
           </div>
 
@@ -322,7 +320,7 @@ export default function TimelineSection() {
                 textTransform: "uppercase",
               }}
             >
-              <span className="mb-2 ">Nuestra Trayectoria</span>
+              <span className="mb-2 ">Nuestra Historia</span>
             </div>
 
             {/* Cuerpo de texto */}
