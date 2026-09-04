@@ -130,6 +130,7 @@ function Eyebrow({ children, onDark = false }: { children: React.ReactNode; onDa
       >
         {children}
       </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/70 to-transparent" />
 
     </div>
   );
@@ -167,7 +168,7 @@ function ObjetivosValoresTabs() {
           >
             {label}
             {tab === key && (
-              <span className="absolute bottom-0 left-0 right-0 h-px bg-defensya-blue" />
+              <span className="absolute bottom-0 left-0 right-0  h-px bg-defensya-blue" />
             )}
           </button>
         ))}
@@ -231,7 +232,7 @@ function ObjetivosValoresTabs() {
               >
                 {item.label}
               </h3>
-              <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              <p className="text-base text-gray-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

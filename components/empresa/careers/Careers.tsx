@@ -108,6 +108,7 @@ function Eyebrow({
       <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
         {children}
       </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/70 to-transparent" />
     </div>
   );
 }

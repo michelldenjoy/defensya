@@ -12,7 +12,6 @@ import {
 import { useEffect, useRef, useState } from "react";
 import Threemrtt from "../ui/Threemrtt";
 
-
 const stats = [
   { value: 20, suffix: "+", label: "Años de experiencia" },
   { value: 20, suffix: "+", label: "Patentes registradas" },
@@ -103,10 +102,15 @@ export function ClipButton({
   );
 }
 
-
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+function AnimatedCounter({
+  value,
+  suffix,
+  startCount, // ← ahora recibe la señal desde fuera, ya no decide por sí solo
+}: {
+  value: number;
+  suffix: string;
+  startCount: boolean;
+}) {
   const motionVal = useMotionValue(0);
   const spring = useSpring(motionVal, { duration: 1800, bounce: 0 });
   const display = useTransform(spring, (v) => Math.round(v).toString());
@@ -118,11 +122,11 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   }, [display]);
 
   useEffect(() => {
-    if (inView) motionVal.set(value);
-  }, [inView, motionVal, value]);
+    if (startCount) motionVal.set(value);
+  }, [startCount, motionVal, value]);
 
   return (
-    <span ref={ref}>
+    <span>
       {text}
       {suffix}
     </span>
@@ -235,13 +239,16 @@ function SectionDivider() {
 }
 
 export default function ClosingCTA() {
+    const statsRef = useRef<HTMLDivElement>(null);
+  // amount: 0.3 → se activa cuando el 30% del bloque es visible,
+  // sin importar la altura de pantalla ni el wrapping del texto.
+  const statsInView = useInView(statsRef, { once: true, amount: 0.3 });
   return (
     <>
       <section className="relative overflow-hidden border-t border-white/5">
         <div className="grid lg:grid-cols-2 min-h-[620px]">
           {/* ── LEFT PANEL ── */}
           <div className="relative bg-[#060d18] px-6 md:px-10 lg:px-16 py-14 lg:py-20 flex flex-col justify-center overflow-hidden">
-
             <div
               className="absolute inset-0 pointer-events-none opacity-[0.035]"
               style={{
@@ -259,7 +266,7 @@ export default function ClosingCTA() {
               className="relative z-10"
             >
               {/* Stats grid */}
-              <div className="grid grid-cols-2 gap-6 mb-12">
+              <div className="grid grid-cols-2 gap-6 mb-12" ref={statsRef}>
                 {stats.map((item, i) => (
                   <motion.div
                     key={item.label}
@@ -284,6 +291,7 @@ export default function ClosingCTA() {
                         <AnimatedCounter
                           value={item.value}
                           suffix={item.suffix}
+                          startCount={statsInView}
                         />
                       ) : (
                         <span>{item.value}</span>
@@ -318,7 +326,9 @@ export default function ClosingCTA() {
                 <h2 className="text-white  uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
                   La confianza no se declara.
                   <br />
-                  <span className="text-defensya-sky/90 font-bold">Se demuestra.</span>
+                  <span className="text-defensya-sky/90 font-bold">
+                    Se demuestra.
+                  </span>
                 </h2>
 
                 <p
@@ -365,7 +375,6 @@ export default function ClosingCTA() {
               <div className="p-8 md:p-12 lg:p-16 max-w-xl">
                 {/* HUD corner brackets */}
                 <div className="relative inline-block mb-4">
-                  
                   <span
                     className="block px-3 py-1 text-[10px] tracking-[0.35em] uppercase text-defensya-steel/60"
                     style={{ fontFamily: "'Share Tech Mono', monospace" }}

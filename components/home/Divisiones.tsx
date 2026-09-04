@@ -202,10 +202,9 @@ export default function Divisiones() {
             className="uppercase leading-[1.0] font-semibold pb-12 tracking-[-0.02em] text-white"
             style={{
               fontSize: "clamp(2.2rem, 5vw, 4rem)",
-              
             }}
           >
-           Cuatro sectores {" "}
+            Cuatro sectores{" "}
             <span className="text-white/40 font-light">Un mismo estándar</span>
           </h2>
         </div>

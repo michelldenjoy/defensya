@@ -49,7 +49,7 @@ export default function Intro() {
                 className="text-[clamp(2.5rem,5.4vw,4.6rem)] uppercase leading-[1.05]
              text-white text-center px-4"
                 style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
+                  
                   fontWeight: 600,
                   letterSpacing: "0.005em",
                 }}
