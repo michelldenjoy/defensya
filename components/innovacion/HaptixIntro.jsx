@@ -106,7 +106,7 @@ export default function HaptixIntro() {
             className="font-bold uppercase leading-[0.9] tracking-tight
                        text-gray-100 dark:text-white"
             style={{
-              fontFamily: "var(--font-display, 'Barlow Condensed', sans-serif)",
+              
               fontSize: "clamp(2rem, 4vw, 3.4rem)",
             }}
           >

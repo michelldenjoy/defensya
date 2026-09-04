@@ -70,7 +70,7 @@ function SectionHeader({
           onDark ? "text-white" : "text-gray-900 dark:text-white"
         }`}
         style={{
-          fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)",
+          fontSize: "clamp(2.3rem, 5.0vw, 4.5rem)",
         }}
       >
         {title}
@@ -124,7 +124,7 @@ function SubsectionTitle({
     <div className="mb-10">
       <h2
         className="font-bold uppercase leading-[0.9] tracking-tight text-white"
-        style={{ fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)" }}
+        style={{ fontSize: "clamp(2.2rem, 3vw, 3.8rem)" }}
       >
         {title}
         {accent && (
@@ -138,7 +138,7 @@ function SubsectionTitle({
   );
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// ─── Data ───────────────────────────────────────────────────────────────────── ofrecemos
 
 const benefits = [
   {
