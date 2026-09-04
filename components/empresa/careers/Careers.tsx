@@ -7,8 +7,6 @@ import { ClipButton } from "@/components/home/HeroSection";
 
 type Status = "" | "sending" | "success" | "error";
 
-
-
 function Corners({
   size = 16,
   color = "var(--color-defensya-blue, #0ea5e9)",
@@ -48,8 +46,6 @@ function Corners({
   );
 }
 
-
-
 function SectionHeader({
   eyebrow,
   title,
@@ -74,12 +70,16 @@ function SectionHeader({
           onDark ? "text-white" : "text-gray-900 dark:text-white"
         }`}
         style={{
-          
           fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)",
         }}
       >
         {title}
-        {accent && <> <span>{accent}</span></>}
+        {accent && (
+          <>
+            {" "}
+            <span>{accent}</span>
+          </>
+        )}
       </h2>
     </div>
   );
@@ -96,6 +96,21 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Eyebrow({
+  children,
+  onDark = false,
+}: {
+  children: React.ReactNode;
+  onDark?: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-3 mb-6 sm:mb-8 min-w-0">
+      <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
+        {children}
+      </span>
+    </div>
+  );
+}
 
 function SubsectionTitle({
   title,
@@ -111,9 +126,13 @@ function SubsectionTitle({
         style={{ fontSize: "clamp(2.2rem, 3.5vw, 3.8rem)" }}
       >
         {title}
-        {accent && <> <span>{accent}</span></>}
+        {accent && (
+          <>
+            {" "}
+            <span>{accent}</span>
+          </>
+        )}
       </h2>
-
     </div>
   );
 }
@@ -200,7 +219,13 @@ const inputCls = [
   "transition-colors duration-200",
 ].join(" ");
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex flex-col gap-2">
       <label className="font-mono text-[10px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">
@@ -230,24 +255,32 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
           px-6 py-5 shadow-xl
           transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
           origin-bottom
-          ${hovered
-            ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
-            : "opacity-0 translate-y-3 scale-y-95 pointer-events-none"
+          ${
+            hovered
+              ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
+              : "opacity-0 translate-y-3 scale-y-95 pointer-events-none"
           }
         `}
         style={{
-          clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)",
+          clipPath:
+            "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)",
         }}
       >
         {/* TL bracket */}
         <span
           className="absolute top-0 left-0 w-4 h-4"
-          style={{ borderTop: "1.5px solid #0c415a", borderLeft: "1.5px solid #0c415a" }}
+          style={{
+            borderTop: "1.5px solid #0c415a",
+            borderLeft: "1.5px solid #0c415a",
+          }}
         />
         {/* BR bracket */}
         <span
           className="absolute bottom-0 right-0 w-4 h-4"
-          style={{ borderBottom: "1.5px solid #131c20", borderRight: "1.5px solid #0c415a" }}
+          style={{
+            borderBottom: "1.5px solid #131c20",
+            borderRight: "1.5px solid #0c415a",
+          }}
         />
 
         <p className="text-sm text-gray-100 leading-relaxed">{profile.desc}</p>
@@ -266,12 +299,14 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
       <div
         className={`relative overflow-hidden cursor-default
                     border transition-all duration-300 px-6 py-7
-                    ${hovered
-                      ? "border-defensya-blue/50  bg-defensya-blue/[0.07]"
-                      : "border-white/[0.07] bg-white/[0.02]"
+                    ${
+                      hovered
+                        ? "border-defensya-blue/50  bg-defensya-blue/[0.07]"
+                        : "border-white/[0.07] bg-white/[0.02]"
                     }`}
         style={{
-          clipPath: "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))",
+          clipPath:
+            "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))",
         }}
       >
         {/* Top accent bar */}
@@ -286,7 +321,8 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
           className={`absolute inset-0 pointer-events-none transition-opacity duration-300
                       ${hovered ? "opacity-100" : "opacity-0"}`}
           style={{
-            background: "linear-gradient(180deg, transparent 40%, rgba(14,165,233,0.05) 100%)",
+            background:
+              "linear-gradient(180deg, transparent 40%, rgba(14,165,233,0.05) 100%)",
           }}
         />
 
@@ -308,7 +344,6 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
                       transition-colors duration-300
                       ${hovered ? "text-white" : "text-gray-300"}`}
           style={{
-            
             fontSize: "1.05rem",
           }}
         >
@@ -338,7 +373,10 @@ export default function Careers() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    if (f.size > 5 * 1024 * 1024) { alert("Máx 5 MB"); return; }
+    if (f.size > 5 * 1024 * 1024) {
+      alert("Máx 5 MB");
+      return;
+    }
     setFile(f);
     setFileName(f.name);
   };
@@ -346,17 +384,23 @@ export default function Careers() {
   const uploadToCloudinary = async (f: File) => {
     const fd = new FormData();
     fd.append("file", f);
-    fd.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!);
+    fd.append(
+      "upload_preset",
+      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!,
+    );
     const res = await fetch(
       `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`,
-      { method: "POST", body: fd }
+      { method: "POST", body: fd },
     );
     return (await res.json()).secure_url as string;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file) { alert("Por favor sube tu CV"); return; }
+    if (!file) {
+      alert("Por favor sube tu CV");
+      return;
+    }
     setStatus("sending");
     try {
       const fileUrl = await uploadToCloudinary(file);
@@ -371,7 +415,7 @@ export default function Careers() {
           message: (formRef.current as any).message.value,
           cv_link: fileUrl,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
       setStatus("success");
       setFile(null);
@@ -384,33 +428,32 @@ export default function Careers() {
   };
 
   return (
-    <main
-      className="w-full"
-      
-    >
+    <main className="w-full">
       {/* ══════════════════════════════════════════════════════════
           §1 HERO — LIGHT
       ══════════════════════════════════════════════════════════ */}
       <section
         className="relative px-6 lg:px-16 pt-24 pb-28 overflow-hidden
-                   bg-white dark:bg-black/50
-                   border-b border-gray-100 dark:border-white/[0.07]"
+             bg-white dark:bg-black/50
+             border-b border-gray-100 dark:border-white/[0.07]"
       >
         <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-40 pointer-events-none" />
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-defensya-blue to-transparent opacity-20" />
 
         <div className="max-w-7xl mx-auto relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              <h1
-                className="font-bold uppercase leading-[0.92] tracking-[-0.045em] text-gray-900 dark:text-white mb-6"
-                style={{ fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)" }}
-              >
-                El futuro también necesita {""}
-               
-                <span className="text-defensya-blue">tu Talento </span>
-              </h1>
+          {/* Grid maestro de 12 columnas: título ocupa 7, descripción 5 */}
+          <Eyebrow>Trabaja con Nosotros </Eyebrow>
+          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-8 lg:items-start mb-16">
+            <h1
+              className="lg:col-span-7 font-bold uppercase leading-[0.92] tracking-[-0.045em]
+                   text-gray-900 dark:text-white mb-6 lg:mb-0"
+              style={{ fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)" }}
+            >
+              El futuro <br /> también necesita <br />
+              <span className="text-defensya-blue">tu Talento </span>
+            </h1>
 
-            <div className="flex flex-col gap-8">
+            <div className="lg:col-span-5 flex flex-col gap-8 lg:pt-3">
               <p className="text-md text-gray-500 dark:text-gray-300 leading-relaxed border-l-2 border-defensya-blue/30 pl-5">
                 En Defensya creemos que nuestro éxito se basa en el talento y la
                 pasión de nuestro equipo. Estamos en busca de profesionales
@@ -418,29 +461,44 @@ export default function Careers() {
                 transformar el futuro de la defensa.
               </p>
               <div className="flex flex-wrap gap-3">
-                <ClipButton href="#candidatura" variant="primary">Enviar Candidatura</ClipButton>
-                <ClipButton href="#perfiles" variant="outline">Ver Perfiles</ClipButton>
+                <ClipButton href="#candidatura" variant="primary">
+                  Enviar Candidatura
+                </ClipButton>
+                <ClipButton href="#perfiles" variant="outline">
+                  Ver Perfiles
+                </ClipButton>
               </div>
             </div>
           </div>
 
-          {/* Meta strip */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <div className="h-px flex-1 bg-gray-100 dark:bg-white/[0.06] hidden sm:block" />
-            {[
-              { label: "Posiciones abiertas", value: "08" },
-              { label: "Sede", value: "Madrid, ES" },
-              { label: "Sector", value: "DEF / AERO" },
-            ].map(({ label, value }, i) => (
-              <React.Fragment key={label}>
-                {i > 0 && <div className="w-px h-8 bg-gray-200 dark:bg-white/[0.08]" />}
-                <div className="flex flex-col gap-0.5">
-                  <span className="font-mono text-[9px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">{label}</span>
-                  <span className="font-mono text-[13px] font-bold text-gray-900 dark:text-white">{value}</span>
-                </div>
-              </React.Fragment>
-            ))}
-            <div className="h-px w-12 bg-defensya-blue/30" />
+          {/* Meta strip: mismo grid, arranca bajo la columna de la descripción */}
+          <div className="grid lg:grid-cols-12 gap-x-10 items-center">
+            <div className="hidden lg:block lg:col-span-7">
+              <div className="h-px bg-gray-100 dark:bg-white/[0.06]" />
+            </div>
+
+            <div className="lg:col-span-5 flex flex-wrap items-center gap-4 sm:gap-6">
+              {[
+                { label: "Posiciones abiertas", value: "08" },
+                { label: "Sede", value: "Madrid, ES" },
+                { label: "Sector", value: "DEF / AERO" },
+              ].map(({ label, value }, i) => (
+                <React.Fragment key={label}>
+                  {i > 0 && (
+                    <div className="w-px h-8 bg-gray-200 dark:bg-white/[0.08]" />
+                  )}
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-mono text-[9px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">
+                      {label}
+                    </span>
+                    <span className="font-mono text-[13px] font-bold text-gray-900 dark:text-white">
+                      {value}
+                    </span>
+                  </div>
+                </React.Fragment>
+              ))}
+              <div className="h-px w-12 bg-defensya-blue/30 ml-auto" />
+            </div>
           </div>
         </div>
       </section>
@@ -448,9 +506,7 @@ export default function Careers() {
       {/* ══════════════════════════════════════════════════════════
           §2  "Lo que ofrecemos" 
       ══════════════════════════════════════════════════════════ */}
-      <section
-        className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy border-b border-white/[0.07]"
-      >
+      <section className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy border-b border-white/[0.07]">
         <div className="tech-grid absolute inset-0 opacity-30 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative">
@@ -458,7 +514,7 @@ export default function Careers() {
 
           {/* Lo que ofrecemos */}
           <div>
-            <SubsectionTitle title="Lo que " accent="ofrecemos"  />
+            <SubsectionTitle title="Lo que " accent="ofrecemos" />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {benefits.map((b) => (
@@ -469,23 +525,21 @@ export default function Careers() {
                              hover:border-defensya-blue/40 hover:bg-defensya-blue/[0.05]
                              transition-all duration-300"
                   style={{
-                    clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
+                    clipPath:
+                      "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
                   }}
                 >
                   {/* Top accent */}
                   <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
 
-                  <Corners size={14} color="#0c415a" thickness="1.5px" offset={10} />
+                  <Corners
+                    size={14}
+                    color="#0c415a"
+                    thickness="1.5px"
+                    offset={10}
+                  />
 
-               
-
-
-             
-  
-
-                  <h3
-                    className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300"
-                  >
+                  <h3 className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300">
                     {b.title}
                   </h3>
 
@@ -506,16 +560,14 @@ export default function Careers() {
 
           {/* Perfiles que buscamos */}
           <div id="perfiles">
-            <SubsectionTitle title="Perfiles que" accent="buscamos"  />
+            <SubsectionTitle title="Perfiles que" accent="buscamos" />
 
-         
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 ">
               {profiles.map((p) => (
                 <ProfileCard key={p.area} profile={p} />
               ))}
             </div>
 
-           
             <div className="flex items-center gap-4 mt-6">
               <div className="h-px flex-1 bg-white/[0.05]" />
               <span className="font-mono text-[9px] tracking-[0.35em] text-gray-600 uppercase">
@@ -538,10 +590,13 @@ export default function Careers() {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-[1fr_58%] gap-12 lg:gap-20 items-start">
-
             {/* ── Left ── */}
             <div className="lg:sticky lg:top-28">
-              <SectionHeader eyebrow="Candidatura" title="Envíanos" accent="tu talento" />
+              <SectionHeader
+                eyebrow="Candidatura"
+                title="Envíanos"
+                accent="tu talento"
+              />
 
               <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-10 border-l-2 border-defensya-blue/30 pl-5">
                 ¿No ves una posición que encaje? Envíanos tu CV para futuras
@@ -554,8 +609,12 @@ export default function Careers() {
                     key={label}
                     className="flex items-center justify-between py-4 border-b border-gray-100 dark:border-white/[0.07]"
                   >
-                    <span className="font-mono text-[12px] tracking-[0.3em] text-gray-400 dark:text-gray-600 uppercase">{label}</span>
-                    <span className="font-mono text-[13px] text-gray-900 dark:text-white">{value}</span>
+                    <span className="font-mono text-[12px] tracking-[0.3em] text-gray-400 dark:text-gray-600 uppercase">
+                      {label}
+                    </span>
+                    <span className="font-mono text-[13px] text-gray-900 dark:text-white">
+                      {value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -580,31 +639,45 @@ export default function Careers() {
                     exit={{ opacity: 0 }}
                     className="relative py-20 flex flex-col items-center justify-center text-center px-8
                                bg-defensya-blue/[0.04] border border-defensya-blue/20"
-                    style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))" }}
+                    style={{
+                      clipPath:
+                        "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
+                    }}
                   >
                     <Corners size={18} />
 
                     <div
                       className="w-16 h-16 flex items-center justify-center mb-8 bg-defensya-blue/10 border border-defensya-blue/30"
-                      style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
+                      style={{
+                        clipPath:
+                          "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                      }}
                     >
-                      <svg className="w-7 h-7 text-defensya-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-7 h-7 text-defensya-blue"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
 
                     <span className="font-mono text-[10px] tracking-[0.3em] text-defensya-blue uppercase mb-4">
                       Transmisión completada
                     </span>
-                    <h3
-                      className="text-3xl font-bold uppercase leading-tight mb-4 text-gray-900 dark:text-white"
-                      
-                    >
+                    <h3 className="text-3xl font-bold uppercase leading-tight mb-4 text-gray-900 dark:text-white">
                       Candidatura Recibida
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed mb-10">
-                      Gracias por tu interés en Defensya. Tu perfil ha sido enviado al equipo de selección.
-                      Te responderemos a la mayor brevedad posible.
+                      Gracias por tu interés en Defensya. Tu perfil ha sido
+                      enviado al equipo de selección. Te responderemos a la
+                      mayor brevedad posible.
                     </p>
                     <button
                       onClick={() => setStatus("")}
@@ -621,7 +694,10 @@ export default function Careers() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="relative p-7 sm:p-10 bg-slate-100 dark:bg-white/[0.02] border border-gray-100 dark:border-white/[0.07]"
-                    style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))" }}
+                    style={{
+                      clipPath:
+                        "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
+                    }}
                   >
                     <Corners size={18} />
 
@@ -629,16 +705,34 @@ export default function Careers() {
                       <span className="font-mono text-[12px] tracking-[0.3em] text-gray-900 dark:text-white uppercase">
                         Formulario de candidatura
                       </span>
-                      <span className="font-mono text-[10px] text-gray-400 dark:text-gray-600">REF-HR/01</span>
+                      <span className="font-mono text-[10px] text-gray-400 dark:text-gray-600">
+                        REF-HR/01
+                      </span>
                     </div>
 
-                    <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <form
+                      ref={formRef}
+                      onSubmit={handleSubmit}
+                      className="flex flex-col gap-6"
+                    >
                       <div className="grid sm:grid-cols-2 gap-6">
                         <Field label="Nombre completo">
-                          <input type="text" name="user_name" placeholder="Juan García" className={inputCls} required />
+                          <input
+                            type="text"
+                            name="user_name"
+                            placeholder="Juan García"
+                            className={inputCls}
+                            required
+                          />
                         </Field>
                         <Field label="Correo electrónico">
-                          <input type="email" name="user_email" placeholder="juan@email.com" className={inputCls} required />
+                          <input
+                            type="email"
+                            name="user_email"
+                            placeholder="juan@email.com"
+                            className={inputCls}
+                            required
+                          />
                         </Field>
                       </div>
 
@@ -646,14 +740,27 @@ export default function Careers() {
                         <Field label="Puesto de interés">
                           <select name="position" className={inputCls} required>
                             <option value="">Selecciona un puesto</option>
-                            {positions.map((p) => <option key={p} value={p}>{p}</option>)}
+                            {positions.map((p) => (
+                              <option key={p} value={p}>
+                                {p}
+                              </option>
+                            ))}
                           </select>
                         </Field>
                         <Field label="Área de interés">
                           <select name="area" className={inputCls} required>
                             <option value="">Selecciona un área</option>
-                            {["Software", "Electrónica", "Visión / Óptica", "Fabricación 3D", "Sanidad", "Otros"].map((a) => (
-                              <option key={a} value={a}>{a}</option>
+                            {[
+                              "Software",
+                              "Electrónica",
+                              "Visión / Óptica",
+                              "Fabricación 3D",
+                              "Sanidad",
+                              "Otros",
+                            ].map((a) => (
+                              <option key={a} value={a}>
+                                {a}
+                              </option>
                             ))}
                           </select>
                         </Field>
@@ -679,7 +786,10 @@ export default function Careers() {
                               ? "border-defensya-blue bg-defensya-blue/[0.04]"
                               : "border-gray-200 dark:border-white/[0.10] hover:border-defensya-blue",
                           ].join(" ")}
-                          style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
+                          style={{
+                            clipPath:
+                              "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                          }}
                         >
                           <input
                             type="file"
@@ -689,21 +799,47 @@ export default function Careers() {
                             required
                             onChange={handleFileChange}
                           />
-                          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+                          <svg
+                            width="18"
+                            height="18"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
                             className={`shrink-0 transition-colors duration-200 ${fileName ? "text-defensya-blue" : "text-gray-400 group-hover:text-defensya-blue"}`}
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                            />
                           </svg>
                           <div className="min-w-0">
-                            <p className={`font-mono text-[11px] tracking-[0.15em] uppercase truncate transition-colors duration-200 ${fileName ? "text-defensya-blue" : "text-gray-500 dark:text-gray-400 group-hover:text-defensya-blue"}`}>
+                            <p
+                              className={`font-mono text-[11px] tracking-[0.15em] uppercase truncate transition-colors duration-200 ${fileName ? "text-defensya-blue" : "text-gray-500 dark:text-gray-400 group-hover:text-defensya-blue"}`}
+                            >
                               {fileName || "Seleccionar archivo"}
                             </p>
-                            <p className="font-mono text-[10px] text-gray-400 dark:text-gray-600 mt-0.5">PDF, DOC o DOCX — máx. 5 MB</p>
+                            <p className="font-mono text-[10px] text-gray-400 dark:text-gray-600 mt-0.5">
+                              PDF, DOC o DOCX — máx. 5 MB
+                            </p>
                           </div>
                           {fileName && (
                             <span className="ml-auto shrink-0">
-                              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} className="text-defensya-blue">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              <svg
+                                width="14"
+                                height="14"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                                className="text-defensya-blue"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M5 13l4 4L19 7"
+                                />
                               </svg>
                             </span>
                           )}
@@ -720,7 +856,10 @@ export default function Careers() {
                                      bg-defensya-navy-light dark:bg-defensya-blue text-white
                                      font-mono text-[11px] tracking-[0.25em] uppercase
                                      hover:bg-defensya-blue disabled:opacity-40 transition-colors duration-200"
-                          style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))" }}
+                          style={{
+                            clipPath:
+                              "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                          }}
                         >
                           {status === "sending" ? (
                             <>
@@ -730,8 +869,20 @@ export default function Careers() {
                           ) : (
                             <>
                               Enviar Candidatura
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-1 transition-transform duration-200">
-                                <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                className="group-hover:translate-x-1 transition-transform duration-200"
+                              >
+                                <path
+                                  d="M2 6h8M7 3l3 3-3 3"
+                                  stroke="currentColor"
+                                  strokeWidth="1.4"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </>
                           )}

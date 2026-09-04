@@ -206,7 +206,7 @@ export default function Divisiones() {
             }}
           >
            Cuatro sectores {" "}
-            <span className="text-white/40 font-semibold">Un mismo estándar</span>
+            <span className="text-white/40 font-light">Un mismo estándar</span>
           </h2>
         </div>
 

@@ -93,7 +93,7 @@ export default function MRTTCaseSection() {
             }}
           >
             Operamos en el {" "}
-            <span className="text-white/40 font-semibold">A330 MRTT</span>
+            <span className="text-white/40 font-light">A330 MRTT</span>
           </h2>
         </div>
 
