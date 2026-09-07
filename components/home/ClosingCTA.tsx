@@ -16,7 +16,7 @@ const stats = [
   { value: 20, suffix: "+", label: "Años de experiencia" },
   { value: 20, suffix: "+", label: "Patentes registradas" },
   { value: 4, suffix: "", label: "Sectores de ingeniería" },
-  { value: "A3R/A4R", suffix: "", label: "Sistemas de repostaje" },
+  { value: "A3R/A4R", suffix: "", label: "Marcas Registradas" },
 ];
 
 type BtnVariant = "primary" | "secondary";
@@ -286,7 +286,7 @@ export default function ClosingCTA() {
                       className="bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     />
 
-                    <div className="text-white font-black leading-none text-3xl lg:text-5xl transition-colors duration-300 group-hover:text-defensya-blue">
+                    <div className="text-white font-black leading-none text-3xl lg:text-5xl transition-colors duration-300 ">
                       {typeof item.value === "number" ? (
                         <AnimatedCounter
                           value={item.value}
@@ -298,7 +298,7 @@ export default function ClosingCTA() {
                       )}
                     </div>
                     <div
-                      className="mt-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-slate-500"
+                      className="mt-1.5 text-[10px] md:text-[12px] uppercase tracking-[0.18em] text-slate-500"
                       style={{ fontFamily: "'Share Tech Mono', monospace" }}
                     >
                       {item.label}
@@ -376,7 +376,7 @@ export default function ClosingCTA() {
                 {/* HUD corner brackets */}
                 <div className="relative inline-block mb-4">
                   <span
-                    className="block px-3 py-1 text-[10px] tracking-[0.35em] uppercase text-defensya-steel/60"
+                    className="block px-3 py-1 text-[11px] tracking-[0.35em] uppercase text-defensya-steel/60"
                     style={{ fontFamily: "'Share Tech Mono', monospace" }}
                   >
                     Aerospace Systems

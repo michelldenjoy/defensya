@@ -7,7 +7,7 @@ const disciplines = [
   { label: "Mecánica", detail: "Estructuras y actuación" },
   { label: "Óptica", detail: "Sistemas de visión e imagen" },
   { label: "Integración", detail: "Plataformas de generación propia" },
-  { label: "Certificación", detail: "Ensayo y validación" },
+  { label: "Certificación (Calificación)", detail: "Ensayo y validación" },
 ] as const;
 
 export default function Intro() {
@@ -54,7 +54,7 @@ export default function Intro() {
                   letterSpacing: "0.005em",
                 }}
               >
-                Diseñamos los sistemas que hacen posibles las misiones aéreas {" "}  <br />
+                Diseñamos sistemas que hacen posibles las misiones aéreas {" "}  <br />
                 
                 <span className="text-defensya-sky/90">más exigentes</span>
               </motion.h2>

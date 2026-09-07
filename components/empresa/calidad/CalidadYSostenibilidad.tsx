@@ -417,7 +417,7 @@ function SostenibilidadTab() {
       <div className="grid  lg:grid-cols-2 border border-white/[0.07]">
         <div className="px-6 sm:px-8 py-10 sm:py-14 flex flex-col justify-center">
           <blockquote
-            className="font-bold uppercase text-white leading-snug"
+            className="font-light uppercase text-white leading-snug"
             style={{ fontSize: "clamp(1rem, 2.3vw, 1.5rem)" }}
           >
             Todas nuestras actividades se desarrollan desde la protección y conservación del medio ambiente como garantía de progreso y continuidad.

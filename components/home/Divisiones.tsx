@@ -39,7 +39,7 @@ const divisions: Division[] = [
     title: "Imagen y Vídeo",
     image: "/images/imagevideo.png",
     role: "Captación y visualización en tiempo real",
-    desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real.",
+    desc: "Desarrollamos tecnología integrada avanzada en captación y visualización, incluyendo cámaras especializadas, monitores de alta definición y sistemas de gestión de vídeo en tiempo real. Todos con las calificaciones necesarias para ambientes exigidos por defensa.",
   },
 ];
 

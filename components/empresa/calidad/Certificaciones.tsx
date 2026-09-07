@@ -122,7 +122,7 @@ export default function Certificaciones() {
                   {
                     num: "03",
                     label: "Cultura de Mejora Continua",
-                    desc: "Optimizamos de forma constante nuestras metodologías internas y herramientas de software para ofrecer soluciones a la vanguardia tecnológica",
+                    desc: "Optimizamos de forma constante nuestras metodologías internas y herramientas de software para desarrollar soluciones cada vez más avanzadas, eficientes y precisas.",
                   },
                   {
                     num: "04",
@@ -138,7 +138,7 @@ export default function Certificaciones() {
                       {num}
                     </span>
                     <div>
-                      <p className="text-md font-semibold text-white mb-0.5 uppercase tracking-wide">
+                      <p className="text-md text-white mb-0.5 uppercase tracking-wide">
                         {label}
                       </p>
                       <p className="text-sm text-gray-400 leading-relaxed">

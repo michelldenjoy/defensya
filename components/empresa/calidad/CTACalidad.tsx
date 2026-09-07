@@ -33,11 +33,9 @@ export default function CTACalidad() {
                 entregamos la fiabilidad operativa necesaria para que
                 organizaciones globales operen en entornos críticos.
               </span>{" "}
-              En{" "}
-              <span className="text-defensya-steel font-semibold">
-                Defensya
-              </span>
-              , la excelencia técnica se rige por estándares de calidad
+              En
+              
+                Defensya, la excelencia técnica se rige por estándares de calidad
               internacionales, garantizando la seguridad en el futuro de la
               exploración y la defensa global.
             </p>

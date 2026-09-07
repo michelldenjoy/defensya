@@ -30,7 +30,7 @@ const stages = [
     n: "04",
     kicker: "Siguiente frontera",
     title: "Haptix® — del control manual a la asistencia automatizada",
-    body: "El dispositivo háptico Haptix® reduce la carga del operador y facilita la transición hacia el reabastecimiento automático A3R® — el primer sistema de su tipo certificado en el mundo.",
+    body: "El dispositivo háptico Haptix® reduce la carga del operador y facilita la transición hacia el reabastecimiento automático A3R® — el primer sistema de su tipo en el mundo.",
     frontier: true,
     href: "/innovacion#haptix",
   },
@@ -92,7 +92,7 @@ export default function MRTTCaseSection() {
               
             }}
           >
-            Operamos en el {" "}
+            Suministramos en el {" "}
             <span className="text-white/40 font-light">A330 MRTT</span>
           </h2>
         </div>
@@ -128,7 +128,7 @@ export default function MRTTCaseSection() {
                 >
                   {s.n}
                 </span>
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-neutral-500">
+                <span className="font-mono text-[13px] tracking-[0.2em] uppercase text-neutral-500">
                   {s.kicker}
                 </span>
               </div>

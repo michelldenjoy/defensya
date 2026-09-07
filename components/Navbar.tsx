@@ -342,7 +342,7 @@ function MobileMenu({
             <span className="text-[12px] tracking-[0.25em] uppercase font-semibold text-slate-400 dark:text-zinc-500">
               Tema
             </span>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </nav>
       </div>
@@ -445,13 +445,13 @@ export default function Navbar() {
               className={`pl-3 xl:pl-6 border-l transition-colors duration-300 shrink-0
                           ${scrolled ? "border-slate-200/70 dark:border-white/[0.08]" : "border-white/20"}`}
             >
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </div>
           </div>
 
           {/* ── Mobile / Tablet controls ── */}
           <div className="flex lg:hidden items-center gap-3 shrink-0">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}

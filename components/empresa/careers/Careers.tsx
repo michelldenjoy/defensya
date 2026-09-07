@@ -98,7 +98,6 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 
 function Eyebrow({
   children,
-  onDark = false,
 }: {
   children: React.ReactNode;
   onDark?: boolean;
