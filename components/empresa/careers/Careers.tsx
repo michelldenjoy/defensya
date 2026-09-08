@@ -251,7 +251,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
       <div
         className={`
           absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
-          bg-[#0d1a2e] border border-defensya-blue/30
+          bg-[#0d1a2e] border border-defensya-blue/30 
           px-6 py-5 shadow-xl
           transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
           origin-bottom
@@ -268,7 +268,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
       >
         {/* TL bracket */}
         <span
-          className="absolute top-0 left-0 w-4 h-4"
+          className="absolute  top-0 left-0 w-4 h-4"
           style={{
             borderTop: "1.5px solid #0c415a",
             borderLeft: "1.5px solid #0c415a",
@@ -276,18 +276,18 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
         />
         {/* BR bracket */}
         <span
-          className="absolute bottom-0 right-0 w-4 h-4"
+          className="absolute  bottom-0 right-0 w-4 h-4"
           style={{
             borderBottom: "1.5px solid #131c20",
             borderRight: "1.5px solid #0c415a",
           }}
         />
 
-        <p className="text-sm text-gray-100 leading-relaxed">{profile.desc}</p>
+        <p className="text-sm  text-gray-100 leading-relaxed">{profile.desc}</p>
 
         {/* Arrow pointing down */}
         <span
-          className={`absolute -bottom-[7px] left-1/2 -translate-x-1/2
+          className={`absolute -bottom-[7px] left-1/2 -translate-x-1/2 
                       w-3 h-3 rotate-45
                       bg-[#0d1a2e] border-r border-b border-defensya-blue/30
                       transition-opacity duration-300
@@ -297,7 +297,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
 
       {/* ── Main card ── */}
       <div
-        className={`relative overflow-hidden cursor-default
+        className={`relative overflow-hidden  cursor-default
                     border transition-all duration-300 px-6 py-7
                     ${
                       hovered
@@ -311,7 +311,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
       >
         {/* Top accent bar */}
         <span
-          className={`absolute top-0 inset-x-0 h-[2px] bg-defensya-blue
+          className={`absolute top-0 inset-x-0  h-[2px] bg-defensya-blue
                       transition-transform duration-400 origin-left
                       ${hovered ? "scale-x-100" : "scale-x-0"}`}
         />
@@ -340,7 +340,7 @@ function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
 
         {/* Title */}
         <h3
-          className={`text-base font-bold uppercase leading-snug tracking-wide
+          className={`text-base font-bold uppercase  leading-snug tracking-wide
                       transition-colors duration-300
                       ${hovered ? "text-white" : "text-gray-300"}`}
           style={{
@@ -516,7 +516,7 @@ export default function Careers() {
           <div>
             <SubsectionTitle title="Lo que " accent="ofrecemos" />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {benefits.map((b) => (
                 <div
                   key={b.num}
@@ -562,7 +562,7 @@ export default function Careers() {
           <div id="perfiles">
             <SubsectionTitle title="Perfiles que" accent="buscamos" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 ">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 ">
               {profiles.map((p) => (
                 <ProfileCard key={p.area} profile={p} />
               ))}

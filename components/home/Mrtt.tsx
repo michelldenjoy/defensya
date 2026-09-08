@@ -30,7 +30,7 @@ const stages = [
     n: "04",
     kicker: "Siguiente frontera",
     title: "Haptix® — del control manual a la asistencia automatizada",
-    body: "El dispositivo háptico Haptix® reduce la carga del operador y facilita la transición hacia el reabastecimiento automático A3R® — el primer sistema de su tipo en el mundo.",
+    body: "El dispositivo háptico Haptix® reduce la carga del operador y facilita la transición hacia el reabastecimiento automático A3R®. El primer sistema de su tipo en el mundo.",
     frontier: true,
     href: "/innovacion#haptix",
   },
