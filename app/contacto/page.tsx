@@ -91,7 +91,7 @@ export default function ContactView() {
   return (
     <main
       className="relative w-full min-h-screen bg-defensya-navy text-white overflow-hidden"
-      style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
+      style={{ fontFamily: "'Share Tech Mono', monospace" }}
     >
       <CyberBackground />
 
@@ -195,7 +195,7 @@ export default function ContactView() {
                     className="text-3xl  font-bold uppercase leading-none tracking-tight"
                     style={{
                       fontFamily:
-                        "var(--font-display, 'Barlow Condensed', sans-serif)",
+                        "'Share Tech Mono', monospace",
                     }}
                   >
                     Nueva consulta
