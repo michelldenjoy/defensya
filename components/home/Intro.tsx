@@ -84,7 +84,7 @@ export default function Intro() {
             </div>
 
             <p className="px-6 pt-6 text-[14px] lg:text-[15px] text-neutral-400 leading-[1.8]">
-              Desarrollamos y fabricamos sistemas electrónicos, mecánicos y
+              Desarrollamos sistemas electrónicos, mecánicos y
               ópticos, integrados en plataformas propias de principio a fin.
             </p>
 
