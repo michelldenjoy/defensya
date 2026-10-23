@@ -90,7 +90,7 @@ export default function Intro() {
 
             <ul className="px-8 pb-9 pt-4">
               {disciplines.map((d, i) => (
-                <li
+                <li  
                   key={d.label}
                   className="flex items-baseline justify-between gap-4 py-3 border-t border-white/5 first:border-t-0"
                 >

@@ -91,7 +91,7 @@ export default function HeroHome() {
 
   return (
     <section
-      className="relative w-full h-[84vh] min-h-[600px] max-h-800px]
+      className="relative w-full h-[84vh] min-h-[600px] max-h-[800px]
                  flex flex-col justify-end overflow-hidden bg-defensya-navy"
     >
       {/* ── VIDEO ── */}
@@ -105,8 +105,8 @@ export default function HeroHome() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* ── OVERLAYS ── */}
-      <div className="absolute inset-0 bg-gradient-to-t from-defensya-navy via-defensya-navy/60 to-defensya-navy/10" />
+      {/* ── OVERLAYS  ── */}
+      <div className="absolute inset-0 bg-gradient-to-t from-defensya-navy/85 via-defensya-navy/10 to-defensya-navy/5" />
       <div className="absolute inset-0 bg-gradient-to-r from-defensya-navy/60 via-transparent to-transparent" />
 
       {/* ── CONTENT ── */}

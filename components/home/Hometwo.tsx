@@ -6,6 +6,7 @@ import Image from "next/image";
 import ClosingCTA from "./ClosingCTA";
 import Intro from "./Intro";
 import Mrtt from "./Mrtt";
+import TankerJourney from "./Tankerjourney";
 
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
@@ -69,10 +70,12 @@ export default function Hometwo() {
         </div>
       </section>
 
-      <Intro />
-      <Mrtt />
-      {/* <CapabilityCards />       */}
+      
 
+      <Intro />
+      {/* <Mrtt /> */}
+      {/* <CapabilityCards />       */}
+<TankerJourney />
       <Divisiones />
 
       {/* <TecnologiasSection /> */}
