@@ -1,12 +1,12 @@
 "use client";
 
-
 import Divisiones from "./Divisiones";
 import Image from "next/image";
 import ClosingCTA from "./ClosingCTA";
 import Intro from "./Intro";
 import Mrtt from "./Mrtt";
 import TankerJourney from "./Tankerjourney";
+import DivisionsPanels from "./DivisionsPanels";
 
 function Rule() {
   return <hr className="border-t border-gray-800 dark:border-white/8" />;
@@ -47,7 +47,6 @@ export default function Hometwo() {
                 key={item.label}
                 className="flex items-center gap-3 justify-center"
               >
-                
                 <Image
                   src={item.icon}
                   alt={item.label}
@@ -70,13 +69,15 @@ export default function Hometwo() {
         </div>
       </section>
 
-      
-
       <Intro />
       {/* <Mrtt /> */}
       {/* <CapabilityCards />       */}
-<TankerJourney />
-      <Divisiones />
+
+      <DivisionsPanels />
+
+      <TankerJourney />
+
+      {/* <Divisiones /> */}
 
       {/* <TecnologiasSection /> */}
 
