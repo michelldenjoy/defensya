@@ -65,7 +65,7 @@ export default function DivisionsPanels() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  // Con ratón: abre al pasar por encima. En pantalla táctil: abre y cierra con un toque.
+  
   const handleClick = (i: number) =>
     setOpen((prev) => (prev === i && !canHover ? null : i));
 

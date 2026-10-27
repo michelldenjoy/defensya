@@ -18,7 +18,7 @@ type Stop = {
 const STOPS: Stop[] = [
   {
     code: "DFS-PRD",
-    name: "Productos",
+    name: "Proyectos",
     headline: "La seguridad del futuro se construye con precisión.",
     href: "/productos",
     cta: "Ver productos",
