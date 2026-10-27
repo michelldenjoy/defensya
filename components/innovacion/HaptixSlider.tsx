@@ -116,7 +116,7 @@ export default function HaptixSlider() {
                 src={HAPTIX_IMAGES[current].src}
                 alt={`Haptix — ${HAPTIX_IMAGES[current].label}`}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes=" (max-width: 1024px) 100vw, 50vw"
                 className="object-contain p-6 lg:p-[5vh]"
               />
             </motion.div>

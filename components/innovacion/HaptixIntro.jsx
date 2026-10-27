@@ -92,7 +92,7 @@ export default function HaptixIntro() {
       </div>
 
       {/* ── Imagen ── */}
-      <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-auto">
+      <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[8/10] lg:aspect-[6/10] xl:aspect-auto">
         <Image
           src="/products/haptix2.webp"
           alt="Dispositivo de control Haptix"
