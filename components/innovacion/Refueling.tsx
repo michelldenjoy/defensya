@@ -1,243 +1,260 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HaptixSlider from "./HaptixSlider";
 import HaptixIntro from "./HaptixIntro";
 
-const HAPTIX_IMAGES = [
-  { src: "/products/haptixfrontal.png", label: "Vista Frontal" },
-  { src: "/products/haptixback.jpg", label: "Vista Trasera" },
-  { src: "/products/haptixside.jpg", label: "Vista Lateral" },
-  { src: "/products/haptixangle.png", label: "Vista Angular" },
+/* ─────────────────────────────────────────────────────────────
+   CONTENIDO
+   ───────────────────────────────────────────────────────────── */
+
+const BLOCKS = [
+  {
+    num: "01",
+    title: "El desafío",
+    body: "Históricamente, el reabastecimiento aire-aire ha sido una operación manual que requiere una elevada precisión por parte del operador. Aunque esta capacidad actúa como un importante multiplicador de fuerza en las operaciones aéreas, su rendimiento sigue condicionado por los límites del factor humano.",
+    status: "Operación manual",
+  },
+  {
+    num: "02",
+    title: "Nuestra visión",
+    body: "Defensya impulsa la evolución hacia sistemas de reabastecimiento automatizados capaces de mejorar la precisión, reducir riesgos operativos y mantener el rendimiento incluso en condiciones ambientales adversas.",
+    status: "Asistencia automatizada",
+  },
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+const MONO = { fontFamily: "'Share Tech Mono', monospace" };
+const CUT = "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)";
+
+/* Animaciones propias de esta página */
+const KEYFRAMES = `
+@keyframes reticle-drift {
+  0%   { transform: translate(-50%, -50%) translate(-18px, 10px); }
+  25%  { transform: translate(-50%, -50%) translate(14px, -16px); }
+  50%  { transform: translate(-50%, -50%) translate(22px, 12px); }
+  75%  { transform: translate(-50%, -50%) translate(-10px, 18px); }
+  100% { transform: translate(-50%, -50%) translate(-18px, 10px); }
+}
+@keyframes reticle-lock {
+  0%   { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+  60%  { opacity: 1; }
+  100% { transform: translate(-75%, -30%) scale(1); opacity: 1; }
+}
+`;
+
+/* ─────────────────────────────────────────────────────────────
+   PIEZAS VISUALES
+   ───────────────────────────────────────────────────────────── */
+
+/* Retícula grande y tranquila de fondo en la portada (tema: visión) */
+function HeroReticle() {
+  const ticks = Array.from({ length: 72 }, (_, i) => i);
   return (
-    <div className="flex items-center gap-3 mb-6 sm:mb-8">
-      <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-        {children}
+    <svg
+      aria-hidden
+      viewBox="0 0 600 600"
+      className="pointer-events-none absolute -right-48 top-1/2 h-[520px] w-[520px] -translate-y-1/2 opacity-40 sm:-right-32 lg:-right-10 lg:h-[680px] lg:w-[680px] lg:opacity-60"
+    >
+      <g className="origin-center animate-[spin_120s_linear_infinite] motion-reduce:animate-none" style={{ transformBox: "fill-box" }}>
+        {ticks.map((i) => {
+          const long = i % 6 === 0;
+          return (
+            <line
+              key={i}
+              x1="300"
+              y1={long ? 18 : 26}
+              x2="300"
+              y2="36"
+              stroke="rgba(255,255,255,0.35)"
+              strokeWidth={long ? 1.2 : 0.8}
+              transform={`rotate(${i * 5} 300 300)`}
+            />
+          );
+        })}
+      </g>
+      <circle cx="300" cy="300" r="250" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+      <circle cx="300" cy="300" r="150" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="2 8" />
+      <line x1="300" y1="120" x2="300" y2="250" stroke="rgba(255,255,255,0.15)" />
+      <line x1="300" y1="350" x2="300" y2="480" stroke="rgba(255,255,255,0.15)" />
+      <line x1="120" y1="300" x2="250" y2="300" stroke="rgba(255,255,255,0.15)" />
+      <line x1="350" y1="300" x2="480" y2="300" stroke="rgba(255,255,255,0.15)" />
+    </svg>
+  );
+}
+
+/* Visor sobre la foto: deriva en "manual", se fija en "automatizado" */
+function VisionOverlay({ locked, status }: { locked: boolean; status: string }) {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Marco que se cierra sobre el objetivo */}
+      <div
+        className="absolute transition-[inset] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+        style={{ inset: locked ? "30% 28%" : "12% 10%" }}
+      >
+        {[
+          "left-0 top-0 border-l border-t",
+          "right-0 top-0 border-r border-t",
+          "bottom-0 left-0 border-b border-l",
+          "bottom-0 right-0 border-b border-r",
+        ].map((c) => (
+          <span
+            key={c}
+            className={`absolute h-5 w-5 transition-colors duration-700 ${c} ${locked ? "border-white" : "border-white/40"}`}
+          />
+        ))}
+      </div>
+
+      {/* Mira central */}
+      <div
+        key={locked ? "lock" : "drift"}
+        className={`absolute left-1/2 top-1/2 h-14 w-14 ${
+          locked
+            ? "animate-[reticle-lock_700ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
+            : "animate-[reticle-drift_7s_ease-in-out_infinite]"
+        } motion-reduce:animate-none`}
+        style={{ transform: "translate(-50%, -50%)" }}
+      >
+        <span className={`absolute inset-0 rounded-full border ${locked ? "border-white/90" : "border-white/35"}`} />
+        <span className={`absolute left-1/2 top-0 h-3 w-px -translate-x-1/2 ${locked ? "bg-white" : "bg-white/40"}`} />
+        <span className={`absolute bottom-0 left-1/2 h-3 w-px -translate-x-1/2 ${locked ? "bg-white" : "bg-white/40"}`} />
+        <span className={`absolute left-0 top-1/2 h-px w-3 -translate-y-1/2 ${locked ? "bg-white" : "bg-white/40"}`} />
+        <span className={`absolute right-0 top-1/2 h-px w-3 -translate-y-1/2 ${locked ? "bg-white" : "bg-white/40"}`} />
+        <span className={`absolute left-1/2 top-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full ${locked ? "bg-white" : "bg-white/0"}`} />
+      </div>
+
+      {/* Lecturas */}
+      <span className="absolute right-5 top-5 text-[11px] tracking-[0.2em] text-white/80 sm:right-6 sm:top-6" style={MONO}>
+        {status}
       </span>
-      <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/20 to-transparent" />
+      <span className="absolute bottom-5 left-5 text-[10px] uppercase tracking-[0.3em] text-white/70 sm:bottom-6 sm:left-6" style={MONO}>
+        Aerial Refueling Systems
+      </span>
     </div>
   );
 }
 
-function Corners({ size = 16, dim = false }: { size?: number; dim?: boolean }) {
-  const accent = dim ? "rgba(14,165,233,0.35)" : "#0ea5e9";
-  const muted = dim ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
-  return (
-    <>
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          top: 10,
-          left: 10,
-          width: size,
-          height: size,
-          borderTop: `1.5px solid ${accent}`,
-          borderLeft: `1.5px solid ${accent}`,
-        }}
-      />
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          bottom: 10,
-          left: 10,
-          width: size,
-          height: size,
-          borderBottom: `1px solid ${muted}`,
-          borderLeft: `1px solid ${muted}`,
-        }}
-      />
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          bottom: 10,
-          right: 10,
-          width: size,
-          height: size,
-          borderBottom: `1.5px solid rgba(14,165,233,0.45)`,
-          borderRight: `1.5px solid rgba(14,165,233,0.45)`,
-        }}
-      />
-    </>
-  );
-}
+/* ─────────────────────────────────────────────────────────────
+   PÁGINA
+   ───────────────────────────────────────────────────────────── */
 
 export default function Refueling() {
-  const [current, setCurrent] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const [active, setActive] = useState(0);
+  const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Marca como activo el bloque que está en el centro de la pantalla
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.index));
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    blockRefs.current.forEach((el) => el && io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const lines = [
+    { text: "Ingeniería para", cls: "" },
+    { text: "entornos de", cls: "" },
+    { text: "alta seguridad", cls: "font-light text-white/45" },
+  ];
 
   return (
-    <main
-      className="w-full text-gray-900 dark:text-white"
-      style={{ fontFamily: "'Share Tech Mono', monospace" }}
-    >
-      {/* ══ §1 INTRO ════ */}
+    <main className="w-full bg-defensya-navy text-white">
+      <style>{KEYFRAMES}</style>
 
-      <section
-        className="relative px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24"
-        style={{
-          backgroundColor: "var(--bg-intro, #0a1128)",
-          paddingBottom: "8rem",
-          zIndex: 2,
-          position: "relative",
-        }}
-      >
-        {/* bg dark */}
-        <div className="absolute inset-0 bg-defensya-navy dark:bg-defensya-navy hidden dark:block pointer-events-none" />
-        <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-40 pointer-events-none" />
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-defensya-blue/20 to-transparent" />
+      {/* ══ §1 PORTADA ══════════════════════════════════════════ */}
+      <section className="relative overflow-hidden pb-24 pt-36 lg:pb-36 lg:pt-44">
+        <HeroReticle />
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <Eyebrow>Innovación · Reabastecimiento Air-to-Air</Eyebrow>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
+            Innovación · Reabastecimiento aire-aire
+          </p>
 
-          <div className="grid lg:grid-cols-[1fr_40%] gap-8 lg:gap-16 items-center mb-12 sm:mb-16">
-            <h1
-              className="font-bold uppercase leading-[0.88] tracking-[-0.025em] text-white dark:text-white"
-              style={{ fontSize: "clamp(2.3rem, 4.7vw, 4.8rem)",
-                  
-                  letterSpacing: "0.005em"
-                 }}
-            >
-              Ingeniería para
-              <br />
-              entornos de
-              <br />
-              <span className="not-italic font-light text-white/45">
-                alta seguridad
+          <h1 className="mt-8 text-[clamp(2.6rem,6vw,5.75rem)] font-semibold uppercase leading-[0.9] tracking-tight">
+            {lines.map((l, i) => (
+              <span key={l.text} className="block overflow-hidden pb-[0.06em]">
+                <span
+                  className={`block transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${l.cls} ${
+                    mounted ? "translate-y-0" : "translate-y-full"
+                  }`}
+                  style={{ transitionDelay: `${120 + i * 110}ms` }}
+                >
+                  {l.text}
+                </span>
               </span>
-            </h1>
+            ))}
+          </h1>
 
-            <p className="text-sm md:text-base text-white/42 dark:text-gray-400 leading-relaxed border-l-2 border-defensya-steel/20 pl-4 sm:pl-5 lg:self-end">
-              En Defensya, la innovación es el motor que impulsa nuestro
-              compromiso en la industria aeroespacial.{" "}
-              <strong className="text-white/80 font-normal">
-                Desarrollamos soluciones avanzadas
-              </strong>{" "}
-               que transforman la defensa y la
-              seguridad, desde sistemas de reabastecimiento en vuelo hasta
-              patentes innovadoras.
-            </p>
-          </div>
+          <span className="mt-12 block h-px w-12 bg-white/25" />
+          <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-white/65">
+            En Defensya, la innovación es el motor que impulsa nuestro compromiso en la industria aeroespacial.{" "}
+            <strong className="font-normal text-white">Desarrollamos soluciones avanzadas</strong> que transforman la defensa y la
+            seguridad, desde sistemas de reabastecimiento en vuelo hasta patentes innovadoras.
+          </p>
         </div>
-
-        {/* CUÑA DIAGONAL  */}
-        <div
-          className="absolute left-0 right-0 bg-slate-50 dark:bg-[#0d2340]"
-          style={{
-            bottom: "-3rem",
-            height: "6rem",
-            transform: "skewY(-3deg)",
-            transformOrigin: "left bottom",
-            zIndex: 3,
-          }}
-        />
       </section>
 
-      {/* ══ §2 DESAFÍO Y VISIÓN ═══════════════════════════════════════ */}
-      <section
-        className="relative px-5 sm:px-8 lg:px-16 pb-14 sm:pb-24
-                   bg-slate-50 dark:bg-[#0d2340]
-                   border-b border-gray-100 dark:border-white/[0.07]"
-        style={{
-          paddingTop: "5rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-25 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative">
-          <h2
-            className="font-bold uppercase  leading-[0.9] tracking-tight text-gray-900 dark:text-white mb-10 sm:mb-14"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "clamp(2rem, 4vw, 3.4rem)",
-            }}
-          >
+      {/* ══ §2 EL RETO Y NUESTRA VISIÓN ═════════════════════════ */}
+      <section aria-labelledby="reto-title" className="relative border-t border-white/10 py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 id="reto-title" className="text-[clamp(2.2rem,4.6vw,4rem)] font-semibold uppercase leading-[0.9] tracking-tight">
             El reto y nuestra visión
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
-            <div className="flex flex-col gap-4 sm:gap-6">
-              {[
-                {
-                  num: "01",
-                  title: "El desafío",
-                  body: "Históricamente, el reabastecimiento aire-aire ha sido una operación manual que requiere una elevada precisión por parte del operador. Aunque esta capacidad actúa como un importante multiplicador de fuerza en las operaciones aéreas, su rendimiento sigue condicionado por los límites del factor humano.",
-                },
-                {
-                  num: "02",
-                  title: "Nuestra visión",
-                  body: "Defensya impulsa la evolución hacia sistemas de reabastecimiento automatizados capaces de mejorar la precisión, reducir riesgos operativos y mantener el rendimiento incluso en condiciones ambientales adversas.",
-                },
-              ].map(({ num, title, body }) => (
-                <div
-                  key={num}
-                  className="relative overflow-hidden p-6 sm:p-8 group flex-1
-                             bg-white dark:bg-white/[0.02]
-                             border border-gray-100 dark:border-white/[0.06]
-                             transition-colors duration-300"
-                  style={{
-                    clipPath:
-                      "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)",
-                  }}
-                >
-                  <Corners size={14} />
-                  <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-                  <h3
-                    className="font-bold uppercase leading-none mb-3 text-gray-900 dark:text-white group-hover:text-defensya-blue transition-colors duration-300"
-                    style={{
-                      fontFamily: "Share Tech Mono",
-                      fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <div className="h-px w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500 mb-4" />
-                  <p
-                    className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light"
-                    style={{ fontFamily: "Share Tech Mono" }}
-                  >
-                    {body}
-                  </p>
-                </div>
-              ))}
+          <div className="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-2 lg:gap-20">
+            {/* Imagen con visor: se queda fija mientras lees (escritorio) */}
+            <div className="lg:order-2">
+              <div
+                className="relative aspect-[4/3] overflow-hidden border border-white/10 lg:sticky lg:top-[15vh] lg:aspect-auto lg:h-[70vh]"
+                style={{ clipPath: CUT }}
+              >
+                <Image
+                  src="/images/refueling2.jpeg"
+                  alt="Reabastecimiento en vuelo"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className={`object-cover transition-[filter,opacity] duration-700 ${
+                    active === 1 ? "opacity-90 saturate-100" : "opacity-60 saturate-50"
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-defensya-navy/70 via-defensya-navy/10 to-defensya-navy/20" />
+                <VisionOverlay locked={active === 1} status={BLOCKS[active].status} />
+              </div>
             </div>
 
-            <div
-              className="relative min-h-[300px] sm:min-h-[420px] lg:min-h-full overflow-hidden border border-gray-100 dark:border-white/[0.06]"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
-              }}
-            >
-              <Image
-                src="/images/refueling2.jpeg"
-                alt="Air-to-Air Refueling"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              <Corners size={16} dim />
-              <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-10">
-                <span
-                  className="text-white/80"
-                  style={{
-                    fontFamily: "'Share Tech Mono', monospace",
-                    fontSize: "10px",
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
+            {/* Textos */}
+            <div className="lg:order-1">
+              {BLOCKS.map((b, i) => (
+                <div
+                  key={b.num}
+                  ref={(el) => {
+                    blockRefs.current[i] = el;
                   }}
+                  data-index={i}
+                  className={`flex flex-col justify-center py-10 transition-opacity duration-700 lg:min-h-[70vh] lg:py-0 ${
+                    active === i ? "opacity-100" : "opacity-100 lg:opacity-35"
+                  }`}
                 >
-                  Aerial Refueling Systems
-                </span>
-              </div>
+                  <p className="flex items-baseline gap-4">
+                    <span className="text-[13px] text-white/40" style={MONO}>
+                      {b.num}
+                    </span>
+                    <span className="text-[clamp(2.4rem,4.6vw,4.25rem)] font-light leading-[0.95] tracking-tight">
+                      {b.title}
+                    </span>
+                  </p>
+                  <span className="mt-7 block h-px w-12 bg-white/25" />
+                  <p className="mt-7 max-w-md text-[17px] leading-relaxed text-white/65">{b.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
