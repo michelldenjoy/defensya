@@ -277,75 +277,7 @@ export default function PatentsList() {
         </div>
 
         {/* ── Quote ──────────────────────────────────────────────── */}
-        <div className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
-          <div className="max-w-7xl mx-auto">
-            <div
-              ref={quoteRef}
-              className="relative grid sm:grid-cols-[2px_1fr] gap-6 sm:gap-8 p-6 sm:p-10 lg:p-12
-                       bg-[#060d18] text-white overflow-hidden group"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)",
-                opacity: quoteVisible ? 1 : 0,
-                transform: quoteVisible
-                  ? "translateY(0)"
-                  : "translateY(1.5rem)",
-                transition: "opacity 0.7s ease, transform 0.7s ease",
-              }}
-            >
-              {/* Bisel */}
-              <div
-                className="absolute top-0 right-0 bg-defensya-blue/60"
-                style={{
-                  width: 24,
-                  height: 24,
-                  clipPath: "polygon(100% 0,0 0,100% 100%)",
-                }}
-              />
-
-              {/* Barra lateral */}
-              <div className="hidden sm:block bg-defensya-steel/40" />
-
-              <div className="relative">
-                <p
-                  className="text-defensya-steel/80 mb-4 sm:mb-5"
-                  style={{
-                    fontSize: "12px",
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Última invención
-                </p>
-                <p
-                  className="font-light italic leading-[1.75] text-white/75 max-w-4xl"
-                  style={{ fontSize: "clamp(0.8rem, 1.8vw, 1.3rem)" }}
-                >
-                  &ldquo;Nuestra última invención posibilita la{" "}
-                  <strong className="not-italic font-bold text-white">
-                    Automatización
-                  </strong>{" "}
-                  luego de una Semiautomatización supervisada de tareas de
-                  Repostaje aéreo con Boom.&rdquo;
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="w-6 h-px bg-defensya-blue/40" />
-                  <span
-                    className="text-white/30"
-                    style={{
-                      fontFamily: "'Share Tech Mono', monospace",
-                      fontSize: "10px",
-                      letterSpacing: "0.2em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Defensya Engineering
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
       
     </section>

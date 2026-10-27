@@ -1,49 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 
-function Corners({ size = 22, onDark = false }) {
-  const accent = onDark ? "rgba(14,165,233,0.35)" : "#0ea5e9";
-  const muted = onDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
-  return (
-    <>
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          top: 10,
-          left: 10,
-          width: size,
-          height: size,
-          borderTop: `1.5px solid ${accent}`,
-          borderLeft: `1.5px solid ${accent}`,
-        }}
-      />
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          bottom: 10,
-          left: 10,
-          width: size,
-          height: size,
-          borderBottom: `1px solid ${muted}`,
-          borderLeft: `1px solid ${muted}`,
-        }}
-      />
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          bottom: 10,
-          right: 10,
-          width: size,
-          height: size,
-          borderBottom: `1.5px solid rgba(14,165,233,0.45)`,
-          borderRight: `1.5px solid rgba(14,165,233,0.45)`,
-        }}
-      />
-    </>
-  );
-}
 
 const ventajas = [
   "Mayor precisión en el contacto con la aeronave receptora.",
@@ -52,201 +10,103 @@ const ventajas = [
   "Mayor seguridad en condiciones meteorológicas adversas.",
 ];
 
+const MONO = { fontFamily: "'Share Tech Mono', monospace" };
+
+const KEYFRAMES = `
+@keyframes haptic-pulse {
+  0%   { transform: translate(-50%, -50%) scale(0.3); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+`;
+
+/* Alinea el texto con el resto de la web en pantallas muy anchas */
+const ALIGN_LEFT = "lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]";
+
+
 export default function HaptixIntro() {
   return (
-    <section id="haptix"
-      className="relative min-h-screen grid lg:grid-cols-2 overflow-hidden
-                 bg-defensya-navy border-b border-white/[0.07]"
+    <section
+      id="haptix"
+      aria-labelledby="haptix-title"
+      className="relative scroll-mt-20 border-t border-white/10 bg-defensya-navy text-white lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-2"
     >
-      <div className="tech-grid absolute inset-0 opacity-50 pointer-events-none" />
-      <div
-        className="absolute top-0 inset-x-0 h-px bg-gradient-to-r
-                      from-transparent via-defensya-blue to-transparent opacity-30"
-      />
+      <style>{KEYFRAMES}</style>
 
-      {/* ── LEFT: texto ── */}
-      <div
-        className="relative z-10 flex flex-col justify-center
-                      px-6 lg:px-18 pt-20 lg:pt-32 pb-16 lg:pb-20
-                      border-r border-white/[0.06]"
-      >
-        {/* Acento vertical */}
-        <span
-          className="hidden lg:block pointer-events-none absolute left-0 top-0 bottom-0 w-px"
-          style={{
-            background:
-              "linear-gradient(to bottom,transparent,#0ea5e9 40%,transparent)",
-            opacity: 0.2,
-          }}
-        />
-
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.65 }}
-          className="flex flex-col gap-8"
-        >
-          {/* Label de sección */}
-          <div className="flex items-center gap-3 ">
-            <div className="w-5 h-px bg-defensya-blue/50" />
-            <span
-              className="text-white/60"
-              style={{
-                fontFamily: "'Share Tech Mono', monospace",
-                fontSize: "12px",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-              }}
-            >
-              TECNOLÓGIAS CLAVES
-            </span>
-            <div className="flex-1 h-px bg-white/[0.09]" />
-          </div>
-          <h2
-            className="font-bold uppercase leading-[0.9] tracking-tight
-                       text-gray-100 dark:text-white"
-            style={{
-              
-              fontSize: "clamp(2rem, 4vw, 3.4rem)",
-            }}
-          >
-            {" "}
-            THE HAPTIX{" "}
+      <div className={`flex flex-col justify-center gap-[clamp(1.25rem,3.4vh,2.5rem)] px-6 py-20 lg:py-[6vh] lg:pr-14 ${ALIGN_LEFT}`}>
+        <div>
+          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
+            Tecnologías clave
+          </p>
+          <h2 id="haptix-title" className="mt-4 text-[clamp(3rem,9vh,6rem)] font-light leading-[0.9] tracking-tight">
+            Haptix®
           </h2>
+        </div>
 
-          {/* Descripción */}
-          <div>
-            <p
-              className="text-gray-400 leading-[1.85] font-light"
-              style={{ fontSize: "0.95rem" }}
-            >
-              El sistema tradicional de reabastecimiento aéreo exige el uso de
-              ambas manos mediante dos joysticks separados, limitando al
-              operador y aumentando la fatiga y el error humano en misiones
-              prolongadas. Haptix resuelve esto permitiendo controlar el Boom
-              con una sola mano, con retroalimentación háptica intuitiva que
-              reduce el tiempo de contacto, minimiza incidentes y libera la
-              segunda mano para la gestión de otros sistemas críticos,
-              alcanzando nivel experto en una fracción del tiempo habitual.
-            </p>
-          </div>
-
-          {/* Ventajas operativas */}
-          <div>
-            {/* Label de sección */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-5 h-px bg-defensya-blue/50" />
-              <span
-                className="text-white"
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "12px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Ventajas operativas
-              </span>
-              <div className="flex-1 h-px bg-white/[0.09]" />
-            </div>
-
-            {/* Lista */}
-            <div className="flex flex-col gap-0">
-              {ventajas.map((item, i) => (
-                <div
-                  key={i}
-                  className="group flex items-center gap-4 py-4
-                             border-b border-white/[0.06] last:border-b-0
-                             hover:bg-white/[0.02] transition-colors duration-200 px-1"
-                >
-                  <span
-                    className="shrink-0 text-defensya-steel mt-[2px]"
-                    style={{
-                      fontFamily: "'Share Tech Mono', monospace",
-                      fontSize: "10px",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {/* Línea vertical separadora */}
-                  <span className="shrink-0 w-px self-stretch bg-defensya-blue/20 group-hover:bg-defensya-blue/50 transition-colors duration-200" />
-                  <p
-                    className="text-gray-400 leading-relaxed font-light
-                               group-hover:text-gray-300 transition-colors duration-200"
-                    style={{ fontSize: "0.88rem" }}
-                  >
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* ── RIGHT: imagen ── */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative hidden lg:block"
-      >
-        <Image
-          src="/products/haptix2.webp"
-          alt="Haptix Control System"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right,rgba(6,13,24,0.35) 0%,transparent 40%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top,rgba(6,13,24,0.85) 0%,transparent 50%)",
-          }}
-        />
-
-        <Corners size={22} onDark />
-
-        <div className="absolute top-6 right-6 z-20">
-          <span
-            className="text-white/20 uppercase"
-            style={{
-              fontFamily: "'Share Tech Mono', monospace",
-              fontSize: "9px",
-              letterSpacing: "0.3em",
-            }}
-          >
-            REF-HPTX/04
+        
+        <div className="flex items-center gap-4 border-y border-white/10 py-[clamp(1rem,2.4vh,1.5rem)] sm:gap-6">
+          <span className="text-[clamp(2.4rem,6vh,3.75rem)] font-light leading-none text-white/25">2</span>
+          <span className="text-[11px] leading-snug tracking-[0.15em] text-white/45" style={MONO}>
+            Joysticks
+            <br />
+            dos manos
+          </span>
+          <svg aria-hidden width="64" height="12" viewBox="0 0 64 12" fill="none" className="mx-1 shrink-0 text-white/40 sm:mx-3">
+            <path d="M0 6h60M55 1l5 5-5 5" stroke="currentColor" strokeWidth="1.2" />
+          </svg>
+          <span className="text-[clamp(2.4rem,6vh,3.75rem)] font-light leading-none text-white">1</span>
+          <span className="text-[11px] leading-snug tracking-[0.15em] text-white/85" style={MONO}>
+            Una sola
+            <br />
+            mano
           </span>
         </div>
 
-        <svg
-          className="absolute top-0 right-0 pointer-events-none z-20"
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          fill="none"
-        >
-          <line
-            x1="0"
-            y1="32"
-            x2="32"
-            y2="0"
-            stroke="#0ea5e9"
-            strokeWidth="1"
-            strokeOpacity="0.5"
-          />
-        </svg>
-      </motion.div>
+        <div className="max-w-xl space-y-3">
+          <p className="text-[15px] leading-relaxed text-white/50">
+            El sistema tradicional de reabastecimiento aéreo exige el uso de ambas manos mediante dos joysticks separados,
+            limitando al operador y aumentando la fatiga y el error humano en misiones prolongadas.
+          </p>
+          <p className="text-[16px] leading-relaxed text-white/80">
+            Haptix resuelve esto permitiendo{" "}
+            <strong className="font-normal text-white">controlar el Boom con una sola mano</strong>, con retroalimentación
+            háptica intuitiva que reduce el tiempo de contacto, minimiza incidentes y libera la segunda mano para la gestión de
+            otros sistemas críticos, alcanzando nivel experto en una fracción del tiempo habitual.
+          </p>
+        </div>
+
+        <div>
+          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
+            Ventajas operativas
+          </p>
+          <ol className="mt-3 grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+            {ventajas.map((v, i) => (
+              <li key={v} className="flex gap-3 border-t border-white/10 py-[clamp(0.7rem,1.6vh,1rem)]">
+                <span className="pt-0.5 text-[11px] text-white/40" style={MONO}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-[14px] leading-snug text-white/80">{v}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {/* ── Imagen ── */}
+      <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[16/10] lg:aspect-auto">
+        <Image
+          src="/products/haptix2.webp"
+          alt="Dispositivo de control Haptix"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-defensya-navy/70 via-transparent to-defensya-navy/10" />
+        <div className="absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-defensya-navy/60 to-transparent lg:block" />
+
+        <span className="absolute bottom-5 left-5 text-[11px] tracking-[0.2em] text-white/75 sm:bottom-6 sm:left-6" style={MONO}>
+          Retroalimentación háptica
+        </span>
+      </div>
     </section>
   );
 }
