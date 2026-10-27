@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import HaptixSlider from "./HaptixSlider";
-import HaptixIntro from "./HaptixIntro";
+
 
 /* ─────────────────────────────────────────────────────────────
    CONTENIDO
@@ -260,8 +259,8 @@ export default function Refueling() {
         </div>
       </section>
 
-      <HaptixIntro />
-      <HaptixSlider />
+      
+      
     </main>
   );
 }

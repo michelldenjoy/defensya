@@ -4,6 +4,7 @@ import ClosingCTA from "./ClosingCTA";
 import TankerJourney from "./Tankerjourney";
 import IntroWelcome from "./IntroWelcome";
 import FlightRoute from "./FlightRoute";
+import DivisionsPanels from "./DivisionPanels";
 
 
 
@@ -18,6 +19,8 @@ export default function Hometwo() {
 
 
       <IntroWelcome />
+
+      <DivisionsPanels />
 
       <TankerJourney />
 
