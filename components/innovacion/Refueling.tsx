@@ -26,6 +26,14 @@ const BLOCKS = [
 const MONO = { fontFamily: "'Share Tech Mono', monospace" };
 const CUT = "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)";
 
+/* Punto exacto del reabastecimiento DENTRO DE LA FOTO, en %.
+   x: 0 = borde izquierdo, 100 = borde derecho · y: 0 = arriba, 100 = abajo.
+   Cámbialo aquí y el visor apuntará bien en cualquier pantalla. */
+const TARGET = { x: 48.5, y: 52 };
+
+const pct = (v: number) => `${Math.min(96, Math.max(4, v))}%`;
+const LOCKED_FRAME = `${pct(TARGET.y - 20)} ${pct(100 - TARGET.x - 22)} ${pct(100 - TARGET.y - 20)} ${pct(TARGET.x - 22)}`;
+
 /* Animaciones propias de esta página */
 const KEYFRAMES = `
 @keyframes reticle-drift {
@@ -38,7 +46,7 @@ const KEYFRAMES = `
 @keyframes reticle-lock {
   0%   { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
   60%  { opacity: 1; }
-  100% { transform: translate(-75%, -30%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 `;
 
@@ -89,7 +97,7 @@ function VisionOverlay({ locked, status }: { locked: boolean; status: string }) 
       {/* Marco que se cierra sobre el objetivo */}
       <div
         className="absolute transition-[inset] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
-        style={{ inset: locked ? "30% 28%" : "12% 10%" }}
+        style={{ inset: locked ? LOCKED_FRAME : "12% 10%" }}
       >
         {[
           "left-0 top-0 border-l border-t",
@@ -107,12 +115,12 @@ function VisionOverlay({ locked, status }: { locked: boolean; status: string }) 
       {/* Mira central */}
       <div
         key={locked ? "lock" : "drift"}
-        className={`absolute left-1/2 top-1/2 h-14 w-14 ${
+        className={`absolute h-14 w-14 ${
           locked
             ? "animate-[reticle-lock_700ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
             : "animate-[reticle-drift_7s_ease-in-out_infinite]"
         } motion-reduce:animate-none`}
-        style={{ transform: "translate(-50%, -50%)" }}
+        style={{ left: `${TARGET.x}%`, top: `${TARGET.y}%`, transform: "translate(-50%, -50%)" }}
       >
         <span className={`absolute inset-0 rounded-full border ${locked ? "border-white/90" : "border-white/35"}`} />
         <span className={`absolute left-1/2 top-0 h-3 w-px -translate-x-1/2 ${locked ? "bg-white" : "bg-white/40"}`} />
@@ -220,6 +228,7 @@ export default function Refueling() {
                   alt="Reabastecimiento en vuelo"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  style={{ objectPosition: `${TARGET.x}% ${TARGET.y}%` }}
                   className={`object-cover transition-[filter,opacity] duration-700 ${
                     active === 1 ? "opacity-90 saturate-100" : "opacity-60 saturate-50"
                   }`}
@@ -259,8 +268,6 @@ export default function Refueling() {
         </div>
       </section>
 
-      
-      
     </main>
   );
 }
