@@ -109,14 +109,6 @@ export default function PatentsList() {
               </dt>
               <dd className="text-[clamp(2.4rem,4.5vw,3.75rem)] font-light leading-none">{patents.length}</dd>
             </div>
-            <div className="flex flex-col-reverse">
-              <dt className="mt-3 text-[11px] tracking-[0.15em] text-white/50" style={MONO}>
-                Periodo
-              </dt>
-              <dd className="text-[clamp(2.4rem,4.5vw,3.75rem)] font-light leading-none">
-                {first}–{String(last).slice(2)}
-              </dd>
-            </div>
           </dl>
         </div>
 

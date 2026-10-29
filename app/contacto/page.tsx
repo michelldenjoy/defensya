@@ -15,18 +15,15 @@ interface FormData {
 type Status = "" | "sending" | "success" | "error";
 
 function Field({
-  
   label,
   children,
 }: {
-  
   label: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="flex p-4 flex-col gap-2">
       <div className="flex items-center gap-3">
-
         <label className="text-[12px] font-mono tracking-[0.25em] text-white/80 uppercase">
           {label}
         </label>
@@ -149,6 +146,10 @@ export default function ContactView() {
                   sub: "Área de Ingeniería y Desarrollo",
                 },
                 {
+                  label: "Telefono de contacto",
+                  value: "911 721 190",
+                },
+                {
                   label: "Email corporativo",
                   value: "info@defensya.com",
                   mono: true,
@@ -194,8 +195,7 @@ export default function ContactView() {
                   <h2
                     className="text-3xl  font-bold uppercase leading-none tracking-tight"
                     style={{
-                      fontFamily:
-                        "'Share Tech Mono', monospace",
+                      fontFamily: "'Share Tech Mono', monospace",
                     }}
                   >
                     Nueva consulta
@@ -255,7 +255,7 @@ export default function ContactView() {
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-8">
                     <div className="grid sm:grid-cols-2 gap-8">
-                      <Field  label="Nombre completo">
+                      <Field label="Nombre completo">
                         <input
                           type="text"
                           name="name"
@@ -266,7 +266,7 @@ export default function ContactView() {
                           className={inputCls}
                         />
                       </Field>
-                      <Field  label="Correo electrónico">
+                      <Field label="Correo electrónico">
                         <input
                           type="email"
                           name="email"
@@ -278,7 +278,7 @@ export default function ContactView() {
                         />
                       </Field>
 
-                      <Field  label="Asunto">
+                      <Field label="Asunto">
                         <input
                           type="text"
                           name="subject"
@@ -288,7 +288,7 @@ export default function ContactView() {
                           className={inputCls}
                         />
                       </Field>
-                      <Field  label="Mensaje">
+                      <Field label="Mensaje">
                         <textarea
                           rows={5}
                           name="message"

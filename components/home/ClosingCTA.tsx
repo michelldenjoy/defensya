@@ -172,36 +172,6 @@ const telemetryLines = [
   "OAT ············ -56°C",
 ];
 
-function TelemetryTicker() {
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(
-      () => setIdx((i) => (i + 1) % telemetryLines.length),
-      2200,
-    );
-    return () => clearInterval(t);
-  }, []);
-
-  return (
-    <div
-      className="overflow-hidden h-5 relative"
-      style={{ fontFamily: "'Share Tech Mono', monospace" }}
-    >
-      <motion.div
-        key={idx}
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="text-[10px] tracking-[0.2em] text-defensya-blue/70 uppercase absolute whitespace-nowrap"
-      >
-        {telemetryLines[idx]}
-      </motion.div>
-    </div>
-  );
-}
-
 /* HUD-style seam divider — sits between ClosingCTA and Footer */
 function SectionDivider() {
   return (
@@ -240,7 +210,7 @@ function SectionDivider() {
 
 export default function ClosingCTA() {
     const statsRef = useRef<HTMLDivElement>(null);
-  // amount: 0.3 → se activa cuando el 30% del bloque es visible,
+  // amount: 0.3 → se activa cuando el 30% del bloque rotate es visible,
   // sin importar la altura de pantalla ni el wrapping del texto.
   const statsInView = useInView(statsRef, { once: true, amount: 0.3 });
   return (
