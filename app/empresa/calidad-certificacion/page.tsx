@@ -15,11 +15,9 @@ export default function page() {
       />
 
       <CalidadYSostenibilidad />
-    
-      {/* <PoliticaCalidad /> */}
+
       <Certificaciones />
-         <CTACalidad />
-     
+      <CTACalidad />
     </div>
   );
 }
