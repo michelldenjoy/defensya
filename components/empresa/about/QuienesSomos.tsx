@@ -2,8 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import MisionVision from "./MisionVision";
-import TimelineSection from "@/components/home/TimelineSection";
+
 
 const experienceItems = [
   {
@@ -161,7 +160,7 @@ const QuienesSomos = () => {
       className="w-full bg-white dark:bg-[#060d18] text-gray-900 dark:text-white overflow-x-hidden"
       style={{ fontFamily: "'Share Tech Mono', monospace" }}
     >
-      <MisionVision />
+     
 
       {/* ─────────── EXPERIENCIA ─────────── */}
       <section className="relative pt-20 sm:pt-24 pb-16 sm:pb-28 px-4 sm:px-6 lg:px-16 bg-[#060d18] dark:bg-[#070e1a] overflow-hidden">
@@ -187,8 +186,6 @@ const QuienesSomos = () => {
           </div>
         </div>
       </section>
-
-      <TimelineSection />
     </main>
   );
 };

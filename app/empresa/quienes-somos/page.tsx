@@ -1,18 +1,15 @@
-import QuienesSomos from '@/components/empresa/about/QuienesSomos'
-// import Timeline from '@/components/home/TimeLine'
-import HeroAbout from '@/components/empresa/about/HeroAbout'
-import React from 'react'
-import AboutIdentity from '@/components/empresa/about/AboutIdentity'
+import QuienesSomos from "@/components/empresa/about/QuienesSomos";
+import AboutIdentity from "@/components/empresa/about/AboutIdentity";
+import MisionVision from "@/components/empresa/about/MisionVision";
+import TimelineSection from "@/components/home/TimelineSection";
 
 export default function page() {
   return (
     <div>
-
-
-    <AboutIdentity />
-     <QuienesSomos  />
-     {/* <Timeline /> */}
-     
+      <AboutIdentity />
+      <MisionVision />
+      <QuienesSomos />
+      <TimelineSection />
     </div>
-  )
+  );
 }
