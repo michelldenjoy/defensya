@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ClipButton } from "@/components/home/HeroSection";
+import { ClipButton } from "@/components/ui/ClipButton";
 
 
 const DATOS = [

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ClipButton } from "@/components/home/HeroSection";
+import { ClipButton } from "@/components/ui/ClipButton";
 
 const MONO = { fontFamily: "'Share Tech Mono', monospace" };
 
