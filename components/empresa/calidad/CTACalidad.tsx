@@ -1,64 +1,82 @@
-import React from 'react'
+"use client";
+
+import { useEffect, useRef } from "react";
+import { ClipButton } from "@/components/home/HeroSection";
+
+const MONO = { fontFamily: "'Share Tech Mono', monospace" };
 
 export default function CTACalidad() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // El vídeo solo se reproduce cuando se ve (ahorra batería y datos).
+  // Si el usuario tiene activado "reducir movimiento", se queda quieto.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      v.pause();
+      return;
+    }
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div>
-      <div className="relative overflow-hidden h-[420px] w-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+    <section
+      aria-labelledby="cierre-title"
+      className="relative isolate flex min-h-[80vh] items-center overflow-hidden bg-defensya-navy text-white"
+    >
+      {/* Vídeo: en blanco y negro y algo oscurecido */}
+      <video
+        ref={videoRef}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden
+        className="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.55] contrast-125 grayscale"
+      >
+        <source src="/turbine.mp4" type="video/mp4" />
+      </video>
+
+      {/* Tinte y fundidos para unirlo con las secciones de arriba y abajo */}
+      <div className="absolute inset-0 -z-10 bg-defensya-navy/45" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-[#0d2340] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-defensya-navy to-transparent" />
+      <div className="absolute inset-y-0 left-0 -z-10 hidden w-1/2 bg-gradient-to-r from-defensya-navy/70 to-transparent lg:block" />
+
+      <div className="mx-auto w-full max-w-7xl px-6 py-28 lg:py-36">
+        <p className="text-[12px] tracking-[0.2em] text-white/55" style={MONO}>
+          Defensya · Ingeniería Internacional
+        </p>
+
+        <h2
+          id="cierre-title"
+          className="mt-8 max-w-4xl text-[clamp(2.4rem,5.5vw,5rem)] font-semibold uppercase leading-[0.92] tracking-tight"
         >
-          <source src="/turbine.mp4" type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(11, 31, 56, 0.82)" }}
-        />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/60 via-defensya-blue/20 to-transparent" />
+          No solo fabricamos tecnología.
+          <br />
+          <span className="font-light text-white/55">Entregamos fiabilidad operativa para entornos críticos.</span>
+        </h2>
 
-        <div className="relative z-10 h-full px-5 sm:px-8 lg:px-16 py-12 sm:py-16 max-w-7xl mx-auto flex flex-col justify-between">
-          <div>
-            <span
-              className="pointer-events-none select-none font-mono font-black hidden sm:block leading-none mb-2"
-              style={{ fontSize: "5rem", color: "rgba(255,255,255,0.04)" }}
-            >
-              DSY
-            </span>
-            <p className="text-md sm:text-base lg:text-xl text-gray-300 leading-relaxed font-light max-w-5xl">
-              No solo fabricamos tecnología;{" "}
-              <span className="text-white font-medium">
-                entregamos la fiabilidad operativa necesaria para que
-                organizaciones globales operen en entornos críticos.
-              </span>{" "}
-              En
-              
-                Defensya, la excelencia técnica se rige por estándares de calidad
-              internacionales, garantizando la seguridad en el futuro de la
-              exploración y la defensa global.
-            </p>
-            <div className="flex items-center gap-4 mt-6">
-              <div className="h-px w-10 bg-defensya-blue/50" />
-              <span
-                style={{
-                  fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: "9px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  color: "rgb(107 114 128)",
-                }}
-              >
-                Defensya · Ingeniería Internacional
-              </span>
-              <div className="h-px flex-1 bg-white/[0.06]" />
-            </div>
-          </div>
+        <span className="mt-12 block h-px w-12 bg-white/30" />
+        <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-white/70">
+          En Defensya, la excelencia técnica se rige por estándares de calidad internacionales.
+        </p>
+
+        <div className="mt-12 flex flex-wrap gap-4">
+          <ClipButton href="/contacto" variant="primary">
+            Hablemos de tu proyecto
+          </ClipButton>
+          <ClipButton href="/productos" variant="outline">
+            Ver productos
+          </ClipButton>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-defensya-blue/30 via-transparent to-transparent" />
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+} 

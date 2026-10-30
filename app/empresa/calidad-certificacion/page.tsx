@@ -2,6 +2,7 @@ import Certificaciones from "@/components/empresa/calidad/Certificaciones";
 import HeroSection from "@/components/shared/HeroSection";
 import React from "react";
 import CalidadYSostenibilidad from "@/components/empresa/calidad/CalidadYSostenibilidad";
+import CTACalidad from "@/components/empresa/calidad/CTACalidad";
 
 export default function page() {
   return (
@@ -17,6 +18,7 @@ export default function page() {
     
       {/* <PoliticaCalidad /> */}
       <Certificaciones />
+         <CTACalidad />
      
     </div>
   );

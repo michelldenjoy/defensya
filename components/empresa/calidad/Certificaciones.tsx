@@ -1,10 +1,6 @@
 import Image from "next/image";
 import { ClipButton } from "@/components/home/HeroSection";
-import CTACalidad from "./CTACalidad";
 
-/* ─────────────────────────────────────────────────────────────
-   CONTENIDO
-   ───────────────────────────────────────────────────────────── */
 
 const DATOS = [
   { label: "Norma", value: "ISO 9001:2015" },
@@ -194,7 +190,6 @@ export default function Certificaciones() {
         </div>
       </section>
 
-      <CTACalidad />
     </>
   );
 }
