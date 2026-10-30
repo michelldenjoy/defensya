@@ -1,165 +1,35 @@
-"use client";
+import { ClipButton } from "@/components/ui/ClipButton";
+import CareersForm from "./CareersForm";
 
-import React, { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { motion, AnimatePresence } from "framer-motion";
-import { ClipButton } from "@/components/home/HeroSection";
+/* Este archivo NO lleva "use client": se prepara en el servidor y carga más rápido.
+   Solo el formulario (CareersForm) es interactivo. */
 
-type Status = "" | "sending" | "success" | "error";
-
-function Corners({
-  size = 16,
-  color = "var(--color-defensya-blue, #0ea5e9)",
-  thickness = "1.5px",
-  offset = 12,
-}: {
-  size?: number;
-  color?: string;
-  thickness?: string;
-  offset?: number;
-}) {
-  return (
-    <>
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          top: offset,
-          left: offset,
-          width: size,
-          height: size,
-          borderTop: `${thickness} solid ${color}`,
-          borderLeft: `${thickness} solid ${color}`,
-        }}
-      />
-      <span
-        className="pointer-events-none absolute z-20"
-        style={{
-          bottom: offset,
-          right: offset,
-          width: size,
-          height: size,
-          borderBottom: `${thickness} solid ${color}`,
-          borderRight: `${thickness} solid ${color}`,
-        }}
-      />
-    </>
-  );
-}
-
-function SectionHeader({
-  eyebrow,
-  title,
-  accent,
-  onDark = false,
-}: {
-  eyebrow: string;
-  title: string;
-  accent?: string;
-  onDark?: boolean;
-}) {
-  return (
-    <div className="mb-14">
-      <div className="flex items-center gap-3 mb-5">
-        <span className="w-6 h-px bg-defensya-blue/40" />
-        <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-          {eyebrow}
-        </span>
-      </div>
-      <h2
-        className={`font-bold uppercase leading-[0.9] tracking-tight ${
-          onDark ? "text-white" : "text-gray-900 dark:text-white"
-        }`}
-        style={{
-          fontSize: "clamp(2.3rem, 5.0vw, 4.5rem)",
-        }}
-      >
-        {title}
-        {accent && (
-          <>
-            {" "}
-            <span>{accent}</span>
-          </>
-        )}
-      </h2>
-    </div>
-  );
-}
-
-function SectionEyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-3 mb-4">
-      <span className="w-6 h-px bg-slate-400" />
-      <span className="text-slate-500 text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-function Eyebrow({
-  children,
-}: {
-  children: React.ReactNode;
-  onDark?: boolean;
-}) {
-  return (
-    <div className="flex items-center gap-3 mb-6 sm:mb-8 min-w-0">
-      <span className="text-slate-500 text-[12px] lg:text-[14px] tracking-[0.3em] uppercase">
-        {children}
-      </span>
-      <div className="flex-1 h-px bg-gradient-to-r from-defensya-steel/70 to-transparent" />
-    </div>
-  );
-}
-
-function SubsectionTitle({
-  title,
-  accent,
-}: {
-  title: string;
-  accent?: string;
-}) {
-  return (
-    <div className="mb-10">
-      <h2
-        className="font-bold uppercase leading-[0.9] tracking-tight text-white"
-        style={{ fontSize: "clamp(2.2rem, 3vw, 3.8rem)" }}
-      >
-        {title}
-        {accent && (
-          <>
-            {" "}
-            <span>{accent}</span>
-          </>
-        )}
-      </h2>
-    </div>
-  );
-}
-
-// ─── Data ───────────────────────────────────────────────────────────────────── ofrecemos
+/* ─────────────────────────────────────────────────────────────
+   CONTENIDO
+   ───────────────────────────────────────────────────────────── */
 
 const benefits = [
   {
     num: "01",
-    title: "Proyectos de Impacto",
+    title: "Proyectos de impacto",
     desc: "Trabajarás en sistemas que vuelan en el A330 MRTT y soluciones para el Ministerio de Defensa.",
   },
   {
     num: "02",
-    title: "Cultura de Patentes",
+    title: "Cultura de patentes",
     desc: "Fomentamos la invención. Tu trabajo puede convertirse en la próxima patente tecnológica de la industria.",
   },
   {
     num: "03",
-    title: "I+D de Vanguardia",
+    title: "I+D de vanguardia",
     desc: "Desde IA y redes neuronales hasta sistemas ópticos y criptografía avanzada.",
   },
 ];
 
+/* Una sola lista: alimenta los perfiles y el desplegable del formulario */
 const profiles = [
   {
-    area: "Técnico Mecanizado",
+    area: "Técnico de Mecanizado",
     desc: "Operación de centros de torneado y fresado multieje para componentes de alta precisión y tolerancias críticas.",
   },
   {
@@ -192,720 +62,226 @@ const profiles = [
   },
 ];
 
-const positions = [
-  "Técnico de Mecanizado",
-  "Programador CAM - CATIA",
-  "Ingeniería Mecánica",
-  "Ingeniería de Diseño",
-  "Ingeniería Electrónica",
-  "Técnico de Calidad",
-  "Técnico de Mantenimiento",
-  "Técnico de Electrónica",
+const MONO = { fontFamily: "'Share Tech Mono', monospace" };
+const pad = (n: number) => String(n).padStart(2, "0");
+
+/* ─────────────────────────────────────────────────────────────
+   RADAR — "estamos buscando": un barrido que detecta 8 perfiles
+   ───────────────────────────────────────────────────────────── */
+
+const SWEEP = 6; // segundos por vuelta
+
+/* Posición de cada punto: ángulo (0 = arriba, sentido horario) y distancia al centro (%) */
+const BLIPS = [
+  { a: 28, r: 30 },
+  { a: 70, r: 40 },
+  { a: 112, r: 22 },
+  { a: 150, r: 36 },
+  { a: 205, r: 28 },
+  { a: 245, r: 42 },
+  { a: 290, r: 18 },
+  { a: 330, r: 38 },
 ];
 
-const formMeta = [
-  { label: "Respuesta", value: "En menos de 3 días" },
-  { label: "Modalidad", value: "Presencial — Madrid" },
-  { label: "Sector", value: "Defensa & Aeronáutica" },
-];
-
-const inputCls = [
-  "w-full px-4 py-3 text-sm font-mono",
-  "bg-white dark:bg-white/[0.03]",
-  "border border-gray-200 dark:border-white/[0.08]",
-  "text-gray-900 dark:text-white",
-  "placeholder:text-gray-400 dark:placeholder:text-gray-600",
-  "focus:outline-none focus:border-defensya-blue",
-  "transition-colors duration-200",
-].join(" ");
-
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label className="font-mono text-[10px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">
-        {label}
-      </label>
-      {children}
-    </div>
-  );
+const RADAR_CSS = `
+@keyframes radar-spin { to { transform: rotate(360deg); } }
+@keyframes radar-blip {
+  0%   { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1.5); }
+  18%  { opacity: 0.55; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+  100% { opacity: 0.12; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
 }
+@media (prefers-reduced-motion: reduce) {
+  .radar-blip { animation: none !important; opacity: 0.5 !important; }
+}
+`;
 
-// ─── Profile Card perfil (CapabilityCard style, always dark) ─────────────────────────
-
-function ProfileCard({ profile }: { profile: (typeof profiles)[0] }) {
-  const [hovered, setHovered] = useState(false);
-
+function Radar() {
   return (
     <div
-      className="relative group"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      aria-hidden
+      className="pointer-events-none absolute -right-40 top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-40 sm:-right-24 lg:-right-6 lg:h-[620px] lg:w-[620px] lg:opacity-70"
     >
-      {/* ── Tooltip ── */}
+      <style>{RADAR_CSS}</style>
+
+      {/* Círculos y cruz */}
+      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
+        {[48, 36, 24, 12].map((r) => (
+          <circle key={r} cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="0.2" />
+        ))}
+        <line x1="50" y1="2" x2="50" y2="98" stroke="rgba(255,255,255,0.08)" strokeWidth="0.2" />
+        <line x1="2" y1="50" x2="98" y2="50" stroke="rgba(255,255,255,0.08)" strokeWidth="0.2" />
+      </svg>
+
+      {/* Barrido */}
       <div
-        className={`
-          absolute bottom-[calc(100%+10px)] left-0 right-0 z-30
-          bg-[#0d1a2e] border border-defensya-blue/30 
-          px-6 py-5 shadow-xl
-          transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
-          origin-bottom
-          ${
-            hovered
-              ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
-              : "opacity-0 translate-y-3 scale-y-95 pointer-events-none"
-          }
-        `}
+        className="absolute inset-[2%] rounded-full motion-reduce:hidden"
         style={{
-          clipPath:
-            "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)",
+          background: "conic-gradient(from 0deg, transparent 0deg 290deg, rgba(255,255,255,0.16) 360deg)",
+          animation: `radar-spin ${SWEEP}s linear infinite`,
         }}
-      >
-        {/* TL bracket */}
-        <span
-          className="absolute  top-0 left-0 w-4 h-4"
-          style={{
-            borderTop: "1.5px solid #0c415a",
-            borderLeft: "1.5px solid #0c415a",
-          }}
-        />
-        {/* BR bracket */}
-        <span
-          className="absolute  bottom-0 right-0 w-4 h-4"
-          style={{
-            borderBottom: "1.5px solid #131c20",
-            borderRight: "1.5px solid #0c415a",
-          }}
-        />
+      />
 
-        <p className="text-sm  text-gray-100 leading-relaxed">{profile.desc}</p>
-
-        {/* Arrow pointing down */}
-        <span
-          className={`absolute -bottom-[7px] left-1/2 -translate-x-1/2 
-                      w-3 h-3 rotate-45
-                      bg-[#0d1a2e] border-r border-b border-defensya-blue/30
-                      transition-opacity duration-300
-                      ${hovered ? "opacity-100" : "opacity-0"}`}
-        />
-      </div>
-
-      {/* ── Main card ── */}
-      <div
-        className={`relative overflow-hidden  cursor-default
-                    border transition-all duration-300 px-6 py-7
-                    ${
-                      hovered
-                        ? "border-defensya-blue/50  bg-defensya-blue/[0.07]"
-                        : "border-white/[0.07] bg-white/[0.02]"
-                    }`}
-        style={{
-          clipPath:
-            "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))",
-        }}
-      >
-        {/* Top accent bar */}
-        <span
-          className={`absolute top-0 inset-x-0  h-[2px] bg-defensya-blue
-                      transition-transform duration-400 origin-left
-                      ${hovered ? "scale-x-100" : "scale-x-0"}`}
-        />
-
-        {/* Scan overlay */}
-        <span
-          className={`absolute inset-0 pointer-events-none transition-opacity duration-300
-                      ${hovered ? "opacity-100" : "opacity-0"}`}
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 40%, rgba(14,165,233,0.05) 100%)",
-          }}
-        />
-
-        {/* Label pill */}
-        {/* <span
-          className={`inline-flex mb-5 font-mono text-[9px] tracking-[0.3em]
-                      border px-2 py-[3px] uppercase transition-colors duration-300
-                      ${hovered
-                        ? "text-defensya-blue border-defensya-blue/50"
-                        : "text-gray-600 border-white/[0.10]"
-                      }`}
-        >
-          PERFIL_{profile.num}
-        </span> */}
-
-        {/* Title */}
-        <h3
-          className={`text-base font-bold uppercase  leading-snug tracking-wide
-                      transition-colors duration-300
-                      ${hovered ? "text-white" : "text-gray-300"}`}
-          style={{
-            fontSize: "1.05rem",
-          }}
-        >
-          {profile.area}
-        </h3>
-
-        {/* Expanding bottom bar */}
-        <div className="mt-5 h-px bg-white/[0.06] overflow-hidden">
-          <div
-            className={`h-full bg-defensya-blue transition-all duration-500
-                        ${hovered ? "w-full" : "w-0"}`}
+      {/* Perfiles detectados */}
+      {BLIPS.map((b, i) => {
+        const rad = (b.a - 90) * (Math.PI / 180);
+        return (
+          <span
+            key={i}
+            className="radar-blip absolute h-2 w-2 bg-white"
+            style={{
+              left: `${50 + b.r * Math.cos(rad)}%`,
+              top: `${50 + b.r * Math.sin(rad)}%`,
+              opacity: 0.12,
+              transform: "translate(-50%, -50%) rotate(45deg)",
+              animation: `radar-blip ${SWEEP}s linear infinite`,
+              animationDelay: `${(b.a / 360) * SWEEP - SWEEP}s`,
+            }}
           />
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 }
 
-// ─── Main Export ──────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────
+   PÁGINA
+   ───────────────────────────────────────────────────────────── */
 
 export default function Careers() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<Status>("");
-  const [fileName, setFileName] = useState("");
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const f = e.target.files?.[0];
-    if (!f) return;
-    if (f.size > 5 * 1024 * 1024) {
-      alert("Máx 5 MB");
-      return;
-    }
-    setFile(f);
-    setFileName(f.name);
-  };
-
-  const uploadToCloudinary = async (f: File) => {
-    const fd = new FormData();
-    fd.append("file", f);
-    fd.append(
-      "upload_preset",
-      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!,
-    );
-    const res = await fetch(
-      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`,
-      { method: "POST", body: fd },
-    );
-    return (await res.json()).secure_url as string;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!file) {
-      alert("Por favor sube tu CV");
-      return;
-    }
-    setStatus("sending");
-    try {
-      const fileUrl = await uploadToCloudinary(file);
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CAREERS_ID!,
-        {
-          user_name: (formRef.current as any).user_name.value,
-          user_email: (formRef.current as any).user_email.value,
-          position: (formRef.current as any).position.value,
-          area: (formRef.current as any).area.value,
-          message: (formRef.current as any).message.value,
-          cv_link: fileUrl,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-      );
-      setStatus("success");
-      setFile(null);
-      setFileName("");
-      formRef.current?.reset();
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
-
   return (
-    <main className="w-full">
-      {/* ══════════════════════════════════════════════════════════
-          §1 HERO — LIGHT
-      ══════════════════════════════════════════════════════════ */}
-      <section
-        className="relative px-6 lg:px-16 pt-24 pb-28 overflow-hidden
-             bg-white dark:bg-black/50
-             border-b border-gray-100 dark:border-white/[0.07]"
-      >
-        <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-40 pointer-events-none" />
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-defensya-blue to-transparent opacity-20" />
+    <main className="w-full overflow-x-clip bg-defensya-navy text-white">
+      {/* ══ §1 PORTADA ═══════════════════════════════════════════ */}
+      <section className="relative overflow-hidden pb-24 pt-36 lg:pb-32 lg:pt-44">
+        <Radar />
 
-        <div className="max-w-7xl mx-auto relative">
-          {/* Grid maestro de 12 columnas: título ocupa 7, descripción 5 */}
-          <Eyebrow>Trabaja con Nosotros </Eyebrow>
-          <div className="grid lg:grid-cols-12 gap-x-10 gap-y-8 lg:items-start mb-16">
-            <h1
-              className="lg:col-span-7 font-bold uppercase leading-[0.92] tracking-[-0.045em]
-                   text-gray-900 dark:text-white mb-6 lg:mb-0"
-              style={{ fontSize: "clamp(3.1rem, 5.0vw, 5.2rem)" }}
-            >
-              El futuro <br /> también necesita <br />
-              <span className="text-defensya-blue">tu Talento </span>
-            </h1>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
+            Trabaja con nosotros
+          </p>
+          <h1 className="mt-8 text-[clamp(2.6rem,6vw,5.75rem)] font-semibold uppercase leading-[0.9] tracking-tight">
+            El futuro
+            <br />
+            también necesita
+            <br />
+            <span className="font-light text-white/45">tu talento</span>
+          </h1>
 
-            <div className="lg:col-span-5 flex flex-col gap-8 lg:pt-3">
-              <p className="text-md text-gray-500 dark:text-gray-300 leading-relaxed border-l-2 border-defensya-blue/30 pl-5">
-                En Defensya creemos que nuestro éxito se basa en el talento y la
-                pasión de nuestro equipo. Estamos en busca de profesionales
-                apasionados por la innovación aeroespacial. Únete a la misión de
-                transformar el futuro de la defensa.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <ClipButton href="#candidatura" variant="primary">
-                  Enviar Candidatura
-                </ClipButton>
-                <ClipButton href="#perfiles" variant="outline">
-                  Ver Perfiles
-                </ClipButton>
+          <span className="mt-12 block h-px w-12 bg-white/25" />
+          <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-white/65">
+            En Defensya creemos que nuestro éxito se basa en el talento y la pasión de nuestro equipo. Buscamos profesionales
+            apasionados por la innovación aeroespacial. Únete a la misión de transformar el futuro de la defensa.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <ClipButton href="#candidatura" variant="primary">
+              Enviar candidatura
+            </ClipButton>
+            <ClipButton href="#perfiles" variant="outline">
+              Ver perfiles
+            </ClipButton>
+          </div>
+
+          <dl className="mt-16 flex flex-wrap gap-x-12 gap-y-6 border-t border-white/10 pt-8 lg:mt-20">
+            {[
+              { label: "Perfiles buscados", value: pad(profiles.length) },
+              { label: "Sede", value: "Madrid, ES" },
+              { label: "Sector", value: "Defensa y aeronáutica" },
+            ].map((m) => (
+              <div key={m.label} className="flex flex-col-reverse">
+                <dt className="mt-2 text-[11px] tracking-[0.15em] text-white/45" style={MONO}>
+                  {m.label}
+                </dt>
+                <dd className="text-[clamp(1.4rem,2.2vw,1.9rem)] font-light leading-none">{m.value}</dd>
               </div>
-            </div>
-          </div>
-
-          {/* Meta strip: mismo grid, arranca bajo la columna de la descripción */}
-          <div className="grid lg:grid-cols-12 gap-x-10 items-center">
-            <div className="hidden lg:block lg:col-span-7">
-              <div className="h-px bg-gray-100 dark:bg-white/[0.06]" />
-            </div>
-
-            <div className="lg:col-span-5 flex flex-wrap items-center gap-4 sm:gap-6">
-              {[
-                { label: "Posiciones abiertas", value: "08" },
-                { label: "Sede", value: "Madrid, ES" },
-                { label: "Sector", value: "DEF / AERO" },
-              ].map(({ label, value }, i) => (
-                <React.Fragment key={label}>
-                  {i > 0 && (
-                    <div className="w-px h-8 bg-gray-200 dark:bg-white/[0.08]" />
-                  )}
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-mono text-[9px] tracking-[0.3em] text-gray-400 dark:text-gray-500 uppercase">
-                      {label}
-                    </span>
-                    <span className="font-mono text-[13px] font-bold text-gray-900 dark:text-white">
-                      {value}
-                    </span>
-                  </div>
-                </React.Fragment>
-              ))}
-              <div className="h-px w-12 bg-defensya-blue/30 ml-auto" />
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          §2  "Lo que ofrecemos" 
-      ══════════════════════════════════════════════════════════ */}
-      <section className="relative px-6 lg:px-16 py-28 overflow-hidden bg-defensya-navy border-b border-white/[0.07]">
-        <div className="tech-grid absolute inset-0 opacity-30 pointer-events-none" />
+      {/* ══ §2 LO QUE OFRECEMOS ══════════════════════════════════ */}
+      <section aria-labelledby="ofrecemos-title" className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
+          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
+            Por qué Defensya
+          </p>
+          <h2 id="ofrecemos-title" className="mt-5 text-[clamp(2.2rem,4.6vw,4rem)] font-semibold uppercase leading-[0.9] tracking-tight">
+            Lo que ofrecemos
+          </h2>
 
-        <div className="max-w-7xl mx-auto relative">
-          <SectionEyebrow>Por qué Defensya</SectionEyebrow>
-
-          {/* Lo que ofrecemos */}
-          <div>
-            <SubsectionTitle title="Lo que " accent="ofrecemos" />
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {benefits.map((b) => (
-                <div
-                  key={b.num}
-                  className="relative overflow-hidden p-8 group
-                             bg-white/[0.02] border border-white/[0.07]
-                             hover:border-defensya-blue/40 hover:bg-defensya-blue/[0.05]
-                             transition-all duration-300"
-                  style={{
-                    clipPath:
-                      "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
-                  }}
-                >
-                  {/* Top accent */}
-                  <span className="absolute top-0 inset-x-0 h-[2px] bg-defensya-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
-
-                  <Corners
-                    size={14}
-                    color="#0c415a"
-                    thickness="1.5px"
-                    offset={10}
-                  />
-
-                  <h3 className="text-xl font-bold uppercase leading-tight mb-3 text-white transition-colors duration-300">
-                    {b.title}
-                  </h3>
-
-                  <div className="h-px bg-white/[0.06] overflow-hidden mb-4">
-                    <div className="h-full w-8 bg-defensya-blue/40 group-hover:w-full transition-all duration-500" />
-                  </div>
-
-                  <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                    {b.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* divisor entre subsecciones */}
-          <div className="h-px bg-white/[0.07] my-20" />
-
-          {/* Perfiles que buscamos */}
-          <div id="perfiles">
-            <SubsectionTitle title="Perfiles que" accent="buscamos" />
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 ">
-              {profiles.map((p) => (
-                <ProfileCard key={p.area} profile={p} />
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4 mt-6">
-              <div className="h-px flex-1 bg-white/[0.05]" />
-              <span className="font-mono text-[9px] tracking-[0.35em] text-gray-600 uppercase">
-                Defensya · Talent Acquisition
-              </span>
-              <div className="h-px w-12 bg-defensya-blue/30" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          §3 FORMULARIO 
-      ══════════════════════════════════════════════════════════ */}
-      <section
-        id="candidatura"
-        className="relative px-6 lg:px-16 py-28 overflow-hidden bg-white dark:bg-defensya-navy"
-      >
-        <div className="tech-grid absolute inset-0 opacity-0 dark:opacity-30 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative">
-          <div className="grid lg:grid-cols-[1fr_58%] gap-12 lg:gap-20 items-start">
-            {/* ── Left ── */}
-            <div className="lg:sticky lg:top-28">
-              <SectionHeader
-                eyebrow="Candidatura"
-                title="Envíanos"
-                accent="tu talento"
-              />
-
-              <p className="text-md text-gray-500 dark:text-gray-400 leading-relaxed mb-10 border-l-2 border-defensya-blue/30 pl-5">
-                ¿No ves una posición que encaje? Envíanos tu CV para futuras
-                oportunidades. Revisamos cada candidatura con atención.
-              </p>
-
-              <div className="border-t border-gray-100 dark:border-white/[0.07]">
-                {formMeta.map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between py-4 border-b border-gray-100 dark:border-white/[0.07]"
-                  >
-                    <span className="font-mono text-[12px] tracking-[0.3em] text-gray-400 dark:text-gray-600 uppercase">
-                      {label}
-                    </span>
-                    <span className="font-mono text-[13px] text-gray-900 dark:text-white">
-                      {value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 flex items-center gap-4">
-                <div className="h-px w-12 bg-defensya-blue/30" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-gray-400 dark:text-gray-600 uppercase">
-                  Defensya · HR Division
+          <ol className="mt-14 grid border-t border-white/10 md:grid-cols-3 lg:mt-20">
+            {benefits.map((b, i) => (
+              <li
+                key={b.num}
+                className={`border-b border-white/10 py-10 md:border-b-0 md:py-12 ${
+                  i === 0 ? "md:pr-10" : "md:border-l md:px-10"
+                }`}
+              >
+                <span className="text-[12px] text-white/40" style={MONO}>
+                  {b.num}
                 </span>
-                <div className="h-px flex-1 bg-gray-200 dark:bg-white/[0.04]" />
-              </div>
-            </div>
-
-            {/* ── Right — form ── */}
-            <div>
-              <AnimatePresence mode="wait">
-                {status === "success" ? (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="relative py-20 flex flex-col items-center justify-center text-center px-8
-                               bg-defensya-blue/[0.04] border border-defensya-blue/20"
-                    style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
-                    }}
-                  >
-                    <Corners size={18} />
-
-                    <div
-                      className="w-16 h-16 flex items-center justify-center mb-8 bg-defensya-blue/10 border border-defensya-blue/30"
-                      style={{
-                        clipPath:
-                          "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-                      }}
-                    >
-                      <svg
-                        className="w-7 h-7 text-defensya-blue"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="1.5"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-
-                    <span className="font-mono text-[10px] tracking-[0.3em] text-defensya-blue uppercase mb-4">
-                      Transmisión completada
-                    </span>
-                    <h3 className="text-3xl font-bold uppercase leading-tight mb-4 text-gray-900 dark:text-white">
-                      Candidatura Recibida
-                    </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed mb-10">
-                      Gracias por tu interés en Defensya. Tu perfil ha sido
-                      enviado al equipo de selección. Te responderemos a la
-                      mayor brevedad posible.
-                    </p>
-                    <button
-                      onClick={() => setStatus("")}
-                      className="font-mono text-[10px] tracking-[0.3em] text-defensya-blue uppercase
-                                 border border-defensya-blue/30 px-5 py-2.5 hover:bg-defensya-blue/10 transition-colors"
-                    >
-                      ← Volver al formulario
-                    </button>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="relative p-7 sm:p-10 bg-slate-100 dark:bg-white/[0.02] border border-gray-100 dark:border-white/[0.07]"
-                    style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px))",
-                    }}
-                  >
-                    <Corners size={18} />
-
-                    <div className="flex items-center justify-between mb-8 pb-5 border-b border-gray-100 dark:border-white/[0.07]">
-                      <span className="font-mono text-[12px] tracking-[0.3em] text-gray-900 dark:text-white uppercase">
-                        Formulario de candidatura
-                      </span>
-                      <span className="font-mono text-[10px] text-gray-400 dark:text-gray-600">
-                        REF-HR/01
-                      </span>
-                    </div>
-
-                    <form
-                      ref={formRef}
-                      onSubmit={handleSubmit}
-                      className="flex flex-col gap-6"
-                    >
-                      <div className="grid sm:grid-cols-2 gap-6">
-                        <Field label="Nombre completo">
-                          <input
-                            type="text"
-                            name="user_name"
-                            placeholder="Juan García"
-                            className={inputCls}
-                            required
-                          />
-                        </Field>
-                        <Field label="Correo electrónico">
-                          <input
-                            type="email"
-                            name="user_email"
-                            placeholder="juan@email.com"
-                            className={inputCls}
-                            required
-                          />
-                        </Field>
-                      </div>
-
-                      <div className="grid sm:grid-cols-2 gap-6">
-                        <Field label="Puesto de interés">
-                          <select name="position" className={inputCls} required>
-                            <option value="">Selecciona un puesto</option>
-                            {positions.map((p) => (
-                              <option key={p} value={p}>
-                                {p}
-                              </option>
-                            ))}
-                          </select>
-                        </Field>
-                        <Field label="Área de interés">
-                          <select name="area" className={inputCls} required>
-                            <option value="">Selecciona un área</option>
-                            {[
-                              "Software",
-                              "Electrónica",
-                              "Visión / Óptica",
-                              "Fabricación 3D",
-                              "Sanidad",
-                              "Otros",
-                            ].map((a) => (
-                              <option key={a} value={a}>
-                                {a}
-                              </option>
-                            ))}
-                          </select>
-                        </Field>
-                      </div>
-
-                      <Field label="Mensaje / Motivación">
-                        <textarea
-                          name="message"
-                          rows={4}
-                          placeholder="Cuéntanos por qué quieres unirte al equipo de Defensya..."
-                          className={inputCls + " resize-none"}
-                          required
-                        />
-                      </Field>
-
-                      {/* CV upload */}
-                      <Field label="Adjuntar CV">
-                        <label
-                          className={[
-                            "flex items-center gap-4 cursor-pointer border border-dashed",
-                            "px-5 py-4 transition-all duration-200 group",
-                            fileName
-                              ? "border-defensya-blue bg-defensya-blue/[0.04]"
-                              : "border-gray-200 dark:border-white/[0.10] hover:border-defensya-blue",
-                          ].join(" ")}
-                          style={{
-                            clipPath:
-                              "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-                          }}
-                        >
-                          <input
-                            type="file"
-                            name="my_file"
-                            accept=".pdf,.doc,.docx"
-                            className="sr-only"
-                            required
-                            onChange={handleFileChange}
-                          />
-                          <svg
-                            width="18"
-                            height="18"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                            className={`shrink-0 transition-colors duration-200 ${fileName ? "text-defensya-blue" : "text-gray-400 group-hover:text-defensya-blue"}`}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                            />
-                          </svg>
-                          <div className="min-w-0">
-                            <p
-                              className={`font-mono text-[11px] tracking-[0.15em] uppercase truncate transition-colors duration-200 ${fileName ? "text-defensya-blue" : "text-gray-500 dark:text-gray-400 group-hover:text-defensya-blue"}`}
-                            >
-                              {fileName || "Seleccionar archivo"}
-                            </p>
-                            <p className="font-mono text-[10px] text-gray-400 dark:text-gray-600 mt-0.5">
-                              PDF, DOC o DOCX — máx. 5 MB
-                            </p>
-                          </div>
-                          {fileName && (
-                            <span className="ml-auto shrink-0">
-                              <svg
-                                width="14"
-                                height="14"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                                className="text-defensya-blue"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                            </span>
-                          )}
-                        </label>
-                      </Field>
-
-                      <div className="h-px bg-gray-100 dark:bg-white/[0.06]" />
-
-                      <div className="flex flex-wrap items-center gap-4">
-                        <button
-                          type="submit"
-                          disabled={status === "sending"}
-                          className="group inline-flex items-center gap-3 px-7 py-3.5
-                                     bg-defensya-navy-light dark:bg-defensya-blue text-white
-                                     font-mono text-[11px] tracking-[0.25em] uppercase
-                                     hover:bg-defensya-blue disabled:opacity-40 transition-colors duration-200"
-                          style={{
-                            clipPath:
-                              "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-                          }}
-                        >
-                          {status === "sending" ? (
-                            <>
-                              <span className="w-3 h-3 border border-white/40 border-t-white rounded-full animate-spin" />
-                              Enviando...
-                            </>
-                          ) : (
-                            <>
-                              Enviar Candidatura
-                              <svg
-                                width="12"
-                                height="12"
-                                viewBox="0 0 12 12"
-                                fill="none"
-                                className="group-hover:translate-x-1 transition-transform duration-200"
-                              >
-                                <path
-                                  d="M2 6h8M7 3l3 3-3 3"
-                                  stroke="currentColor"
-                                  strokeWidth="1.4"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </>
-                          )}
-                        </button>
-
-                        {status === "error" && (
-                          <span className="font-mono text-[10px] tracking-[0.2em] text-red-500 uppercase">
-                            ✕ Error — inténtalo de nuevo
-                          </span>
-                        )}
-
-                        <span className="hidden sm:block font-mono text-[9px] tracking-[0.2em] text-gray-400 dark:text-gray-600 uppercase ml-auto">
-                          Datos protegidos · RGPD
-                        </span>
-                      </div>
-                    </form>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
+                <h3 className="mt-6 text-[clamp(1.75rem,2.8vw,2.5rem)] font-light leading-[1] tracking-tight">{b.title}</h3>
+                <span className="mt-6 block h-px w-12 bg-white/25" />
+                <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-white/60">{b.desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
+
+      {/* ══ §3 PERFILES QUE BUSCAMOS ═════════════════════════════ */}
+      <section id="perfiles" aria-labelledby="perfiles-title" className="scroll-mt-20 bg-[#0d2340]">
+        <div className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
+          <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-end md:gap-12 lg:gap-20">
+            <h2
+              id="perfiles-title"
+              className="text-[clamp(2.2rem,4.6vw,4rem)] font-semibold uppercase leading-[0.9] tracking-tight"
+            >
+              Perfiles que
+              <br />
+              buscamos
+            </h2>
+            <p className="max-w-xl text-[17px] leading-relaxed text-white/65 md:pb-[0.3em]">
+              Elige el perfil que encaja contigo y te llevamos directamente al formulario con el puesto ya seleccionado.
+            </p>
+          </div>
+
+          <ol className="mt-14 grid border-t border-white/15 lg:mt-20 lg:grid-cols-2 lg:gap-x-14">
+            {profiles.map((p, i) => (
+              <li key={p.area}>
+                <a
+                  href="#candidatura"
+                  data-puesto={p.area}
+                  className="group relative grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-white/10 py-7 outline-none focus-visible:bg-white/[0.04] sm:grid-cols-[3rem_1fr_auto] sm:gap-x-6"
+                >
+                  <span className="pointer-events-none absolute inset-0 origin-left scale-x-0 bg-white/[0.035] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 motion-reduce:transition-none" />
+
+                  <span className="relative pt-1.5 text-[12px] text-white/35" style={MONO}>
+                    {pad(i + 1)}
+                  </span>
+                  <span className="relative">
+                    <span className="block text-[clamp(1.25rem,1.8vw,1.5rem)] font-light leading-tight tracking-tight text-white/90 transition-colors group-hover:text-white">
+                      {p.area}
+                    </span>
+                    <span className="mt-2 block max-w-md text-[15px] leading-relaxed text-white/55">{p.desc}</span>
+                  </span>
+                  <span
+                    className="relative col-start-2 mt-4 inline-flex items-center gap-2 self-start text-[11px] tracking-[0.2em] text-white/50 transition-colors group-hover:text-white sm:col-start-auto sm:mt-1.5"
+                    style={MONO}
+                  >
+                    POSTULAR
+                    <svg aria-hidden width="12" height="12" viewBox="0 0 12 12" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                      <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ══ §4 CANDIDATURA ═══════════════════════════════════════ */}
+      <CareersForm positions={profiles.map((p) => p.area)} />
     </main>
   );
 }

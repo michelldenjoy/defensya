@@ -1,3 +1,6 @@
+///////**** */ AVION EN 3D MODELO DEFENSA /* ***/////
+
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -6,7 +9,7 @@ const MODEL_PATH = "/models/fighter-jet.glb";
 const MODEL_SCALE = 0.2;
 const MODEL_OFFSET = [-4, 0, 0] as const;
 
-// Escalado responsive  3D model 
+
 const RESPONSIVE_SCALE_STEPS: { maxWidth: number; scale: number }[] = [
   { maxWidth: 480, scale: 0.62 }, 
   { maxWidth: 640, scale: 0.72 }, 

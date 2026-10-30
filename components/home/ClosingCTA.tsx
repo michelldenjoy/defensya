@@ -12,6 +12,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import Threemrtt from "../ui/Threemrtt";
 
+
 const stats = [
   { value: 20, suffix: "+", label: "Años de experiencia" },
   { value: 20, suffix: "+", label: "Patentes registradas" },
@@ -310,6 +311,7 @@ export default function ClosingCTA() {
                   error.
                 </p>
               </motion.div>
+              
 
               {/* CTA */}
               <motion.div
