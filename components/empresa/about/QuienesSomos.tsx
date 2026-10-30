@@ -178,7 +178,6 @@ const QuienesSomos = () => {
             </h2>
           </div>
 
-          {/* Lista editorial — sin clip-path, sin cards, separadas por línea fina */}
           <div>
             {experienceItems.map((item, i) => (
               <ExperienceRow key={item.code} item={item} index={i} />
