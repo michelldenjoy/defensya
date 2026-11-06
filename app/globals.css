@@ -299,8 +299,7 @@ body {
   min-height: 100vh;
 }
 
-.def-sidebar {
-  width: 210px;
+.def-sidebar {  width: 210px;
   flex-shrink: 0;
   position: sticky;
   top: 0;

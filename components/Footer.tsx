@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Privacidad from "@/app/privacidad/page";
 import { Linkedin, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
@@ -173,12 +174,7 @@ const Footer = () => {
             >
               Privacidad
             </Link>
-            <Link
-              href="/cookies"
-              className="hover:text-white transition-colors"
-            >
-              Cookies
-            </Link>
+
           </div>
         </div>
       </div>
