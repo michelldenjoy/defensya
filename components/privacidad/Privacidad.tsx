@@ -57,7 +57,7 @@ const SECCIONES: Seccion[] = [
     blocks: [
       {
         t: "p",
-        text: `El responsable de los datos personales que se recogen en esta web es ${EMPRESA.razonSocial} (en adelante, «Defensya»).`,
+        text: `El responsable de los datos personales que se recogen en esta web es ${EMPRESA.razonSocial}`,
       },
       {
         t: "rows",
@@ -84,14 +84,13 @@ const SECCIONES: Seccion[] = [
         rows: [
           [
             "Navegación por la web",
-            "Dirección IP, tipo de navegador, sistema operativo, páginas visitadas y datos de uso, mediante cookies y tecnologías similares (ver Política de Cookies).",
+            "Dirección IP, tipo de navegador, sistema operativo, páginas visitadas y datos de uso, mediante cookies y tecnologías similares.",
           ],
           ["Formulario de contacto", "Nombre, correo electrónico y los datos que usted incluya en su mensaje."],
           [
             "Formulario de candidaturas",
             "Nombre, correo electrónico, puesto y área de interés, mensaje de motivación y currículum (CV) con los datos que contenga.",
           ],
-          ["Boletines e informes técnicos", "Nombre y correo electrónico, solo si usted se suscribe."],
         ],
       },
       {
@@ -123,16 +122,8 @@ const SECCIONES: Seccion[] = [
             "Su consentimiento como candidato (art. 6.1.a) y la aplicación de medidas precontractuales (art. 6.1.b).",
           ],
           [
-            "Enviar boletines, informes técnicos y comunicaciones comerciales",
-            "Su consentimiento expreso (art. 6.1.a y art. 21 de la LSSI-CE).",
-          ],
-          [
             "Garantizar la seguridad y el funcionamiento técnico de la web",
             "Interés legítimo de Defensya en proteger sus sistemas (art. 6.1.f).",
-          ],
-          [
-            "Analizar el uso de la web para mejorarla",
-            "Su consentimiento a través del panel de cookies (art. 6.1.a y art. 22.2 de la LSSI-CE).",
           ],
           [
             "Cumplir obligaciones legales, incluidas las normas de defensa y seguridad nacional",
@@ -168,8 +159,6 @@ const SECCIONES: Seccion[] = [
             "Candidaturas y CV",
             "Mientras dure el proceso de selección y, para futuras vacantes, un máximo de 12 meses desde su recepción, salvo que retire antes su consentimiento.",
           ],
-          ["Boletines y comunicaciones comerciales", "Hasta que se dé de baja."],
-          ["Datos de navegación y cookies", "Los plazos indicados en la Política de Cookies."],
           ["Datos sujetos a obligaciones legales", "Los plazos que marque la ley aplicable."],
         ],
       },
@@ -179,60 +168,11 @@ const SECCIONES: Seccion[] = [
       },
     ],
   },
-  {
-    id: "destinatarios",
-    num: "05",
-    title: "Destinatarios y proveedores",
-    blocks: [
-      { t: "p", text: "Defensya no vende ni cede sus datos a terceros con fines comerciales." },
-      {
-        t: "p",
-        text: "Para prestar el servicio trabajamos con proveedores que tratan datos en nuestro nombre, con un contrato que les obliga a protegerlos (art. 28 del RGPD):",
-      },
-      {
-        t: "rows",
-        head: ["Proveedor", "Servicio"],
-        rows: [
-          ["Proveedor de alojamiento web", "Alojamiento de la web"],
-          ["EmailJS", "Envío por correo de los formularios"],
-          ["Cloudinary", "Almacenamiento de los CV adjuntos"],
-          ["Servicios de analítica web", "Estadísticas de uso, solo si usted las acepta en el panel de cookies"],
-        ],
-      },
-      {
-        t: "p",
-        text: "También pueden acceder a los datos nuestros asesores profesionales (legales, fiscales o técnicos), sujetos a deber de confidencialidad.",
-      },
-      {
-        t: "p",
-        text: "Solo comunicaremos datos a terceros cuando una ley lo exija, por ejemplo a autoridades públicas, juzgados u organismos de defensa y seguridad nacional. En caso de fusión, adquisición o liquidación de la empresa, los datos podrán transmitirse con las garantías legales correspondientes.",
-      },
-    ],
-  },
-  {
-    id: "transferencias",
-    num: "06",
-    title: "Transferencias internacionales",
-    blocks: [
-      {
-        t: "p",
-        text: "Algunos de nuestros proveedores pueden tratar datos fuera del Espacio Económico Europeo. Cuando ocurra, la transferencia se apoyará en una de estas garantías:",
-      },
-      {
-        t: "list",
-        items: [
-          {
-            text: "Una decisión de adecuación de la Comisión Europea, incluido el Marco de Privacidad de Datos UE-EE. UU. para las empresas adheridas.",
-          },
-          { text: "Cláusulas contractuales tipo aprobadas por la Comisión Europea (art. 46 del RGPD)." },
-        ],
-      },
-      { t: "p", text: <>Puede pedir una copia de estas garantías escribiendo a {MAIL}.</> },
-    ],
-  },
+  
+  
   {
     id: "derechos",
-    num: "07",
+    num: "05",
     title: "Sus derechos",
     highlight: true,
     blocks: [
@@ -275,7 +215,7 @@ const SECCIONES: Seccion[] = [
   },
   {
     id: "otras",
-    num: "08",
+    num: "06",
     title: "Otras informaciones",
     blocks: [
       {
@@ -293,15 +233,7 @@ const SECCIONES: Seccion[] = [
             label: "Exactitud de los datos",
             text: "Usted garantiza que los datos que nos facilita son ciertos. Si nos facilita datos de otras personas, debe haberles informado antes.",
           },
-          {
-            label: "Cookies",
-            text: (
-              <>
-                El uso de cookies se explica en nuestra <A href="/cookies">Política de Cookies</A>. Las cookies que no son
-                técnicas solo se activan si usted las acepta en el panel de cookies.
-              </>
-            ),
-          },
+
           {
             label: "Cambios en esta política",
             text: "Podemos actualizar esta política para adaptarla a cambios legales o de nuestros servicios. Publicaremos siempre la versión vigente en esta página, con su fecha de actualización.",
