@@ -198,19 +198,6 @@ const SECCIONES: Seccion[] = [
           </>
         ),
       },
-      {
-        t: "p",
-        text: "Puede darse de baja de las comunicaciones comerciales en cualquier momento con el enlace que incluye cada envío o escribiéndonos.",
-      },
-      {
-        t: "p",
-        text: (
-          <>
-            Si considera que no hemos atendido bien su solicitud, puede presentar una reclamación ante la Agencia Española de
-            Protección de Datos (<A href="https://www.aepd.es">www.aepd.es</A>).
-          </>
-        ),
-      },
     ],
   },
   {
