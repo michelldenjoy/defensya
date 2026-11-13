@@ -40,6 +40,7 @@ const CIFRAS = [
   { value: "A330 MRTT", label: "Sistemas operativos en varias Fuerzas Aéreas" },
 ];
 
+
 const PATENTES = [
   "US2009/0127394",
   "US2009/0302160",
@@ -89,34 +90,12 @@ export default function QuienesSomos() {
     <main className="w-full overflow-x-clip bg-defensya-navy text-white">
       <style>{MARQUEE_CSS}</style>
 
-      {/* ══ §1 PORTADA ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden pt-36 lg:pt-44">
-        <div className="relative mx-auto max-w-7xl px-6">
-          <p className="text-[12px] tracking-[0.2em] text-white/45" style={MONO}>
-            Quiénes somos
-          </p>
-          <h1 className="mt-8 text-[clamp(2.6rem,6.5vw,6.25rem)] font-semibold uppercase leading-[0.9] tracking-tight">
-            Rendimos culto
-            <br />
-            al arte de
-            <br />
-            <span className="font-light text-white/45">inventar</span>
-          </h1>
-          <span className="mt-12 block h-px w-12 bg-white/25" />
-          <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-white/65">
-            Somos una empresa de base tecnológica con sede en Madrid. Diseñamos, desarrollamos y fabricamos sistemas de visión
-            y control para aeronáutica y defensa.
-          </p>
-        </div>
-
-        {/* Patentes de fondo */}
-        <div aria-hidden className="mt-20 space-y-4 pb-16 lg:mt-28 lg:pb-24">
-          <FilaPatentes />
-          <FilaPatentes reverse />
-        </div>
+      <section aria-hidden className="space-y-4 overflow-hidden py-14 lg:py-20">
+        <FilaPatentes />
+        <FilaPatentes reverse />
       </section>
 
-   
+     
       <Manifiesto />
 
       {/* ══ §3 MISIÓN Y VISIÓN ═══════════════════════════════════ */}
